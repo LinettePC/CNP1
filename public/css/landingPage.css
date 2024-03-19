@@ -1,6 +1,10 @@
 html,
 body {
-	height: 100%;
+
+	background-size: cover;
+    background-position: center;
+    height: 100hv;
+    width: 100%; 
 }
 
 .container {
