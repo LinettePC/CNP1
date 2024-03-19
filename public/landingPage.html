@@ -1,57 +1,79 @@
 <!--Autor: Linette /Juanito -->
 <!DOCTYPE html>
 <html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/landingPage.css" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<title>Landing Page</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/landingPage.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <title>Landing Page</title>
-</head>
+	<!-- Alternate Image option: https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D -->
+	<body
+		style="
+			background-image: url('https://www.mundiario.com/media/mundiario/images/2023/05/15/2023051521525868542.jpg');
+			background-size: cover;
+		"
+	>
+		<div class="container">
+			<div class="login">
+				<div id="logocnp">
+					<img src="img/cnplogo.png" alt="cnp logo" id="logocnpimg" />
+				</div>
+				<div id="welcome">
+					<label>Hola, bienvenido a la Plataforma Web</label>
+				</div>
+				<div id="subtitle">
+					<h3>Ingrese sus datos para iniciar sesión en su cuenta</h3>
+				</div>
+				<form>
+					<div class="form-group">
+						<label for="username">Usuario</label>
+						<input
+							type="text"
+							id="username"
+							name="username"
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="password">Contraseña</label>
+						<input
+							type="password"
+							id="password"
+							name="password"
+							required
+						/>
+					</div>
+					<div id="forgotpassword">
+						<label>¿Olvidó su contraseña?</label>
+					</div>
+					<button type="submit" id="loginbutton">Ingresar</button>
+				</form>
 
-<body style="background-image: url('img/banner1.jpg'); background-size: cover;">
-    <div class="container">
-        <div class="login">
-            <div id="logocnp">
-                <img src="img/cnplogo.png" alt="cnp logo" id="logocnpimg">
-            </div>
-            <div id="welcome">
-                <label>Hola, bienvenido a la Plataforma Web</label>
-            </div>
-            <div id="subtitle">
-                <h3>Ingrese sus datos para iniciar sesión en su cuenta</h3>
-            </div>
-            <form>
-                <div class="form-group">
-                    <label for="username">Usuario</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div id="forgotpassword">
-                    <label>¿Olvidó su contraseña?</label>
-                </div>
-                <button type="submit" id="loginbutton">Ingresar</button>
-            </form>
-            
-            <div id="question">
-                <h4>¿Aun no tienes cuenta?</h3>
-            </div>
-      
-            <div class="register-buttons">
-                <button type="button" class="registerbuttons">Registrarse como cliente</button >
-            </div>
-            <div class="register-buttons">
-                <button type="button"  class="registerbuttons">Registrarse como vendedor</button>
-            </div>
-        </div>
-    </div>
-</body>
+				<div id="question">
+					<h3>¿Aun no tienes cuenta?</h3>
+				</div>
+
+				<div class="register-buttons">
+					<button type="button" class="registerbuttons">
+						Registrarse como cliente
+					</button>
+				</div>
+				<div class="register-buttons">
+					<button type="button" class="registerbuttons">
+						Registrarse como vendedor
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
