@@ -13,7 +13,6 @@ body {
 }
 
 .login {
-	/* border-right: 1px solid black; */
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -111,11 +110,11 @@ button:hover {
 }
 
 #logocnp {
-	align-self: flex-start;
+	align-self: center;
 	margin-top: 50px;
 	margin-left: 15px;
 }
 #logocnpimg {
-	width: 180px;
+	width: 135px;
 	margin-left: 20px;
 }
