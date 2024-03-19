@@ -17,7 +17,6 @@ body {
 }
 
 .login {
-	/* border-right: 1px solid black; */
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -82,7 +81,7 @@ body {
 	height: 45px;
 	border: none;
 	border-radius: 5px;
-	background-color: #007bff;
+	background-color: #81B12A;
 	color: #fff;
 	cursor: pointer;
 	font-size: 17px;
@@ -93,14 +92,14 @@ body {
 	height: 45px;
 	border: none;
 	border-radius: 5px;
-	background-color: #2d4c6d;
+	background-color: #EBB85A;
 	color: #fff;
 	cursor: pointer;
 	font-size: 17px;
 }
 
 button:hover {
-	background-color: #0056b3;
+	background-color: #3f5516;
 }
 
 .register-buttons {
@@ -115,11 +114,11 @@ button:hover {
 }
 
 #logocnp {
-	align-self: flex-start;
+	align-self: center;
 	margin-top: 50px;
 	margin-left: 15px;
 }
 #logocnpimg {
-	width: 180px;
+	width: 135px;
 	margin-left: 20px;
 }
