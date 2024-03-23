@@ -3,12 +3,14 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyparser = require('bodyparser');
 
-const personas = require('./routes/personas');
+const personas = require('./routes/personas')
+//const empresas = require('./routes/empresas')
+//const productos = require('./routes/productos')
+//const metodos_pago = require('./routes/metodo_pago')
+
 require('dotenv').config();
 
 const app = express();
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
@@ -28,9 +30,12 @@ mongoose
 	});
 
 app.use('/api', personas);
+//app.use('/api',empresas)
+//app.use('/api',productos)
+//app.use('/api',metodos_pago)
 
-const port = 8000;
+const PORT = 8000;
 
-app.listen(port, () => {
-	console.log(`App listening on port ${port}!`);
-});
+app.listen(PORT, () => {
+	console.log(`Aplicación levantada en puerto: ${PORT}`)
+  })
