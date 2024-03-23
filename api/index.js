@@ -3,23 +3,34 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyparser = require('bodyparser');
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const MONGO_URI = "mongodb+srv://ichavarriac:Zelda3505@cluster0.3kuqaz5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'"
-
-mongoose.connect(auth)
-
-const personas_rutas = require('./routes/personas');
+const personas = require('./routes/personas');
+require('dotenv').config();
 
 const app = express();
 
-app.use('/api', personas_rutas);
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
-app.get('/', (req, res) => {
-	res.send('Hello World!');
-});
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }));
+
+app.use(cors());
+
+mongoose
+	.connect(process.env.MONGO_URI, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	})
+	.then(() => {
+		console.log('Connected to MongoDB');
+	})
+	.catch((err) => {
+		console.error('Error connecting to MongoDB:', err);
+	});
+
+app.use('/api', personas);
 
 const port = 8000;
 
 app.listen(port, () => {
-	console.log(`Example app listening on port ${port}!`);
+	console.log(`App listening on port ${port}!`);
 });
