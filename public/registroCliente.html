@@ -27,10 +27,10 @@
 <!--Header General-->
     <header id="headerGeneral">
         <img id="logoTres" src="img/logo5.png" alt="">
-        <h1 id="tituloGeneral">La Feria del Consejo Nacional de Produccion</h1>
+        <h1 id="tituloGeneral">La Feria del Consejo Nacional de Producción</h1>
         <nav id="navUno">
             <a id="a1" href="#">Inicio</a>
-            <a id="a1" href="#">Contactenos</a>
+            <a id="a1" href="#">Contáctenos</a>
         </nav>
     </header>
 
@@ -39,7 +39,7 @@
         <h1 id="tituloF2">Crea una Cuenta de Comprador</h1>
         
         <form id="formularioCuentaCliente" action="">
-            <p id="identificacion">Identificacion:</p>
+            <p id="identificacion">Identificación:</p>
             <input type="text" name="identificacion" placeholder="">
             <p id="nombre">Nombre:</p>
             <input type="text" name="nombre" placeholder="">  
@@ -52,10 +52,18 @@
 
             <p id="correo">Correo:</p>
             <input type="email" name="email" placeholder="">   
-            <p id="telefono">Telefono:</p>
+            <p id="telefono">Teléfono:</p>
             <input type="text" name="telefono" placeholder="">  
             
-            <p id="fotografia">Fotografia</p>
+            <p id="fotoRegistroCliente">Fotografía (opcional)</p>
+            
+            <!-- <input type="file" name="fotoCliente" placeholder="">  -->
+            <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
+            <!-- Para poder cambiarle lo escrito al boton -->
+            <input hidden id="btnoriginal" class="form-control text-center col-md-6" onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];" type="file" value="Adjuntar imagen">
+            <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar imagen</button>
+            <small id='tagsmall'>No hay archivos adjuntos</small>
+            
 
 
         </form>
