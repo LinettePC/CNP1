@@ -6,6 +6,35 @@
     <title>Pagina del producto</title>
   </head>
   <body>
+    <header class="navegacion">
+        <div class="logo">
+            <!--<img src="img/logo6.png" alt="logo" id="logoFeriaCnp">-->
+        </div>
+        <div class="barra-navegacion">
+            <nav class="botones-navegacion">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Tienda</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="barra-busqueda">
+                <input type="text" placeholder="Buscar" id="inputBusqueda">
+                <button>Buscar</button>
+            </div>
+        </div>
+        <div class="carrito">
+            <div  id="cuenta">
+                <a href="#" id="textoCuenta">Mi Cuenta |</a>
+            </div>
+            <div>
+                <!--<img src="img/carritoCompras.png" alt="logoCarrito" id="logoCarrito">-->
+            </div>
+        </div>
+    
+    </header>
     <div id="producto">
         <img src="" alt="">
         <h1>Nombre del producto</h1>
@@ -16,10 +45,17 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, odio a nostrum non dolorem ipsum totam sed hic exercitationem ut repellendus, sequi aspernatur consequatur dignissimos iure magnam similique eveniet alias?</p>
     </div>
 
-    <div id="precioProducto">
+    <form id="precioProducto">
         <h2>Precio</h2>
         <h2>Estado</h2>
-        <input type="number" placeholder="Cantidad">
-    </div>
+        <label for="">Cantidad:</label>
+        <input type="number">
+        <br>
+        <br>
+        <Button>Agregar al carrito</Button>
+        <br>
+        <br>
+        <button>Pagar</button>
+    </form>
   </body>
 </html>
