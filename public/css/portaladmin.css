@@ -6,7 +6,6 @@
 
 .barra-navegacion {
     width: 50%;
-    border: 1px red;
     color: #000000;
     padding: 10px 20px;
 }
@@ -17,6 +16,7 @@
     margin-top: 15px;
     margin-bottom: 22px;
     word-spacing: 35px;
+
 }
 
 .barra-busqueda{
@@ -28,6 +28,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    align-items: end;
 }
 
 .barra-navegacion nav ul li {
@@ -76,7 +77,24 @@
     
 }
 
+/*Estilos para las acciones del admin*/
+.container {
+    text-align: center;
+    margin-top: 300px;
+}
 
+.accion{
+   display: inline-flex;
+   margin: 10px;
+}
 
+.accion a{
+    display: flex;
+    
+}
 
-
+.accion img{
+    margin-bottom: 80px;
+    width: 200px ;
+    height: 200px;
+}
