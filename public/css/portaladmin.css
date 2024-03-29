@@ -6,8 +6,14 @@
 
 .barra-navegacion {
     width: 50%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
     color: #000000;
     padding: 10px 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .botones-navegacion {
@@ -80,21 +86,36 @@
 /*Estilos para las acciones del admin*/
 .container {
     text-align: center;
-    margin-top: 300px;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+.container h2 {
+   margin-top: -300px;
+}
+
+.acciones{
+    display: flex;
+    justify-content: center;
 }
 
 .accion{
-   display: inline-flex;
-   margin: 10px;
+   margin: 0 20px;
 }
 
 .accion a{
     display: flex;
-    
+
 }
 
-.accion img{
-    margin-bottom: 80px;
+.accion img {
     width: 200px ;
     height: 200px;
+    margin-bottom: 10px;
 }
