@@ -1,0 +1,254 @@
+body{
+    background-color: #F2F2F2;
+}
+
+/* Estilos de la barra de navegación */
+
+#inputBusqueda{
+    width: 550px;
+}
+
+.barra-navegacion {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    padding: 10px 20px;
+    
+}
+
+.botones-navegacion {
+    font-family: 'Cabin', sans-serif;
+    font-size: 21px;
+    margin-top: 15px;
+    margin-bottom: 22px;
+    word-spacing: 35px;
+}
+
+.barra-busqueda{
+    margin-bottom: 15px;
+}
+
+
+.barra-navegacion nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.barra-navegacion nav ul li {
+    display: inline;
+}
+
+.barra-navegacion nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+
+
+.barra-busqueda input[type="text"] {
+    font-family: 'Cabin', sans-serif;
+    font-size: 18px;
+    padding: 6px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.barra-busqueda button {
+    font-size: 18px;
+    font-family: 'Cabin', sans-serif;
+    padding: 10px 20px;
+    background-color: #81B12A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logoFeriaCnp{
+    width: 200px;
+    margin-left: 45px;
+}
+
+.logo{
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.carrito{
+    width: 25%;
+    display: flex;
+    font-family: 'Cabin', sans-serif;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#textoCuenta{
+    text-decoration: none;
+    color: #000000;
+    padding-right: 25px;
+    font-size: 21px;
+}
+#logoCarrito{
+    width: 100px;
+}
+.navegacion{
+    height: 165px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 12px;
+}
+
+/* Estilos de la barra de navegación: final */
+
+/*Estilos de descripcion del producto*/
+.seccionProducto{
+    display: flex;
+    align-items: center;
+    gap: 0px 30px;
+    Text-align: justify;
+    margin: 40px 100px;
+
+}
+#producto{
+    
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#imagenProducto{
+    width: 300px;   
+    margin-right: 10px;
+}
+
+.textoProducto{
+    font-family: 'Cabin', sans-serif;
+    text-align: left;
+    padding-right: 10px;
+    
+    
+}
+.textoProducto p{
+    width: 500px;
+    Text-align: justify;
+    
+}
+
+#producto h2{
+    font-size: 17px;
+}
+/*Estilos de descripcion del producto: final*/
+
+/*Estilos del precio del producto y la seccion de añadir al carrito*/
+
+form{
+    font-family: 'Cabin', sans-serif;
+    background-color: #81B12A;
+    display: flex;
+    gap: 15px 15px;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 150px;
+    margin-top: 70px;
+    width: 70%;
+    border-radius: 12px;
+    margin: 25px;
+
+    color: #ffffff;
+    font-weight: 500px;
+    font-size: 16px;
+}
+
+form button{
+    color:#81B12A ;
+    font-weight: 800px;
+    padding: 5px;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+#cantidad{
+    Width: 40% ;
+    Font-weight: 300;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+
+
+
+
+.carrito {
+    width: 50%;
+    margin-left: 5%;
+    margin-top: 2px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Apila los elementos uno encima del otro */
+}
+
+.subEncabezado {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.subEncabezado2 {
+    position: absolute;
+    right: 0;
+    margin-right: 100px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.producto {
+    display: flex;
+    margin-left: 100px;
+    align-items: center;
+}
+
+.producto img {
+    width: 200px; /* ajusta el ancho de la imagen según sea necesario */
+    height: auto;
+    margin-right: 20px; /* espacio entre la imagen y el nombre */
+}
+
+.detalle {
+    flex: 1; /* para que ocupe todo el espacio disponible */
+}
+
+.cantidad {
+    margin-top: 10px; /* espacio entre la sección de productos y la sección de cantidad */
+}
+
+.cantidad input[type="number"] {
+    padding: 10px; /* Ajusta el relleno según sea necesario */
+    border: 1px solid #ccc; /* Añade un borde */
+    border-radius: 5px; /* Agrega esquinas redondeadas */
+    outline: none; /* Elimina el contorno del input al recibir el foco */
+    font-size: 16px; /* Ajusta el tamaño de la fuente según sea necesario */
+}
+
+/* Cambia el estilo cuando el input está enfocado */
+.cantidad input[type="number"]:focus {
+    border-color: #81B12A; /* Cambia el color del borde al recibir el foco */
+}
+
+
+

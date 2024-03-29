@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagina del producto</title>
+    <link rel="stylesheet" href="/public/css/paginaProducto.css">
+  </head>
+  <body>
+    
+    <header class="navegacion">
+      <div class="logo">
+          <img src="img/logo6.png" alt="logo" id="logoFeriaCnp">
+      </div>
+      <div class="barra-navegacion">
+          <nav class="botones-navegacion">
+              <ul>
+                  <li><a href="#">Inicio</a></li>
+                  <li><a href="#">Tienda</a></li>
+                  <li><a href="#">Productos</a></li>
+                  <li><a href="#">Contacto</a></li>
+                  <li><a href="#">Nosotros</a></li>
+              </ul>
+          </nav>
+          <div class="barra-busqueda">
+              <input type="text" placeholder="Buscar" id="inputBusqueda">
+              <button>Buscar</button>
+          </div>
+      </div>
+      <div class="carrito">
+          <div  id="cuenta">
+              <a href="#" id="textoCuenta">Mi Cuenta |</a>
+          </div>
+          <div>
+              <img src="img/carritoCompras.png" alt="logoCarrito" id="logoCarrito">
+          </div>
+      </div>
+  
+  </header>
+
+    <section class="seccionProducto">
+
+        <div id="producto">
+        
+            <img src="/public/img/tomate.jpg" id="imagenProducto">
+    
+            <div class="textoProducto">
+                <h1>Nombre del producto: </h1>
+    
+                <h2>Precio: 1000$</h2>
+    
+                <h2>Descripcion:</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, odio a nostrum non dolorem ipsum totam sed hic exercitationem ut repellendus, sequi aspernatur consequatur dignissimos iure magnam similique eveniet alias?</p>
+            </div>
+            
+        </div>
+    
+        <form id="precioProducto">
+            <h2>Precio</h2>
+            <h2>Estado</h2>
+
+            <div id="inputCarrito">
+
+                <label for="">Cantidad:</label>
+                <input type="number" id="cantidad">
+            
+                <Button>Agregar al carrito</Button>
+
+            </div>
+            
+            
+            
+        </form>
+    </section>
+    
+  </body>
+</html>
