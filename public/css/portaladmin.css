@@ -57,6 +57,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
+
 }
 
 .barra-busqueda button {
@@ -84,10 +85,10 @@
 }
 
 /*Estilos para las acciones del admin*/
-.container {
-    text-align: center;
-    margin-top: 200px;
+.acciones {
+    margin-top: 100px;
     margin-bottom: 200px;
+    margin-left: -50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -96,17 +97,17 @@
 
 }
 
-.container h2 {
-   margin-top: -300px;
-}
-
-.acciones{
-    display: flex;
+h1 {
+    font-family: 'Cabin', sans-serif;
+    margin-top: 100px;
+    font-size: 30px;
+    text-align: center;
     justify-content: center;
+    color: #81B12A;  
 }
 
 .accion{
-   margin: 0 20px;
+   margin: 0 40px;
 }
 
 .accion a{
@@ -119,3 +120,16 @@
     height: 200px;
     margin-bottom: 10px;
 }
+
+.textosAcciones{
+    font-family: 'Cabin', sans-serif;
+    font-size: 19px;
+    margin-top: -150px;
+    word-spacing: 165px;
+    margin-left: -110px;
+}
+
+.textosAcciones1 a:hover {
+    color: #1F7544;
+    font-weight: bold; 
+  }
