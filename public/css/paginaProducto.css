@@ -1,3 +1,7 @@
+body{
+    background-color: #F2F2F2;
+}
+
 /* Estilos de la barra de navegación */
 
 #inputBusqueda{
@@ -12,6 +16,7 @@
     align-items: center;
     color: #000000;
     padding: 10px 20px;
+    
 }
 
 .botones-navegacion {
@@ -102,18 +107,27 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: white;
+    border-radius: 12px;
 }
 
 /* Estilos de la barra de navegación: final */
 
-/*Estilso de descripcion del producto*/
-
-#producto{
-    border: 1px solid green;
-    margin-left: 140px;
-    margin-top: 40px;
+/*Estilos de descripcion del producto*/
+.seccionProducto{
     display: flex;
+    align-items: center;
+    gap: 0px 30px;
+    Text-align: justify;
+    margin: 40px 100px;
+
+}
+#producto{
     
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 #imagenProducto{
     width: 300px;   
@@ -121,10 +135,54 @@
 }
 
 .textoProducto{
+    font-family: 'Cabin', sans-serif;
     text-align: left;
-
+    padding-right: 10px;
+    
+    
 }
 .textoProducto p{
-    height: 100px;
     width: 500px;
+    Text-align: justify;
+    
+}
+
+#producto h2{
+    font-size: 17px;
+}
+/*Estilos de descripcion del producto: final*/
+
+/*Estilos del precio del producto y la seccion de añadir al carrito*/
+
+form{
+    font-family: 'Cabin', sans-serif;
+    background-color: #81B12A;
+    display: flex;
+    gap: 15px 15px;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 150px;
+    margin-top: 70px;
+    width: 70%;
+    border-radius: 12px;
+    margin: 25px;
+
+    color: #ffffff;
+    font-weight: 500px;
+    font-size: 16px;
+}
+
+form button{
+    color:#81B12A ;
+    font-weight: 800px;
+    padding: 5px;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+#cantidad{
+    Width: 40% ;
+    Font-weight: 300;
+    border-radius: 12px;
+    font-size: 16px;
 }
