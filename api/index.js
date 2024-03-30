@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyparser = require('bodyparser');
 
-const personas = require('./routes/personas')
+const personas = require('./routes/personas');
 //const empresas = require('./routes/empresas')
 //const productos = require('./routes/productos')
 //const metodos_pago = require('./routes/metodo_pago')
@@ -37,5 +37,5 @@ app.use('/api', personas);
 const PORT = 8000;
 
 app.listen(PORT, () => {
-	console.log(`Aplicación levantada en puerto: ${PORT}`)
-  })
+	console.log(`Aplicación levantada en puerto: ${PORT}`);
+});
