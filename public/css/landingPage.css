@@ -3,7 +3,7 @@ body {
 
 	background-size: cover;
     background-position: center;
-    height: 100hv;
+    height: 100%;
     width: 100%; 
 }
 
@@ -32,7 +32,6 @@ body {
 	text-align: center;
 	font-size: 33px;
 	width: 80%;
-
 	margin-top: 77px;
 }
 
@@ -116,9 +115,7 @@ button:hover {
 #logocnp {
 	align-self: center;
 	margin-top: 50px;
-	margin-left: 15px;
 }
 #logocnpimg {
 	width: 135px;
-	margin-left: 20px;
 }
