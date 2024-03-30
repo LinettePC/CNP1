@@ -46,30 +46,24 @@
             <input type="radio" id="idDimex" name="tipoIdentificacion" value="dimex">
             <label for="dimex">DIMEX</label>
 
-
             <p id="identificacion">Identificación:</p>
-            <input type="text" name="identificacion" placeholder="">
-            
-            
-            
-            
-            
+            <input type="text" name="identificacion" required >
             
             
             
             <p id="nombre">Nombre:</p>
-            <input type="text" name="nombre" placeholder="">  
+            <input type="text" name="nombre" required >  
             
-            <p id="nombre">Primer Apellido:</p>
-            <input type="text" name="primerApellido" placeholder="">
+            <p id="primerApellido">Primer Apellido:</p>
+            <input type="text" name="primerApellido" required >
             
-            <p id="nombre">Segundo Apellido:</p>
-            <input type="text" name="segundoApellido" placeholder=""> 
+            <p id="segundoApellido">Segundo Apellido:</p>
+            <input type="text" name="segundoApellido" > 
 
             <p id="correo">Correo:</p>
-            <input type="email" name="email" placeholder="">   
+            <input type="email" name="email" required >   
             <p id="telefono">Teléfono:</p>
-            <input type="text" name="telefono" placeholder="">  
+            <input type="text" name="telefono" required >  
             
             <p id="fotoRegistroCliente">Fotografía (opcional)</p>
             
@@ -77,13 +71,21 @@
             <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
             <!-- Para poder cambiarle lo escrito al boton -->
             <input hidden id="btnoriginal" class="form-control text-center col-md-6" onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];" type="file" value="Adjuntar imagen">
-            <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar imagen</button>
+            <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar Imagen</button>
             <small id='tagsmall'>No hay archivos adjuntos</small>
-            
+
+            <p id="contrasenna">Contraseña:</p>
+            <input type="text" name="contrasenna" required >
+            <div>
+                <button type="button" id="botonEnviar">Crear Cuenta de Cliente</button>
+            </div>
+           
         </form>
+        
+
     </section>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./registroCliente.js" ></script> 
+    <script src="/public/js/registroCliente.js" ></script> 
     
 </body>
 </html>
