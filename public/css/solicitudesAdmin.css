@@ -1,6 +1,7 @@
 .barra-busqueda{
     display: flex;
     margin-left: 1155px;
+    align-items: center;
 }
 
 
