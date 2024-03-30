@@ -1,24 +1,73 @@
-<!--Autor: Linette  -->
-
+<!--Autor: Linette-->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Inicio Sesion</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<header>
-		<div></div>
-	</header>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Cliente</title>
+<!--Links para las hojas de estilos: -->
+<!--Link a reset -->
+<link rel="stylesheet" href="/public/css/reset.css">
+<!--Link al css de estilos respectivo -->
+<link rel="stylesheet" href="/public/css/registroClientes.css"> 
+<link rel="stylesheet" href="/public/img/logoTres.png"> 
 
-	<body>
-		
-	</body>
+<!--Link a las letras -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+/>
+
+</head>
+<body>
+
+<!--Header General-->
+    <header id="headerGeneral">
+        <img id="logoTres" src="img/logo5.png" alt="">
+        <h1 id="tituloGeneral">La Feria del Consejo Nacional de Producción</h1>
+        <nav id="navUno">
+            <a id="a1" href="#">Inicio</a>
+            <a id="a1" href="#">Contáctenos</a>
+        </nav>
+    </header>
+
+    <section id="formulario">
+        <h1 id="tituloF1">Bienvenido</h1>
+        <h1 id="tituloF2">Crea una Cuenta de Comprador</h1>
+        
+        <form id="formularioCuentaCliente" action="">
+            <p id="identificacion">Identificación:</p>
+            <input type="text" name="identificacion" placeholder="">
+            <p id="nombre">Nombre:</p>
+            <input type="text" name="nombre" placeholder="">  
+            
+            <p id="nombre">Primer Apellido:</p>
+            <input type="text" name="primerApellido" placeholder="">
+            
+            <p id="nombre">Segundo Apellido:</p>
+            <input type="text" name="segundoApellido" placeholder=""> 
+
+            <p id="correo">Correo:</p>
+            <input type="email" name="email" placeholder="">   
+            <p id="telefono">Teléfono:</p>
+            <input type="text" name="telefono" placeholder="">  
+            
+            <p id="fotoRegistroCliente">Fotografía (opcional)</p>
+            
+            <!-- <input type="file" name="fotoCliente" placeholder="">  -->
+            <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
+            <!-- Para poder cambiarle lo escrito al boton -->
+            <input hidden id="btnoriginal" class="form-control text-center col-md-6" onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];" type="file" value="Adjuntar imagen">
+            <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar imagen</button>
+            <small id='tagsmall'>No hay archivos adjuntos</small>
+            
+
+
+        </form>
+    </section>
+    
+</body>
 </html>
