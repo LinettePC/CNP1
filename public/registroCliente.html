@@ -51,21 +51,22 @@
             
             
             
-            <p id="nombre">Nombre:</p>
-            <input type="text" name="nombre" required >  
+            <!-- <p id="nombre">Nombre:</p> -->
+            <p>Nombre:</p>
+            <input type="text" id="nombre" name="nombre" required >  
             
-            <p id="primerApellido">Primer Apellido:</p>
-            <input type="text" name="primerApellido" required >
+            <p>Primer Apellido:</p>
+            <input type="text" id="primerApellido" name="primerApellido" required >
             
-            <p id="segundoApellido">Segundo Apellido:</p>
-            <input type="text" name="segundoApellido" > 
+            <p>Segundo Apellido:</p>
+            <input type="text" id="segundoApellido" name="segundoApellido" placeholder="opcional" > 
 
-            <p id="correo">Correo:</p>
-            <input type="email" name="email" required >   
-            <p id="telefono">Teléfono:</p>
-            <input type="text" name="telefono" required >  
+            <p>Correo:</p>
+            <input type="email" id="correo" name="email" required >   
+            <p>Teléfono:</p>
+            <input type="text" id="telefono" name="telefono" required >  
             
-            <p id="fotoRegistroCliente">Fotografía (opcional)</p>
+            <p>Fotografía (opcional)</p>
             
             <!-- <input type="file" name="fotoCliente" placeholder="">  -->
             <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
@@ -74,8 +75,8 @@
             <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar Imagen</button>
             <small id='tagsmall'>No hay archivos adjuntos</small>
 
-            <p id="contrasenna">Contraseña:</p>
-            <input type="text" name="contrasenna" required >
+            <p>Contraseña:</p>
+            <input type="text" id="contrasenna" name="contrasenna" required >
             <div>
                 <button type="button" id="botonEnviar">Crear Cuenta de Cliente</button>
             </div>

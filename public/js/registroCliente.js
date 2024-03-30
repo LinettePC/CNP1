@@ -18,23 +18,23 @@ function validarCamposVacios(){
     for (let i=0; i< camposRequeridos.length;i++){
         if(camposRequeridos[i].value==""){
             error=true
+            camposRequeridos[i].classList.add("error")
+        }else{
+            camposRequeridos[i].classList.remove("error")
         }
-
     }
-
-
-
-
+    return error
 
 }
 
+//validar nombre
+function validarNombre(){
+    let error = false
+    let imput
 
+
+}
 
 //validar identificacion
-function validarNombre(){
-
-}
-
-
 function validarIdentificacion(){
 }
