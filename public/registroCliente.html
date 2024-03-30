@@ -10,7 +10,7 @@
 <!--Link a reset -->
 <link rel="stylesheet" href="/public/css/reset.css">
 <!--Link al css de estilos respectivo -->
-<link rel="stylesheet" href="/public/css/registroClientes.css"> 
+<link rel="stylesheet" href="/public/css/registroCliente.css"> 
 <link rel="stylesheet" href="/public/img/logoTres.png"> 
 
 <!--Link a las letras -->
@@ -39,8 +39,24 @@
         <h1 id="tituloF2">Crea una Cuenta de Comprador</h1>
         
         <form id="formularioCuentaCliente" action="">
+
+            <input type="radio" id="idNacional" name="tipoIdentificacion" value="nacional" checked>
+            <label for="nacional">Cédula Nacional</label>
+
+            <input type="radio" id="idDimex" name="tipoIdentificacion" value="dimex">
+            <label for="dimex">DIMEX</label>
+
+
             <p id="identificacion">Identificación:</p>
             <input type="text" name="identificacion" placeholder="">
+            
+            
+            
+            
+            
+            
+            
+            
             <p id="nombre">Nombre:</p>
             <input type="text" name="nombre" placeholder="">  
             
@@ -64,10 +80,10 @@
             <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar imagen</button>
             <small id='tagsmall'>No hay archivos adjuntos</small>
             
-
-
         </form>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./registroCliente.js" ></script> 
     
 </body>
 </html>

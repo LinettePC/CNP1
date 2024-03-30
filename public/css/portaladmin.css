@@ -133,3 +133,10 @@ h1 {
     color: #1F7544;
     font-weight: bold; 
   }
+
+  .accion span {
+    display: flex;
+    margin-top: 250px;
+    margin-right: 100px;
+
+  }
