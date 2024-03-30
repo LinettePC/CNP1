@@ -1,4 +1,4 @@
-<!--Autor: Linette  -->
+<!--Autor: Isaac Ch.  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,19 +6,214 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Inicio Sesion</title>
+		<title>Reportes</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
+
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/reportesVendedor.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+		/>
 	</head>
-	<header>
-		<div></div>
-	</header>
 
 	<body>
-		
+		<header class="navegacion">
+			<div class="logo">
+				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+			</div>
+			<div class="barra-navegacion">
+				<nav class="botones-navegacion">
+					<ul>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Tienda</a></li>
+						<li><a href="#">Productos</a></li>
+						<li><a href="#">Contacto</a></li>
+						<li><a href="#">Nosotros</a></li>
+					</ul>
+				</nav>
+				<div class="barra-busqueda">
+					<input
+						type="text"
+						placeholder="Buscar"
+						id="inputBusqueda"
+					/>
+					<button>Buscar</button>
+				</div>
+			</div>
+			<div class="carrito">
+				<div id="cuenta">
+					<a href="#" id="textoCuenta">Mi Cuenta |</a>
+				</div>
+				<div>
+					<img
+						src="img/carritoCompras.png"
+						alt="logoCarrito"
+						id="logoCarrito"
+					/>
+				</div>
+			</div>
+		</header>
+
+		<div class="seccion-titulo">
+			<div class="container">
+				<h1 class="titulo">Reportes</h1>
+			</div>
+		</div>
+
+		<main class="container">
+			<section class="selection-section">
+				<form id="formReporte">
+					<div class="container-selects">
+						<div class="flex-box">
+							<label class="select-label" for="selectMes"
+								>Periodo</label
+							>
+							<div class="container-flex">
+								<div class="flex-box">
+									<select
+										class="select-item"
+										id="selectMes"
+										name="selectMes"
+									>
+										<option value="0" selected>
+											Cualquiera
+										</option>
+										<option value="1">Enero</option>
+										<option value="2">Febrero</option>
+										<option value="3">Marzo</option>
+										<option value="4">Abril</option>
+										<option value="5">Mayo</option>
+										<option value="6">Junio</option>
+										<option value="7">Julio</option>
+										<option value="8">Agosto</option>
+										<option value="9">Septiembre</option>
+										<option value="10">Octubre</option>
+										<option value="11">Noviembre</option>
+										<option value="12">Diciembre</option>
+									</select>
+								</div>
+								<div class="flex-box">
+									<select
+										class="select-item"
+										id="selectAnno"
+										name="selectAnno"
+									>
+										<option value="0" selected>
+											Cualquiera
+										</option>
+										<option value="2024">2024</option>
+										<option value="2025">2025</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="flex-box">
+							<label class="select-label" for="selectCategoria"
+								>Categoría</label
+							>
+							<select
+								class="select-item"
+								id="selectCategoria"
+								name="selectCategoria"
+							>
+								<option value="0" selected>Cualquiera</option>
+								<option value="verduras">Verduras</option>
+							</select>
+						</div>
+
+						<div class="flex-box">
+							<label class="select-label" for="selectProducto"
+								>Producto</label
+							>
+							<select
+								class="select-item"
+								id="selectProducto"
+								name="selectProducto"
+							>
+								<option value="0" selected>Cualquiera</option>
+								<option value="otro">Otro</option>
+							</select>
+						</div>
+
+						<div class="flex-box">
+							<label class="select-label" for="selectUsuario"
+								>Usuario</label
+							>
+							<select
+								class="select-item"
+								id="selectUsuario"
+								name="selectUsuario"
+							>
+								<option selected disabled required>
+									Seleccione una opción
+								</option>
+								<option value="administrador">
+									Administrador (yo)
+								</option>
+								<option value="otro">Otro</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="container-end">
+						<button type="button" class="boton">
+							Generar Reporte
+						</button>
+					</div>
+				</form>
+			</section>
+			<section class="reporte">
+				<div class="container-tabla">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="usuario">Usuario</th>
+								<th class="producto">Producto</th>
+								<th class="categoria">Categoría</th>
+								<th class="precio">Precio</th>
+								<th class="iva">IVA</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="usuario">Usuario 1</td>
+								<td class="producto">Producto A</td>
+								<td class="categoria">Categoría 1</td>
+								<td class="precio">100</td>
+								<td class="iva">15</td>
+							</tr>
+							<tr>
+								<td class="usuario">Usuario 2</td>
+								<td class="producto">Producto B</td>
+								<td class="categoria">Categoría 2</td>
+								<td class="precio">150</td>
+								<td class="iva">22.5</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="container-end">
+					<div class="table-output">
+						<label for="totalGanancias">Total de ganancias:</label>
+						<output id="outputTotalGanancias">₡0</output>
+					</div>
+					<button class="boton" type="button">
+						<span style="margin-right: 10px"
+							>Descargar Reporte</span
+						>
+						<i class="bi bi-download"></i>
+					</button>
+				</div>
+			</section>
+		</main>
 	</body>
 </html>
