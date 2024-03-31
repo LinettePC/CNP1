@@ -1,9 +1,45 @@
 /* Estilos de la barra de navegación */
 
-#inputBusqueda {
-	width: 550px;
+.logo {
+	width: 25%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
+#logoFeriaCnp {
+	width: 200px;
+	margin-left: 45px;
+}
+
+.carrito {
+	width: 25%;
+	display: flex;
+	font-family: 'Cabin', sans-serif;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#textoCuenta {
+	text-decoration: none;
+	color: #000000;
+	padding-right: 25px;
+	font-size: 21px;
+}
+
+#logoCarrito {
+	width: 100px;
+}
+
+.navegacion {
+	height: 155px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+/* Estilos de la barra de navegación */
 .barra-navegacion {
 	width: 50%;
 	display: flex;
@@ -12,8 +48,6 @@
 	align-items: center;
 	color: #000000;
 	padding: 10px 20px;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .botones-navegacion {
@@ -28,11 +62,14 @@
 	margin-bottom: 15px;
 }
 
+#inputBusqueda {
+	width: 550px;
+}
+
 .barra-navegacion nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	align-items: end;
 }
 
 .barra-navegacion nav ul li {
@@ -65,72 +102,59 @@
 	border-radius: 5px;
 	cursor: pointer;
 }
-
-#logoFeriaCnp {
-	width: 200px;
-	margin-left: 45px;
+body {
+	font-family: 'Manrope', sans-serif;
 }
 
-.logo {
-	width: 25%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+select {
+	font-family: 'Manrope', sans-serif;
 }
 
-/*Estilos para las acciones del admin*/
-.acciones {
-	margin-top: 100px;
-	margin-bottom: 200px;
-	margin-left: -50px;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	position: relative;
+button {
+	font-family: 'Manrope', sans-serif;
 }
 
-h1 {
-	font-family: 'Cabin', sans-serif;
-	margin-top: 100px;
-	font-size: 30px;
-	text-align: center;
-	justify-content: center;
-	color: #81b12a;
+.seccion-titulo {
+	background-color: lightgray;
+	margin-bottom: 40px;
+	padding: 20px;
 }
 
-.accion {
-	margin: 0 40px;
-}
-
-.accion a {
-	display: flex;
-}
-
-.accion img {
-	width: 200px;
-	height: 200px;
-	margin-bottom: 10px;
-}
-
-.textosAcciones {
-	font-family: 'Cabin', sans-serif;
-	font-size: 19px;
-	margin-top: -150px;
-	word-spacing: 165px;
-}
-
-.textosAcciones1 a:hover {
-	color: #1f7544;
+.titulo {
 	font-weight: bold;
+	font-size: 30px;
+}
+/*.......................................................fin de estilos nav...........................................................*/
+
+.acciones-admin {
+    text-align: center; /* Centra horizontalmente el contenido */
+	margin-top: 200px;
 }
 
-.accion span {
-	display: flex;
-	margin-top: 250px;
-	margin-right: 100px;
+.contenedor-acciones {
+    display: inline-block; /* Para que el enlace solo ocupe el área alrededor de la imagen y el texto */
+    text-decoration: none; 
+    color: #1F7544; 
+	padding: 40px;
+	font-size: 20px;
 }
 
-input[type='button'] {
-	display: flex;
+.contenedor-acciones img {
+    width: 200px; /* Ancho imagen */
+    height: 200px; /* Alto imagen */
+    display: block; 
+    margin: 0 auto; 
 }
+
+.contenedor-acciones h1 {
+    margin-top: 20px; 
+}
+
+.contenedor-acciones:hover {
+	color: #d36c0c;
+	background-color: lightgray;
+
+}
+ 
+
+
