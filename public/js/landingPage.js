@@ -1,3 +1,5 @@
+//Autor: Linette
+//dom listener
 document.addEventListener("DOMContentLoaded", function() {
     // Selecciona el botón de envío
     const loginButton = document.getElementById("loginbutton");
@@ -14,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+//esta función valida que no hayan campos vacíos
 
 function validarCamposVacios() {
     let camposRequeridos = document.querySelectorAll(".form-group [required]");

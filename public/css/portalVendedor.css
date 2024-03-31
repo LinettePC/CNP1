@@ -108,24 +108,24 @@ h1 {
 
 .accion {
     margin: 0 40px;
-    text-align: center; /* Center the content horizontally */
+    text-align: center; 
 }
 
 .accion a {
     display: flex;
-    flex-direction: column; /* Arrange image and text vertically */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .accion img {
     width: 200px;
     height: 200px;
-    margin-bottom: 0; /* Remove margin bottom */
+    margin-bottom: 0; 
 }
 
 .accion span {
     font-family: 'Cabin', sans-serif;
     font-size: 19px;
-    margin-top: 0; /* Remove margin top */
-    padding-top: 10px; /* Add padding top for spacing between image and text */
+    margin-top: 0; 
+    padding-top: 10px; 
 }

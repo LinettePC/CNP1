@@ -15,6 +15,7 @@ function validarCamposVacios(){
     //recordar que "segundoApellido" NO es requerido 
     let camposRequeridos = document.querySelectorAll("#formularioCuentaCliente [required]")
     let error = false
+    
 
     for (let i=0;i<camposRequeridos.length;i++){
     // for (let i=0; i<6;i++){
@@ -26,7 +27,7 @@ function validarCamposVacios(){
             camposRequeridos[i].classList.remove("error")
         }
     }
-    return true
+    return !error;
 }
 
 //validar identificacion
