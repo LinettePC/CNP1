@@ -45,7 +45,7 @@ function validarCamposVacios() {
 
 // Validar correo electrónico
 function validarCorreo() {
-    const correoInput = document.getElementById("correo");
+    const correoInput = document.getElementById("username"); // Cambiado de "correo" a "username"
     const correoValue = correoInput.value.trim();
     const correoExpresion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

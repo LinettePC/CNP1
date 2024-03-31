@@ -21,6 +21,15 @@ function validarCamposVacios() {
             input.classList.remove("error");
         }
     });
+
+    if (error) {
+        Swal.fire({
+            title: "Existen Campos Vacíos",
+            text: "Completa todos los campos señalados en rojo",
+            icon: "warning"
+        });
+    }
+
     return !error;
 }
 
@@ -92,7 +101,7 @@ function validarTelefono() {
 
 // Validar contraseña
 function validarContrasenna() {
-    return validarCampo(inputs.contrasenna, /^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+]).{8,}$/, {
+    return validarCampo(inputs.contrasenna, /^(?=.[bcdfghjklmnñpqrstvwxyz])(?=.[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.[0-9])(?=.[!@#$%^&*()-_+]).{8,}$/, {
         title: "La contraseña es inválida",
         text: "Revisa el formato utilizado"
     });
