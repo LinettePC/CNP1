@@ -1,5 +1,5 @@
-//Autor: Linette
-//dom listener
+// Autor: Julio
+// DOM listener
 document.addEventListener("DOMContentLoaded", function() {
     // Selecciona el botón de envío
     const loginButton = document.getElementById("loginbutton");
@@ -10,15 +10,14 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
 
         // Valida los campos antes de enviar el formulario
-        if (validarCamposVacios()) {
-            // Si los campos están completos, selecciona el formulario y envíalo
+        if (validarCamposVacios() && validarCorreo()) {
+            // Si los campos están completos y el correo es válido, selecciona el formulario y envíalo
             document.getElementById("formLogin").submit();
         }
     });
 });
 
-//esta función valida que no hayan campos vacíos
-
+// Esta función valida que no hayan campos vacíos
 function validarCamposVacios() {
     let camposRequeridos = document.querySelectorAll(".form-group [required]");
     let error = false;
@@ -42,4 +41,24 @@ function validarCamposVacios() {
     }
 
     return !error;
+}
+
+// Validar correo electrónico
+function validarCorreo() {
+    const correoInput = document.getElementById("correo");
+    const correoValue = correoInput.value.trim();
+    const correoExpresion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!correoExpresion.test(correoValue)) {
+        correoInput.classList.add("error");
+        Swal.fire({
+            title: "El Correo es inválido",
+            text: "Revisa el formato utilizado",
+            icon: "warning"
+        });
+        return false;
+    } else {
+        correoInput.classList.remove("error");
+        return true;
+    }
 }
