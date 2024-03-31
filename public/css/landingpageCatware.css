@@ -77,6 +77,30 @@ body {
     background-image: url(/public/img/codioful-formerly-gradienta-lweK7Wme_jo-unsplash.jpg);
     background-size: cover;
     margin: 0;
-    padding: 0;
-    
+    padding: 0;  
+}
+
+body {
+	font-family: 'Manrope', sans-serif;
+}
+
+select {
+	font-family: 'Manrope', sans-serif;
+}
+
+button {
+	font-family: 'Manrope', sans-serif;
+}
+
+section h1{
+    font-family: 'Manrope', sans-serif;
+}
+
+h1{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+    font-size: 40px;    
 }
