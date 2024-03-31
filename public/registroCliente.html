@@ -38,7 +38,7 @@
         <h1 id="tituloF1">Bienvenido</h1>
         <h1 id="tituloF2">Crea una Cuenta de Comprador</h1>
         
-        <form id="formularioCuentaCliente" action="">
+        <form id="formularioCuentaCliente">
 
             <input type="radio" id="idNacional" name="tipoIdentificacion" value="nacional" checked>
             <label for="nacional">Cédula Nacional</label>
@@ -49,20 +49,17 @@
             <input type="radio" id="idPasaporte" name="tipoIdentificacion" value="pasaporte">
             <label for="pasaporte">Pasaporte</label>
 
-            <p id="identificacion">Identificación:</p>
-            <input type="text" name="identificacion" required >
+            <p>Identificación:</p>
+            <input type="text" id="identificacion" name="identificacion" required >
             
-            
-            
-            <!-- <p id="nombre">Nombre:</p> -->
             <p>Nombre:</p>
             <input type="text" id="nombre" name="nombre" required >  
             
             <p>Primer Apellido:</p>
             <input type="text" id="primerApellido" name="primerApellido" required >
             
-            <p>Segundo Apellido:</p>
-            <input type="text" id="segundoApellido" name="segundoApellido" placeholder="opcional" > 
+            <!-- <p>Segundo Apellido:</p>
+            <input type="text" id="segundoApellido" name="segundoApellido" placeholder="opcional" >  -->
 
             <p>Correo:</p>
             <input type="email" id="correo" name="email" required >   
@@ -80,6 +77,8 @@
 
             <p>Contraseña:</p>
             <input type="text" id="contrasenna" name="contrasenna" required >
+            
+            
             <div>
                 <button type="button" id="botonEnviar">Crear Cuenta de Cliente</button>
             </div>
