@@ -40,45 +40,66 @@
         
         <form id="formularioCuentaCliente">
 
-            <input type="radio" id="idNacional" name="tipoIdentificacion" value="nacional" checked>
-            <label for="nacional">Cédula Nacional</label>
+            <div>
+                <input type="radio" id="idNacional" name="tipoIdentificacion" value="nacional" checked>
+                <label for="idNacional">Cédula Nacional</label>
 
-            <input type="radio" id="idDimex" name="tipoIdentificacion" value="dimex">
-            <label for="dimex">DIMEX</label>
+                <input type="radio" id="idDimex" name="tipoIdentificacion" value="dimex">
+                <label for="idDimex">DIMEX</label>
+                
+                <!-- <input type="radio" id="idPasaporte" name="tipoIdentificacion" value="pasaporte">
+                <label for="pasaporte">Pasaporte</label> -->
+                <div>
+                    <!-- <p>Identificación:</p> -->
+                    <label for="identificacion">Identificación:</label>
+                    <input type="text" id="identificacion" name="identificacion" required >
+                </div>
+            </div>
 
-            <!-- <input type="radio" id="idPasaporte" name="tipoIdentificacion" value="pasaporte">
-            <label for="pasaporte">Pasaporte</label> -->
+            <div>
+                <label for="nombre">Nombre:</label>
+                <!-- <p>Nombre:</p> -->
+                <input type="text" id="nombre" name="nombre" required >  
+            </div>
 
-            <p>Identificación:</p>
-            <input type="text" id="identificacion" name="identificacion" required >
+            <div>
+                <label for="primerApellido">Primer Apellido:</label>
+                <!-- <p>Primer Apellido:</p> -->
+                <input type="text" id="primerApellido" name="primerApellido" required >
+            </div>
             
-            <p>Nombre:</p>
-            <input type="text" id="nombre" name="nombre" required >  
-            
-            <p>Primer Apellido:</p>
-            <input type="text" id="primerApellido" name="primerApellido" required >
-            
-            <!-- <p>Segundo Apellido:</p>
-            <input type="text" id="segundoApellido" name="segundoApellido" placeholder="opcional" >  -->
+            <!-- <div> -->
+                <!-- <label for="segundoApellido">Segundo Apellido:</label> -->
+                <!-- <p>Segundo Apellido:</p>
+                <input type="text" id="segundoApellido" name="segundoApellido" placeholder="opcional" >  -->
+            <!-- </div> -->
 
-            <p>Correo:</p>
-            <input type="email" id="correo" name="correo" required >   
-            
-            <p>Teléfono:</p>
-            <input type="text" id="telefono" name="telefono" required >  
-            
-            <p>Fotografía (opcional)</p>
-            
-            <!-- <input type="file" name="fotoCliente" placeholder="">  -->
-            <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
-            <!-- Para poder cambiarle lo escrito al boton -->
-            <input hidden id="btnoriginal" class="form-control text-center col-md-6" onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];" type="file" value="Adjuntar imagen">
-            <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar Imagen</button>
-            <small id='tagsmall'>No hay archivos adjuntos</small>
+            <div>
+                <label for="correo">Correo:</label>
+                <!-- <p>Correo:</p> -->
+                <input type="email" id="correo" name="correo" required >   
+            </div>
 
-            <p>Contraseña:</p>
-            <input type="text" id="contrasenna" name="contrasenna" required >
-            
+            <div>
+                <label for="telefono">Teléfono:</label>
+                <!-- <p>Teléfono:</p> -->
+                <input type="text" id="telefono" name="telefono" required >  
+            </div>
+
+            <div>
+                <p>Fotografía (opcional)</p>
+                <!-- <input type="file" name="fotoCliente" placeholder="">  -->
+                <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
+                <!-- Para poder cambiarle lo escrito al boton -->
+                <input hidden id="btnoriginal" class="form-control text-center col-md-6" onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];" type="file" value="Adjuntar imagen">
+                <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar Imagen</button>
+                <small id='tagsmall'>No hay archivos adjuntos</small>
+            </div>
+            <div>
+                <label for="contrasenna">Contraseña:</label>
+                <!-- <p>Contraseña:</p> -->
+                <input type="text" id="contrasenna" name="contrasenna" required >
+            </div>
             
             <div>
                 <button type="button" id="botonEnviar">Crear Cuenta de Cliente</button>
