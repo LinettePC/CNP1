@@ -25,65 +25,101 @@
 <body>
 
 <!--Header General-->
-    <header id="headerGeneral">
+    <!-- <header id="headerGeneral">
         <img id="logoTres" src="img/logo5.png" alt="">
         <h1 id="tituloGeneral">La Feria del Consejo Nacional de Producción</h1>
         <nav id="navUno">
             <a id="a1" href="#">Inicio</a>
             <a id="a1" href="#">Contáctenos</a>
         </nav>
-    </header>
+    </header> -->
+
+<!--Header Uno-->   
+
+<header id="headerUno">
+    <div class="logo">
+        <img src="img/logo6.png" alt="logo" id="logoFeriaCnp">
+    </div>
+
+</header>
 
     <section id="formulario">
         <h1 id="tituloF1">Bienvenido</h1>
         <h1 id="tituloF2">Crea una Cuenta de Comprador</h1>
         
-        <form id="formularioCuentaCliente" action="">
+        <form id="formularioCuentaCliente">
 
-            <input type="radio" id="idNacional" name="tipoIdentificacion" value="nacional" checked>
-            <label for="nacional">Cédula Nacional</label>
+            <div>
+                <input type="radio" id="idNacional" name="tipoIdentificacion" value="nacional" checked>
+                <label for="idNacional">Cédula Nacional</label>
 
-            <input type="radio" id="idDimex" name="tipoIdentificacion" value="dimex">
-            <label for="dimex">DIMEX</label>
+                <input type="radio" id="idDimex" name="tipoIdentificacion" value="dimex">
+                <label for="idDimex">DIMEX</label>
+                
+                <!-- <input type="radio" id="idPasaporte" name="tipoIdentificacion" value="pasaporte">
+                <label for="pasaporte">Pasaporte</label> -->
+                <div>
+                    <!-- <p>Identificación:</p> -->
+                    <label for="identificacion">Identificación:</label>
+                    <input type="text" id="identificacion" name="identificacion" required >
+                </div>
+            </div>
 
+            <div>
+                <label for="nombre">Nombre:</label>
+                <!-- <p>Nombre:</p> -->
+                <input type="text" id="nombre" name="nombre" required >  
+            </div>
 
-            <p id="identificacion">Identificación:</p>
-            <input type="text" name="identificacion" placeholder="">
+            <div>
+                <label for="primerApellido">Primer Apellido:</label>
+                <!-- <p>Primer Apellido:</p> -->
+                <input type="text" id="primerApellido" name="primerApellido" required >
+            </div>
             
-            
-            
-            
-            
-            
-            
-            
-            <p id="nombre">Nombre:</p>
-            <input type="text" name="nombre" placeholder="">  
-            
-            <p id="nombre">Primer Apellido:</p>
-            <input type="text" name="primerApellido" placeholder="">
-            
-            <p id="nombre">Segundo Apellido:</p>
-            <input type="text" name="segundoApellido" placeholder=""> 
+            <!-- <div> -->
+                <!-- <label for="segundoApellido">Segundo Apellido:</label> -->
+                <!-- <p>Segundo Apellido:</p>
+                <input type="text" id="segundoApellido" name="segundoApellido" placeholder="opcional" >  -->
+            <!-- </div> -->
 
-            <p id="correo">Correo:</p>
-            <input type="email" name="email" placeholder="">   
-            <p id="telefono">Teléfono:</p>
-            <input type="text" name="telefono" placeholder="">  
+            <div>
+                <label for="correo">Correo:</label>
+                <!-- <p>Correo:</p> -->
+                <input type="email" id="correo" name="correo" required >   
+            </div>
+
+            <div>
+                <label for="telefono">Teléfono:</label>
+                <!-- <p>Teléfono:</p> -->
+                <input type="text" id="telefono" name="telefono" required >  
+            </div>
+
+            <div>
+                <p>Fotografía (opcional)</p>
+                <!-- <input type="file" name="fotoCliente" placeholder="">  -->
+                <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
+                <!-- Para poder cambiarle lo escrito al boton -->
+                <input hidden id="btnoriginal" class="form-control text-center col-md-6" onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];" type="file" value="Adjuntar imagen">
+                <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar Imagen</button>
+                <small id='tagsmall'>No hay archivos adjuntos</small>
+            </div>
+            <div>
+                <label for="contrasenna">Contraseña:</label>
+                <!-- <p>Contraseña:</p> -->
+                <input type="text" id="contrasenna" name="contrasenna" required >
+            </div>
             
-            <p id="fotoRegistroCliente">Fotografía (opcional)</p>
-            
-            <!-- <input type="file" name="fotoCliente" placeholder="">  -->
-            <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
-            <!-- Para poder cambiarle lo escrito al boton -->
-            <input hidden id="btnoriginal" class="form-control text-center col-md-6" onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];" type="file" value="Adjuntar imagen">
-            <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar imagen</button>
-            <small id='tagsmall'>No hay archivos adjuntos</small>
-            
+            <div>
+                <button type="button" id="botonEnviar">Crear Cuenta de Cliente</button>
+            </div>
+           
         </form>
+        
+
     </section>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./registroCliente.js" ></script> 
+    <script src="/public/js/registroCliente.js" ></script> 
     
 </body>
 </html>

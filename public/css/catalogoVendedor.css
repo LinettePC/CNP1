@@ -84,59 +84,54 @@
     
 }
 
-/*Estilos para las acciones del admin*/
-.acciones {
-    margin-top: 100px;
-    margin-bottom: 200px;
-    margin-left: -50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-
+.contenedorProducto {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Cambiamos auto-fill por 3 columnas fijas */
+    gap: 20px;
+    justify-content: center; /* Centramos horizontalmente los elementos */
 }
 
-h1 {
-    font-family: 'Cabin', sans-serif;
-    margin-top: 100px;
-    font-size: 30px;
-    text-align: center;
-    justify-content: center;
-    color: #81B12A;  
+.tarjetaProducto {
+    background-color: #EBB85A;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centramos el texto horizontalmente */
 }
 
-.accion{
-   margin: 0 40px;
-}
-
-.accion a{
-    display: flex;
-
-}
-
-.accion img {
-    width: 200px ;
-    height: 200px;
+.tituloProducto {
+    font-size: 18px;
+    font-weight: bold;
     margin-bottom: 10px;
+    color: #2E3C2D;
 }
 
-.textosAcciones{
-    font-family: 'Cabin', sans-serif;
-    font-size: 19px;
-    margin-top: -150px;
-    word-spacing: 165px;
-    margin-left: -110px;
+.botonEditar {
+    background-color: #81B12A;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.textosAcciones1 a:hover {
-    color: #1F7544;
-    font-weight: bold; 
-  }
+.botonEditar:hover {
+    background-color: #1F7544;
+}
 
-  .accion span {
-    display: flex;
-    margin-top: 250px;
-    margin-right: 100px;
+.botonAgregar {
+    background-color: #81B12A;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto;
+}
 
-  }
+.botonAgregar:hover {
+    background-color: #1F7544;
+}
