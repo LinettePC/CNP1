@@ -1,4 +1,4 @@
-
+//Autor: Linette
 //alert("Si se ligo el JS para validaciones :) !!!")
 //Referencia al DOM
 const idCliente = document.getElementById("identificacion")
@@ -16,7 +16,7 @@ function validarCamposVacios(){
     let camposRequeridos = document.querySelectorAll("#formularioCuentaCliente [required]")
     let error = false
 
-    for (let i=0; i<camposRequeridos.length;i++){
+    for (let i=0;i<camposRequeridos.length;i++){
     // for (let i=0; i<7;i++){
         if(camposRequeridos[i].value==""){
             error=true
@@ -40,7 +40,8 @@ function validarIdentificacion(){
     let expresion 
 
 // evaluar segun el boton que selecciona cliente: cedula, pasaporte o DIMEX
-    if(seleccionUsuario=="nacional" || seleccionUsuario=="pasaporte"){
+    // if(seleccionUsuario=="nacional" || seleccionUsuario=="pasaporte"){
+    if(seleccionUsuario=="nacional"){
         expresion = /^[0-9]{9}$/
     }else if(seleccionUsuario=="dimex"){
         expresion = /^[0-9]{12}$/
@@ -86,7 +87,9 @@ function validarPrimerApellido(){
 function validarCorreo(){
     let error = false
     let inputCorreo = correo.value
-    let expresion = /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*/
+    //let expresion = /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+    // let expresion = /^[a-zA-ZáéíóúñÑü]+$/
+    let expresion = /^[a-zA-Z0-9]+\@*[a-zA-Z0-9]\@{1}[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+$/
     if(expresion.test(inputCorreo)==false){
         error = true
         correo.classList.add("error")
@@ -111,7 +114,6 @@ function validarTelefono(){
 }
 
 //FUNCION para validar contrasenna
-// ^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+]).{8}
 //debe tener como minimo de 8 caracteres
 //no puede tener vocales
 //debe tener al menos 1 consonante (al menos una mayuscula, al menos una minuscula)
@@ -120,7 +122,7 @@ function validarTelefono(){
 function validarContrasenna(){
     let error = false
     let inputContrasenna = contrasenna.value
-    let expresion = /^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+]).{8,}/
+    let expresion = /^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+]).{8,}$/
     if(expresion.test(inputContrasenna)==false){
         error=true
         contrasenna.classList.add("error")
