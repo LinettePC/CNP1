@@ -26,6 +26,44 @@ body {
     justify-content: space-between;
 }
 
+#formulario{
+    border: 3px solid #1F7544; 
+    background-color: #1F7544;
+    
+} 
+
+#tituloForm{
+    border: 5px solid #E5E5A4;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    background-color: #E5E5A4;
+    padding: 20px;
+    padding-left: 24px;  
+    color: #2E3C2D;
+    font-size: 26px;
+    text-align: center;
+    /* font-family: 'Manrope', sans-serif; */
+}
+
+/* div{
+    padding: 10px
+} */
+
+#formularioCuentaCliente{
+    border: 5px solid #E5E5A4;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    background-color: white;
+    padding: 20px;
+    padding-left: 24px;  
+    
+}
+
+
 
  /* #headerGeneral{
     width: 100%;
@@ -36,13 +74,15 @@ body {
 
 
 
-#logoTres{
+/* #logoTres{
     width: 180px;
     float: left;
     margin-top: 5px;
     margin-left: 50px;   
     /* border: 3px solid red; 
-}   
+}    */
+
+
 
 #tituloGeneral{
     font-family: 'Cabin', sans-serif;
@@ -63,12 +103,12 @@ body {
     margin-right:60px;  
 }
 #a1{
-    color: #FFFFFF;
+    color: black;
     text-decoration: none; 
     padding: 18px;   
     /* font-size: 18px; */
 }
 #a1:hover{
     text-decoration: underline;
-    color: #E5E5A4 
+    color: #1F7544 
 }
