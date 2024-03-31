@@ -4,7 +4,7 @@ body{
 
 /* Estilos de la barra de navegación */
 .divider {
-    border-top: 50px solid grey;
+    border-top: 40px solid grey;
     margin-top: 10px; /* Ajusta el margen superior según sea necesario */
     margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
 }
