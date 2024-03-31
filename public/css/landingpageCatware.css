@@ -101,6 +101,49 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 200px;
-    font-size: 40px;    
+    margin-top: 220px;
+    font-size: 70px;  
+    margin-bottom: 5px;  
+}
+
+h2{
+    font-size: 40px;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;  
+    margin-top: 5px; 
+
+
+}
+
+section h2{
+    font-family: 'Manrope', sans-serif;
+    font-weight: 100;
+}
+
+
+/*---------------------------------------------------------------------------------------------------------*/
+
+.valores-empresa {
+    display: flex;
+    flex-direction:row;
+    margin-top: 600px;
+    justify-content: center;
+}
+
+.valores-empresa img {
+    width: 150px; /* Ancho imagen */
+    height: 150px;
+    margin: 0 30px;
+    display: block;
+}
+
+.valores-empresa p {
+    display: inline-block;
+    color: white;
+    margin-top: auto;
+    font-size: 30px;
+
+
 }
