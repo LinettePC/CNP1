@@ -21,15 +21,19 @@ body {
 }
 
 #tituloF1A{
+    width: 700px;
     display: flex;
     font-family: 'Manrope', sans-serif; 
-    /* border: 2px solid red; */
-    align-self: right;
+    /* border: 2px solid #81B12A; */
+    border-radius: 40px;
+    /* background-color: #81B12A; */
+    align-self: center;
     margin-right: 30px;
     margin-top: 40px;
     font-size: 28px;
-    color: #2E3C2D 
+    color: #2E3C2D
     /* font-style:initial; */
+    
 }
 
 #tituloF1B{
