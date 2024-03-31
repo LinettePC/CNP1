@@ -141,7 +141,7 @@ button {
 }
 .acciones-admin {
 	text-align: center; /* Centra horizontalmente el contenido */
-	margin-top: 200px;
+	margin-top: 150px;
 }
 
 .container {
@@ -157,6 +157,8 @@ button {
 	color: #1f7544;
 	padding: 40px;
 	font-size: 20px;
+	border-radius: 5px;
+	transition: all 0.3s ease;
 }
 
 .contenedor-acciones img {
@@ -171,6 +173,6 @@ button {
 }
 
 .contenedor-acciones:hover {
-	color: #d36c0c;
+	color: #f0790a;
 	background-color: lightgray;
 }
