@@ -105,7 +105,6 @@
 
 /********************************************* FIN DE HEADER *********************************************/
 
-
 /* Hecho por Isaac Ch. */
 
 body {
@@ -123,7 +122,7 @@ button {
 .seccion-titulo {
 	background-color: lightgray;
 	margin-bottom: 40px;
-    padding: 20px;
+	padding: 20px;
 }
 
 .titulo {
@@ -162,7 +161,7 @@ button {
 
 .select-label {
 	display: block;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	font-size: 23px;
 }
 
@@ -190,7 +189,7 @@ button {
 
 .table th {
 	background-color: #f2f2f2;
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .boton {
@@ -204,16 +203,27 @@ button {
 	cursor: pointer;
 }
 
-label[for='totalGanancias'] {
-	margin-right: 7px;
-    font-weight: bold;
+.ganancias-output {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	color: black;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 15px;
+	border: 2px solid black;
+	line-height: normal;
+    cursor: default;
 }
 
-.table-output {
-    border: 1px solid black;
-    padding: 12px;
-    border-radius: 5px;
-	margin-right: 30px;
+.ganancias-output:hover {
+	color: white;
+    background-color: black;
+}
+
+.ganancias-output label {
+	margin-right: 7px;
+	font-weight: bold;
 }
 
 .container-end {
