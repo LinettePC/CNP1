@@ -27,14 +27,39 @@ function validarCamposVacios(){
 
 }
 
-//validar nombre
-function validarNombre(){
-    let error = false
-    let imput
-
-
-}
-
 //validar identificacion
 function validarIdentificacion(){
 }
+
+//funcion para validar nombre
+function validarNombre(){
+    let error = false
+    let inputNombre = nombre.value
+    let expresion = /^[a-zA-ZáéíóúñÑü]+$/
+    if(expresion.test(inputNombre)==false){
+        error = true
+        nombre.classList.add("error")
+    }
+    return error
+}
+
+//funcion para validar primerApellido
+function validarPrimerApellido(){
+    let error = false
+    let inputPrimerApellido = primerApellido.value
+    let expresion = /^[a-zA-ZáéíóúñÑü]+$/
+    if(expresion.test(inputPrimerApellido)==false){
+        error = true
+        primerApellido.classList.add("error")
+    }
+    return error
+}
+//funcion para validar correo
+
+//funcion para validar telefono
+
+//funcion para validar contrasenna
+//debe tener longitud de 8 caracteres
+
+
+
