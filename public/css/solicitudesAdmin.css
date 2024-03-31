@@ -103,6 +103,30 @@
 	cursor: pointer;
 }
 
+body {
+	font-family: 'Manrope', sans-serif;
+}
+
+select {
+	font-family: 'Manrope', sans-serif;
+}
+
+button {
+	font-family: 'Manrope', sans-serif;
+}
+
+.seccion-titulo {
+	background-color: lightgray;
+	margin-bottom: 40px;
+	padding: 20px;
+	margin-left: auto;
+}
+
+.titulo {
+	font-weight: bold;
+	font-size: 30px;
+	
+}
 /********************************************* FIN DE HEADER *********************************************/
 
 body {

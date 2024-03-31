@@ -118,14 +118,27 @@ button {
 	background-color: lightgray;
 	margin-bottom: 40px;
 	padding: 20px;
+	margin-left: auto;
 }
 
 .titulo {
 	font-weight: bold;
 	font-size: 30px;
 }
+
 /*.......................................................fin de estilos nav...........................................................*/
 
+body {
+	font-family: 'Manrope', sans-serif;
+}
+
+select {
+	font-family: 'Manrope', sans-serif;
+}
+
+button {
+	font-family: 'Manrope', sans-serif;
+}
 .acciones-admin {
     text-align: center; /* Centra horizontalmente el contenido */
 	margin-top: 200px;
