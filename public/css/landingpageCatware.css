@@ -101,7 +101,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 220px;
+    margin-top: 260px;
     font-size: 70px;  
     margin-bottom: 5px;  
 }
@@ -122,28 +122,39 @@ section h2{
     font-weight: 100;
 }
 
+button {
+    background-color: ;
+
+}
+
 
 /*---------------------------------------------------------------------------------------------------------*/
 
 .valores-empresa {
     display: flex;
-    flex-direction:row;
-    margin-top: 600px;
     justify-content: center;
+    align-items: center;
+    margin-top: 600px;
+    background-color: rgb(0, 0, 0, 0.5);
+    height: 400px;
 }
 
-.valores-empresa img {
-    width: 150px; /* Ancho imagen */
-    height: 150px;
-    margin: 0 30px;
-    display: block;
+.valores-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 50px;
 }
 
-.valores-empresa p {
-    display: inline-block;
+.valores-item img {
+    width: 100px; /* Ancho imagen */
+    height: 100px;
+}
+
+.valores-item p {
     color: white;
-    margin-top: auto;
+    margin: 5px 0;
     font-size: 30px;
-
+    text-align: center;
 
 }
