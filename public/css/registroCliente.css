@@ -1,6 +1,7 @@
 .error{
-    border: 2px solid red;
+    border: 1px solid red;
 }
+
 body {
     font-family: 'Cabin', sans-serif;
     margin: 0;
@@ -33,7 +34,7 @@ body {
 
 #tituloF1B{
     display: flex;
-    /* border: 2px solid red;  */
+    border: 2px  red; 
     align-self: center;
     /* margin-right: 30px; */
     margin-top: 25px;
