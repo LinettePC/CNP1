@@ -29,6 +29,29 @@ function validarCamposVacios(){
 
 //validar identificacion
 function validarIdentificacion(){
+    //para que me seleccione lo que este marcado
+    let tipoId = document.querySelector('input[name="tipoIdentificacion"]:checked')
+    let seleccionUsuario = tipoId.value
+
+    let inputIdentificacion = idCliente.value
+    let error = false
+    let expresion 
+
+// evaluar segun el boton que selecciona cliente: cedula, pasaporte o DIMEX
+    if(seleccionUsuario=="nacional" || seleccionUsuario=="pasaporte"){
+        expresion = /^[0-9]{9}$/
+    }else if(seleccionUsuario=="dimex"){
+        expresion = /^[0-9]{12}$/
+    }
+// evaluar todos los tipos de identificaciones
+    if(expresion.test(inputIdentificacion)==false){
+        error=true
+        idCliente.classList.add("error")
+    }
+    return error
+    
+    
+    
 }
 
 //funcion para validar nombre
@@ -43,7 +66,7 @@ function validarNombre(){
     return error
 }
 
-//funcion para validar primerApellido
+//FUNCION para validar primerApellido
 function validarPrimerApellido(){
     let error = false
     let inputPrimerApellido = primerApellido.value
@@ -54,12 +77,46 @@ function validarPrimerApellido(){
     }
     return error
 }
-//funcion para validar correo
+//FUNCION para validar correo
+function validarCorreo(){
+    let error = false
+    let inputCorreo = correo.value
+    let expresion = /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*/
+    if(expresion.test(inputCorreo)==false){
+        error = true
+        correo.classList.add("error")
+    }
+    return error
+}
 
-//funcion para validar telefono
+//FUNCION para validar telefono
+function validarTelefono(){
+    let error = false
+    let inputTelefono = telefono.value
+    let expresion = /^[0-9]{8}$/
+    if(expresion.test(inputTelefono)==false){
+        error = true
+        telefono.classList.add("error")
+    }
+    return error
+}
 
-//funcion para validar contrasenna
-//debe tener longitud de 8 caracteres
 
-
+//FUNCION para validar contrasenna
+// ^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+]).{8}
+//debe tener como minimo de 8 caracteres
+//no puede tener vocales
+//debe tener al menos 1 consonante (al menos una mayuscula, al menos una minuscula)
+//debe tener al menos 1 caracter especial
+//debe tener al menos 1 numero
+function validarContrasenna(){
+    let error = false
+    let inputContrasenna = contrasenna.value
+    let expresion = /^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+]).{8,}/
+    if(expresion.test(inputContrasenna)==false){
+        error=true
+        contrasenna,classList.add("error")
+    }
+    return error   
+}
 
