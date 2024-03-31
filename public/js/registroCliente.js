@@ -17,7 +17,7 @@ function validarCamposVacios(){
     let error = false
 
     for (let i=0;i<camposRequeridos.length;i++){
-    // for (let i=0; i<7;i++){
+    // for (let i=0; i<6;i++){
         if(camposRequeridos[i].value==""){
             error=true
             camposRequeridos[i].classList.add("error")
