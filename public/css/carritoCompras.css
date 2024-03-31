@@ -1,8 +1,13 @@
 body{
-    background-color: #F2F2F2;
+    background-color: #ffffff;
 }
 
 /* Estilos de la barra de navegación */
+.divider {
+    border-top: 50px solid grey;
+    margin-top: 10px; /* Ajusta el margen superior según sea necesario */
+    margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
+}
 
 #inputBusqueda{
     width: 550px;
@@ -232,9 +237,10 @@ form button{
     display: flex;
     margin-left: 100px;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #81B12A;
     padding: 10px;
     border-radius: 12px;
+    color: #2E3C2D;
 }
 
 .producto img {
@@ -248,9 +254,10 @@ form button{
     margin-left: 100px;
     align-items: center;
     margin-top: 50px;
-    background-color: #ffffff;
+    background-color: #81B12A;
     padding: 10px;
     border-radius: 12px;
+    color: #2E3C2D;
 }
 .producto2 img {
     width: 200px; /* ajusta el ancho de la imagen según sea necesario */

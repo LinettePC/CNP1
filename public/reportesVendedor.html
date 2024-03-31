@@ -73,8 +73,7 @@
 					<div class="container-selects">
 						<div class="flex-box">
 							<label class="select-label" for="selectMes"
-								>Periodo</label
-							>
+								>Periodo</label>
 							<div class="container-flex">
 								<div class="flex-box">
 									<select
@@ -83,7 +82,7 @@
 										name="selectMes"
 									>
 										<option value="0" selected>
-											Cualquiera
+											Mes
 										</option>
 										<option value="1">Enero</option>
 										<option value="2">Febrero</option>
@@ -106,7 +105,7 @@
 										name="selectAnno"
 									>
 										<option value="0" selected>
-											Cualquiera
+											Año
 										</option>
 										<option value="2024">2024</option>
 										<option value="2025">2025</option>
@@ -117,8 +116,7 @@
 
 						<div class="flex-box">
 							<label class="select-label" for="selectCategoria"
-								>Categoría</label
-							>
+								>Categoría</label>
 							<select
 								class="select-item"
 								id="selectCategoria"
@@ -140,43 +138,6 @@
 							>
 								<option value="0" selected>Cualquiera</option>
 								<option value="otro">Otro</option>
-							</select>
-						</div>
-
-						<div class="flex-box">
-							<label class="select-label" for="selectTipoUsuario"
-								>Tipo de Usuario</label
-							>
-							<select
-								class="select-item"
-								id="selectTipoUsuario"
-								name="selectTipoUsuario"
-								required
-							>
-								<option selected disabled>
-									Seleccione una opción
-								</option>
-								<option value="tipoAdmin">
-									Administrador (yo)
-								</option>
-								<option value="tipoVendedor">Vendedores</option>
-								<option value="tipoComprador">
-									Compradores
-								</option>
-								<option value="0">Cualquiera</option>
-							</select>
-						</div>
-						<div class="flex-box">
-							<label class="select-label" for="selectUsuario"
-								>Usuario</label
-							>
-							<select
-								class="select-item"
-								id="selectUsuario"
-								name="selectUsuario"
-							>
-								<option value="0" selected>Todos</option>
-								<option value="...">...</option>
 							</select>
 						</div>
 					</div>
@@ -220,7 +181,7 @@
 				</div>
 
 				<div class="container-end">
-					<div class="ganancias-output">
+					<div class="table-output">
 						<label for="totalGanancias">Total de ganancias:</label>
 						<output id="outputTotalGanancias">₡0</output>
 					</div>
