@@ -1,24 +1,71 @@
-<!--Autor: Linette  -->
-
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Inicio Sesion</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<header>
-		<div></div>
-	</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal del Administrador</title>
+    <link rel="stylesheet" href="/public/css/portalVendedor.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap">
 
-	<body>
-		
-	</body>
+  </head>
+  <body>
+    <header class="navegacion">
+        <div class="logo">
+            <img src="img/logo6.png" alt="logo" id="logoFeriaCnp">
+        </div>
+        <div class="barra-navegacion">
+            <nav class="botones-navegacion">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="barra-busqueda">
+                <input type="text" placeholder="Buscar" id="inputBusqueda">
+                <button>Buscar</button>
+            </div>
+		</header>
+
+<!--Panel del admin-->
+
+<div class="h1">
+    <h1>Portal Vendedor</h1>
+</div>
+
+
+<div class="acciones">
+    <div class="accion">
+        <a href="#"><img src="/public/img/profile.png" alt="Mi perfil">
+        <span>Mi Perfil</span> 
+        </a>
+        </div>
+    <div class="accion">
+        <a href="/public/reportesVendedor.html"> <img src="/public/img/cantidad-de-ventas.png" alt="Reportes"></a>
+		<span>Reporte de Ventas</span> 
+        </a>
+        </div>
+       <div class="accion">
+        <a href="#"><img src="/public/img/lista-de-verificacion.png" alt="Catalogo"></a>
+		<span>Mi Catalogo</span> 
+        </a>
+        </div>
+    </div>
+
+
+<!--<div class="textosAcciones">
+    <nav class="textosAcciones1">
+        <ul>
+            <li> <a href="#">Solicitudes</a></li>
+            <li> <a href="#">Reportes</a></li>
+            <li> <a href="#">Usuarios</a></li>
+            <li> <a href="#">Catálogo</a></li>
+        </ul>
+
+    </nav>
+
+
+</div>
+
+</body>
 </html>
