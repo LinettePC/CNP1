@@ -140,3 +140,7 @@ h1 {
     margin-right: 100px;
 
   }
+
+  input[type="button"] {
+    display: flex;
+  }
