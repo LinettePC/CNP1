@@ -140,34 +140,37 @@ button {
 	font-family: 'Manrope', sans-serif;
 }
 .acciones-admin {
-    text-align: center; /* Centra horizontalmente el contenido */
+	text-align: center; /* Centra horizontalmente el contenido */
 	margin-top: 200px;
 }
 
+.container {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 .contenedor-acciones {
-    display: inline-block; /* Para que el enlace solo ocupe el área alrededor de la imagen y el texto */
-    text-decoration: none; 
-    color: #1F7544; 
+	display: inline-block; /* Para que el enlace solo ocupe el área alrededor de la imagen y el texto */
+	text-decoration: none;
+	color: #1f7544;
 	padding: 40px;
 	font-size: 20px;
 }
 
 .contenedor-acciones img {
-    width: 200px; /* Ancho imagen */
-    height: 200px; /* Alto imagen */
-    display: block; 
-    margin: 0 auto; 
+	width: 200px; /* Ancho imagen */
+	height: 200px; /* Alto imagen */
+	display: block;
+	margin: 0 auto;
 }
 
 .contenedor-acciones h1 {
-    margin-top: 20px; 
+	margin-top: 20px;
 }
 
 .contenedor-acciones:hover {
 	color: #d36c0c;
 	background-color: lightgray;
-
 }
- 
-
-
