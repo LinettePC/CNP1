@@ -1,30 +1,30 @@
 .navegacion {
     display: flex;
-    justify-content: space-between; /* Alinear los elementos a los extremos */
+    justify-content: space-between; 
     background-color: #ffffff;
     padding: 10px 20px;
 }
 
 .botones-navegacion {
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 21px;
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: center; /* Centrar los elementos de la lista */
+    text-align: center; 
 }
 
 .botones-navegacion ul {
-    display: inline-block; /* Convertir la lista en un bloque en línea */
+    display: inline; 
 }
 
 .botones-navegacion ul li {
-    display: inline; /* Mostrar los elementos de la lista en línea */
-    margin-right: 20px; /* Espacio entre elementos */
-}
+    display: inline;
+    margin-right: 20px;
+} 
 
 .botones-navegacion ul li:last-child {
-    margin-right: 0; /* Eliminar el margen derecho del último elemento */
+    margin-right: 0; 
 }
 
 .barra-navegacion nav ul li a {
@@ -32,11 +32,13 @@
     text-decoration: none;
 }
 
+/* Estilos del logo */
 .logo {
-    display: flex; /* Usamos flexbox para alinear verticalmente el logo */
+    display: flex;
     align-items: center;
 }
-#logoFeriaCnp{
+
+#logoFeriaCnp {
     width: 200px;
     margin-left: 45px;
 }
@@ -64,10 +66,6 @@ form {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-div {
-    margin-bottom: 20px;
 }
 
 label {
@@ -99,4 +97,8 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #1F7544;
+}
+
+input {
+    margin-bottom: 20px;
 }

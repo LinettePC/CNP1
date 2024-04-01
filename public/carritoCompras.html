@@ -4,7 +4,15 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Carrito</title>
+		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="/public/css/carritoCompras.css" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<header class="navegacion">
@@ -14,11 +22,20 @@
 			<div class="barra-navegacion">
 				<nav class="botones-navegacion">
 					<ul>
-						<li><a href="/public/landingPage.html">Inicio</a></li>
-						<li><a href="#">Tienda</a></li>
-						<li><a href="/public/marketplace.html	">Productos</a></li>
-						<li><a href="#">Contacto</a></li>
-						<li><a href="#">Nosotros</a></li>
+						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
+						<li><a href="marketplace.html">Tienda</a></li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/contactenos/index.aspx"
+								>Contacto</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
+								>Nosotros</a
+							>
+						</li>
 					</ul>
 				</nav>
 				<div class="barra-busqueda">
@@ -32,51 +49,60 @@
 			</div>
 			<div class="carrito">
 				<div id="cuenta">
-					<a href="/public/miPerfil.html" id="textoCuenta">Mi Cuenta |</a>
+					<a href="/public/miPerfil.html" id="textoCuenta"
+						>Mi Cuenta |</a
+					>
 				</div>
 				<div>
 					<img
 						src="img/carritoCompras.png"
 						alt="logoCarrito"
-						id="logoCarrito" 
+						id="logoCarrito"
 					/>
 				</div>
 			</div>
 		</header>
-		<div class="divider"></div>
 
-		<!--Este es el section de el carrito de compras -->
-		<section class="carrito">
+		<div class="seccion-titulo">
 			<div class="container">
-				<h1 class="subEncabezado">Carrito de compras</h1>
-				<div class="subEncabezado2">
-					<h2>Total a pagar: 3000 colones</h2>
-					<button>Proceder con el pago</button>
-				</div>
+				<h1 class="titulo">Carrito de compras</h1>
+			</div>
+		</div>
 
-				<div class="producto">
-					<img src="/public/img/tomate.jpg" alt="" />
-					<div class="detalle">
-						<h2>Nombre del producto</h2>
-						<h3>Precio: 1000</h3>
-						<div class="cantidad">
-							<label for="">Cantidad</label>
-							<input type="number" />
+		<div class="container">
+			<div class="container-flex">
+				<div class="columna-flex">
+					<div class="caja-flex-producto">
+						<div class="img-producto-container">
+							<img
+								src="https://phantom-marca.unidadeditorial.es/631c4b360757ce3355fc636fe8c0cab9/resize/828/f/jpg/assets/multimedia/imagenes/2023/09/05/16939288675740.jpg"
+								alt=""
+							/>
+						</div>
+						<div>
+							<h1 class="titulo-producto">Zanahoria</h1>
+							<p class="descripcion-producto">Cantidad: 3</p>
+							<p class="descripcion-producto">Precio: 1500</p>
+						</div>
+					</div>
+					<div class="caja-flex-producto">
+						<div class="img-producto-container">
+							<img
+								src="https://infoalimentos.org.ar/images/temas/seguridad_de_los_alimentos/TEMAS_Papas_interna_horiz_840x410.jpg"
+								alt=""
+							/>
+						</div>
+						<div>
+							<h1 class="titulo-producto">Papa</h1>
+							<p class="descripcion-producto">Cantidad: 5</p>
+							<p class="descripcion-producto">Precio: 1000</p>
 						</div>
 					</div>
 				</div>
-				<div class="producto2">
-					<img src="/public/img/papas.jpg" alt="" />
-					<div class="detalle">
-						<h2>Nombre del producto</h2>
-						<h3>Precio: 1000</h3>
-						<div class="cantidad">
-							<label for="">Cantidad</label>
-							<input type="number" />
-						</div>
-					</div>
+				<div class="columna-flex">
+					<h1 style="font-size: 50px;">Total a pagar: 2500</h1>
 				</div>
 			</div>
-		</section>
+		</div>
 	</body>
 </html>

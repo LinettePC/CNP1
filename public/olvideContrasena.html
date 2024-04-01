@@ -11,9 +11,8 @@
 			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/olvideContrasena.css" />
-		<script src=""></script>
+		<!-- <link rel="stylesheet" href="css/reset.css" /> -->
+		<link rel="stylesheet" href="css/olvideContrasena.css" />
 
 		<title>Contraseña Olvidada</title>
 	</head>
@@ -32,15 +31,23 @@
 				</nav>
 			</div>
 		</header>
+
 		<h1>Recuperar contraseña</h1>
-		<form id="formLogin" action="/recuperar-contrasena" method="POST">
+		<form
+			id="formLogin"
+			action="/recuperar-contrasena"
+			method="POST"
+			onsubmit="return validateForm()"
+			novalidate
+		>
 			<div>
-    <label for="correo">Correo electrónico:</label>
-    <input type="email" id="correo" name="correo" required>
-</div>
+				<label for="correo">Correo electrónico:</label>
+				<input type="email" id="correo" name="correo" required />
+			</div>
 			<button type="submit">Enviar</button>
 		</form>
+
+		<script src="/public/js/olvideContrasena.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	</body>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="/public/js/olvideContrasena.js"></script>
-	</html>
+</html>
