@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="css/checkout.css" />
+  </head>
+  <body class="body">
+    <div class="contenedor">
+      <div class="formulario">
+        <div>
+          <img src="img/logo6.png" alt="" id="logo">
+        </div>
+        <div id="contenedorTextoSuperior">
+          <h2>Formulario de Compra</h2>
+          <p>Porfavor rellenar todos los campos</p>
+        </div>
+
+        <form id="inputsDatos">
+          <div class="cajaInputDoble">
+            <div>
+              <label for="nombre" class="labelFormulario">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" class="inputPequeno" required />
+            </div>
+            <div>
+              <label for="apellidos" class="labelFormulario">Apellidos:</label>
+              <input type="text" id="apellidos" name="apellidos" class="inputPequeno" required />
+            </div>
+          </div>
+        
+          <div class="cajaInput">
+              <label for="email" class="labelFormulario">Email:</label>
+              <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="cajaInput">
+            <label for="provincia" class="labelFormulario">Provincia:</label>
+            <input id="provincia" name="provincia" required />
+          </div>
+
+          <div class="cajaInputDoble">
+            <div>
+              <label for="canton" class="labelFormulario">Canton:</label>
+              <input id="canton" name="canton" required />
+            </div>
+            <div>
+              <label for="distrito" class="labelFormulario">Distrito:</label>
+              <input id="distrito" name="distrito" required />
+            </div>
+          </div>
+
+          <div class="cajaInput">
+            <label for="direccion" class="labelFormulario">Dirección:</label>
+            <input id="direccion" name="direccion" required></textarea>
+          </div>
+        
+          <div class="cajaTarjeta">
+            <label for="tarjetaCredito" >Tarjeta de Credito:</label>
+            <select name="select">
+              <option value="value1">Mastercard 5891</option>
+            </select>
+          </div>
+
+          <div class="cajaBoton">
+            <button type="submit" id="boton">Realizar Compra</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="productos">
+
+        <div id="ejemploProducto">
+          <div>
+            <img src="img/ejemploProducto.png" alt="" id="imagenEjemplo">
+          </div>
+          <div id="nombreCantidadProducto">
+              <p>Naranja Importada Grande</p>
+              <span>5 Unidades</span>
+          
+            
+        
+          </div>
+          <div>
+            <p>₡500.00</p>
+          </div>
+          
+        </div>
+        
+        <div id="precioTexto">
+          <div>
+            <p>Total</p>
+            <P>₡5500.00</P>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
