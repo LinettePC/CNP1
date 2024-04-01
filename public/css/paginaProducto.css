@@ -1,5 +1,10 @@
 body{
-    background-color: #F2F2F2;
+    background-color: #ffffff;
+}
+.divider {
+    border-top: 40px solid grey;
+    margin-top: 10px; /* Ajusta el margen superior según sea necesario */
+    margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
 }
 
 /* Estilos de la barra de navegación */
@@ -125,8 +130,8 @@ body{
 #producto{
     
     display: flex;
-    background-color: #ffffff;
-    border-radius: 12px;
+    background-color: #F2F2F2;
+    border-radius: 15px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 #imagenProducto{
@@ -164,7 +169,7 @@ form{
     padding: 10px;
     margin-left: 150px;
     margin-top: 70px;
-    width: 70%;
+    width: 45%;
     border-radius: 12px;
     margin: 25px;
 
@@ -174,7 +179,7 @@ form{
 }
 
 form button{
-    color:#81B12A ;
+    color:black ;
     font-weight: 800px;
     padding: 5px;
     border-radius: 12px;
