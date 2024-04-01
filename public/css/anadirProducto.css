@@ -1,0 +1,138 @@
+/* Estilos de la barra de navegación */
+
+#inputBusqueda{
+    width: 550px;
+}
+
+.barra-navegacion {
+    width: 50%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    padding: 10px 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.botones-navegacion {
+    font-family: 'Cabin', sans-serif;
+    font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: 22px;
+    word-spacing: 35px;
+
+}
+
+.barra-busqueda{
+    margin-bottom: 15px;
+}
+
+
+.barra-navegacion nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    align-items: end;
+}
+
+.barra-navegacion nav ul li {
+    display: inline;
+}
+
+.barra-navegacion nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+
+
+.barra-busqueda input[type="text"] {
+    font-family: 'Cabin', sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+
+}
+
+.barra-busqueda button {
+    font-size: 22px;
+    font-family: 'Cabin', sans-serif;
+    padding: 10px 20px;
+    background-color: #81B12A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logoFeriaCnp{
+    width: 200px;
+    margin-left: 45px;
+}
+
+.logo{
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+
+
+
+/* Estilos para el formulario de edición */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.input-field {
+    margin-bottom: 20px;
+}
+
+.input-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.save-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
