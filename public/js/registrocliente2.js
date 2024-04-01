@@ -99,7 +99,12 @@ function validarTelefono() {
     });
 }
 
-// Validar contraseña
+//FUNCION para validar contrasenna
+//debe tener como minimo de 8 caracteres
+//no puede tener vocales
+//debe tener al menos 1 consonante (al menos una mayuscula, al menos una minuscula)
+//debe tener al menos 1 caracter especial
+//debe tener al menos 1 numero
 function validarContrasenna() {
     return validarCampo(inputs.contrasenna, /^(?=.[bcdfghjklmnñpqrstvwxyz])(?=.[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.[0-9])(?=.[!@#$%^&*()-_+]).{8,}$/, {
         title: "La contraseña es inválida",
