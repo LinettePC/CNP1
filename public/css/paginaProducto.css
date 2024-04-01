@@ -1,192 +1,183 @@
-body{
-    background-color: #ffffff;
+body {
+    margin: 0px;
+	background-color: #ffffff;
 }
 .divider {
-    border-top: 40px solid grey;
-    margin-top: 10px; /* Ajusta el margen superior según sea necesario */
-    margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
+	border-top: 40px solid grey;
+	margin-top: 10px; /* Ajusta el margen superior según sea necesario */
+	margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
 }
 
 /* Estilos de la barra de navegación */
 
-#inputBusqueda{
-    width: 550px;
+#inputBusqueda {
+	width: 550px;
 }
 
 .barra-navegacion {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #000000;
-    padding: 10px 20px;
-    
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #000000;
+	padding: 10px 20px;
 }
 
 .botones-navegacion {
-    font-family: 'Cabin', sans-serif;
-    font-size: 21px;
-    margin-top: 15px;
-    margin-bottom: 22px;
-    word-spacing: 35px;
+	font-family: 'Cabin', sans-serif;
+	font-size: 21px;
+	margin-top: 15px;
+	margin-bottom: 22px;
+	word-spacing: 35px;
 }
 
-.barra-busqueda{
-    margin-bottom: 15px;
+.barra-busqueda {
+	margin-bottom: 15px;
 }
-
 
 .barra-navegacion nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 .barra-navegacion nav ul li {
-    display: inline;
+	display: inline;
 }
 
 .barra-navegacion nav ul li a {
-    color: #000000;
-    text-decoration: none;
-    margin: 0 10px;
+	color: #000000;
+	text-decoration: none;
+	margin: 0 10px;
 }
 
-
-
-.barra-busqueda input[type="text"] {
-    font-family: 'Cabin', sans-serif;
-    font-size: 18px;
-    padding: 10px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
+.barra-busqueda input[type='text'] {
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
 }
 
 .barra-busqueda button {
-    font-size: 18px;
-    font-family: 'Cabin', sans-serif;
-    padding: 10px 20px;
-    background-color: #81B12A;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
-#logoFeriaCnp{
-    width: 200px;
-    margin-left: 45px;
+#logoFeriaCnp {
+	width: 200px;
+	margin-left: 45px;
 }
 
-.logo{
-    width: 25%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
+.logo {
+	width: 25%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
-.carrito{
-    width: 25%;
-    display: flex;
-    font-family: 'Cabin', sans-serif;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.carrito {
+	width: 25%;
+	display: flex;
+	font-family: 'Cabin', sans-serif;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
-#textoCuenta{
-    text-decoration: none;
-    color: #000000;
-    padding-right: 25px;
-    font-size: 21px;
+#textoCuenta {
+	text-decoration: none;
+	color: #000000;
+	padding-right: 25px;
+	font-size: 21px;
 }
-#logoCarrito{
-    width: 100px;
+#logoCarrito {
+	width: 100px;
 }
-.navegacion{
-    height: 155px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: white;
-    border-radius: 12px;
+.navegacion {
+	height: 155px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: white;
+	border-radius: 12px;
 }
 
 /* Estilos de la barra de navegación: final */
 
 /*Estilos de descripcion del producto*/
-.seccionProducto{
-    display: flex;
-    align-items: center;
-    gap: 0px 30px;
-    Text-align: justify;
-    margin: 40px 100px;
-
+.seccionProducto {
+	display: flex;
+	align-items: center;
+	gap: 0px 30px;
+	text-align: justify;
+	margin: 40px 100px;
 }
-#producto{
-    
-    display: flex;
-    background-color: #F2F2F2;
-    border-radius: 15px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+#producto {
+	display: flex;
+	background-color: #ffffff;
+	border-radius: 15px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-#imagenProducto{
-    width: 300px;   
-    margin-right: 10px;
-    border-radius: 12px;
+#imagenProducto {
+	width: 300px;
+	margin-right: 10px;
+	border-radius: 12px;
 }
 
-.textoProducto{
-    font-family: 'Cabin', sans-serif;
-    text-align: left;
-    padding-right: 10px;
-    
-    
+.textoProducto {
+	font-family: 'Cabin', sans-serif;
+	text-align: left;
+	padding-right: 10px;
 }
-.textoProducto p{
-    width: 500px;
-    Text-align: justify;
-    
+.textoProducto p {
+	width: 500px;
+	text-align: justify;
 }
 
-#producto h2{
-    font-size: 17px;
+#producto h2 {
+	font-size: 17px;
 }
 /*Estilos de descripcion del producto: final*/
 
 /*Estilos del precio del producto y la seccion de añadir al carrito*/
 
-form{
-    font-family: 'Cabin', sans-serif;
-    background-color: #81B12A;
-    gap: 15px 15px;
-    display: flex;
-    margin-left: 150px;
-    margin-top: 70px;
-    width: 45%;
-    border-radius: 12px;
-    margin: 25px;
+form {
+	font-family: 'Cabin', sans-serif;
+	background-color: #81b12a;
+	gap: 15px 15px;
+	display: flex;
+	margin-left: 150px;
+	margin-top: 70px;
+	width: 45%;
+	border-radius: 12px;
+	margin: 25px;
 
-    color: #ffffff;
-    font-weight: 500px;
-    font-size: 16px;
+	color: #ffffff;
+	font-weight: 500px;
+	font-size: 16px;
 }
 
-form button{
-    color:black ;
-    font-weight: 800px;
-    padding: 5px;
-    border-radius: 12px;
-    font-size: 16px;
+form button {
+	color: black;
+	font-weight: 800px;
+	padding: 5px;
+	border-radius: 12px;
+	font-size: 16px;
 }
 
-#cantidad{
-    Width: 40% ;
-    Font-weight: 300;
-    border-radius: 12px;
-    font-size: 16px;
+#cantidad {
+	width: 40%;
+	font-weight: 300;
+	border-radius: 12px;
+	font-size: 16px;
 }
