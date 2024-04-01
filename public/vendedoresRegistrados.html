@@ -6,7 +6,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Compradores Registrados</title>
+		<title>Vendedores Registrados</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -15,7 +15,7 @@
 		/>
 
 		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="css/compradoresRegistrados.CSS" />
+		<link rel="stylesheet" href="css/vendedoresRegistrados.css" />
 
 		<link
 			rel="stylesheet"
@@ -63,7 +63,7 @@
 
 		<div class="seccion-titulo">
 			<div class="container">
-				<h1 class="titulo">Compradores Registrados</h1>
+				<h1 class="titulo">Vendedores Registrados</h1>
 			</div>
 		</div>
 <!----------------------------------------------------FIN HEADER----------------------------------------------------------->
@@ -71,8 +71,8 @@
 <main class="container">
 
 
-			<section class="reporte-compradores">
-				<div class="container-compradores">
+			<section class="reporte-vendedores">
+				<div class="container-vendedores">
 					<table class="table">
 						<thead>
 							<tr>
@@ -80,6 +80,7 @@
 								<th class="apellido">Apellido</th>
 								<th class="identificacion">Identificación</th>
 								<th class="incorporacion">Fecha de incorporación</th>
+                                <th class="nombretienda">Nombre del tramo</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -88,30 +89,35 @@
 								<td class="apellido">Chinchilla</td>
 								<td class="identificacion">1-3457-0982</td>
 								<td class="incorporacion">2/12/2023</td>
+                                <td class="nombretienda"> Fresas de mi tata</td>
 							</tr>
 							<tr>
 								<td class="nombre">Lorena</td>
 								<td class="apellido">Matamoros</td>
 								<td class="identificacion">3-2367-3422</td>
 								<td class="incorporacion">18/12/2023</td>
+                                <td class="nombretienda"> Verduras Lore</td>
 							</tr>
 							<tr>
 								<td class="nombre">Laura</td>
 								<td class="apellido">Cisneros</td>
 								<td class="identificacion">2-6798-9134</td>
 								<td class="incorporacion">04/01/2024</td>
+                                <td class="nombretienda">Frutas Benditas</td>
 							</tr>
 							<tr>
 								<td class="nombre">Victor</td>
 								<td class="apellido">Palacios</td>
 								<td class="identificacion">1-2245-7654</td>
 								<td class="incorporacion">24/01/2024</td>
+                                <td class="nombretienda">Tramo don Victor</td>
 							</tr>
 							<tr>
 								<td class="nombre">Roberto</td>
 								<td class="apellido">Mora</td>
 								<td class="identificacion">1-2345-5566</td>
 								<td class="incorporacion">15/02/2024</td>
+                                <td class="nombretienda">Queso el ratón feliz</td>
 							</tr>
 						</tbody>
 					</table>
@@ -124,7 +130,7 @@
 					</div>
 					<button class="boton" type="button">
 						<span style="margin-right: 10px"
-							>Descargar Reporte de Compras</span
+							>Descargar Reporte de Ventas</span
 						>
 						<i class="bi bi-download"></i>
 					</button>
@@ -133,4 +139,3 @@
 		</main>
 	</body>
 </html>
-
