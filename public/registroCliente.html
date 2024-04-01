@@ -24,29 +24,37 @@
 </head>
 <body>
 
-<!--Header General-->
-    <!-- <header id="headerGeneral">
-        <img id="logoTres" src="img/logo5.png" alt="">
-        <h1 id="tituloGeneral">La Feria del Consejo Nacional de Producción</h1>
-        <nav id="navUno">
-            <a id="a1" href="#">Inicio</a>
-            <a id="a1" href="#">Contáctenos</a>
-        </nav>
-    </header> -->
-
 <!--Header Uno-->   
-
 <header id="headerUno">
     <div class="logo">
         <img src="img/logo6.png" alt="logo" id="logoFeriaCnp">
     </div>
+        
+    <div>
+        <h1 id="tituloF1A">Ahora puedes comprar productos en la Feria del CNP</h1>
+        <h1 id="tituloF1B">Solo debes crear una Cuenta de Cliente para empezar a comprar</h1>
+    </div>
 
+    <div>
+        <nav id="navUno">
+            <a id="a1" href="/public/landingPage.html">Inicio</a>
+            <a id="a1" href="#">Contáctenos</a>
+        </nav>
+    </div>  
 </header>
 
     <section id="formulario">
-        <h1 id="tituloF1">Bienvenido</h1>
-        <h1 id="tituloF2">Crea una Cuenta de Comprador</h1>
-        
+
+        <div id="tituloForm">
+            <div class="logo">
+                <img src="/public/img/profile.png" alt="logo" id="logoPerfil">
+            </div>
+            <div>
+                <h1 id="tituloF2">Formulario de Cliente</h1>
+            </div>
+            
+        </div>
+
         <form id="formularioCuentaCliente">
 
             <div>
@@ -61,6 +69,7 @@
                 <div>
                     <!-- <p>Identificación:</p> -->
                     <label for="identificacion">Identificación:</label>
+                    <p></p>
                     <input type="text" id="identificacion" name="identificacion" required >
                 </div>
             </div>
@@ -68,30 +77,35 @@
             <div>
                 <label for="nombre">Nombre:</label>
                 <!-- <p>Nombre:</p> -->
+                <p></p>
                 <input type="text" id="nombre" name="nombre" required >  
             </div>
 
             <div>
                 <label for="primerApellido">Primer Apellido:</label>
                 <!-- <p>Primer Apellido:</p> -->
+                <p></p>
                 <input type="text" id="primerApellido" name="primerApellido" required >
             </div>
             
             <!-- <div> -->
                 <!-- <label for="segundoApellido">Segundo Apellido:</label> -->
                 <!-- <p>Segundo Apellido:</p>
+                <p></p>
                 <input type="text" id="segundoApellido" name="segundoApellido" placeholder="opcional" >  -->
             <!-- </div> -->
 
             <div>
                 <label for="correo">Correo:</label>
                 <!-- <p>Correo:</p> -->
+                <p></p>
                 <input type="email" id="correo" name="correo" required >   
             </div>
 
             <div>
                 <label for="telefono">Teléfono:</label>
                 <!-- <p>Teléfono:</p> -->
+                <p></p>
                 <input type="text" id="telefono" name="telefono" required >  
             </div>
 
@@ -107,6 +121,7 @@
             <div>
                 <label for="contrasenna">Contraseña:</label>
                 <!-- <p>Contraseña:</p> -->
+                <p></p>
                 <input type="text" id="contrasenna" name="contrasenna" required >
             </div>
             
@@ -115,11 +130,18 @@
             </div>
            
         </form>
-        
-
     </section>
+
+    <footer class="pie_pagina">
+        <div>
+            <nav id="navDos">
+                <a id="a1" href="/public/landingPage.html">Inicio</a>
+                <a id="a1" href="#">Contáctenos</a>
+            </nav>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/public/js/registroCliente.js" ></script> 
-    
+    <script src="/public/js/registrocliente2.js" ></script> 
 </body>
 </html>
