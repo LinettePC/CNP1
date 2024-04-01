@@ -1,0 +1,237 @@
+/********************************************* Header *********************************************/
+/*Autor Diana Pasos*/
+
+.logo {
+	width: 25%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#logoFeriaCnp {
+	width: 200px;
+	margin-left: 45px;
+}
+
+.carrito {
+	width: 25%;
+	display: flex;
+	font-family: 'Cabin', sans-serif;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#textoCuenta {
+	text-decoration: none;
+	color: #000000;
+	padding-right: 25px;
+	font-size: 21px;
+}
+
+#logoCarrito {
+	width: 100px;
+}
+
+.navegacion {
+	height: 155px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+/* Estilos de la barra de navegación */
+.barra-navegacion {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #000000;
+	padding: 10px 20px;
+}
+
+.botones-navegacion {
+	font-family: 'Cabin', sans-serif;
+	font-size: 21px;
+	margin-top: 15px;
+	margin-bottom: 22px;
+	word-spacing: 35px;
+}
+
+.barra-busqueda {
+	margin-bottom: 15px;
+}
+
+#inputBusqueda {
+	width: 550px;
+}
+
+.barra-navegacion nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.barra-navegacion nav ul li {
+	display: inline;
+}
+
+.barra-navegacion nav ul li a {
+	color: #000000;
+	text-decoration: none;
+	margin: 0 10px;
+}
+
+.barra-busqueda input[type='text'] {
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.barra-busqueda button {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/********************************************* FIN DE HEADER *********************************************/
+
+body {
+	font-family: 'Manrope', sans-serif;
+}
+
+select {
+	font-family: 'Manrope', sans-serif;
+}
+
+button {
+	font-family: 'Manrope', sans-serif;
+}
+
+.seccion-titulo {
+	background-color: lightgray;
+	margin-bottom: 40px;
+	padding: 20px;
+}
+
+.titulo {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.container {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.container-flex {
+	display: flex;
+}
+
+.container-selects {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.selection-section {
+	margin-bottom: 40px;
+}
+
+/*--------Seccion de la tabla---------*/
+
+.flex-box {
+	flex: 1;
+	margin-right: 20px;
+}
+
+.flex-box:last-child {
+	margin-right: 0; /* Remove margin from the last box */
+}
+
+.select-label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 23px;
+}
+
+.select-item {
+	width: 100%;
+	font-size: 16px;
+}
+
+
+
+
+
+.container-compradores {
+	margin-bottom: 30px;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table th,
+.table td {
+	border: 1px solid #000;
+	padding: 8px;
+	text-align: center;
+}
+
+.table th {
+	background-color: #f2f2f2;
+	font-weight: bold;
+}
+
+.boton {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.ganancias-output {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	color: black;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 15px;
+	border: 2px solid black;
+	line-height: normal;
+    cursor: default;
+}
+
+.ganancias-output:hover {
+	color: white;
+    background-color: black;
+}
+
+.ganancias-output label {
+	margin-right: 7px;
+	font-weight: bold;
+}
+
+.container-end {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}

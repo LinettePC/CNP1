@@ -90,7 +90,7 @@
 /* Estilos para el formulario de edición */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
 }
 
 .container {
@@ -129,7 +129,7 @@ body {
 }
 
 .save-button {
-    background-color: #007bff;
+    background-color: #81B12A;;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
