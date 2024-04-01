@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metodo de pago</title>
+
+    <link rel="stylesheet" href="/public/css/annadirMetodoPago.css" />
+  </head>
+  <body>
+    <header class="navegacion">
+      <div class="logo">
+        <img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+      </div>
+      <div class="barra-navegacion">
+        <nav class="botones-navegacion">
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Tienda</a></li>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Nosotros</a></li>
+          </ul>
+        </nav>
+        <div class="barra-busqueda">
+          <input type="text" placeholder="Buscar" id="inputBusqueda" />
+          <button>Buscar</button>
+        </div>
+      </div>
+      <div class="carrito">
+        <div id="cuenta">
+          <a href="/public/miPerfil.html" id="textoCuenta">Mi Cuenta |</a>
+        </div>
+        <div>
+          <img
+            src="img/carritoCompras.png"
+            alt="logoCarrito"
+            id="logoCarrito"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <h1>Registrar metodo de pago</h1>
+    <form class="metodoP">
+        <div>
+            <label for="">Numero de tarjeta</label>
+            <input type="number" placeholder="Ej: 8888 8888 8888 8888" id="numTarjeta" />
+        </div>
+        <div>
+            <label for="">Nombre del propietario</label>
+            <input type="text" placeholder="Julio Sanchez Perez" id="nombrePropietario" />
+        </div>
+        <div class="vencimiento">
+            <label for="">Vencimiento</label>
+            <div class="vencimientoInputs">
+                <input type="number" placeholder="MM" min="1" max="12" id="mes" />
+                <input type="number" placeholder="AA" min="24" id="annio" />
+            </div>
+        </div>
+        <div>
+            <label for="">CVV</label>
+            <input type="number" placeholder="123" id="cvv" max="3" />
+        </div>
+        <button type="button" id="enviar">Agregar metodo de pago</button>
+        
+    </form>
+
+    <script src="/public/js/metodoPago.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Incluir SweetAlert -->
+</body>
+</html>

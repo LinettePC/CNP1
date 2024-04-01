@@ -1,0 +1,102 @@
+.navegacion {
+    display: flex;
+    justify-content: space-between; /* Alinear los elementos a los extremos */
+    background-color: #ffffff;
+    padding: 10px 20px;
+}
+
+.botones-navegacion {
+    font-family: 'Cabin', sans-serif;
+    font-size: 21px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Centrar los elementos de la lista */
+}
+
+.botones-navegacion ul {
+    display: inline-block; /* Convertir la lista en un bloque en línea */
+}
+
+.botones-navegacion ul li {
+    display: inline; /* Mostrar los elementos de la lista en línea */
+    margin-right: 20px; /* Espacio entre elementos */
+}
+
+.botones-navegacion ul li:last-child {
+    margin-right: 0; /* Eliminar el margen derecho del último elemento */
+}
+
+.barra-navegacion nav ul li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.logo {
+    display: flex; /* Usamos flexbox para alinear verticalmente el logo */
+    align-items: center;
+}
+#logoFeriaCnp{
+    width: 200px;
+    margin-left: 45px;
+}
+
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 40px;
+    font-size: 40px;
+    font-style: bold;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #81B12A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+
+button[type="submit"]:hover {
+    background-color: #1F7544;
+}
