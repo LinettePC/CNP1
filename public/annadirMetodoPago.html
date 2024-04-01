@@ -47,24 +47,28 @@
     <form class="metodoP">
         <div>
             <label for="">Numero de tarjeta</label>
-            <input type="number" placeholder="Ej: 8888 8888 8888 8888" />
+            <input type="number" placeholder="Ej: 8888 8888 8888 8888" id="numTarjeta" />
         </div>
         <div>
             <label for="">Nombre del propietario</label>
-            <input type="text" placeholder="Julio Sanchez Perez" />
+            <input type="text" placeholder="Julio Sanchez Perez" id="nombrePropietario" />
         </div>
         <div class="vencimiento">
             <label for="">Vencimiento</label>
             <div class="vencimientoInputs">
-                <input type="number" placeholder="MM" min="1" max="12" />
-                <input type="number" placeholder="AA" min="2024" />
+                <input type="number" placeholder="MM" min="1" max="12" id="mes" />
+                <input type="number" placeholder="AA" min="24" id="annio" />
             </div>
         </div>
         <div>
             <label for="">CVV</label>
-            <input type="number" placeholder="123" />
+            <input type="number" placeholder="123" id="cvv" max="3" />
         </div>
-        <button>Agregar metodo de pago</button>
+        <button type="button" id="enviar">Agregar metodo de pago</button>
+        
     </form>
+
+    <script src="/public/js/metodoPago.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Incluir SweetAlert -->
 </body>
 </html>
