@@ -1,3 +1,47 @@
+.navegacion {
+    display: flex;
+    justify-content: space-between; /* Alinear los elementos a los extremos */
+    background-color: #ffffff;
+    padding: 10px 20px;
+}
+
+.botones-navegacion {
+    font-family: 'Cabin', sans-serif;
+    font-size: 21px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Centrar los elementos de la lista */
+}
+
+.botones-navegacion ul {
+    display: inline-block; /* Convertir la lista en un bloque en línea */
+}
+
+.botones-navegacion ul li {
+    display: inline; /* Mostrar los elementos de la lista en línea */
+    margin-right: 20px; /* Espacio entre elementos */
+}
+
+.botones-navegacion ul li:last-child {
+    margin-right: 0; /* Eliminar el margen derecho del último elemento */
+}
+
+.barra-navegacion nav ul li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.logo {
+    display: flex; /* Usamos flexbox para alinear verticalmente el logo */
+    align-items: center;
+}
+#logoFeriaCnp{
+    width: 200px;
+    margin-left: 45px;
+}
+
+
 body {
     font-family: 'Manrope', sans-serif;
     background-color: #ffffff;
