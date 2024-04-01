@@ -171,10 +171,6 @@ button {
 	font-size: 16px;
 }
 
-
-
-
-
 .container-vendedores {
 	margin-bottom: 30px;
 }
@@ -217,12 +213,12 @@ button {
 	margin-right: 15px;
 	border: 2px solid black;
 	line-height: normal;
-    cursor: default;
+	cursor: default;
 }
 
 .ganancias-output:hover {
 	color: white;
-    background-color: black;
+	background-color: black;
 }
 
 .ganancias-output label {
