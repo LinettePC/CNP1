@@ -8,9 +8,9 @@
 		<title>Registro Vendedor</title>
 		<!--Links para las hojas de estilos: -->
 		<!--Link a reset -->
-		<link rel="stylesheet" href="/public/css/reset.css" />
+		<link rel="stylesheet" href="css/reset.css" />
 		<!--Link al css de estilos respectivo -->
-		<link rel="stylesheet" href="/public/css/registroVendedor.css" />
+		<link rel="stylesheet" href="css/registroVendedor.css" />
 		<!-- <link rel="stylesheet" href="/public/img/logoTres.png">  -->
 
 		<!--Link a las letras -->
@@ -24,11 +24,11 @@
 	<body>
 		<!--Header Uno-->
 		<header id="headerUno">
-			<div class="logo">
+			<div class="logo" style="margin-right: auto;">
 				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
 			</div>
 
-			<div>
+			<div class="titulos-container">
 				<h1 id="tituloF1A">
 					Ahora puedes vender productos en la Feria del CNP
 				</h1>
@@ -38,7 +38,7 @@
 				</h1>
 			</div>
 
-			<div>
+			<div style="margin-left: auto;">
 				<nav id="navUno">
 					<a id="a1" href="/public/landingPage.html">Inicio</a>
 					<a id="a1" href="#">Contáctenos</a>
@@ -61,7 +61,7 @@
 			</div>
 
 			<form id="formularioCuentaCliente">
-				<div>
+				<div class="margen-bottom-xl">
 					<input
 						type="radio"
 						id="idNacional"
@@ -81,28 +81,33 @@
 
 					<!-- <input type="radio" id="idPasaporte" name="tipoIdentificacion" value="pasaporte">
                 <label for="pasaporte">Pasaporte</label> -->
-					<div>
-						<!-- <p>Identificación:</p> -->
-						<label for="identificacion">Identificación:</label>
-						<p></p>
-						<input
-							type="text"
-							id="identificacion"
-							name="identificacion"
-							required
-						/>
-					</div>
 				</div>
 
-				<div>
-					<label for="nombre">Nombre:</label>
+				<div class="margen-bottom-xl">
+					<!-- <p>Identificación:</p> -->
+					<label for="identificacion" class="margen-bottom"
+						>Identificación:</label
+					>
+					<p></p>
+					<input
+						type="text"
+						id="identificacion"
+						name="identificacion"
+						required
+					/>
+				</div>
+
+				<div class="margen-bottom-xl">
+					<label for="nombre" class="margen-bottom">Nombre:</label>
 					<!-- <p>Nombre:</p> -->
 					<p></p>
 					<input type="text" id="nombre" name="nombre" required />
 				</div>
 
-				<div>
-					<label for="primerApellido">Primer Apellido:</label>
+				<div class="margen-bottom-xl">
+					<label for="primerApellido" class="margen-bottom"
+						>Primer Apellido:</label
+					>
 					<!-- <p>Primer Apellido:</p> -->
 					<p></p>
 					<input
@@ -120,22 +125,24 @@
                 <input type="text" id="segundoApellido" name="segundoApellido" placeholder="opcional" >  -->
 				<!-- </div> -->
 
-				<div>
-					<label for="correo">Correo:</label>
+				<div class="margen-bottom-xl">
+					<label for="correo" class="margen-bottom">Correo:</label>
 					<!-- <p>Correo:</p> -->
 					<p></p>
 					<input type="email" id="correo" name="correo" required />
 				</div>
 
-				<div>
-					<label for="telefono">Teléfono:</label>
+				<div class="margen-bottom-xl">
+					<label for="telefono" class="margen-bottom"
+						>Teléfono:</label
+					>
 					<!-- <p>Teléfono:</p> -->
 					<p></p>
 					<input type="text" id="telefono" name="telefono" required />
 				</div>
 
-				<div>
-					<p>Permisos</p>
+				<div class="margen-bottom-xl">
+					<p class="margen-bottom">Permisos</p>
 					<!-- <input type="file" name="fotoCliente" placeholder="">  -->
 					<!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
 					<!-- Para poder cambiarle lo escrito al boton -->
@@ -156,8 +163,8 @@
 					<small id="tagsmall">No hay archivos adjuntos</small>
 				</div>
 
-				<div>
-					<p>Fotografía (opcional)</p>
+				<div class="margen-bottom-xl">
+					<p class="margen-bottom">Fotografía (opcional)</p>
 					<!-- <input type="file" name="fotoCliente" placeholder="">  -->
 					<!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
 					<!-- Para poder cambiarle lo escrito al boton -->
@@ -177,8 +184,10 @@
 					</button>
 					<small id="tagsmall">No hay archivos adjuntos</small>
 				</div>
-				<div>
-					<label for="contrasenna">Contraseña:</label>
+				<div class="margen-bottom-xl">
+					<label for="contrasenna" class="margen-bottom"
+						>Contraseña:</label
+					>
 					<!-- <p>Contraseña:</p> -->
 					<p></p>
 					<input
@@ -189,22 +198,17 @@
 					/>
 				</div>
 
-				<div>
-					<button type="button" id="botonEnviar">
-						Crear Cuenta de Cliente
+				<div style="display: flex">
+					<button
+						style="margin-left: auto"
+						type="button"
+						id="botonEnviar"
+					>
+						Crear Cuenta de Vendedor
 					</button>
 				</div>
 			</form>
 		</section>
-
-		<footer class="pie_pagina">
-			<div>
-				<nav id="navDos">
-					<a id="a1" href="/public/landingPage.html">Inicio</a>
-					<a id="a1" href="#">Contáctenos</a>
-				</nav>
-			</div>
-		</footer>
 
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="/public/js/registrocliente2.js"></script>
