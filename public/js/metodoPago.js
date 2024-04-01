@@ -6,6 +6,7 @@ const txtAnnio = document.getElementById("annio");
 const cvv = document.getElementById("cvv");
 const boton = document.getElementById("enviar");
 
+    
 function validarCamposVacios() {
     // Comprobar si al menos uno de los campos está vacío
     if (
@@ -125,7 +126,7 @@ function enviarForm(){
         }
         else if(errorAnnio){
             Swal.fire({
-                title: "Annio invalido",
+                title: "Añox invalido",
                 text: "Utiliza un formato valido",
                 icon: "warning"
               });
