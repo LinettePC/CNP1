@@ -28,38 +28,43 @@
           <div class="cajaInputDoble">
             <div>
               <label for="nombre" class="labelFormulario">Nombre:</label>
-              <input type="text" id="nombre" name="nombre" class="inputPequeno" required />
+              <input  id="nombre" name="nombre" class="inputPequeno"  />
             </div>
             <div>
               <label for="apellidos" class="labelFormulario">Apellidos:</label>
-              <input type="text" id="apellidos" name="apellidos" class="inputPequeno" required />
+              <input  id="apellidos" name="apellidos" class="inputPequeno"  />
             </div>
           </div>
         
           <div class="cajaInput">
-              <label for="email" class="labelFormulario">Email:</label>
-              <input type="email" id="email" name="email" required />
+              <label  class="labelFormulario">Email:</label>
+              <input  id="email" name="email"  />
           </div>
 
           <div class="cajaInput">
+            <label  class="labelFormulario">Telefono:</label>
+            <input  id="telefono" name="telefono"  />
+        </div>
+
+          <div class="cajaInput">
             <label for="provincia" class="labelFormulario">Provincia:</label>
-            <input id="provincia" name="provincia" required />
+            <input id="provincia" name="provincia"  />
           </div>
 
           <div class="cajaInputDoble">
             <div>
               <label for="canton" class="labelFormulario">Canton:</label>
-              <input id="canton" name="canton" required />
+              <input id="canton" name="canton"  />
             </div>
             <div>
               <label for="distrito" class="labelFormulario">Distrito:</label>
-              <input id="distrito" name="distrito" required />
+              <input id="distrito" name="distrito"  />
             </div>
           </div>
 
           <div class="cajaInput">
             <label for="direccion" class="labelFormulario">Dirección:</label>
-            <input id="direccion" name="direccion" required></textarea>
+            <input id="direccion" name="direccion" ></input>
           </div>
         
           <div class="cajaTarjeta">
@@ -70,7 +75,7 @@
           </div>
 
           <div class="cajaBoton">
-            <button type="submit" id="boton">Realizar Compra</button>
+            <button type="button" id="boton">Realizar Compra</button>
           </div>
         </form>
       </div>
@@ -102,5 +107,8 @@
 
       </div>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="js/checkout.js"></script>
   </body>
 </html>
