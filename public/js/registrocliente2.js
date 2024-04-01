@@ -106,7 +106,7 @@ function validarTelefono() {
 //debe tener al menos 1 caracter especial
 //debe tener al menos 1 numero
 function validarContrasenna() {
-    return validarCampo(inputs.contrasenna, /^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+]).{8,}$/, {
+    return validarCampo(inputs.contrasenna, /^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+])(?!.*[aeiouAEIOU]).{8,}$/, {
         title: "La contraseña es inválida",
         text: "Revisa el formato utilizado"
     });
