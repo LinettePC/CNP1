@@ -7,35 +7,41 @@
 		<link rel="stylesheet" href="css/miPerfil.css" />
 	</head>
 
-    <body>
+	<body>
+		<header class="navegacion">
+			<div class="logo">
+				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+			</div>
+			<div class="barra-navegacion">
+				<nav class="botones-navegacion">
+					<ul
+						style="
+							display: flex;
+							align-items: center;
+							justify-content: center;
+						"
+					>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Contacto</a></li>
+						<li><a href="#">Nosotros</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
 
-        <header class="navegacion">
-            <div class="logo">
-                <img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
-            </div>
-            <div class="barra-navegacion">
-                <nav class="botones-navegacion">
-                    <ul>
-                        <li><a href="marketplace.html">Inicio</a></li>
-                        <li><a href="https://www.cnp.go.cr/contactenos/index.aspx">Contacto</a></li>
-                        <li><a href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx">Nosotros</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        
-        <div class="content">
-            <div class="container">
-                <div class="perfil">
-                    <img src="img/avatar.png" alt="Foto de perfil">
-                    <h1>Nombre Apellido</h1>
-                    <p>Correo electrónico: correo@example.com</p>
-                    <p>Teléfono: 123-456-7890</p>
-                    <p>Identificación: 123456789</p>
-                    <button type="submit">Editar información</button>
-                </div>
-            </div>
-        </div>
-        
-        </body>
-        </html>
+		<div class="content">
+			<div class="container">
+				<div class="perfil">
+					<div style="text-align: center;">
+						<img src="img/avatar.png" alt="Foto de perfil" />
+						<h1>Nombre Apellido</h1>
+					</div>
+					<p>Correo electrónico: correo@example.com</p>
+					<p>Teléfono: 123-456-7890</p>
+					<p>Identificación: 123456789</p>
+					<a type="submit" href="editarPerfil.html">Editar información</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

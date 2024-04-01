@@ -57,7 +57,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .container {
@@ -92,7 +91,7 @@ body {
 }
 
 
-.perfil a[type="submit"] {
+#botonEnviar {
     display: block;
     /* width: 100%; */
     text-align: center;
@@ -104,9 +103,22 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    text-decoration: none;
 }
 
-.perfil a[type="submit"]:hover {
+#botonEnviar:hover {
     background-color: #1F7544;
+}
+
+.margen-bottom {
+	margin-bottom: 5px;
+	display: block;
+}
+
+.margen-bottom-xl {
+	margin-bottom: 15px;
+	display: block;
+}
+
+input {
+    width: 100%;
 }

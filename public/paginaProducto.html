@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pagina del producto</title>
-    <link rel="stylesheet" href="css/paginaProducto.css" />
-  </head>
-  <body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pagina del producto</title>
+		<link rel="stylesheet" href="css/paginaProducto.css" />
+	</head>
+	<body>
 		<header class="navegacion">
 			<div class="logo">
 				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
@@ -15,11 +14,20 @@
 			<div class="barra-navegacion">
 				<nav class="botones-navegacion">
 					<ul>
-						<li><a href="#">Inicio</a></li>
-						<li><a href="#">Tienda</a></li>
-						<li><a href="#">Productos</a></li>
-						<li><a href="#">Contacto</a></li>
-						<li><a href="#">Nosotros</a></li>
+						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
+						<li><a href="marketplace.html">Tienda</a></li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/contactenos/index.aspx"
+								>Contacto</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
+								>Nosotros</a
+							>
+						</li>
 					</ul>
 				</nav>
 				<div class="barra-busqueda">
@@ -47,35 +55,31 @@
 			</div>
 		</header>
 
-		
-		
+		<div class="divider"></div>
+		<section class="seccionProducto">
+			<div class="producto">
+				<img src="/public/img/tomate.jpg" id="imagenProducto" />
 
+				<div class="textoProducto">
+					<h1>Nombre del producto:</h1>
 
-    <div class="divider"></div>
-    <section class="seccionProducto">
-      <div class="producto">
-        <img src="/public/img/tomate.jpg" id="imagenProducto" />
+					<h2>Precio: 1000$</h2>
 
-        <div class="textoProducto">
-          <h1>Nombre del producto:</h1>
+					<h2>Descripcion:</h2>
+					<p>Aqui va la descripcion del producto</p>
+				</div>
+			</div>
 
-          <h2>Precio: 1000$</h2>
+			<form>
+				<h2>Precio</h2>
+				<h2>Estado</h2>
 
-          <h2>Descripcion:</h2>
-          <p>Aqui va la descripcion del producto</p>
-        </div>
-      </div>
-
-      <form>
-        <h2>Precio</h2>
-        <h2>Estado</h2>
-
-        <div>
-          <label for="">Cantidad:</label>
-          <input type="number" id="cantidad"/>
-          <button>Agregar al carrito</button>
-        </div>
-      </form>
-    </section>
-  </body>
+				<div>
+					<label for="">Cantidad:</label>
+					<input type="number" id="cantidad" />
+					<button>Agregar al carrito</button>
+				</div>
+			</form>
+		</section>
+	</body>
 </html>

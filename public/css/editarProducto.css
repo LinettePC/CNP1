@@ -1,40 +1,79 @@
-/* Estilos de la barra de navegación */
+/* Estilos NavBar */
 
-#inputBusqueda{
-    width: 550px;
+.logo{
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
 }
+
+#logoFeriaCnp{
+    width: 200px;
+    margin-left: 45px;
+}
+
+
+.carrito{
+    width: 25%;
+    display: flex;
+    font-family: 'Cabin', sans-serif;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#textoCuenta{
+    text-decoration: none;
+    color: #000000;
+    padding-right: 25px;
+    font-size: 21px;
+}
+
+
+#logoCarrito{
+    width: 100px;
+}
+
+
+.navegacion{
+    height: 155px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 
 .barra-navegacion {
     width: 50%;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #000000;
     padding: 10px 20px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .botones-navegacion {
     font-family: 'Cabin', sans-serif;
-    font-size: 22px;
+    font-size: 21px;
     margin-top: 15px;
     margin-bottom: 22px;
     word-spacing: 35px;
-
 }
 
 .barra-busqueda{
     margin-bottom: 15px;
 }
 
+#inputBusqueda{
+    width: 550px;
+}
 
 .barra-navegacion nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    align-items: end;
 }
 
 .barra-navegacion nav ul li {
@@ -57,11 +96,10 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
-
 }
 
 .barra-busqueda button {
-    font-size: 22px;
+    font-size: 18px;
     font-family: 'Cabin', sans-serif;
     padding: 10px 20px;
     background-color: #81B12A;
@@ -69,19 +107,6 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-#logoFeriaCnp{
-    width: 200px;
-    margin-left: 45px;
-}
-
-.logo{
-    width: 25%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
 }
 
 

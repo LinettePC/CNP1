@@ -84,6 +84,20 @@
     
 }
 
+body {
+	font-family: 'Manrope', sans-serif;
+}
+
+select {
+	font-family: 'Manrope', sans-serif;
+}
+
+button {
+	font-family: 'Manrope', sans-serif;
+}
+
+
+
 .contenedorProducto {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -108,6 +122,11 @@
     color: #2E3C2D;
 }
 
+.tarjetaProducto:hover{
+    background-color: orange;
+
+}
+
 .botonEditar {
     background-color: #81B12A;
     font-size: 22px;
@@ -117,11 +136,13 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 
 
 .botonAgregar {
+    margin-top: 50px;
     background-color: #81B12A;
     font-size: 22px;
     color: #fff;
