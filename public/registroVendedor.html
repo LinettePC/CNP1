@@ -1,157 +1,216 @@
 <!--Autor: Linette-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Vendedor</title>
-<!--Links para las hojas de estilos: -->
-<!--Link a reset -->
-<link rel="stylesheet" href="/public/css/reset.css">
-<!--Link al css de estilos respectivo -->
-<link rel="stylesheet" href="/public/css/registroVendedor.css"> 
-<!-- <link rel="stylesheet" href="/public/img/logoTres.png">  -->
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registro Vendedor</title>
+		<!--Links para las hojas de estilos: -->
+		<!--Link a reset -->
+		<link rel="stylesheet" href="css/reset.css" />
+		<!--Link al css de estilos respectivo -->
+		<link rel="stylesheet" href="css/registroVendedor.css" />
+		<!-- <link rel="stylesheet" href="/public/img/logoTres.png">  -->
 
-<!--Link a las letras -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-    href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet"
-/>
+		<!--Link a las letras -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<!--Header Uno-->
+		<header id="headerUno">
+			<div class="logo" style="margin-right: auto;">
+				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+			</div>
 
-</head>
-<body>
+			<div class="titulos-container">
+				<h1 id="tituloF1A">
+					Ahora puedes vender productos en la Feria del CNP
+				</h1>
+				<h1 id="tituloF1B">
+					Solo debes crear una Cuenta de Vendedor y registrar
+					productos
+				</h1>
+			</div>
 
-<!--Header Uno-->   
-<header id="headerUno">
-    <div class="logo">
-        <img src="img/logo6.png" alt="logo" id="logoFeriaCnp">
-    </div>
-        
-    <div>
-        <h1 id="tituloF1A">Ahora puedes vender productos en la Feria del CNP</h1>
-        <h1 id="tituloF1B">Solo debes crear una Cuenta de Vendedor y registrar productos</h1>
-    </div>
+			<div style="margin-left: auto;">
+				<nav id="navUno">
+					<a id="a1" href="/public/landingPage.html">Inicio</a>
+					<a id="a1" href="#">Contáctenos</a>
+				</nav>
+			</div>
+		</header>
 
-    <div>
-        <nav id="navUno">
-            <a id="a1" href="/public/landingPage.html">Inicio</a>
-            <a id="a1" href="#">Contáctenos</a>
-        </nav>
-    </div>  
-</header>
+		<section id="formulario">
+			<div id="tituloForm">
+				<div class="logo">
+					<img
+						src="/public/img/profile.png"
+						alt="logo"
+						id="logoPerfil"
+					/>
+				</div>
+				<div>
+					<h1 id="tituloF2">Formulario de Vendedor</h1>
+				</div>
+			</div>
 
-    <section id="formulario">
+			<form id="formularioCuentaCliente">
+				<div class="margen-bottom-xl">
+					<input
+						type="radio"
+						id="idNacional"
+						name="tipoIdentificacion"
+						value="nacional"
+						checked
+					/>
+					<label for="idNacional">Cédula Nacional</label>
 
-        <div id="tituloForm">
-            <div class="logo">
-                <img src="/public/img/profile.png" alt="logo" id="logoPerfil">
-            </div>
-            <div>
-                <h1 id="tituloF2">Formulario de Vendedor</h1>
-            </div>
-            
-        </div>
+					<input
+						type="radio"
+						id="idDimex"
+						name="tipoIdentificacion"
+						value="dimex"
+					/>
+					<label for="idDimex">DIMEX</label>
 
-        <form id="formularioCuentaCliente">
-
-            <div>
-                <input type="radio" id="idNacional" name="tipoIdentificacion" value="nacional" checked>
-                <label for="idNacional">Cédula Nacional</label>
-
-                <input type="radio" id="idDimex" name="tipoIdentificacion" value="dimex">
-                <label for="idDimex">DIMEX</label>
-                
-                <!-- <input type="radio" id="idPasaporte" name="tipoIdentificacion" value="pasaporte">
+					<!-- <input type="radio" id="idPasaporte" name="tipoIdentificacion" value="pasaporte">
                 <label for="pasaporte">Pasaporte</label> -->
-                <div>
-                    <!-- <p>Identificación:</p> -->
-                    <label for="identificacion">Identificación:</label>
-                    <p></p>
-                    <input type="text" id="identificacion" name="identificacion" required >
-                </div>
-            </div>
+				</div>
 
-            <div>
-                <label for="nombre">Nombre:</label>
-                <!-- <p>Nombre:</p> -->
-                <p></p>
-                <input type="text" id="nombre" name="nombre" required >  
-            </div>
+				<div class="margen-bottom-xl">
+					<!-- <p>Identificación:</p> -->
+					<label for="identificacion" class="margen-bottom"
+						>Identificación:</label
+					>
+					<p></p>
+					<input
+						type="text"
+						id="identificacion"
+						name="identificacion"
+						required
+					/>
+				</div>
 
-            <div>
-                <label for="primerApellido">Primer Apellido:</label>
-                <!-- <p>Primer Apellido:</p> -->
-                <p></p>
-                <input type="text" id="primerApellido" name="primerApellido" required >
-            </div>
-            
-            <!-- <div> -->
-                <!-- <label for="segundoApellido">Segundo Apellido:</label> -->
-                <!-- <p>Segundo Apellido:</p>
+				<div class="margen-bottom-xl">
+					<label for="nombre" class="margen-bottom">Nombre:</label>
+					<!-- <p>Nombre:</p> -->
+					<p></p>
+					<input type="text" id="nombre" name="nombre" required />
+				</div>
+
+				<div class="margen-bottom-xl">
+					<label for="primerApellido" class="margen-bottom"
+						>Primer Apellido:</label
+					>
+					<!-- <p>Primer Apellido:</p> -->
+					<p></p>
+					<input
+						type="text"
+						id="primerApellido"
+						name="primerApellido"
+						required
+					/>
+				</div>
+
+				<!-- <div> -->
+				<!-- <label for="segundoApellido">Segundo Apellido:</label> -->
+				<!-- <p>Segundo Apellido:</p>
                 <p></p>
                 <input type="text" id="segundoApellido" name="segundoApellido" placeholder="opcional" >  -->
-            <!-- </div> -->
+				<!-- </div> -->
 
-            <div>
-                <label for="correo">Correo:</label>
-                <!-- <p>Correo:</p> -->
-                <p></p>
-                <input type="email" id="correo" name="correo" required >   
-            </div>
+				<div class="margen-bottom-xl">
+					<label for="correo" class="margen-bottom">Correo:</label>
+					<!-- <p>Correo:</p> -->
+					<p></p>
+					<input type="email" id="correo" name="correo" required />
+				</div>
 
-            <div>
-                <label for="telefono">Teléfono:</label>
-                <!-- <p>Teléfono:</p> -->
-                <p></p>
-                <input type="text" id="telefono" name="telefono" required >  
-            </div>
+				<div class="margen-bottom-xl">
+					<label for="telefono" class="margen-bottom"
+						>Teléfono:</label
+					>
+					<!-- <p>Teléfono:</p> -->
+					<p></p>
+					<input type="text" id="telefono" name="telefono" required />
+				</div>
 
-            <div>
-                <p>Permisos </p>
-                <!-- <input type="file" name="fotoCliente" placeholder="">  -->
-                <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
-                <!-- Para poder cambiarle lo escrito al boton -->
-                <input hidden id="btnoriginal" class="form-control text-center col-md-6" onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];" type="file" value="Adjuntar imagen">
-                <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar Imagen</button>
-                <small id='tagsmall'>No hay archivos adjuntos</small>
-            </div>
+				<div class="margen-bottom-xl">
+					<p class="margen-bottom">Permisos</p>
+					<!-- <input type="file" name="fotoCliente" placeholder="">  -->
+					<!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
+					<!-- Para poder cambiarle lo escrito al boton -->
+					<input
+						hidden
+						id="btnoriginal"
+						class="form-control text-center col-md-6"
+						onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];"
+						type="file"
+						value="Adjuntar imagen"
+					/>
+					<button
+						id="botonpersonal"
+						onClick="document.getElementById('btnoriginal').click();"
+					>
+						Adjuntar Imagen
+					</button>
+					<small id="tagsmall">No hay archivos adjuntos</small>
+				</div>
 
-            <div>
-                <p>Fotografía (opcional)</p>
-                <!-- <input type="file" name="fotoCliente" placeholder="">  -->
-                <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
-                <!-- Para poder cambiarle lo escrito al boton -->
-                <input hidden id="btnoriginal" class="form-control text-center col-md-6" onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];" type="file" value="Adjuntar imagen">
-                <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar Imagen</button>
-                <small id='tagsmall'>No hay archivos adjuntos</small>
-            </div>
-            <div>
-                <label for="contrasenna">Contraseña:</label>
-                <!-- <p>Contraseña:</p> -->
-                <p></p>
-                <input type="text" id="contrasenna" name="contrasenna" required >
-            </div>
-            
-            <div>
-                <button type="button" id="botonEnviar">Crear Cuenta de Cliente</button>
-            </div>
-           
-        </form>
-    </section>
+				<div class="margen-bottom-xl">
+					<p class="margen-bottom">Fotografía (opcional)</p>
+					<!-- <input type="file" name="fotoCliente" placeholder="">  -->
+					<!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
+					<!-- Para poder cambiarle lo escrito al boton -->
+					<input
+						hidden
+						id="btnoriginal"
+						class="form-control text-center col-md-6"
+						onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];"
+						type="file"
+						value="Adjuntar imagen"
+					/>
+					<button
+						id="botonpersonal"
+						onClick="document.getElementById('btnoriginal').click();"
+					>
+						Adjuntar Imagen
+					</button>
+					<small id="tagsmall">No hay archivos adjuntos</small>
+				</div>
+				<div class="margen-bottom-xl">
+					<label for="contrasenna" class="margen-bottom"
+						>Contraseña:</label
+					>
+					<!-- <p>Contraseña:</p> -->
+					<p></p>
+					<input
+						type="text"
+						id="contrasenna"
+						name="contrasenna"
+						required
+					/>
+				</div>
 
-    <footer class="pie_pagina">
-        <div>
-            <nav id="navDos">
-                <a id="a1" href="/public/landingPage.html">Inicio</a>
-                <a id="a1" href="#">Contáctenos</a>
-            </nav>
-        </div>
-    </footer>
+				<div style="display: flex">
+					<button
+						style="margin-left: auto"
+						type="button"
+						id="botonEnviar"
+					>
+						Crear Cuenta de Vendedor
+					</button>
+				</div>
+			</form>
+		</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/public/js/registrocliente2.js" ></script> 
-</body>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="/public/js/registrocliente2.js"></script>
+	</body>
 </html>
