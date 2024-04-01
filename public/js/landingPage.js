@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (validarCamposVacios() && validarCorreo()) {
             // Si los campos están completos y el correo es válido, selecciona el formulario y envíalo
             document.getElementById("formLogin").submit();
+            window.location.href = "marketplace.html";
         }
     });
 });
@@ -47,13 +48,13 @@ function validarCamposVacios() {
 function validarCorreo() {
     const correoInput = document.getElementById("username"); // Cambiado de "correo" a "username"
     const correoValue = correoInput.value.trim();
-    const correoExpresion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const correoExpresion = /^[0-9]+$/;
 
     if (!correoExpresion.test(correoValue)) {
         correoInput.classList.add("error");
         Swal.fire({
-            title: "El Correo es inválido",
-            text: "Revisa el formato utilizado",
+            title: "Cedula inválida",
+            text: "Unicamente se permiten numeros",
             icon: "warning"
         });
         return false;
