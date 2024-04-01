@@ -1,0 +1,136 @@
+<!---Autor Diana Pasos---->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Compradores Registrados</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/compradoresRegistrados.CSS" />
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+		/>
+	</head>
+
+	<body>
+		<header class="navegacion">
+			<div class="logo">
+				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+			</div>
+			<div class="barra-navegacion">
+				<nav class="botones-navegacion">
+					<ul>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Tienda</a></li>
+						<li><a href="#">Productos</a></li>
+						<li><a href="#">Contacto</a></li>
+						<li><a href="#">Nosotros</a></li>
+					</ul>
+				</nav>
+				<div class="barra-busqueda">
+					<input
+						type="text"
+						placeholder="Buscar"
+						id="inputBusqueda"
+					/>
+					<button>Buscar</button>
+				</div>
+			</div>
+			<div class="carrito">
+				<div id="cuenta">
+					<a href="#" id="textoCuenta">Mi Cuenta |</a>
+				</div>
+				<div>
+					<img
+						src="img/carritoCompras.png"
+						alt="logoCarrito"
+						id="logoCarrito"
+					/>
+				</div>
+			</div>
+		</header>
+
+		<div class="seccion-titulo">
+			<div class="container">
+				<h1 class="titulo">Compradores Registrados</h1>
+			</div>
+		</div>
+<!----------------------------------------------------FIN HEADER----------------------------------------------------------->
+	
+<main class="container">
+
+
+			<section class="reporte-compradores">
+				<div class="container-compradores">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="nombre">Nombre</th>
+								<th class="apellido">Apellido</th>
+								<th class="identificacion">Identificación</th>
+								<th class="incorporacion">Fecha de incorporación</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="nombre">Alejandro</td>
+								<td class="apellido">Producto A</td>
+								<td class="identificacion">1-3457-0982</td>
+								<td class="incorporacion">2/12/2023</td>
+							</tr>
+							<tr>
+								<td class="nombre">Lorena</td>
+								<td class="apellido">Matamoros</td>
+								<td class="identificacion">3-2367-3422</td>
+								<td class="incorporacion">18/12/2023</td>
+							</tr>
+							<tr>
+								<td class="nombre">Laura</td>
+								<td class="apellido">Cisneros</td>
+								<td class="identificacion">2-6798-9134</td>
+								<td class="incorporacion">04/01/2024</td>
+							</tr>
+							<tr>
+								<td class="nombre">Victor</td>
+								<td class="apellido">Palacios</td>
+								<td class="identificacion">1-2245-7654</td>
+								<td class="incorporacion">24/01/2024</td>
+							</tr>
+							<tr>
+								<td class="nombre">Roberto</td>
+								<td class="apellido">Mora</td>
+								<td class="identificacion">1-2345-5566</td>
+								<td class="incorporacion">15/02/2024</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="container-end">
+					<div class="ganancias-output">
+						<label for="totalGanancias">Total de compras:</label>
+						<output id="outputTotalGanancias">₡0</output>
+					</div>
+					<button class="boton" type="button">
+						<span style="margin-right: 10px"
+							>Descargar Reporte de Compras</span
+						>
+						<i class="bi bi-download"></i>
+					</button>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>
+
