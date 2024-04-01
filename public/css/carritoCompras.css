@@ -1,18 +1,48 @@
-body{
-    margin: 0px;
-    background-color: #ffffff;
+/* Estilos NavBar */
+
+.logo{
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
 }
 
-/* Estilos de la barra de navegación */
-.divider {
-    border-top: 40px solid grey;
-    margin-top: 10px; /* Ajusta el margen superior según sea necesario */
-    margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
+#logoFeriaCnp{
+    width: 200px;
+    margin-left: 45px;
 }
 
-#inputBusqueda{
-    width: 550px;
+
+.carrito{
+    width: 25%;
+    display: flex;
+    font-family: 'Cabin', sans-serif;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
+
+#textoCuenta{
+    text-decoration: none;
+    color: #000000;
+    padding-right: 25px;
+    font-size: 21px;
+}
+
+
+#logoCarrito{
+    width: 100px;
+}
+
+
+.navegacion{
+    height: 155px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 
 .barra-navegacion {
     width: 50%;
@@ -22,7 +52,6 @@ body{
     align-items: center;
     color: #000000;
     padding: 10px 20px;
-    
 }
 
 .botones-navegacion {
@@ -37,6 +66,9 @@ body{
     margin-bottom: 15px;
 }
 
+#inputBusqueda{
+    width: 550px;
+}
 
 .barra-navegacion nav ul {
     list-style-type: none;
@@ -59,7 +91,7 @@ body{
 .barra-busqueda input[type="text"] {
     font-family: 'Cabin', sans-serif;
     font-size: 18px;
-    padding: 6px;
+    padding: 10px;
     width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -75,46 +107,6 @@ body{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-#logoFeriaCnp{
-    width: 200px;
-    margin-left: 45px;
-}
-
-.logo{
-    width: 25%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-}
-
-.carrito{
-    width: 25%;
-    display: flex;
-    font-family: 'Cabin', sans-serif;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#textoCuenta{
-    text-decoration: none;
-    color: #000000;
-    padding-right: 25px;
-    font-size: 21px;
-}
-#logoCarrito{
-    width: 100px;
-}
-.navegacion{
-    height: 165px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: white;
-    border-radius: 12px;
 }
 
 /* Estilos de la barra de navegación: final */
@@ -218,7 +210,6 @@ form button{
 .subEncabezado2 {
     position: absolute;
     right: 0;
-    margin-right: 100px;
     padding: 20px;
     box-sizing: border-box;
     background-color: #ffffff;
