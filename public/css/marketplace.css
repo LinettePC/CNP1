@@ -206,7 +206,6 @@
 }
 
 .footerLinks a {
-    border: solid 1px black;
     justify-content: center;
     margin-right: 20px;
     font-family: 'Cabin', sans-serif;
@@ -222,7 +221,6 @@
 
 
 #logoContacto{
-    border: solid 1px black;
     margin-right: 25px;
     width: 35px;
 }
