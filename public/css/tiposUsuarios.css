@@ -1,4 +1,4 @@
-/********************************************* Header *********************************************/
+/* Estilos de la barra de navegación */
 
 .logo {
 	width: 25%;
@@ -102,7 +102,6 @@
 	border-radius: 5px;
 	cursor: pointer;
 }
-
 body {
 	font-family: 'Manrope', sans-serif;
 }
@@ -126,7 +125,8 @@ button {
 	font-weight: bold;
 	font-size: 30px;
 }
-/********************************************* FIN DE HEADER *********************************************/
+
+/*.......................................................fin de estilos nav...........................................................*/
 
 body {
 	font-family: 'Manrope', sans-serif;
@@ -140,15 +140,9 @@ button {
 	font-family: 'Manrope', sans-serif;
 }
 
-.seccion-titulo {
-	background-color: lightgray;
-	margin-bottom: 40px;
-	padding: 20px;
-}
-
-.titulo {
-	font-weight: bold;
-	font-size: 30px;
+.tipos-usuarios {
+	text-align: center; /* Centra horizontalmente el contenido */
+	margin-top: 150px;
 }
 
 .container {
@@ -158,46 +152,28 @@ button {
 	margin-left: auto;
 }
 
-/*------------------------------------------------------------------------solicitudes------------------------------*/
-
-body {
-	font-family: 'Manrope', sans-serif;
-}
-
-select {
-	font-family: 'Manrope', sans-serif;
-}
-
-button {
-	font-family: 'Manrope', sans-serif;
-}
-.solcitudes-vendedores {
-	text-align: center; /* Centra horizontalmente el contenido */
-	margin-top: 150px;
-}
-
-.contenedor-solicitudes {
+.usuarios-registrados {
 	display: inline-block; /* Para que el enlace solo ocupe el área alrededor de la imagen y el texto */
 	text-decoration: none;
 	color: #1f7544;
-	padding: 60px;
+	padding: 40px;
 	font-size: 20px;
 	border-radius: 5px;
 	transition: all 0.3s ease;
 }
 
-.contenedor-solicitudes img {
-	width: 250px; /* Ancho imagen */
-	height: 250px; /* Alto imagen */
+.usuarios-registrados img {
+	width: 200px; /* Ancho imagen */
+	height: 200px; /* Alto imagen */
 	display: block;
 	margin: 0 auto;
 }
 
-.contenedor-solicitudes h1 {
+.usuarios-registrados h1 {
 	margin-top: 20px;
 }
 
-.contenedor-solicitudes:hover {
-	color: #d36c0c;
+.usuarios-registrados:hover {
+	color: #f0790a;
 	background-color: lightgray;
 }

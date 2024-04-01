@@ -10,7 +10,7 @@
 <!--Link a reset -->
 <link rel="stylesheet" href="/public/css/reset.css">
 <!--Link al css de estilos respectivo -->
-<link rel="stylesheet" href="/public/css/registroCliente.css"> 
+<link rel="stylesheet" href="/public/css/registroVendedor.css"> 
 <!-- <link rel="stylesheet" href="/public/img/logoTres.png">  -->
 
 <!--Link a las letras -->
@@ -31,8 +31,8 @@
     </div>
         
     <div>
-        <h1 id="tituloF1A">Ahora puedes comprar productos en la Feria del CNP</h1>
-        <h1 id="tituloF1B">Solo debes crear una Cuenta de Cliente para empezar a comprar</h1>
+        <h1 id="tituloF1A">Ahora puedes vender productos en la Feria del CNP</h1>
+        <h1 id="tituloF1B">Solo debes crear una Cuenta de Vendedor y registrar productos</h1>
     </div>
 
     <div>
@@ -50,7 +50,7 @@
                 <img src="/public/img/profile.png" alt="logo" id="logoPerfil">
             </div>
             <div>
-                <h1 id="tituloF2">Formulario de Cliente</h1>
+                <h1 id="tituloF2">Formulario de Vendedor</h1>
             </div>
             
         </div>
@@ -107,6 +107,16 @@
                 <!-- <p>Teléfono:</p> -->
                 <p></p>
                 <input type="text" id="telefono" name="telefono" required >  
+            </div>
+
+            <div>
+                <p>Permisos </p>
+                <!-- <input type="file" name="fotoCliente" placeholder="">  -->
+                <!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
+                <!-- Para poder cambiarle lo escrito al boton -->
+                <input hidden id="btnoriginal" class="form-control text-center col-md-6" onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];" type="file" value="Adjuntar imagen">
+                <button id='botonpersonal' onClick="document.getElementById('btnoriginal').click();">Adjuntar Imagen</button>
+                <small id='tagsmall'>No hay archivos adjuntos</small>
             </div>
 
             <div>
