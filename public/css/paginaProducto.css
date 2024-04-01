@@ -163,10 +163,8 @@ body{
 form{
     font-family: 'Cabin', sans-serif;
     background-color: #81B12A;
-    display: flex;
     gap: 15px 15px;
-    flex-direction: column;
-    padding: 10px;
+    display: flex;
     margin-left: 150px;
     margin-top: 70px;
     width: 45%;
