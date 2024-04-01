@@ -163,7 +163,9 @@
 								<option value="tipoComprador">
 									Compradores
 								</option>
-								<option value="0">Cualquiera</option>
+								<option value="tipoCualquiera">
+									Cualquiera
+								</option>
 							</select>
 						</div>
 						<div class="flex-box">
@@ -174,9 +176,11 @@
 								class="select-item"
 								id="selectUsuario"
 								name="selectUsuario"
+								required
 							>
-								<option value="0" selected>Todos</option>
-								<option value="...">...</option>
+								<option value="0" selected disabled>
+									Seleccione un tipo de usuario
+								</option>
 							</select>
 						</div>
 					</div>
@@ -233,5 +237,7 @@
 				</div>
 			</section>
 		</main>
+
+		<script src="js/reportesAdmin.js"></script>
 	</body>
 </html>
