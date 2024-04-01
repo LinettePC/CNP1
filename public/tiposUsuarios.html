@@ -1,19 +1,16 @@
+<!--------Autor: Diana Pasos-->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Solicitudes de Usuarios</title>
-
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<title>Tipos de Usuarios</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/tiposUsuarios.css" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
-
-		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="css/solicitudesAdmin.css" />
 	</head>
 	<body>
 		<header class="navegacion">
@@ -55,21 +52,22 @@
 
 		<div class="seccion-titulo">
 			<div class="container">
-				<h1 class="titulo">Solicitudes de Acceso de Usuarios</h1>
+				<h1 class="titulo">
+					Portal del Administrador / Tipos de Usuarios
+				</h1>
 			</div>
 		</div>
-		<div class="solcitudes-vendedores">
-			<a href="#" class="contenedor-solicitudes">
-				<img src="/public/img/tiempo.png" />
-				<h1>Solicitudes Pendientes</h1>
+
+		<!------------------------------------------------------------------Panel del admi------------------------------------------------------>
+
+		<div class="tipos-usuarios">
+			<a href="#" class="usuarios-registrados" target="_blank">
+				<img src="/public/img/tienda.png" />
+				<h1>Vendedores</h1>
 			</a>
-			<a href="#" class="contenedor-solicitudes">
-				<img src="/public/img/garrapata.png" />
-				<h1>Solicitudes Aprobadas</h1>
-			</a>
-			<a href="#" class="contenedor-solicitudes">
-				<img src="/public/img/rechazar.png" />
-				<h1>Solicitudes Rechazadas</h1>
+			<a href="#" class="usuarios-registrados" target="_blank">
+				<img src="/public/img/bolsa-de-la-compra.png" />
+				<h1>Compradores</h1>
 			</a>
 		</div>
 	</body>

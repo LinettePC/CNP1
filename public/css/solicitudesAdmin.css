@@ -125,7 +125,6 @@ button {
 .titulo {
 	font-weight: bold;
 	font-size: 30px;
-	
 }
 /********************************************* FIN DE HEADER *********************************************/
 
@@ -173,31 +172,32 @@ button {
 	font-family: 'Manrope', sans-serif;
 }
 .solcitudes-vendedores {
-    text-align: center; /* Centra horizontalmente el contenido */
-	margin-top: 200px;
+	text-align: center; /* Centra horizontalmente el contenido */
+	margin-top: 150px;
 }
 
-.contenedor-solicitudes{
-    display: inline-block; /* Para que el enlace solo ocupe el área alrededor de la imagen y el texto */
-    text-decoration: none; 
-    color: #1F7544; 
+.contenedor-solicitudes {
+	display: inline-block; /* Para que el enlace solo ocupe el área alrededor de la imagen y el texto */
+	text-decoration: none;
+	color: #1f7544;
 	padding: 60px;
 	font-size: 20px;
+	border-radius: 5px;
+	transition: all 0.3s ease;
 }
 
 .contenedor-solicitudes img {
-    width: 250px; /* Ancho imagen */
-    height: 250px; /* Alto imagen */
-    display: block; 
-    margin: 0 auto; 
+	width: 250px; /* Ancho imagen */
+	height: 250px; /* Alto imagen */
+	display: block;
+	margin: 0 auto;
 }
 
-.contenedor-solicitudes h1{
-    margin-top: 20px; 
+.contenedor-solicitudes h1 {
+	margin-top: 20px;
 }
 
 .contenedor-solicitudes:hover {
 	color: #d36c0c;
 	background-color: lightgray;
-
 }
