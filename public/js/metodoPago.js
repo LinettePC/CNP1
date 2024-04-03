@@ -6,32 +6,64 @@ const txtAnnio = document.getElementById('annio');
 const cvv = document.getElementById('cvv');
 const boton = document.getElementById('enviar');
 
-// JavaScript to restrict input to numbers only
+// Todos los Event Listeners constantes
 cvv.addEventListener('input', function (event) {
 	let input = event.target.value;
-	let regex = /^[0-9]*$/; // Regular expression to match numbers only
+	let regex = /^[0-9]*$/; // Expresión regular para coincidir solo con números
 
 	if (!regex.test(input)) {
-		event.target.value = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+		event.target.value = input.replace(/[^0-9]/g, ''); // Eliminar caracteres no numéricos
 	}
 });
 
-txtMes.addEventListener('input', function() {
-
-    // Limit the input to 2 characters
-    if (this.value.length > 2) {
-        this.value = this.value.slice(0, 2);
-    }
+txtMes.addEventListener('input', function () {
+	// Limitar la entrada a 2 caracteres
+	if (this.value.length > 2) {
+		this.value = this.value.slice(0, 2);
+	}
 });
 
-txtAnnio.addEventListener('input', function() {
-    // Trim any leading zeros
-    this.value = this.value.replace(/^0+/, '');
+txtAnnio.addEventListener('input', function () {
+	// Eliminar los ceros iniciales
+	this.value = this.value.replace(/^0+/, '');
 
-    // Limit the input to 2 characters
-    if (this.value.length > 2) {
-        this.value = this.value.slice(0, 2);
-    }
+	// Limitar la entrada a 2 caracteres
+	if (this.value.length > 2) {
+		this.value = this.value.slice(0, 2);
+	}
+});
+
+txtNumeroTarjeta.addEventListener('input', function () {
+	let cardNumber = this.value.trim().replace(/-/g, '');
+	if (cardNumber.length > 0) {
+		cardNumber = cardNumber.match(new RegExp('.{1,4}', 'g')).join('-');
+	}
+	this.value = cardNumber;
+
+	// Volver a solo números
+	cardNumber = this.value.trim().replace(/-/g, '');
+
+	var visaPattern = /^4[0-9]{12}(?:[0-9]{3})?$/;
+	var mastercardPattern = /^5[1-5][0-9]{14}$/;
+	var amexPattern = /^3[47][0-9]{13}$/;
+
+	console.log(cardNumber);
+
+	this.style.backgroundSize = '30px';
+
+	if (visaPattern.test(cardNumber)) {
+		this.style.backgroundImage = 'url("img/cardsimages/visa.png")';
+		this.style.backgroundPosition = '250px center';
+	} else if (mastercardPattern.test(cardNumber)) {
+		this.style.backgroundImage = 'url("img/cardsimages/mastercard.png")';
+		this.style.backgroundPosition = '260px center';
+	} else if (amexPattern.test(cardNumber)) {
+		this.style.backgroundImage = 'url("img/cardsimages/amex.png")';
+		this.style.backgroundSize = '20px';
+		this.style.backgroundPosition = '265px center';
+	} else {
+		this.style.backgroundImage = '';
+	}
 });
 
 function validarCamposVacios() {
@@ -59,15 +91,6 @@ function validarCamposVacios() {
 }
 
 //Funcion que validar la tarjeta
-
-txtNumeroTarjeta.addEventListener('input', function () {
-	let cardNumber = this.value.trim().replace(/-/g, '');
-	if (cardNumber.length > 0) {
-		cardNumber = cardNumber.match(new RegExp('.{1,4}', 'g')).join('-');
-	}
-	this.value = cardNumber;
-});
-
 function validarNumTarjeta() {
 	let error = false;
 	let inputUsuario = txtNumeroTarjeta;
@@ -110,42 +133,49 @@ function validarNombre() {
 // hecho por Isaac Ch. Incluye la validación del mes
 function validarFecha() {
 	let error = false;
-    let inputUsuario = txtAnnio;
 
-    // Obtener el año y el mes actual
-    let fechaActual = new Date();
-    let annioActual = fechaActual.getFullYear();
-    annioActual = annioActual % 100;
-    let mesActual = fechaActual.getMonth() + 1; // Los meses van de 0 a 11, se suma 1 para obtener el valor real
+	// Obtener el año y el mes actual
+	let fechaActual = new Date();
+	let annioActual = fechaActual.getFullYear();
+	annioActual = annioActual % 100;
+	let mesActual = fechaActual.getMonth() + 1; // Los meses van de 0 a 11, se suma 1 para obtener el valor real
 
-    // Comprobar si el campo está vacío o es nulo
-    if (inputUsuario.value === '' || inputUsuario.value === null) {
-        error = true;
-    } else {
-        // Convertir el valor del campo a un número entero
-        let annio = parseInt(inputUsuario.value);
+	let mes = parseInt(txtMes.value);
 
-        // Verificar si el año está dentro del rango permitido (mayor al año actual)
-        if (annio <= annioActual) {
-            // Si el año es igual al año actual, verificar el mes
-            if (annio === annioActual) {
-                let mes = parseInt(txtMes.value);
-                if (mes <= mesActual) {
-                    error = true;
-                    txtMes.classList.add('error');
-                } else {
-                    txtMes.classList.remove('error');
-                }
-            } else {
-                txtAnnio.classList.add('error');
-                error = true;
-            }
-        } else {
-            // Quitar estilos de error si el valor es válido
-            txtAnnio.classList.remove('error');
-        }
-    }
-    return error;
+	// Comprobar si el campo está vacío o es nulo
+	if (txtAnnio.value === '' || txtAnnio.value === null) {
+		error = true;
+	} else {
+		// Convertir el valor del campo a un número entero
+		let annio = parseInt(txtAnnio.value);
+
+		// Verificar si el año está dentro del rango permitido (mayor al año actual)
+		if (annio <= annioActual) {
+			// Si el año es igual al año actual, verificar el mes
+			if (annio === annioActual) {
+				if (mes <= mesActual) {
+					error = true;
+					txtMes.classList.add('error');
+				} else {
+					txtMes.classList.remove('error');
+				}
+			} else {
+				txtAnnio.classList.add('error');
+				error = true;
+			}
+		} else {
+			// Quitar estilos de error si el valor es válido
+			txtAnnio.classList.remove('error');
+		}
+
+		if (mes > 12) {
+			error = true;
+			txtMes.classList.add('error');
+		} else {
+			txtMes.classList.remove('error');
+		}
+	}
+	return error;
 }
 
 //Validar el cvv para que solo sean 3

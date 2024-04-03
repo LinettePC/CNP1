@@ -186,23 +186,34 @@ button {
 }
 
 .metodoP button:hover {
-	background-color: #81b12a;
+	background-color: #ebac24;
 }
 
 .vencimiento {
-	margin-bottom: 10px; /* Espacio inferior entre los campos de vencimiento y los demás campos */
+	margin-bottom: 20px; /* Espacio inferior entre los campos de vencimiento y los demás campos */
 }
 
-.vencimiento-label {
-	display: block; /* Hacer que el label ocupe toda la anchura disponible */
-}
-
-.vencimientoInputs {
+.vencimiento-container {
 	display: flex; /* Utilizamos flexbox para colocar los elementos en línea */
 }
 
-.vencimientoInputs input:first-child {
-	margin-right: 10px; /* Margen derecho entre los campos de entrada */
+.vencimiento-label {
+	margin-bottom: 0px !important;
+	margin-right: 10px;
+}
+
+.vencimiento-input {
+	margin-bottom: 0px !important;
+}
+
+.caja-vencimiento {
+	flex: 1;
+	display: flex;
+	align-items: center;
+}
+
+.caja-vencimiento:first-child {
+	margin-right: 20px;
 }
 
 .error {
@@ -211,4 +222,10 @@ button {
 
 .empty {
 	border: 2px solid orange !important;
+}
+
+.credit-card-input {
+	background-repeat: no-repeat;
+	background-size: 30px; 
+	background-position: 250px center;
 }

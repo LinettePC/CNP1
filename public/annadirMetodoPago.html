@@ -72,16 +72,17 @@
 
 		<form class="metodoP">
 			<div>
-				<label for="">Numero de tarjeta</label>
+				<label for="numTarjeta">Numero de tarjeta</label>
 				<input
 					type="text"
 					placeholder="Ej: 8888-8888-8888-8888"
 					id="numTarjeta"
 					maxlength="19"
+					class="credit-card-input"
 				/>
 			</div>
 			<div>
-				<label for="">Nombre del propietario</label>
+				<label for="nombrePropietario">Nombre del propietario</label>
 				<input
 					type="text"
 					placeholder="Julio Sanchez Perez"
@@ -89,29 +90,41 @@
 				/>
 			</div>
 			<div class="vencimiento">
-				<label for="">Vencimiento</label>
-				<div class="vencimientoInputs">
-					<input
-						type="number"
-						placeholder="MM"
-						min="1"
-						max="12"
-						id="mes"
-					/>
-					<input
-						type="number"
-						placeholder="AA"
-						min="24"
-						id="annio"
-						maxlength="2"
-					/>
+				<label for="">Fecha de vencimiento</label>
+				<div class="vencimiento-container">
+					<div class="caja-vencimiento">
+						<label for="mes" class="vencimiento-label">Mes</label>
+						<input
+							type="number"
+							placeholder="MM"
+							min="1"
+							max="12"
+							id="mes"
+							class="vencimiento-input"
+						/>
+					</div>
+					<div class="caja-vencimiento">
+						<label for="annio" class="vencimiento-label">Año</label>
+						<input
+							type="number"
+							placeholder="AA"
+							min="24"
+							id="annio"
+							class="vencimiento-input"
+						/>
+					</div>
 				</div>
 			</div>
 			<div>
-				<label for="">CVV</label>
-				<input type="password" placeholder="123" id="cvv" maxlength="3" />
+				<label for="cvv">CVV</label>
+				<input
+					type="password"
+					placeholder="123"
+					id="cvv"
+					maxlength="3"
+				/>
 			</div>
-			<button type="button" id="enviar">Agregar metodo de pago</button>
+			<button type="button" id="enviar">Agregar método de pago</button>
 		</form>
 
 		<script src="/public/js/metodoPago.js"></script>
