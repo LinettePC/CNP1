@@ -1,7 +1,7 @@
-body{
-    background-color: #ffffff;
-    /* padding: 10px; */
-    font-family: 'Cabin', sans-serif;
+body {
+	background-color: #ffffff;
+	/* padding: 10px; */
+	font-family: 'Cabin', sans-serif;
 }
 
 body {
@@ -142,70 +142,73 @@ button {
 
 /*Estilos metodo de pago*/
 
-
 .metodoP {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    margin: 0 auto;
-    margin-top: 5px ;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 5px;
 }
 
 .metodoP label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
 }
 
-.metodoP input[type="number"],
-.metodoP input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    
-    
+.metodoP input,
+.metodoP input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
 }
 
-.metodoP input[type="number"]:focus,
-.metodoP input[type="text"]:focus {
-    outline: none;
-    border-color: #81B12A;
+.metodoP input:focus,
+.metodoP input:focus {
+	outline: none;
+	border-color: #81b12a;
 }
 
 .metodoP button {
-    background-color: #81B12A;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
+	background-color: #81b12a;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100%;
+	font-size: 16px;
 }
 
 .metodoP button:hover {
-    background-color: #81B12A;
+	background-color: #81b12a;
 }
 
 .vencimiento {
-    margin-bottom: 10px; /* Espacio inferior entre los campos de vencimiento y los demás campos */
+	margin-bottom: 10px; /* Espacio inferior entre los campos de vencimiento y los demás campos */
 }
 
 .vencimiento-label {
-    display: block; /* Hacer que el label ocupe toda la anchura disponible */
+	display: block; /* Hacer que el label ocupe toda la anchura disponible */
 }
 
 .vencimientoInputs {
-    display: flex; /* Utilizamos flexbox para colocar los elementos en línea */
+	display: flex; /* Utilizamos flexbox para colocar los elementos en línea */
 }
 
-.vencimientoInputs input {
-    width: 50px; /* Ancho de los campos de entrada */
-    margin-right: 10px; /* Margen derecho entre los campos de entrada */
+.vencimientoInputs input:first-child {
+	margin-right: 10px; /* Margen derecho entre los campos de entrada */
 }
 
+.error {
+	border: 2px solid red !important;
+}
+
+.empty {
+	border: 2px solid orange !important;
+}

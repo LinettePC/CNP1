@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Metodo de pago</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Metodo de pago</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="/public/css/annadirMetodoPago.css" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="/public/css/annadirMetodoPago.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
-    
-  </head>
-  <body>
-    <header class="navegacion">
+	</head>
+	<body>
+		<header class="navegacion">
 			<div class="logo">
 				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
 			</div>
@@ -65,37 +64,57 @@
 			</div>
 		</header>
 
-    <div class="seccion-titulo">
+		<div class="seccion-titulo">
 			<div class="container">
 				<h1 class="titulo">Registrar método de pago</h1>
 			</div>
 		</div>
 
-    <form class="metodoP">
-        <div>
-            <label for="">Numero de tarjeta</label>
-            <input type="number" placeholder="Ej: 8888 8888 8888 8888" id="numTarjeta" />
-        </div>
-        <div>
-            <label for="">Nombre del propietario</label>
-            <input type="text" placeholder="Julio Sanchez Perez" id="nombrePropietario" />
-        </div>
-        <div class="vencimiento">
-            <label for="">Vencimiento</label>
-            <div class="vencimientoInputs">
-                <input type="number" placeholder="MM" min="1" max="12" id="mes" />
-                <input type="number" placeholder="AA" min="24" id="annio" />
-            </div>
-        </div>
-        <div>
-            <label for="">CVV</label>
-            <input type="number" placeholder="123" id="cvv" max="3" />
-        </div>
-        <button type="button" id="enviar">Agregar metodo de pago</button>
-        
-    </form>
+		<form class="metodoP">
+			<div>
+				<label for="">Numero de tarjeta</label>
+				<input
+					type="text"
+					placeholder="Ej: 8888-8888-8888-8888"
+					id="numTarjeta"
+					maxlength="19"
+				/>
+			</div>
+			<div>
+				<label for="">Nombre del propietario</label>
+				<input
+					type="text"
+					placeholder="Julio Sanchez Perez"
+					id="nombrePropietario"
+				/>
+			</div>
+			<div class="vencimiento">
+				<label for="">Vencimiento</label>
+				<div class="vencimientoInputs">
+					<input
+						type="number"
+						placeholder="MM"
+						min="1"
+						max="12"
+						id="mes"
+					/>
+					<input
+						type="number"
+						placeholder="AA"
+						min="24"
+						id="annio"
+					/>
+				</div>
+			</div>
+			<div>
+				<label for="">CVV</label>
+				<input type="password" placeholder="123" id="cvv" maxlength="3" />
+			</div>
+			<button type="button" id="enviar">Agregar metodo de pago</button>
+		</form>
 
-    <script src="/public/js/metodoPago.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Incluir SweetAlert -->
-</body>
+		<script src="/public/js/metodoPago.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<!-- Incluir SweetAlert -->
+	</body>
 </html>
