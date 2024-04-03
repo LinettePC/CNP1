@@ -7,13 +7,31 @@ const cvv = document.getElementById('cvv');
 const boton = document.getElementById('enviar');
 
 // JavaScript to restrict input to numbers only
-document.getElementById('cvv').addEventListener('input', function (event) {
+cvv.addEventListener('input', function (event) {
 	let input = event.target.value;
 	let regex = /^[0-9]*$/; // Regular expression to match numbers only
 
 	if (!regex.test(input)) {
 		event.target.value = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
 	}
+});
+
+txtMes.addEventListener('input', function() {
+
+    // Limit the input to 2 characters
+    if (this.value.length > 2) {
+        this.value = this.value.slice(0, 2);
+    }
+});
+
+txtAnnio.addEventListener('input', function() {
+    // Trim any leading zeros
+    this.value = this.value.replace(/^0+/, '');
+
+    // Limit the input to 2 characters
+    if (this.value.length > 2) {
+        this.value = this.value.slice(0, 2);
+    }
 });
 
 function validarCamposVacios() {
@@ -89,34 +107,45 @@ function validarNombre() {
 	return error;
 }
 
-function validarAnnio() {
+// hecho por Isaac Ch. Incluye la validación del mes
+function validarFecha() {
 	let error = false;
-	let inputUsuario = txtAnnio;
+    let inputUsuario = txtAnnio;
 
-	//Validar que el mes + el annio no sean menores al actual (PENDIENTE)
+    // Obtener el año y el mes actual
+    let fechaActual = new Date();
+    let annioActual = fechaActual.getFullYear();
+    annioActual = annioActual % 100;
+    let mesActual = fechaActual.getMonth() + 1; // Los meses van de 0 a 11, se suma 1 para obtener el valor real
 
-	// Obtener el año actual para comparar
-	let annioActual = new Date().getFullYear();
-	console.log(annioActual);
+    // Comprobar si el campo está vacío o es nulo
+    if (inputUsuario.value === '' || inputUsuario.value === null) {
+        error = true;
+    } else {
+        // Convertir el valor del campo a un número entero
+        let annio = parseInt(inputUsuario.value);
 
-	// Comprobar si el campo está vacío o es nulo
-	if (inputUsuario.value === '' || inputUsuario.value === null) {
-		error = true;
-	} else {
-		// Convertir el valor del campo a un número entero
-		let annio = parseInt(inputUsuario.value);
-
-		// Verificar si el año está dentro del rango permitido (mayor o igual a 24 y menor que 100)
-		if (annio < annioActual % 100 || annio < 24 || annio >= 100) {
-			error = true;
-			// Aplicar estilos de error al campo de entrada
-			txtAnnio.classList.add('error');
-		} else {
-			// Quitar estilos de error si el valor es válido
-			txtAnnio.classList.remove('error');
-		}
-	}
-	return error;
+        // Verificar si el año está dentro del rango permitido (mayor al año actual)
+        if (annio <= annioActual) {
+            // Si el año es igual al año actual, verificar el mes
+            if (annio === annioActual) {
+                let mes = parseInt(txtMes.value);
+                if (mes <= mesActual) {
+                    error = true;
+                    txtMes.classList.add('error');
+                } else {
+                    txtMes.classList.remove('error');
+                }
+            } else {
+                txtAnnio.classList.add('error');
+                error = true;
+            }
+        } else {
+            // Quitar estilos de error si el valor es válido
+            txtAnnio.classList.remove('error');
+        }
+    }
+    return error;
 }
 
 //Validar el cvv para que solo sean 3
@@ -133,7 +162,7 @@ function enviarForm() {
 	let errorCamposVacios = validarCamposVacios();
 	let errorNumeroTarjeta = validarNumTarjeta();
 	let errorNombre = validarNombre();
-	let errorAnnio = validarAnnio();
+	let errorFecha = validarFecha();
 
 	if (errorCamposVacios) {
 		Swal.fire({
@@ -143,26 +172,26 @@ function enviarForm() {
 		});
 	} else if (errorNumeroTarjeta) {
 		Swal.fire({
-			title: 'Numero de tarjeta Invalido',
-			text: 'Utiliza un formato valido',
+			title: 'Numero de tarjeta Inválido',
+			text: 'Utiliza un formato válido',
 			icon: 'warning',
 		});
 	} else if (errorNombre) {
 		Swal.fire({
 			title: 'Nombre invalido',
-			text: 'Utiliza un formato valido',
+			text: 'Utiliza un formato válido',
 			icon: 'warning',
 		});
-	} else if (errorAnnio) {
+	} else if (errorFecha) {
 		Swal.fire({
-			title: 'Año invalido',
-			text: 'Utiliza un formato valido',
+			title: 'Fecha de vencimiento inválida',
+			text: 'La fecha ingresada es inválida',
 			icon: 'warning',
 		});
 	} else {
 		Swal.fire({
-			title: 'Datos correctos',
-			text: ' Su informacion se ha enviado de forma correcta',
+			title: 'Datos enviados',
+			text: ' Su información se ha enviado de forma correcta',
 			icon: 'success',
 		});
 		limpiarCampos();
