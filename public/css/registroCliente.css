@@ -29,13 +29,31 @@ body {
 	margin-top: 40px;
 	font-size: 28px;
 	color: #2e3c2d;
+	background-color: #1F7544;
+	width: 700px;
+	height: 36px;
+	border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	padding-top: 1%;
+	color: white;
+	
+	
 }
 
 #tituloF1B {
 	border: 2px red;
-	margin-top: 25px;
+	margin-top: 14px;
+	margin-left: 58px;
 	font-size: 20px;
 	color: #2e3c2d;
+	background-color: #81B12A;
+	background-color: #81B12A;
+	width: 550px;
+	height: 27px;
+	border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	padding-top: 1%;
+	color: white
 }
 
 #logoPerfil {
