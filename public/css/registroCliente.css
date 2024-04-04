@@ -21,6 +21,7 @@ body {
 
 .titulos-container {
 	text-align: center;
+	
 }
 
 #tituloF1A {
@@ -68,6 +69,8 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 #headerUno {
@@ -79,8 +82,23 @@ body {
 
 #formulario {
 	padding: 20px 0px;
-	background-color: #1f7544;
+	/* background-color: #1f7544; */
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
+	border-radius: 10px;
 }
+/* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); */
+/* .metodoP {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 5px; 
+}*/
+
+
+
 
 #formularioCuentaCliente {
 	border: 5px solid #e5e5a4;
@@ -93,6 +111,9 @@ body {
 	padding-left: 24px;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	
 }
 
 #navUno {
