@@ -1,87 +1,107 @@
-const express = require('express');
-const Persona = require('../models/Persona');
+const express = require("express");
+//necesitamos requerir el modelo de personas
+const Persona = require("../modelos/personas");
 const router = express.Router();
-//CRUD->Create (post), Read (get), Update (put), Delete (delete)
-//POST
-//http://localhost:8000/api/registro_persona
-router.post('/registro_persona', function (req, res) {
-	let nuevaPersona = new Persona({
-		cedula: req.body.cedula,
-		correo: req.body.correo,
-		nombre: req.body.nombre,
-		contrasenna: req.body.contrasenna,
-	});
 
-	nuevaPersona
-		.save()
-		.then((personaDB) => {
-			res.status(201).json({
-				msg: 'Persona registrada',
-				resultado: true,
-				personaDB,
-			});
-		})
-		.catch((err) => {
-			res.status(501).json({
-				resultado: false,
-				err,
-			});
-		});
+//http://localhost:3000/api/listar
+
+
+//GET--> recuperar informacion
+router.get("/listar", (req, res) => {
+    Persona.find((error, lista) => {
+        if (error) {
+            res.status(500).json({
+                resultado: false,
+                msj: "No se pudo listar los usuarios",
+                error
+            });
+        } else {
+            res.status(200).json({
+                resultado: true,
+                msj: "Listado exitosos",
+                lista
+            });
+        }
+    });
 });
 
-//GET
-//http://localhost:8000/api/listar_persona
-router.get('/listar_persona', function (req, res) {
-	Persona.find()
-		.then((listaPersonas) => {
-			res.status(200).json({
-				msg: 'Listado de personas',
-				listaPersonas,
-			});
-		})
-		.catch((err) => {
-			res.json({
-				resultado: false,
-				err,
-			});
-		});
+
+
+//http://localhost:3000/api/registrar
+//POST --> crear nuevos registros
+router.post("/registrar", (req, res) => {
+    let body = req.body;
+    let nueva_persona = new Persona({
+        cedula: body.cedula,
+        correo: body.correo,
+        nombre: body.nombre,
+        foto: body.foto,
+        contrasenna: body.contrasenna,
+    });
+
+    nueva_persona.save((error, personaDB) => {
+        if (error) {
+            res.status(500).json({
+                resultado: false,
+                msj: "No se pudo hacer el registro",
+                error
+            });
+        } else {
+            res.status(200).json({
+                resultado: true,
+                msj: "Registro exitoso",
+                personaDB
+            });
+        }
+    });
 });
 
-//PUT
-//http://localhost:8000/api/actualizar_persona
-router.put('/actualizar_persona', function (req, res) {
-	const { _id, nombre, cedula, correo, estado } = req.body;
+//http://localhost:3000/api/modificar
+//PUT --> actualizar registros existentes
+router.put("/modificar", (req, res) => {
+    let body = req.body;
 
-	Persona.updateOne({ _id }, { $set: { nombre, cedula, correo, estado } })
-		.then((personaActualizada) => {
-			res.json({
-				resultado: true,
-				personaActualizada,
-			});
-		})
-		.catch((err) => {
-			res.json({
-				resultado: false,
-				err,
-			});
-		});
+    Persona.updateOne({ _id: body._id }, { $set: req.body }, function(error, info) {
+        if (error) {
+            res.status(500).json({
+                resultado: false,
+                msj: "No se pudo actualizar la persona",
+                error
+            });
+        } else {
+            res.status(200).json({
+                resultado: true,
+                msj: "Actulización exitosa",
+                info
+            });
+        }
+    });
+
 });
 
-//DELETE
-//http://localhost:8000/api/eliminar_persona
-router.delete('/eliminar_persona', function (req, res) {
-	Persona.deleteOne({ _id: req.body._id })
-		.then((personaEliminada) => {
-			res.json({
-				resultado: true,
-				personaEliminada,
-			});
-		})
-		.catch((err) => {
-			res.json({
-				resultado: false,
-				err,
-			});
-		});
+//http://localhost:3000/api/eliminar
+//DELETE --> eliminar registros
+router.delete("/eliminar", (req, res) => {
+    let body = req.body;
+    Persona.deleteOne({ _id: body._id },
+        function(error, info) {
+            if (error) {
+                res.status(500).json({
+                    resultado: false,
+                    msj: "No se pudo eliminar la persona",
+                    error
+                });
+            } else {
+                res.status(200).json({
+                    resultado: true,
+                    msj: "Se eliminó la persona de forma exitosa",
+                    info
+                });
+            }
+        });
 });
+
+
+
+
 module.exports = router;
