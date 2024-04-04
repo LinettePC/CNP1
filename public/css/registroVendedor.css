@@ -27,14 +27,27 @@ body {
 	font-family: 'Manrope', sans-serif;
 	margin-top: 40px;
 	font-size: 28px;
-	color: #2e3c2d;
+	color: white;
+	background-color: #1F7544;
+	width: 700px;
+	height: 36px;
+	border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	padding-top: 1%;
 }
 
 #tituloF1B {
 	border: 2px red;
-	margin-top: 25px;
+	margin-top: 14px;
 	font-size: 20px;
-	color: #2e3c2d;
+	margin-left: 58px;
+	background-color: #81B12A;
+	width: 550px;
+	height: 27px;
+	border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	padding-top: 1%;
+	color: white
 }
 
 #logoPerfil {
@@ -59,7 +72,6 @@ body {
 	background-color: #e5e5a4;
 	padding: 20px;
 	padding-left: 24px;
-	/* color: #2E3C2D; */
 	font-size: 26px;
 	text-align: center;
 	/* font-family: 'Manrope', sans-serif; */
@@ -68,17 +80,23 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 #headerUno {
 	height: 155px;
 	display: flex;
 	flex-direction: row;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
 }
 
 #formulario {
 	padding: 20px 0px;
-	background-color: #1f7544;
+	/* background-color: #1f7544; */
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
+	border-radius: 10px;
 }
 
 #formularioCuentaCliente {
@@ -92,6 +110,8 @@ body {
 	padding-left: 24px;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
+	border-radius: 10px;
 }
 
 #navUno {

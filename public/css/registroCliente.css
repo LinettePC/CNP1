@@ -27,7 +27,6 @@ body {
 	font-family: 'Manrope', sans-serif;
 	margin-top: 40px;
 	font-size: 28px;
-	color: #2e3c2d;
 	background-color: #1F7544;
 	width: 700px;
 	height: 36px;
@@ -42,8 +41,6 @@ body {
 	margin-top: 14px;
 	margin-left: 58px;
 	font-size: 20px;
-	color: #2e3c2d;
-	background-color: #81B12A;
 	background-color: #81B12A;
 	width: 550px;
 	height: 27px;
@@ -60,6 +57,7 @@ body {
 }
 
 #tituloF2 {
+	/* border: solid red; */
 	display: flex;
 	align-self: right;
 	margin-right: 30px;
