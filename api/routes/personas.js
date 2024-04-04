@@ -102,6 +102,54 @@ router.post('/registrar', (req, res) => {
 	});
 });
 
+//http://localhost:3000/api/agregar-productos
+//Endpoint para guardar productos
+router.post('/agregar-productos', (req, res) => {
+	let mongoId = req.body._id;
+	if (mongoId) {
+		Persona.updateOne(
+			{ _id: mongoId },
+			{
+				$push: {
+					productos: {
+						nombre_prod: req.body.nombre_prod,
+						descripcion: req.body.descripcion,
+					},
+				},
+			}
+		)
+			.then(() => {
+				res.status(201).json({
+					resultado: true,
+					msj: 'Producto agregado correctamente',
+				});
+			})
+			.catch((error) => {
+				res.status(501).json({
+					resultado: false,
+					msj: 'No se pudo agregar el producto. Ocurrió el siguiente error:',
+					error,
+				});
+			});
+	}
+});
+
+// function (error, info) {
+//     if (error) {
+//         res.status(500).json({
+//             resultado: false,
+//             msj: 'No se pudo actualizar la persona',
+//             error,
+//         });
+//     } else {
+//         res.status(200).json({
+//             resultado: true,
+//             msj: 'Actulización exitosa',
+//             info,
+//         });
+//     }
+// }
+
 //http://localhost:3000/api/modificar
 //PUT --> actualizar registros existentes
 router.put('/modificar', (req, res) => {
