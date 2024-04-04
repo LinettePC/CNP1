@@ -7,7 +7,6 @@ const schema_persona = new mongoose.Schema({
     foto: { type: String, required: false, unique: false },
     estado: { type: String, default: "Inactivo" },
     contrasenna: { type: String, required: true, unique: false },
-    
 });
 
 module.exports = mongoose.model("Persona", schema_persona, "personas");
