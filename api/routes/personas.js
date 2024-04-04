@@ -1,87 +1,200 @@
 const express = require('express');
-const Persona = require('../models/Persona');
+//necesitamos requerir el modelo de personas
+const Persona = require('../models/personas');
 const router = express.Router();
-//CRUD->Create (post), Read (get), Update (put), Delete (delete)
-//POST
-//http://localhost:8000/api/registro_persona
-router.post('/registro_persona', function (req, res) {
-	let nuevaPersona = new Persona({
-		cedula: req.body.cedula,
-		correo: req.body.correo,
-		nombre: req.body.nombre,
-		contrasenna: req.body.contrasenna,
-	});
 
-	nuevaPersona
-		.save()
-		.then((personaDB) => {
-			res.status(201).json({
-				msg: 'Persona registrada',
-				resultado: true,
-				personaDB,
+//http://localhost:3000/api/listar
+//GET--> recuperar informacion
+router.get('/listar', (req, res) => {
+	Persona.find((error, lista) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo listar los usuarios',
+				error,
 			});
-		})
-		.catch((err) => {
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Listado exitosos',
+				lista,
+			});
+		}
+	});
+});
+
+// http://localhost:3000/api/buscar-persona-nombre
+// Endpoint para agarrar un usuario específico
+router.get('/buscar-persona-nombre', (req, res) => {
+	let requestedNombre = req.query.nombre;
+	Persona.find({ nombre: requestedNombre }, (error, personaBuscada) => {
+		if (error) {
 			res.status(501).json({
 				resultado: false,
-				err,
+				msj: 'Ocurrió el siguiente error:',
+				error,
 			});
-		});
+		} else {
+			if (personaBuscada == '') {
+				res.json({ msj: 'La persona no existe.' });
+			} else {
+				res.json({
+					resultado: true,
+					msj: 'Usuario encontrado:',
+					persona: personaBuscada,
+				});
+			}
+		}
+	});
 });
 
-//GET
-//http://localhost:8000/api/listar_persona
-router.get('/listar_persona', function (req, res) {
-	Persona.find()
-		.then((listaPersonas) => {
+// http://localhost:3000/api/buscar-persona-cedula
+// Endpoint para agarrar un usuario específico
+router.get('/buscar-persona-cedula', (req, res) => {
+	let requestedCedula = req.query.cedula;
+	Persona.find({ cedula: requestedCedula }, (error, personaBuscada) => {
+		if (error) {
+			res.status(501).json({
+				resultado: false,
+				msj: 'Ocurrió el siguiente error:',
+				error,
+			});
+		} else {
+			if (personaBuscada == '') {
+				res.json({ msj: 'La persona no existe.' });
+			} else {
+				res.json({
+					resultado: true,
+					msj: 'Usuario encontrado:',
+					persona: personaBuscada,
+				});
+			}
+		}
+	});
+});
+
+//http://localhost:3000/api/registrar
+//POST --> crear nuevos registros
+router.post('/registrar', (req, res) => {
+	let body = req.body;
+	let nueva_persona = new Persona({
+		cedula: body.cedula,
+		correo: body.correo,
+		nombre: body.nombre,
+		foto: body.foto,
+		contrasenna: body.contrasenna,
+	});
+
+	nueva_persona.save((error, personaDB) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo hacer el registro',
+				error,
+			});
+		} else {
 			res.status(200).json({
-				msg: 'Listado de personas',
-				listaPersonas,
-			});
-		})
-		.catch((err) => {
-			res.json({
-				resultado: false,
-				err,
-			});
-		});
-});
-
-//PUT
-//http://localhost:8000/api/actualizar_persona
-router.put('/actualizar_persona', function (req, res) {
-	const { _id, nombre, cedula, correo, estado } = req.body;
-
-	Persona.updateOne({ _id }, { $set: { nombre, cedula, correo, estado } })
-		.then((personaActualizada) => {
-			res.json({
 				resultado: true,
-				personaActualizada,
+				msj: 'Registro exitoso',
+				personaDB,
 			});
-		})
-		.catch((err) => {
-			res.json({
-				resultado: false,
-				err,
-			});
-		});
+		}
+	});
 });
 
-//DELETE
-//http://localhost:8000/api/eliminar_persona
-router.delete('/eliminar_persona', function (req, res) {
-	Persona.deleteOne({ _id: req.body._id })
-		.then((personaEliminada) => {
-			res.json({
-				resultado: true,
-				personaEliminada,
+//http://localhost:3000/api/agregar-productos
+//Endpoint para guardar productos
+router.post('/agregar-productos', (req, res) => {
+	let mongoId = req.body._id;
+	if (mongoId) {
+		Persona.updateOne(
+			{ _id: mongoId },
+			{
+				$push: {
+					productos: {
+						nombre_prod: req.body.nombre_prod,
+						descripcion: req.body.descripcion,
+					},
+				},
+			}
+		)
+			.then(() => {
+				res.status(201).json({
+					resultado: true,
+					msj: 'Producto agregado correctamente',
+				});
+			})
+			.catch((error) => {
+				res.status(501).json({
+					resultado: false,
+					msj: 'No se pudo agregar el producto. Ocurrió el siguiente error:',
+					error,
+				});
 			});
-		})
-		.catch((err) => {
-			res.json({
-				resultado: false,
-				err,
-			});
-		});
+	}
 });
+
+// function (error, info) {
+//     if (error) {
+//         res.status(500).json({
+//             resultado: false,
+//             msj: 'No se pudo actualizar la persona',
+//             error,
+//         });
+//     } else {
+//         res.status(200).json({
+//             resultado: true,
+//             msj: 'Actulización exitosa',
+//             info,
+//         });
+//     }
+// }
+
+//http://localhost:3000/api/modificar
+//PUT --> actualizar registros existentes
+router.put('/modificar', (req, res) => {
+	let body = req.body;
+
+	Persona.updateOne(
+		{ _id: body._id },
+		{ $set: req.body },
+		function (error, info) {
+			if (error) {
+				res.status(500).json({
+					resultado: false,
+					msj: 'No se pudo actualizar la persona',
+					error,
+				});
+			} else {
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actulización exitosa',
+					info,
+				});
+			}
+		}
+	);
+});
+
+//http://localhost:3000/api/eliminar
+//DELETE --> eliminar registros
+router.delete('/eliminar', (req, res) => {
+	let body = req.body;
+	Persona.deleteOne({ _id: body._id }, function (error, info) {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo eliminar la persona',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Se eliminó la persona de forma exitosa',
+				info,
+			});
+		}
+	});
+});
+
 module.exports = router;

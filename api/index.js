@@ -1,41 +1,29 @@
 const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const bodyparser = require('bodyparser');
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const personas = require("./routes/personas");
+//const auth = require("./routes/auth");
+require("dotenv").config();
 
-const personas = require('./routes/personas');
-//const empresas = require('./routes/empresas')
-//const productos = require('./routes/productos')
-//const metodos_pago = require('./routes/metodo_pago')
-
-require('dotenv').config();
 
 const app = express();
-
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({ extended: true }));
-
 app.use(cors());
+app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose
-	.connect(process.env.MONGO_URI, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
-	.then(() => {
-		console.log('Connected to MongoDB');
-	})
-	.catch((err) => {
-		console.error('Error connecting to MongoDB:', err);
-	});
+//establecer la conexion con la BD-Mongo
+mongoose.connect(process.env.MONGO_URI)
 
-app.use('/api', personas);
-//app.use('/api',empresas)
-//app.use('/api',productos)
-//app.use('/api',metodos_pago)
 
-const PORT = 8000;
 
-app.listen(PORT, () => {
-	console.log(`Aplicación levantada en puerto: ${PORT}`);
+
+app.use("/api", personas);
+//app.use("/api", auth);
+
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
 });
+
