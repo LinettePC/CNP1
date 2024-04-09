@@ -1,10 +1,12 @@
+<!--------Autor: Diana Pasos-->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Portal del Administrador</title>
-		<link rel="stylesheet" href="/public/css/portalVendedor.css" />
+		<title>Portal del Vendedor</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/portalVendedor.css" />
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
@@ -19,8 +21,9 @@
 				<nav class="botones-navegacion">
 					<ul>
 						<li><a href="#">Inicio</a></li>
-						<li><a href="#">Contacto</a></li>
-						<li><a href="#">Nosotros</a></li>
+						<li><a href="#">Tiendas</a></li>
+						<li><a href="#">Productos</a></li>
+						<li><a href="SolicitudesAdmin.html">Solicitudes</a></li>
 					</ul>
 				</nav>
 				<div class="barra-busqueda">
@@ -32,41 +35,58 @@
 					<button>Buscar</button>
 				</div>
 			</div>
+			<div class="carrito">
+				<div id="cuenta">
+					<a href="miPerfil.html" id="textoCuenta">Mi Cuenta |</a>
+				</div>
+			
+			</div>
 		</header>
-
-		<!--Panel del admin-->
 
 		<div class="seccion-titulo">
 			<div class="container">
-				<h1 class="titulo">Portal Vendedor</h1>
+				<h1 class="titulo">Portal del Vendedor</h1>
 			</div>
 		</div>
 
-		<div class="acciones">
-			<div class="accion">
+
+		<!------------------------------------------------------------------------------------------------>
+
+	
+
+		<div class="acciones-vendedor">
+			
 				<a href="/public/perfilVendedor.html"
-					><img src="/public/img/profile.png" alt="Mi perfil" />
-					<span>Mi Perfil</span>
+				 	class="contenedor-acciones"
+					target="_blank"
+				>
+					<img src="/public/img/profile.png"/>
+					<h1>Mi Perfil</h1>
 				</a>
-			</div>
-			<div class="accion">
-				<a href="/public/reportesVendedor.html">
+			
+			
+				<a 
+					href="/public/reportesVendedor.html"
+					class="contenedor-acciones"
+					target="_blank"
+				>
 					<img
-						src="/public/img/cantidad-de-ventas.png"
-						alt="Reportes"
-					/>
-					<span>Reporte de Ventas</span>
+						src="/public/img/cantidad-de-ventas.png"/>
+						<h1>Reporte de ventas</h1>
+			
 				</a>
-			</div>
-			<div class="accion">
-				<a href="/public/catalogoVendedor.html"
+		
+				<a 
+					href="/public/catalogoVendedor.html"
+					class="contenedor-acciones"
+					target="_blank"
 					><img
 						src="/public/img/lista-de-verificacion.png"
-						alt="Catalogo"
+					
 					/>
-					<span>Mi Catalogo</span>
+					<h1>Mi catálogo</h1>
 				</a>
-			</div>
+			
 		</div>
 	</body>
 </html>
