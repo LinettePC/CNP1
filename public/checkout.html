@@ -15,99 +15,173 @@
 	<body class="body">
 		<div class="contenedor">
 			<div class="formulario">
-				<div>
-					<img src="img/logo6.png" alt="" id="logo" />
-				</div>
-				<div id="contenedorTextoSuperior">
-					<h2>Formulario de Compra</h2>
-					<p>Porfavor rellenar todos los campos</p>
+				<div class="header-formulario">
+					<div>
+						<img
+							src="img/logo6.png"
+							alt=""
+							id="logo"
+							class="imagen-comprar"
+						/>
+					</div>
+					<div class="contenedor-texto-superior">
+						<h1>Formulario de Compra</h1>
+						<p>Complete todos los campos para realizar su compra</p>
+					</div>
 				</div>
 
-				<form id="inputsDatos">
-					<div class="cajaInputDoble">
-						<div>
-							<label for="nombre" class="labelFormulario"
-								>Nombre:</label
+				<div class="contenedor-flex">
+					<form id="inputsDatos">
+						<div class="contenedor-flex-form">
+							<div class="caja-flex">
+								<label for="nombre" class="etiqueta"
+									>Nombre:</label
+								>
+								<input
+									type="text"
+									id="nombre"
+									name="nombre"
+									class="campo"
+									required
+								/>
+							</div>
+							<div class="caja-flex">
+								<label for="apellidos" class="etiqueta"
+									>Apellidos:</label
+								>
+								<input
+									type="text"
+									id="apellidos"
+									name="apellidos"
+									class="campo"
+									required
+								/>
+							</div>
+						</div>
+
+						<div class="campo-container">
+							<label for="email" class="etiqueta"
+								>Correo Electrónico:</label
 							>
 							<input
-								id="nombre"
-								name="nombre"
-								class="inputPequeno"
+								type="email"
+								id="email"
+								name="email"
+								class="campo"
+								required
 							/>
 						</div>
-						<div>
-							<label for="apellidos" class="labelFormulario"
-								>Apellidos:</label
+
+						<div class="campo-container">
+							<label for="telefono" class="etiqueta"
+								>Teléfono:</label
 							>
 							<input
-								id="apellidos"
-								name="apellidos"
-								class="inputPequeno"
+								type="tel"
+								id="telefono"
+								name="telefono"
+								class="campo"
+								required
 							/>
 						</div>
-					</div>
 
-					<div class="cajaInput">
-						<label class="labelFormulario">Email:</label>
-						<input id="email" name="email" />
-					</div>
-
-					<div class="cajaInput">
-						<label class="labelFormulario">Telefono:</label>
-						<input id="telefono" name="telefono" />
-					</div>
-
-					<div class="cajaInput">
-						<label for="provincia" class="labelFormulario"
-							>Provincia:</label
-						>
-						<input id="provincia" name="provincia" />
-					</div>
-
-					<div class="cajaInputDoble">
-						<div>
-							<label for="canton" class="labelFormulario"
-								>Canton:</label
+						<div class="campo-container">
+							<label for="provincia" class="etiqueta"
+								>Provincia:</label
 							>
-							<input id="canton" name="canton" />
-						</div>
-						<div>
-							<label for="distrito" class="labelFormulario"
-								>Distrito:</label
+							<select
+								id="provincia"
+								name="provincia"
+								class="campo"
+								onchange="cargarCantones()"
+								required
 							>
-							<input id="distrito" name="distrito" />
+								<option value="" selected disabled>
+									Seleccione una provincia
+								</option>
+								<option value="San José">San José</option>
+								<option value="Alajuela">Alajuela</option>
+								<option value="Cartago">Cartago</option>
+								<option value="Heredia">Heredia</option>
+								<option value="Guanacaste">Guanacaste</option>
+								<option value="Puntarenas">Puntarenas</option>
+								<option value="Limón">Limón</option>
+							</select>
 						</div>
-					</div>
 
-					<div class="cajaInput">
-						<label for="direccion" class="labelFormulario"
-							>Dirección:</label
-						>
-						<input id="direccion" name="direccion" />
-					</div>
+						<div class="contenedor-flex-form">
+							<div class="caja-flex">
+								<label for="canton" class="etiqueta"
+									>Cantón:</label
+								>
+								<select
+									id="canton"
+									name="canton"
+									class="campo"
+									onchange="cargarDistritos()"
+									required
+								>
+									<option value="" selected disabled>
+										Seleccione una provincia...
+									</option>
+								</select>
+							</div>
+							<div class="caja-flex">
+								<label for="distrito" class="etiqueta"
+									>Distrito:</label
+								>
+								<select
+									id="distrito"
+									name="distrito"
+									class="campo"
+									required
+								>
+									<option value="" selected disabled>
+										Seleccione una provincia...
+									</option>
+								</select>
+							</div>
+						</div>
 
-					<div class="cajaTarjeta">
-						<label for="tarjetaCredito">Tarjeta de Credito:</label>
-						<select name="select">
-							<option value="value1" selected disabled>Seleccion</option>
-							<option value="value1">Mastercard 5891</option>
-						</select>
-					</div>
-
-					<div class="cajaBoton">
-						<button type="button" id="boton">
-							Realizar Compra
-						</button>
-					</div>
-				</form>
+						<div class="campo-container">
+							<label for="direccion" class="etiqueta"
+								>Dirección:</label
+							>
+							<input
+								type="text"
+								id="direccion"
+								name="direccion"
+								class="campo"
+								required
+							/>
+						</div>
+						<div class="campo-container">
+							<label for="tarjeta" class="etiqueta"
+								>Tarjeta de Crédito:</label
+							>
+							<select
+								type="text"
+								id="tarjeta"
+								name="tarjeta"
+								class="campo"
+								required
+							>
+								<option value="">
+									Seleccione una tarjeta...
+								</option>
+							</select>
+						</div>
+						<div class="container-boton">
+							<button id="boton" type="submit" class="boton-comprar">
+								Realizar compra
+							</button>
+						</div>
+					</form>
+				</div>
 			</div>
 
 			<div class="seccion-productos">
-				<h1
-					class="titulo-seccion-productos"
-				>
-					Productos a comprar
-				</h1>
+				<h1 class="titulo-seccion-productos">Productos a comprar</h1>
 
 				<div class="productos-flex">
 					<div class="producto">
@@ -115,41 +189,34 @@
 							<img
 								src="img/ejemploProducto.png"
 								alt=""
-								id="imagenEjemplo"
+								class="imagen-ejemplo"
 							/>
 						</div>
-						<div id="nombreCantidadProducto">
+						<div class="nombre-cantidad-producto">
 							<div>
-								<span id="nombreProducto">Naranja Importada Grande</span>
-								<p><span id="unidadesProducto">5</span> Unidades</p>
+								<span class="nombre-producto"
+									>Naranja Importada Grande</span
+								>
+								<p>
+									<span class="unidades-producto">5</span>
+									Unidades
+								</p>
 							</div>
 						</div>
-						<div id="seccionPrecioProducto">
-							<p>Precio: <span id="precioProducto">₡500.00</span></p>
-						</div>
-					</div>
-					<div class="producto">
-						<div class="contenedor-imagen">
-							<img
-								src="img/ejemploProducto.png"
-								alt=""
-								id="imagenEjemplo"
-							/>
-						</div>
-						<div id="nombreCantidadProducto">
-							<div>
-								<span id="nombreProducto">Naranja Importada Grande</span>
-								<p><span id="unidadesProducto">5</span> Unidades</p>
-							</div>
-						</div>
-						<div id="seccionPrecioProducto">
-							<p>Precio: <span id="precioProducto">₡500.00</span></p>
+						<div class="seccion-precio-producto">
+							<p>
+								Precio:
+								<span class="precio-producto">₡500.00</span>
+							</p>
 						</div>
 					</div>
 				</div>
 				<div class="precio-total">
 					<div class="contenedor-precio-total">
-						<span>Total a pagar: <span id="precioTotalCarrito">₡500.00</span></span>
+						<span
+							>Total a pagar:
+							<span id="precioTotalCarrito">₡500.00</span></span
+						>
 					</div>
 				</div>
 			</div>

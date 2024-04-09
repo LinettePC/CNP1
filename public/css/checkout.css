@@ -4,140 +4,135 @@
 	padding: 0;
 }
 
+html,
+body {
+	height: 100%;
+}
+
 .contenedor {
 	display: flex;
 	flex-direction: row;
-	height: 100vh;
+	height: 100%;
 }
 
-#contenedorTextoSuperior {
-	margin-top: 10px;
-	margin-bottom: 30px;
-	width: 400px;
-	display: flex;
-	flex-direction: column;
-	font-size: 15px;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-#contenedorTextoSuperior p {
-	margin-top: 10px;
-	font-size: 15px;
-	color: #6b6b6b;
-}
-
-#contenedorTextoSuperior h2 {
-	margin-top: 15px;
-	font-size: 30px;
+.imagen-comprar {
+	width: 20%;
+	margin-top: 90px;
 }
 
 .formulario {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	width: 50%;
-	padding: 20px;
+}
+
+.header-formulario {
+	text-align: center;
+}
+
+.contenedor-texto-superior {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.contenedor-texto-superior h1 {
+	font-size: 40px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.contenedor-texto-superior p {
+	font-size: 20px;
 }
 
 #inputsDatos {
-	width: 60%;
+	width: 600px;
+}
+
+.contenedor-flex {
 	display: flex;
-	flex-direction: column;
-
-	align-items: center;
+	justify-content: center;
 }
 
-.labelFormulario {
-	width: 50px;
-}
-
-.cajaInput {
-	width: 100%;
-	margin: 8px;
+.contenedor-flex-form {
 	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: left;
+	margin-bottom: 12px;
 }
 
-#logo {
-	margin-top: 70px;
-	width: 220px;
+.caja-flex {
+	flex: 1;
 }
 
-.cajaInputDoble {
-	width: 100%;
-	margin: 8px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
+.caja-flex:first-child {
+	margin-right: 20px;
 }
 
-select {
-	margin-left: 13px;
-	/* margin-right: 8px; */
-	padding-left: 10px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	font-size: 15px;
-	width: 350px;
-	height: 20px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
+#inputsDatos {
+	padding: 30px;
 }
 
-.cajaInputDoble input {
-	margin-left: 13px;
-	padding-left: 10px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	font-size: 15px;
-	width: 160px;
-	height: 10px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-}
-
-.cajaInput input {
-	margin-left: 25px;
-	padding-left: 15px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	font-size: 15px;
-	width: 100%;
-	height: 10px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-}
-
-.cajaTarjeta {
-	width: 100%;
-	margin: 8px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
-
-label[for='tarjetaCredito'] {
-	margin-right: auto;
-}
-
-#boton {
-	margin-top: 40px;
-	width: 200px;
-	height: 45px;
-	border: none;
-	border-radius: 5px;
-	background-color: #81b12a;
-	color: #fff;
-	cursor: pointer;
+.etiqueta {
+	margin-bottom: 5px;
+	display: block;
 	font-size: 17px;
 }
 
+.campo {
+	padding: 8px;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(204, 204, 204);
+	font-size: 17px;
+}
+
+select {
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right 0.7rem top 50%;
+	background-size: 0.65rem auto;
+}
+
+option {
+	margin: 0px;
+}
+
+.campo-container {
+	margin-bottom: 12px;
+}
+
+.container-boton {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.boton-comprar {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 40px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.boton-comprar:hover {
+	padding: 10px 20px;
+	background-color: #ecab21;
+}
+
+.error {
+	border: 1px solid red;
+}
+
+/* Seccion productos */
+
 .seccion-productos {
 	width: 50%;
+	height: 100vh;
 	background-color: #d4d4d4;
 	/* display: flex; */
 	flex-direction: column;
@@ -171,7 +166,7 @@ label[for='tarjetaCredito'] {
 	align-items: center;
 }
 
-#imagenEjemplo {
+.imagen-ejemplo {
 	width: 50px;
 	border: 1px solid gray;
 	background-color: white;
@@ -179,7 +174,7 @@ label[for='tarjetaCredito'] {
 	border-radius: 8px;
 }
 
-#nombreCantidadProducto {
+.nombre-cantidad-producto {
 	width: 350px;
 	display: flex;
 	flex-direction: column;
@@ -189,21 +184,21 @@ label[for='tarjetaCredito'] {
 	margin-left: 15px;
 }
 
-#nombreCantidadProducto div {
+.nombre-cantidad-producto div {
 	text-align: left;
 	width: 100%;
 }
 
-#nombreCantidadProducto div p {
+.nombre-cantidad-producto div p {
 	font-size: 25px;
 }
 
-#nombreProducto {
+.nombre-producto {
 	font-size: 30px;
 	font-weight: bold;
 }
 
-#seccionPrecioProducto {
+.seccion-precio-producto {
 	margin-left: auto;
 	font-size: 20px;
 	display: flex;
@@ -211,7 +206,7 @@ label[for='tarjetaCredito'] {
 	align-items: center;
 }
 
-#precioProducto {
+.precio-producto {
 	font-weight: bold;
 }
 
