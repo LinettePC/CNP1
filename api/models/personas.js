@@ -14,6 +14,9 @@ const schema_persona = new mongoose.Schema({
 			descripcion: { type: String, required: false, unique: false },
 		},
 	],
+	esCliente: { type: Boolean, required: true, unique: false },
+	esVendedor: { type: Boolean, required: true, unique: false },
+	esAdmin: { type: Boolean, required: true, unique: false },
 });
 
 module.exports = mongoose.model('Persona', schema_persona, 'personas');
