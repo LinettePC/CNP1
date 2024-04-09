@@ -11,8 +11,50 @@
 			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
+
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+			}
+			.arrow-container {
+				position: fixed;
+				top: 20px;
+				left: 20px;
+				cursor: pointer;
+				z-index: 9999;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.arrow-container span {
+				margin-left: 10px;
+				font-size: 20px;
+			}
+		</style>
 	</head>
 	<body class="body">
+		<div
+			class="arrow-container"
+			onclick="window.location.href = 'marketplace.html';"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="35"
+				height="35"
+				fill="currentColor"
+				class="bi bi-arrow-left-circle-fill"
+				viewBox="0 0 16 16"
+			>
+				<path
+					d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+				/>
+			</svg>
+			<span>Volver al mercado</span>
+		</div>
+
 		<div class="contenedor">
 			<div class="formulario">
 				<div class="header-formulario">
@@ -172,7 +214,11 @@
 							</select>
 						</div>
 						<div class="container-boton">
-							<button id="boton" type="submit" class="boton-comprar">
+							<button
+								id="boton"
+								type="submit"
+								class="boton-comprar"
+							>
 								Realizar compra
 							</button>
 						</div>
