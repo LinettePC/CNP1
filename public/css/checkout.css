@@ -120,7 +120,7 @@ select {
 	align-items: center;
 }
 
-label[for="tarjetaCredito"] {
+label[for='tarjetaCredito'] {
 	margin-right: auto;
 }
 
@@ -146,7 +146,7 @@ label[for="tarjetaCredito"] {
 .titulo-seccion-productos {
 	text-align: center;
 	font-size: 40px;
-	margin-top: 70px;
+	margin-top: 90px;
 	font-weight: bold;
 }
 
@@ -212,7 +212,7 @@ label[for="tarjetaCredito"] {
 }
 
 #precioProducto {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .precio-total {
