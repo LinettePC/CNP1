@@ -1,114 +1,161 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout</title>
-    <link rel="stylesheet" href="css/checkout.css" />
-    <link rel="stylesheet" href="css/reset.css" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Checkout</title>
+		<link rel="stylesheet" href="css/checkout.css" />
+		<link rel="stylesheet" href="css/reset.css" />
 
-    <link
+		<link
 			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
-    
-  </head>
-  <body class="body">
-    <div class="contenedor">
-      <div class="formulario">
-        <div>
-          <img src="img/logo6.png" alt="" id="logo">
-        </div>
-        <div id="contenedorTextoSuperior">
-          <h2>Formulario de Compra</h2>
-          <p>Porfavor rellenar todos los campos</p>
-        </div>
+	</head>
+	<body class="body">
+		<div class="contenedor">
+			<div class="formulario">
+				<div>
+					<img src="img/logo6.png" alt="" id="logo" />
+				</div>
+				<div id="contenedorTextoSuperior">
+					<h2>Formulario de Compra</h2>
+					<p>Porfavor rellenar todos los campos</p>
+				</div>
 
-        <form id="inputsDatos">
-          <div class="cajaInputDoble">
-            <div>
-              <label for="nombre" class="labelFormulario">Nombre:</label>
-              <input  id="nombre" name="nombre" class="inputPequeno"  />
-            </div>
-            <div>
-              <label for="apellidos" class="labelFormulario">Apellidos:</label>
-              <input  id="apellidos" name="apellidos" class="inputPequeno"  />
-            </div>
-          </div>
-        
-          <div class="cajaInput">
-              <label  class="labelFormulario">Email:</label>
-              <input  id="email" name="email"  />
-          </div>
+				<form id="inputsDatos">
+					<div class="cajaInputDoble">
+						<div>
+							<label for="nombre" class="labelFormulario"
+								>Nombre:</label
+							>
+							<input
+								id="nombre"
+								name="nombre"
+								class="inputPequeno"
+							/>
+						</div>
+						<div>
+							<label for="apellidos" class="labelFormulario"
+								>Apellidos:</label
+							>
+							<input
+								id="apellidos"
+								name="apellidos"
+								class="inputPequeno"
+							/>
+						</div>
+					</div>
 
-          <div class="cajaInput">
-            <label  class="labelFormulario">Telefono:</label>
-            <input  id="telefono" name="telefono"  />
-        </div>
+					<div class="cajaInput">
+						<label class="labelFormulario">Email:</label>
+						<input id="email" name="email" />
+					</div>
 
-          <div class="cajaInput">
-            <label for="provincia" class="labelFormulario">Provincia:</label>
-            <input id="provincia" name="provincia"  />
-          </div>
+					<div class="cajaInput">
+						<label class="labelFormulario">Telefono:</label>
+						<input id="telefono" name="telefono" />
+					</div>
 
-          <div class="cajaInputDoble">
-            <div>
-              <label for="canton" class="labelFormulario">Canton:</label>
-              <input id="canton" name="canton"  />
-            </div>
-            <div>
-              <label for="distrito" class="labelFormulario">Distrito:</label>
-              <input id="distrito" name="distrito"  />
-            </div>
-          </div>
+					<div class="cajaInput">
+						<label for="provincia" class="labelFormulario"
+							>Provincia:</label
+						>
+						<input id="provincia" name="provincia" />
+					</div>
 
-          <div class="cajaInput">
-            <label for="direccion" class="labelFormulario">Dirección:</label>
-            <input id="direccion" name="direccion" ></input>
-          </div>
-        
-          <div class="cajaTarjeta">
-            <label for="tarjetaCredito" >Tarjeta de Credito:</label>
-            <select name="select">
-              <option value="value1">Mastercard 5891</option>
-            </select>
-          </div>
+					<div class="cajaInputDoble">
+						<div>
+							<label for="canton" class="labelFormulario"
+								>Canton:</label
+							>
+							<input id="canton" name="canton" />
+						</div>
+						<div>
+							<label for="distrito" class="labelFormulario"
+								>Distrito:</label
+							>
+							<input id="distrito" name="distrito" />
+						</div>
+					</div>
 
-          <div class="cajaBoton">
-            <button type="button" id="boton">Realizar Compra</button>
-          </div>
-        </form>
-      </div>
+					<div class="cajaInput">
+						<label for="direccion" class="labelFormulario"
+							>Dirección:</label
+						>
+						<input id="direccion" name="direccion" />
+					</div>
 
-      <div class="productos">
+					<div class="cajaTarjeta">
+						<label for="tarjetaCredito">Tarjeta de Credito:</label>
+						<select name="select">
+							<option value="value1" selected disabled>Seleccion</option>
+							<option value="value1">Mastercard 5891</option>
+						</select>
+					</div>
 
-        <div id="ejemploProducto">
-          <div>
-            <img src="img/ejemploProducto.png" alt="" id="imagenEjemplo">
-          </div>
-          <div id="nombreCantidadProducto">
-              <p>Naranja Importada Grande</p>
-              <span>5 Unidades</span>
+					<div class="cajaBoton">
+						<button type="button" id="boton">
+							Realizar Compra
+						</button>
+					</div>
+				</form>
+			</div>
 
-          </div>
+			<div class="seccion-productos">
+				<h1
+					class="titulo-seccion-productos"
+				>
+					Productos a comprar
+				</h1>
 
-          <div>
-            <p>₡500.00</p>
-          </div>
-        </div>
-        <div id="precioTexto">
-          <div>
-            <p>Total</p>
-          </div>
-          <div>
-            <P>₡5500.00</P>
-          </div>
-        </div>
+				<div class="productos-flex">
+					<div class="producto">
+						<div class="contenedor-imagen">
+							<img
+								src="img/ejemploProducto.png"
+								alt=""
+								id="imagenEjemplo"
+							/>
+						</div>
+						<div id="nombreCantidadProducto">
+							<div>
+								<span id="nombreProducto">Naranja Importada Grande</span>
+								<p><span id="unidadesProducto">5</span> Unidades</p>
+							</div>
+						</div>
+						<div id="seccionPrecioProducto">
+							<p>Precio: <span id="precioProducto">₡500.00</span></p>
+						</div>
+					</div>
+					<div class="producto">
+						<div class="contenedor-imagen">
+							<img
+								src="img/ejemploProducto.png"
+								alt=""
+								id="imagenEjemplo"
+							/>
+						</div>
+						<div id="nombreCantidadProducto">
+							<div>
+								<span id="nombreProducto">Naranja Importada Grande</span>
+								<p><span id="unidadesProducto">5</span> Unidades</p>
+							</div>
+						</div>
+						<div id="seccionPrecioProducto">
+							<p>Precio: <span id="precioProducto">₡500.00</span></p>
+						</div>
+					</div>
+				</div>
+				<div class="precio-total">
+					<div class="contenedor-precio-total">
+						<span>Total a pagar: <span id="precioTotalCarrito">₡500.00</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
 
-      </div>
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/checkout.js"></script>
-  </body>
+	</body>
 </html>
