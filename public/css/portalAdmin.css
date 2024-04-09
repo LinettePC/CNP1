@@ -139,10 +139,15 @@ select {
 button {
 	font-family: 'Manrope', sans-serif;
 }
+
+
 .acciones-admin {
 	text-align: center; /* Centra horizontalmente el contenido */
 	margin-top: 150px;
 }
+
+
+
 
 .container {
 	width: 100%;
