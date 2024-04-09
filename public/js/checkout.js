@@ -7,7 +7,16 @@ const txt_provincia = document.getElementById('provincia');
 const txt_canton = document.getElementById('canton');
 const txt_distrito = document.getElementById('distrito');
 
-btn_comprar.addEventListener('click', principal);
+const formulario = document.getElementById('inputsDatos');
+
+// Add event listener to form submission
+formulario.addEventListener('submit', function (event) {
+	// Prevent default form submission behavior
+	event.preventDefault();
+
+	// Call the principal function to perform validation
+	principal();
+});
 
 function principal() {
 	let error_campos_vacios = ValidarCamposVacios();
@@ -78,11 +87,33 @@ function principal() {
 	} else {
 		Swal.fire({
 			title: 'Información Correcta',
-			text: 'Su solicitud se envió correctamente',
+			text: 'Su solicitud de compra se envió correctamente',
 			icon: 'success',
+			timer: 3000,
+			timerProgressBar: true,
+			showConfirmButton: false,
 		});
+
+		setTimeout(function () {
+			formulario.submit();
+			window.location.href = "marketplace.html";
+		}, 3000);
 	}
 }
+
+txt_telefono.addEventListener('input', function (event) {
+	// Get the current value of the input
+	let input = event.target.value;
+
+	// Remove any non-numeric characters from the input
+	input = input.replace(/\D/g, '');
+
+	// Format the input by adding a dash after every 4 characters
+	input = input.replace(/(\d{4})(?=\d)/g, '$1-');
+
+	// Update the input value
+	event.target.value = input;
+});
 
 function ValidarCamposVacios() {
 	let camposRequeridos = document.querySelectorAll('#inputsDatos [required]');
@@ -129,7 +160,7 @@ function ValidarApellidos() {
 function ValidarTelefono() {
 	let error = false;
 	let input_telefono = txt_telefono.value;
-	let expression = /^[0-9]{4}-[0-9]{4}$/; //1111-1111 4329-8523
+	let expression = /^[0-9]{4}-?[0-9]{4}$/; //1111-1111 11112222
 	if (expression.test(input_telefono) == false) {
 		error = true;
 		txt_telefono.classList.add('error');

@@ -73,7 +73,7 @@
 				</div>
 
 				<div class="contenedor-flex">
-					<form id="inputsDatos">
+					<form id="inputsDatos" novalidate>
 						<div class="contenedor-flex-form">
 							<div class="caja-flex">
 								<label for="nombre" class="etiqueta"
@@ -123,6 +123,7 @@
 								id="telefono"
 								name="telefono"
 								class="campo"
+								maxlength="9"
 								required
 							/>
 						</div>
@@ -210,6 +211,9 @@
 							>
 								<option value="">
 									Seleccione una tarjeta...
+								</option>
+								<option value="1">
+									Mastercard 1234
 								</option>
 							</select>
 						</div>
