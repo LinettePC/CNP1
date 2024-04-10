@@ -1,11 +1,10 @@
 /* Estilos NavBar */
 
 .logo{
-    width: 25%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+    width: 245px;
 }
 
 #logoFeriaCnp{
@@ -15,18 +14,17 @@
 
 
 .carrito{
-    width: 25%;
     display: flex;
     font-family: 'Cabin', sans-serif;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 245px;
 }
 
 #textoCuenta{
     text-decoration: none;
     color: #000000;
-    padding-right: 25px;
     font-size: 21px;
 }
 
@@ -37,7 +35,7 @@
 
 
 .navegacion{
-    height: 155px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -45,21 +43,16 @@
 
 
 .barra-navegacion {
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #000000;
-    padding: 10px 20px;
 }
 
 .botones-navegacion {
     font-family: 'Cabin', sans-serif;
     font-size: 21px;
-    margin-top: 15px;
-    margin-bottom: 22px;
-    word-spacing: 35px;
 }
 
 .barra-busqueda{
@@ -74,6 +67,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
 .barra-navegacion nav ul li {
@@ -83,7 +77,7 @@
 .barra-navegacion nav ul li a {
     color: #000000;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0px 20px;
 }
 
 
@@ -116,11 +110,13 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff ;
+    margin: 0px;
+    padding: 0px;
 }
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
@@ -153,6 +149,21 @@ body {
     box-sizing: border-box;
 }
 
+.input-field select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    /* Flecha */
+    appearance: none;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right 0.7rem top 50%;
+	background-size: 0.65rem auto;
+}
+
 .save-button {
     background-color: #81B12A;;
     color: #ffffff;
@@ -160,4 +171,8 @@ body {
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.error {
+    border: 1px solid red !important;
 }
