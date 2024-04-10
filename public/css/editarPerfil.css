@@ -149,6 +149,7 @@ button {
 .titulo-cuenta {
 	font-weight: bold;
 	font-size: 30px;
+	margin-bottom: 20px;
 }
 
 .container-titulo {
@@ -170,17 +171,18 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 0px 40px;
+	/* height: 100%; */
 }
 
 .container {
 	max-width: 2000px;
-	margin: 0 auto;
 }
 
 .perfil {
 	background-color: #fff;
 	border-radius: 10px;
-	padding: 20px;
+	padding: 25px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -192,7 +194,6 @@ body {
 }
 
 .perfil h1 {
-	margin: 0;
 	font-size: 24px;
 	color: #333;
 }
@@ -203,7 +204,7 @@ body {
 	color: #2e3c2d;
 }
 
-#botonEnviar {
+.boton-enviar {
 	display: block;
 	/* width: 100%; */
 	text-align: center;
@@ -217,7 +218,7 @@ body {
 	transition: background-color 0.3s ease;
 }
 
-#botonEnviar:hover {
+.boton-enviar:hover {
 	background-color: #1f7544;
 }
 
@@ -233,4 +234,39 @@ body {
 
 input {
 	width: 100%;
+	box-sizing: border-box;
+}
+
+/* Arrow devolverse */
+.container-devolver {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 30px;
+}
+
+.arrow-container {
+	cursor: pointer;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+
+.arrow-container span {
+	margin-left: 10px;
+	font-size: 20px;
+}
+
+.campo-container {
+	margin-bottom: 15px;
+}
+
+input {
+	width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }

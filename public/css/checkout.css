@@ -17,7 +17,7 @@ body {
 
 .imagen-comprar {
 	width: 20%;
-	margin-top: 90px;
+	margin-top: 200px;
 }
 
 .formulario {
@@ -73,6 +73,7 @@ body {
 	margin-bottom: 5px;
 	display: block;
 	font-size: 17px;
+	font-weight: bold;
 }
 
 .campo {
@@ -84,6 +85,8 @@ body {
 	border-style: solid;
 	border-color: rgb(204, 204, 204);
 	font-size: 17px;
+	display: block;
+	cursor: default;
 }
 
 select {
@@ -107,15 +110,36 @@ option {
 	margin-bottom: 12px;
 }
 
-.container-boton {
+.container-boton-info {
 	text-align: center;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
-.boton-comprar {
+.container-boton-pago {
+	text-align: center;
+	margin-top: 40px;
+}
+
+.boton-info {
 	font-size: 18px;
 	font-family: 'Cabin', sans-serif;
 	padding: 10px 40px;
+	background-color: #308bbf;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.boton-info:hover {
+	background-color: #1d5f85;
+}
+
+.boton-comprar {
+	font-size: 25px;
+	font-family: 'Cabin', sans-serif;
+	padding: 20px 40px;
 	background-color: #81b12a;
 	color: #fff;
 	border: none;
@@ -125,7 +149,6 @@ option {
 }
 
 .boton-comprar:hover {
-	padding: 10px 20px;
 	background-color: #ecab21;
 }
 

@@ -76,11 +76,32 @@
 			</div>
 		</div>
 
+		<div class="container-devolver">
+			<div
+				class="arrow-container"
+				onclick="window.location.href = 'miPerfil.html';"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="35"
+					height="35"
+					fill="currentColor"
+					class="bi bi-arrow-left-circle-fill"
+					viewBox="0 0 16 16"
+				>
+					<path
+						d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+					/>
+				</svg>
+				<span>Volver a mi perfil</span>
+			</div>
+		</div>
+
 		<div class="content">
 			<div class="container">
 				<div class="perfil" style="width: 450px">
 					<div style="text-align: center; margin-bottom: 30px">
-						<img src="img/avatar.png" alt="Foto de perfil"/>
+						<img src="img/avatar.png" alt="Foto de perfil" />
 						<h1 class="titulo-cuenta">Nombre Apellido</h1>
 					</div>
 
@@ -171,43 +192,58 @@
 								>No hay archivos adjuntos</small
 							>
 						</div>
-						<div class="margen-bottom-xl">
-							<label for="contrasenna" class="margen-bottom"
-								>Nueva Contraseña:</label
-							>
-							<!-- <p>Contraseña:</p> -->
-							<p></p>
-							<input
-								type="text"
-								id="contrasenna"
-								name="contrasenna"
-								required
-							/>
-						</div>
-						<div class="margen-bottom-xl">
-							<label for="contrasenna" class="margen-bottom"
-								>Repita la nueva contraseña:</label
-							>
-							<!-- <p>Contraseña:</p> -->
-							<p></p>
-							<input
-								type="text"
-								id="contrasenna"
-								name="contrasenna"
-								required
-							/>
-						</div>
 
 						<div style="display: flex">
 							<button
 								style="margin-left: auto"
 								type="button"
+								class="boton-enviar"
 								id="botonEnviar"
 							>
 								Modificar datos
 							</button>
 						</div>
 					</form>
+				</div>
+			</div>
+
+			<div class="container">
+				<div class="perfil">
+					<h1 class="titulo-cuenta">Cambiar contraseña</h1>
+
+					<div class="campo-container">
+						<label for="contrasenna" class="margen-bottom"
+							>Nueva Contraseña:</label
+						>
+						<input
+							type="text"
+							id="contrasenna"
+							name="contrasenna"
+							required
+						/>
+					</div>
+
+					<div class="campo-container">
+						<label for="contrasenna" class="margen-bottom"
+							>Repita la nueva contraseña:</label
+						>
+						<input
+							type="text"
+							id="contrasenna"
+							name="contrasenna"
+							required
+						/>
+					</div>
+					<div class="container-boton">
+						<button
+							type="button"
+							class="boton-enviar"
+							href="annadirMetodoPago.html"
+							style="margin-left: auto"
+						>
+							Modificar contraseña
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
