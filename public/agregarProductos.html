@@ -87,62 +87,71 @@
 			</div>
 		</div>
 
-		<div class="contenedorProducto">
-			<!-- Producto 1 -->
-			<div class="tarjetaProducto">
-				<div class="tituloProducto">Zanahoria</div>
-				<div class="imagenProducto">
-					<img
-						src="/public/img/zanahoria.png"
-						alt="Imagen de una zanahoria"
-					/>
-				</div>
-				<div>
-					<a href="/public/editarProducto.html" class="botonEditar"
-						>Agregar este producto</a
-					>
+		<div class="container-flex">
+			<div>
+				<h1 class="titulo-agregar-existente">Selecciona un producto para vender</h1>
+
+				<div class="contenedorProducto">
+					<!-- Producto 1 -->
+					<div class="tarjetaProducto">
+						<div class="tituloProducto">Zanahoria</div>
+						<div class="imagenProducto">
+							<img
+								src="/public/img/zanahoria.png"
+								alt="Imagen de una zanahoria"
+							/>
+						</div>
+						<div>
+							<a
+								href="/public/editarProducto.html"
+								class="botonEditar"
+								>Agregar este producto</a
+							>
+						</div>
+					</div>
+
+					<!-- Producto 2 -->
+					<div class="tarjetaProducto">
+						<div class="tituloProducto">Chayote</div>
+						<div class="imagenProducto">
+							<img
+								src="/public/img/chayote.png"
+								alt="Imagen de un chayote"
+							/>
+						</div>
+						<div>
+							<a
+								href="/public/editarProducto.html"
+								class="botonEditar"
+								>Agregar este producto</a
+							>
+						</div>
+					</div>
 				</div>
 			</div>
 
-			<!-- Producto 2 -->
-			<div class="tarjetaProducto">
-				<div class="tituloProducto">Chayote</div>
-				<div class="imagenProducto">
-					<img
-						src="/public/img/chayote.png"
-						alt="Imagen de un chayote"
-					/>
-				</div>
-				<div>
-					<a href="/public/editarProducto.html" class="botonEditar"
-						>Agregar este producto</a
-					>
+			<div>
+				<div class="container-nuevo-prod">
+					<h1 class="titulo-agregar-nuevo">
+						¿No encuentras el producto que quieres?
+					</h1>
+					<a class="botonAgregar" href="anadirProducto.html">
+						Crear un nuevo producto
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							fill="currentColor"
+							class="bi bi-plus-square-fill"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"
+							/>
+						</svg>
+					</a>
 				</div>
 			</div>
-
-		</div>
-
-		<!-- Añadir nuevo producto -->
-		<div style="display: flex; justify-content: right">
-			<a
-				class="botonAgregar"
-				style="margin-top: 20px"
-				href="anadirProducto.html"
-			>
-				Crear un nuevo producto
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="20"
-					height="20"
-					fill="currentColor"
-					class="bi bi-plus-square-fill"
-					viewBox="0 0 16 16"
-				>
-					<path
-						d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"
-					/>
-				</svg>
-			</a>
 		</div>
 	</body>
 </html>
