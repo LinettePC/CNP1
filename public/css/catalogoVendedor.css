@@ -250,5 +250,25 @@ button {
 }
 
 
+/* Arrow devolverse */
+.container-devolver {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: 60px;
+	margin-bottom: 30px;
+}
 
+.arrow-container {
+	cursor: pointer;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+
+.arrow-container span {
+	margin-left: 10px;
+	font-size: 20px;
+}
 
