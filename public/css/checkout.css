@@ -130,6 +130,8 @@ option {
 	border-radius: 5px;
 	cursor: pointer;
 	transition: all 0.3s ease;
+	text-decoration: none;
+	display: inline-block;
 }
 
 .boton-info:hover {
@@ -270,4 +272,10 @@ option {
 .arrow-container span {
 	margin-left: 10px;
 	font-size: 20px;
+}
+
+.error-mensaje {
+	font-size: 23px;
+	margin-bottom: 15px;
+	color: red;
 }

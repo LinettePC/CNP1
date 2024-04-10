@@ -11,21 +11,17 @@ window.onload = function () {
 		tarjetaText === 'No hay ninguna' &&
 		direccionText === 'No hay ninguna'
 	) {
-		var changeInfoButton = document.createElement('button');
+		var changeInfoButton = document.createElement('a');
 		var changeInfoError = document.createElement('p');
 
 		changeInfoError.innerHTML =
 			'Para realizar su compra, por favor agregue <br/> su información de dirección y pago.';
-		changeInfoError.style.fontSize = '23px';
-		changeInfoError.style.marginBottom = '15px';
-		changeInfoError.style.color = 'red';
+			changeInfoError.classList.add('error-mensaje');
 
 		changeInfoButton.textContent =
 			'Agregar información de dirección y pago';
 
-		changeInfoButton.onclick = function () {
-			window.location.href = 'pagoDireccion.html';
-		};
+		changeInfoButton.href = "pagoDireccion.html"
 
 		changeInfoButton.classList.add('boton-info');
 
