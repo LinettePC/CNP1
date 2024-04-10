@@ -1,10 +1,9 @@
-/* Estilos NavBar */
-
+/* Estilos de la barra de navegación */
 .logo{
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 245px;
+    width: 300px;
 }
 
 #logoFeriaCnp{
@@ -19,18 +18,24 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 245px;
+    width: 300px;
 }
 
 #textoCuenta{
     text-decoration: none;
     color: #000000;
     font-size: 21px;
+	display: flex;
+	align-items: center;
+}
+
+#textoCuenta svg{
+    margin-left: 5px;
 }
 
 
 #logoCarrito{
-    width: 100px;
+    max-width: 100px;
 }
 
 
@@ -103,7 +108,7 @@
     cursor: pointer;
 }
 
-
+/* Estilos de la barra de navegación: final */
 
 
 /* Estilos para el formulario de edición */

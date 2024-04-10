@@ -226,3 +226,20 @@ option {
 #precioTotalCarrito {
 	font-weight: bold;
 }
+
+/* Arrow devolverse */
+.arrow-container {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	cursor: pointer;
+	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.arrow-container span {
+	margin-left: 10px;
+	font-size: 20px;
+}
