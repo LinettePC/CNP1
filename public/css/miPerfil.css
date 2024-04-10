@@ -1,112 +1,225 @@
-/* Estilos de la barra de navegación */
-.navegacion {
-    display: flex;
-    justify-content: space-between; 
-    background-color: #ffffff;
-    padding: 10px 20px;
-}
-
-.botones-navegacion {
-    font-family: 'Manrope', sans-serif;
-    font-size: 21px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center; 
-}
-
-.botones-navegacion ul {
-    display: inline; 
-}
-
-.botones-navegacion ul li {
-    display: inline;
-    margin-right: 20px;
-} 
-
-.botones-navegacion ul li:last-child {
-    margin-right: 0; 
-}
-
-.barra-navegacion nav ul li a {
-    color: #000000;
-    text-decoration: none;
-}
-
-/* Estilos del logo */
+/* Estilos de la barra de navegación del comprador*/
 .logo {
-    display: flex;
-    align-items: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 300px;
 }
 
 #logoFeriaCnp {
-    width: 200px;
-    margin-left: 45px;
+	width: 200px;
+	margin-left: 45px;
+}
+
+.carrito {
+	display: flex;
+	font-family: 'Cabin', sans-serif;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+}
+
+#textoCuenta {
+	text-decoration: none;
+	color: #000000;
+	font-size: 21px;
+	display: flex;
+	align-items: center;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-right: 3px solid black;
+	margin-right: 10px;
+}
+
+#textoCuenta svg {
+	margin-left: 5px;
+}
+
+#logoCarrito {
+	max-width: 100px;
+}
+
+.carrito-container {
+	display: flex;
+	align-items: center;
+	text-decoration: none !important;
+}
+
+#cantidadItemsCarrito {
+	color: white !important;
+	margin-left: 5px;
+	background-color: red;
+	padding: 3px 7px;
+	border-radius: 7px;
+}
+
+.navegacion {
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.barra-navegacion {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #000000;
+}
+
+.botones-navegacion {
+	font-family: 'Cabin', sans-serif;
+	font-size: 21px;
+}
+
+.barra-busqueda {
+	margin-bottom: 15px;
+}
+
+#inputBusqueda {
+	width: 550px;
+}
+
+.barra-navegacion nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+.barra-navegacion nav ul li {
+	display: inline;
+}
+
+.barra-navegacion nav ul li a {
+	color: #000000;
+	text-decoration: none;
+	margin: 0px 20px;
+}
+
+.barra-busqueda input[type='text'] {
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.barra-busqueda button {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* Estilos de la barra de navegación: final para comprador */
+
+body {
+	font-family: 'Manrope', sans-serif;
+}
+
+select {
+	font-family: 'Manrope', sans-serif;
+}
+
+button {
+	font-family: 'Manrope', sans-serif;
+}
+
+.seccion-titulo {
+	background-color: lightgray;
+	margin-bottom: 40px;
+	padding: 20px;
+}
+
+
+.titulo {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.titulo-cuenta {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.container-titulo {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 /* Estilos del cuerpo */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-color: #ffffff;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	background-color: #ffffff;
 }
 
 .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100%; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* height: 100%; */
 }
 
 .container {
-    max-width: 2000px;
-    margin: 0 auto;
+	max-width: 2000px;
+	margin: 0 auto;
 }
 
 .perfil {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .perfil img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin-bottom: 20px;
 }
 
 .perfil h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #333;
+	margin: 0;
+	font-size: 24px;
+	color: #333;
 }
 
 .perfil p {
-    margin: 10px 0;
-    font-size: 16px;
-    color: #2E3C2D;
+	margin: 10px 0;
+	font-size: 16px;
+	color: #2e3c2d;
 }
 
-
-.perfil a[type="submit"] {
-    display: block;
-    /* width: 100%; */
-    text-align: center;
-    padding: 10px;
-    background-color: #81B12A;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
+.perfil a[type='submit'] {
+	display: block;
+	/* width: 100%; */
+	text-align: center;
+	padding: 10px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+	text-decoration: none;
 }
 
-.perfil a[type="submit"]:hover {
-    background-color: #1F7544;
+.perfil a[type='submit']:hover {
+	background-color: #1f7544;
 }

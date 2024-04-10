@@ -1,112 +1,138 @@
-/* Estilos NavBar */
-
-.logo{
-    width: 25%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
+/* Estilos de la barra de navegación del comprador*/
+.logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 300px;
 }
 
-#logoFeriaCnp{
-    width: 200px;
-    margin-left: 45px;
+#logoFeriaCnp {
+	width: 200px;
+	margin-left: 45px;
 }
 
-
-.carrito{
-    width: 25%;
-    display: flex;
-    font-family: 'Cabin', sans-serif;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.carrito {
+	display: flex;
+	font-family: 'Cabin', sans-serif;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
 }
 
-#textoCuenta{
-    text-decoration: none;
-    color: #000000;
-    padding-right: 25px;
-    font-size: 21px;
+#textoCuenta {
+	text-decoration: none;
+	color: #000000;
+	font-size: 21px;
+	display: flex;
+	align-items: center;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-right: 3px solid black;
+	margin-right: 10px;
 }
 
-
-#logoCarrito{
-    width: 100px;
+#textoCuenta svg {
+	margin-left: 5px;
 }
 
-
-.navegacion{
-    height: 155px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+#logoCarrito {
+	max-width: 100px;
 }
 
+.carrito-container {
+	display: flex;
+	align-items: center;
+	text-decoration: none !important;
+}
+
+#cantidadItemsCarrito {
+	color: white !important;
+	margin-left: 5px;
+	background-color: red;
+	padding: 3px 7px;
+	border-radius: 7px;
+}
+
+.navegacion {
+	height: 140px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
 
 .barra-navegacion {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #000000;
-    padding: 10px 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #000000;
 }
 
 .botones-navegacion {
-    font-family: 'Cabin', sans-serif;
-    font-size: 21px;
-    margin-top: 15px;
-    margin-bottom: 22px;
-    word-spacing: 35px;
+	font-family: 'Cabin', sans-serif;
+	font-size: 21px;
 }
 
-.barra-busqueda{
-    margin-bottom: 15px;
+.barra-busqueda {
+	margin-bottom: 15px;
 }
 
-#inputBusqueda{
-    width: 550px;
+#inputBusqueda {
+	width: 550px;
 }
 
 .barra-navegacion nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 15px 0px;
+	display: flex;
 }
 
 .barra-navegacion nav ul li {
-    display: inline;
+	display: inline;
 }
 
 .barra-navegacion nav ul li a {
-    color: #000000;
-    text-decoration: none;
-    margin: 0 10px;
+	color: #000000;
+	text-decoration: none;
+	margin: 0px 20px;
 }
 
-
-
-.barra-busqueda input[type="text"] {
-    font-family: 'Cabin', sans-serif;
-    font-size: 18px;
-    padding: 10px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
+.barra-busqueda input[type='text'] {
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
 }
 
 .barra-busqueda button {
-    font-size: 18px;
-    font-family: 'Cabin', sans-serif;
-    padding: 10px 20px;
-    background-color: #81B12A;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* Estilos de la barra de navegación: final para comprador */
+
+body {
+	font-family: 'Manrope', sans-serif;
+}
+
+select {
+	font-family: 'Manrope', sans-serif;
+}
+
+button {
+	font-family: 'Manrope', sans-serif;
 }
 
 /* Estilos del banner */
