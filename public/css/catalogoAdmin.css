@@ -1,88 +1,147 @@
-/* Estilos de la barra de navegación */
+body {
+    margin: 0;
+    padding: 0;
+}
 
-#inputBusqueda{
-    width: 550px;
+.seccion-titulo {
+	background-color: lightgray;
+	margin-bottom: 40px;
+	padding: 20px;
+}
+
+.titulo {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.container {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* Estilos de la barra de navegación del vendedor*/
+.logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 300px;
+}
+
+#logoFeriaCnp {
+	width: 200px;
+	margin-left: 45px;
+}
+
+.carrito {
+	display: flex;
+	font-family: 'Cabin', sans-serif;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+}
+
+#textoCuenta {
+	text-decoration: none;
+	color: #000000;
+	font-size: 21px;
+	display: flex;
+	align-items: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#textoCuenta svg {
+	margin-left: 5px;
+}
+
+#logoCarrito {
+	max-width: 100px;
+}
+
+.carrito-container {
+	display: flex;
+	align-items: center;
+	text-decoration: none !important;
+}
+
+#cantidadItemsCarrito {
+	color: white !important;
+	margin-left: 5px;
+	background-color: red;
+	padding: 3px 7px;
+	border-radius: 7px;
+}
+
+.navegacion {
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .barra-navegacion {
-    width: 50%;
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    color: #000000;
-    padding: 10px 20px;
-    margin-left: auto;
-    margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #000000;
 }
 
 .botones-navegacion {
-    font-family: 'Cabin', sans-serif;
-    font-size: 22px;
-    margin-top: 15px;
-    margin-bottom: 22px;
-    word-spacing: 35px;
-
+	font-family: 'Cabin', sans-serif;
+	font-size: 21px;
 }
 
-.barra-busqueda{
-    margin-bottom: 15px;
+.barra-busqueda {
+	margin-bottom: 15px;
 }
 
+#inputBusqueda {
+	width: 550px;
+}
 
 .barra-navegacion nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    align-items: end;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
 }
 
 .barra-navegacion nav ul li {
-    display: inline;
+	display: inline;
 }
 
 .barra-navegacion nav ul li a {
-    color: #000000;
-    text-decoration: none;
-    margin: 0 10px;
+	color: #000000;
+	text-decoration: none;
+	margin: 0px 20px;
 }
 
-
-
-.barra-busqueda input[type="text"] {
-    font-family: 'Cabin', sans-serif;
-    font-size: 18px;
-    padding: 10px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-
+.barra-busqueda input[type='text'] {
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
 }
 
 .barra-busqueda button {
-    font-size: 22px;
-    font-family: 'Cabin', sans-serif;
-    padding: 10px 20px;
-    background-color: #81B12A;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
-#logoFeriaCnp{
-    width: 200px;
-    margin-left: 45px;
-}
-
-.logo{
-    width: 25%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-}
+/* Estilos de la barra de navegación: final para vendedor */
 
 body {
 	font-family: 'Manrope', sans-serif;
@@ -96,15 +155,14 @@ button {
 	font-family: 'Manrope', sans-serif;
 }
 
-
-
 .contenedorProducto {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(5, 1fr); 
     gap: 20px;
     justify-content: center; 
     gap: 20px;
     justify-content: center;
+	margin: 0px 60px;
 }
 
 .tarjetaProducto {
@@ -137,12 +195,14 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-decoration: none;
+	margin-top: 10px;
 }
 
 
 
 .botonAgregar {
     margin-top: 50px;
+	margin-right: 60px;
     background-color: #81B12A;
     font-size: 22px;
     color: #fff;
@@ -152,7 +212,12 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: block;
-    margin: 20px auto;
+	text-decoration: none;
+	text-align: center;
+	width: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .botonAgregar:hover,
@@ -160,16 +225,21 @@ button {
     background-color: #1F7544;
 }
 
+.botonAgregar svg {
+	margin-left: 10px;
+}
+
 .imagenProducto {
     position: relative;
+	margin-bottom: 20px;
 }
 
 .imagenProducto img {
     max-width: 100%; 
-    max-height: 200px; 
+    height: 150px; 
     display: block; 
     margin: 0 auto; 
-    margin-bottom: 10px;
+    
 }
 
 .imagenProducto .botonEditar {
@@ -178,3 +248,7 @@ button {
     left: 50%;
     transform: translateX(-50%);
 }
+
+
+
+

@@ -3,9 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Mi Catalogo Administrador</title>
+		<title>Mi Catalogo</title>
+		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="/public/css/catalogoAdmin.css" />
-		<link rel="stylesheet"			
+		<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 		">
 		<link
@@ -13,25 +14,58 @@
 			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
 		/>
 	</head>
-	<header class="navegacion">
-		<div class="logo">
-			<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
-		</div>
-		<div class="barra-navegacion">
-			<nav class="botones-navegacion">
-				<ul>
-					<li><a href="#">Inicio</a></li>
-					<li><a href="#">Contacto</a></li>
-					<li><a href="#">Nosotros</a></li>
-				</ul>
-			</nav>
-			<div class="barra-busqueda">
-				<input type="text" placeholder="Buscar" id="inputBusqueda" />
-				<button>Buscar</button>
+
+	<body>
+		<header class="navegacion">
+			<div class="logo">
+				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+			</div>
+			<div class="barra-navegacion">
+				<nav class="botones-navegacion">
+					<ul>
+						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
+						<li><a href="portalVendedor.html">Inicio</a></li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/contactenos/index.aspx"
+								>Contacto</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
+								>Nosotros</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="carrito">
+				<div id="cuenta">
+					<a href="/public/miPerfil.html" id="textoCuenta">
+						Mi Cuenta
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							fill="currentColor"
+							class="bi bi-person-fill"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+							/></svg
+					></a>
+				</div>
+			</div>
+		</header>
+
+		<div class="seccion-titulo">
+			<div class="container">
+				<h1 class="titulo">Catálogo disponible en el sitio web</h1>
 			</div>
 		</div>
-	</header>
-	<body>
+
 		<div class="contenedorProducto">
 			<!-- Producto 1 -->
 			<div class="tarjetaProducto">
@@ -126,14 +160,29 @@
 					>
 				</div>
 			</div>
-
-
-
 		</div>
 
 		<!-- Añadir nuevo producto -->
-		<a href="anadirProducto.html" class="botonAgregar" style="text-decoration: none; width: 25%; margin-top: 20px">
-			Agregar un nuevo producto
-		</a>
+		<div style="display: flex; justify-content: right">
+			<a
+				class="botonAgregar"
+				style="margin-top: 20px"
+				href="agregarProductos.html"
+			>
+				Agregar un nuevo producto
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					fill="currentColor"
+					class="bi bi-plus-square-fill"
+					viewBox="0 0 16 16"
+				>
+					<path
+						d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"
+					/>
+				</svg>
+			</a>
+		</div>
 	</body>
 </html>
