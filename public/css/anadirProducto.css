@@ -168,10 +168,11 @@ body {
 
 .input-field select {
     width: 100%;
-    padding: 10px;
+    padding: 12px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 17px;
 
     /* Flecha */
     appearance: none;
