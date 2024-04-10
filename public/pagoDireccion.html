@@ -1,56 +1,107 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Checkout</title>
-		<link rel="stylesheet" href="css/checkout.css" />
-		<link rel="stylesheet" href="css/reset.css" />
-
+		<title>Mi perfil</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/pagoDireccion.css" />
 	</head>
-	<body class="body">
-		<div
-			class="arrow-container"
-			onclick="window.location.href = 'marketplace.html';"
-		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width="35"
-				height="35"
-				fill="currentColor"
-				class="bi bi-arrow-left-circle-fill"
-				viewBox="0 0 16 16"
-			>
-				<path
-					d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
-				/>
-			</svg>
-			<span>Volver al mercado</span>
+
+	<body>
+		<header class="navegacion">
+			<div class="logo">
+				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+			</div>
+			<div class="barra-navegacion">
+				<nav class="botones-navegacion">
+					<ul>
+						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
+						<li><a href="marketplace.html">Tienda</a></li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/contactenos/index.aspx"
+								>Contacto</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
+								>Nosotros</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="carrito">
+				<div id="cuenta">
+					<a href="/public/miPerfil.html" id="textoCuenta">
+						Mi Cuenta
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							fill="currentColor"
+							class="bi bi-person-fill"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+							/></svg
+					></a>
+				</div>
+				<div>
+					<a href="checkout.html" class="carrito-container"
+						><img
+							src="img/carritoCompras.png"
+							alt="logoCarrito"
+							id="logoCarrito"
+						/><span id="cantidadItemsCarrito">1</span></a
+					>
+				</div>
+			</div>
+		</header>
+
+		<div class="seccion-titulo">
+			<div class="container-titulo">
+				<h1 class="titulo">Información de pago y dirección</h1>
+			</div>
 		</div>
 
-		<div class="contenedor">
-			<div class="formulario">
-				<div class="header-formulario">
-					<div>
-						<img
-							src="img/logo6.png"
-							alt=""
-							id="logo"
-							class="imagen-comprar"
-						/>
-					</div>
-					<div class="contenedor-texto-superior">
-						<h1>Formulario de Compra</h1>
-						<p>Complete todos los campos para realizar su compra</p>
-					</div>
-				</div>
+		<div class="container-devolver">
+			<div
+				class="arrow-container"
+				onclick="window.location.href = 'miPerfil.html';"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="35"
+					height="35"
+					fill="currentColor"
+					class="bi bi-arrow-left-circle-fill"
+					viewBox="0 0 16 16"
+				>
+					<path
+						d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+					/>
+				</svg>
+				<span>Volver a mi perfil</span>
+			</div>
+		</div>
 
-				<div class="contenedor-flex">
+		<div class="content">
+			<div class="container">
+				<div class="perfil">
 					<form id="inputsDatos" novalidate>
+						<h1 class="titulo-cuenta">
+							Dirección de envío y facturación
+						</h1>
 						<div class="contenedor-flex-form">
 							<div class="caja-flex">
 								<label for="nombre" class="etiqueta"
@@ -175,79 +226,40 @@
 								required
 							/>
 						</div>
-						<div class="campo-container">
-							<label for="tarjeta" class="etiqueta"
-								>Tarjeta de Crédito:</label
-							>
-							<select
-								type="text"
-								id="tarjeta"
-								name="tarjeta"
-								class="campo"
-								required
-							>
-								<option value="">
-									Seleccione una tarjeta...
-								</option>
-								<option value="1">Mastercard 1234</option>
-							</select>
-						</div>
 						<div class="container-boton">
 							<button
 								id="boton"
 								type="submit"
-								class="boton-comprar"
+								class="boton-editar"
 							>
-								Realizar compra
+								Modificar dirección
 							</button>
 						</div>
 					</form>
 				</div>
 			</div>
 
-			<div class="seccion-productos">
-				<h1 class="titulo-seccion-productos">Productos a comprar</h1>
+			<div class="container">
+				<div class="perfil">
+					<h1 class="titulo-cuenta">Información de pagos</h1>
 
-				<div class="productos-flex">
-					<div class="producto">
-						<div class="contenedor-imagen">
-							<img
-								src="img/ejemploProducto.png"
-								alt=""
-								class="imagen-ejemplo"
-							/>
-						</div>
-						<div class="nombre-cantidad-producto">
-							<div>
-								<span class="nombre-producto"
-									>Naranja Importada Grande</span
-								>
-								<p>
-									<span class="unidades-producto">5</span>
-									Unidades
-								</p>
-							</div>
-						</div>
-						<div class="seccion-precio-producto">
-							<p>
-								Precio:
-								<span class="precio-producto">₡500.00</span>
-							</p>
-						</div>
+					<div class="campo-container">
+						<label for="tarjetaActual" class="etiqueta">Tarjeta actual:</label>
+						<output
+							id="tarjetaActual"
+							class="campo-output"
+						>Ninguna tarjeta agregada</output>
 					</div>
-				</div>
-				<div class="precio-total">
-					<div class="contenedor-precio-total">
-						<span
-							>Total a pagar:
-							<span id="precioTotalCarrito">₡500.00</span></span
+					<div class="container-boton">
+						<a
+							class="boton-editar-pago"
+							href="annadirMetodoPago.html"
 						>
+							Modificar método de pago
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<script src="js/checkout.js"></script>
 	</body>
 </html>

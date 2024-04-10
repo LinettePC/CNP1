@@ -1,0 +1,365 @@
+/* Estilos de la barra de navegación del comprador*/
+.logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 300px;
+}
+
+#logoFeriaCnp {
+	width: 200px;
+	margin-left: 45px;
+}
+
+.carrito {
+	display: flex;
+	font-family: 'Cabin', sans-serif;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+}
+
+#textoCuenta {
+	text-decoration: none;
+	color: #000000;
+	font-size: 21px;
+	display: flex;
+	align-items: center;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-right: 3px solid black;
+	margin-right: 10px;
+}
+
+#textoCuenta svg {
+	margin-left: 5px;
+}
+
+#logoCarrito {
+	max-width: 100px;
+}
+
+.carrito-container {
+	display: flex;
+	align-items: center;
+	text-decoration: none !important;
+}
+
+#cantidadItemsCarrito {
+	color: white !important;
+	margin-left: 5px;
+	background-color: red;
+	padding: 3px 7px;
+	border-radius: 7px;
+}
+
+.navegacion {
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.barra-navegacion {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #000000;
+}
+
+.botones-navegacion {
+	font-family: 'Cabin', sans-serif;
+	font-size: 21px;
+}
+
+.barra-busqueda {
+	margin-bottom: 15px;
+}
+
+#inputBusqueda {
+	width: 550px;
+}
+
+.barra-navegacion nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+.barra-navegacion nav ul li {
+	display: inline;
+}
+
+.barra-navegacion nav ul li a {
+	color: #000000;
+	text-decoration: none;
+	margin: 0px 20px;
+}
+
+.barra-busqueda input[type='text'] {
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.barra-busqueda button {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* Estilos de la barra de navegación: final para comprador */
+
+body {
+	font-family: 'Cabin', sans-serif;
+}
+
+select {
+	font-family: 'Cabin', sans-serif;
+}
+
+button {
+	font-family: 'Cabin', sans-serif;
+}
+
+.seccion-titulo {
+	background-color: lightgray;
+	margin-bottom: 40px;
+	padding: 20px;
+}
+
+.titulo {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.titulo-cuenta {
+	font-weight: bold;
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+
+.container-titulo {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* Estilos del cuerpo */
+
+.body {
+	font-family: 'Cabin', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+.contenedor {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+}
+
+.imagen-comprar {
+	width: 20%;
+	margin-top: 90px;
+}
+
+.formulario {
+	width: 50%;
+}
+
+.header-formulario {
+	text-align: center;
+}
+
+.contenedor-texto-superior {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.contenedor-texto-superior h1 {
+	font-size: 40px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.contenedor-texto-superior p {
+	font-size: 20px;
+}
+
+#inputsDatos {
+	width: 600px;
+}
+
+.contenedor-flex {
+	display: flex;
+	justify-content: center;
+}
+
+.contenedor-flex-form {
+	display: flex;
+	margin-bottom: 12px;
+}
+
+.caja-flex {
+	flex: 1;
+}
+
+.caja-flex:first-child {
+	margin-right: 20px;
+}
+
+.etiqueta {
+	margin-bottom: 5px;
+	display: block;
+	font-size: 17px;
+}
+
+.campo {
+	padding: 8px;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(204, 204, 204);
+	font-size: 17px;
+}
+
+select {
+	font-family: 'Cabin', sans-serif;
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right 0.7rem top 50%;
+	background-size: 0.65rem auto;
+}
+
+input {
+	font-family: 'Cabin', sans-serif;
+}
+
+option {
+	margin: 0px;
+}
+
+.campo-container {
+	margin-bottom: 12px;
+}
+
+.container-boton {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.boton-editar {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 40px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.boton-editar:hover {
+	padding: 10px 20px;
+	background-color: #ecab21;
+}
+
+.error {
+	border: 1px solid red;
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0px 40px;
+	/* height: 100%; */
+}
+
+.container {
+	max-width: 2000px;
+}
+
+.perfil {
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 40px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.campo-output {
+	padding: 8px;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(204, 204, 204);
+	font-size: 17px;
+	display: block;
+	cursor: default;
+}
+
+.boton-editar-pago {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 40px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	display: block;
+}
+
+.boton-editar-pago:hover {
+	background-color: #ecab21;
+}
+
+/* Arrow devolverse */
+.container-devolver {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 30px;
+}
+
+.arrow-container {
+	cursor: pointer;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+
+.arrow-container span {
+	margin-left: 10px;
+	font-size: 20px;
+}

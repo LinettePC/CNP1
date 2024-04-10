@@ -95,6 +95,10 @@ select {
 	background-size: 0.65rem auto;
 }
 
+input {
+	font-family: 'Cabin', sans-serif;
+}
+
 option {
 	margin: 0px;
 }
