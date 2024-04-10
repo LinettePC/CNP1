@@ -110,10 +110,20 @@
 
 /* Estilos de la barra de navegación: final */
 
+body {
+	font-family: 'Manrope', sans-serif;
+}
+
+select {
+	font-family: 'Manrope', sans-serif;
+}
+
+button {
+	font-family: 'Manrope', sans-serif;
+}
 
 /* Estilos para el formulario de edición */
 body {
-    font-family: Arial, sans-serif;
     background-color: #ffffff ;
     margin: 0px;
     padding: 0px;
@@ -141,17 +151,19 @@ body {
 }
 
 .input-field label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+	font-size: 18px;
 }
 
 .input-field input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 17px;
 }
 
 .input-field select {
@@ -169,13 +181,25 @@ body {
 	background-size: 0.65rem auto;
 }
 
+.contenedor-boton {
+    text-align: end;
+}
+
 .save-button {
-    background-color: #81B12A;;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
+	background-color: #81b12a;
+	color: #ffffff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.titulo-seccion {
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 30px;
 }
 
 .error {

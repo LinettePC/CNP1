@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Añadir producto</title>
+		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="/public/css/anadirProducto.css" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,7 +60,7 @@
 
 	<body>
 		<div class="container">
-			<h1>Añadir Producto</h1>
+			<h1 class="titulo-seccion">Añadir Producto</h1>
 			<form action="" method="get">
 				<div class="input-field">
 					<label for="nombre">Nombre del producto *</label>
@@ -134,9 +135,11 @@
 						placeholder="Inventario"
 					/>
 				</div>
-				<button class="save-button" type="submit">
-					Agregar producto
-				</button>
+				<div class="contenedor-boton">
+					<button class="save-button" type="submit">
+						Agregar producto
+					</button>
+				</div>
 			</form>
 		</div>
 
