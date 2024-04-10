@@ -174,18 +174,19 @@ button {
 	border-radius: 4px;
 	box-sizing: border-box;
 	font-size: 17px;
+    font-family: 'Manrope', sans-serif;
 }
 
 .input-field select {
-    width: 100%;
-    padding: 12px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 17px;
+	width: 100%;
+	padding: 12px 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: 17px;
 
-    /* Flecha */
-    appearance: none;
+	/* Flecha */
+	appearance: none;
 	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
 	background-repeat: no-repeat;
 	background-position: right 0.7rem top 50%;
@@ -193,7 +194,7 @@ button {
 }
 
 .contenedor-boton {
-    text-align: end;
+	text-align: end;
 }
 
 .save-button {
@@ -211,4 +212,30 @@ button {
 	font-weight: bold;
 	text-align: center;
 	margin-bottom: 30px;
+}
+
+.error {
+	border: 1px solid red !important;
+}
+
+/* Arrow devolverse */
+.container-devolver {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 30px;
+}
+
+.arrow-container {
+	cursor: pointer;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+
+.arrow-container span {
+	margin-left: 10px;
+	font-size: 20px;
 }

@@ -14,51 +14,72 @@
 			rel="stylesheet"
 		/>
 	</head>
+	<body>
+		<header class="navegacion">
+			<div class="logo">
+				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+			</div>
+			<div class="barra-navegacion">
+				<nav class="botones-navegacion">
+					<ul>
+						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
+						<li><a href="portalVendedor.html">Inicio</a></li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/contactenos/index.aspx"
+								>Contacto</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
+								>Nosotros</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="carrito">
+				<div id="cuenta">
+					<a href="/public/miPerfil.html" id="textoCuenta">
+						Mi Cuenta
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							fill="currentColor"
+							class="bi bi-person-fill"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+							/></svg
+					></a>
+				</div>
+			</div>
+		</header>
 
-	<header class="navegacion">
-		<div class="logo">
-			<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
-		</div>
-		<div class="barra-navegacion">
-			<nav class="botones-navegacion">
-				<ul>
-					<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
-					<li><a href="portalVendedor.html">Inicio</a></li>
-					<li>
-						<a href="https://www.cnp.go.cr/contactenos/index.aspx"
-							>Contacto</a
-						>
-					</li>
-					<li>
-						<a
-							href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
-							>Nosotros</a
-						>
-					</li>
-				</ul>
-			</nav>
-		</div>
-		<div class="carrito">
-			<div id="cuenta">
-				<a href="/public/miPerfil.html" id="textoCuenta">
-					Mi Cuenta
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						fill="currentColor"
-						class="bi bi-person-fill"
-						viewBox="0 0 16 16"
-					>
-						<path
-							d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
-						/></svg
-				></a>
+		<div class="container-devolver">
+			<div
+				class="arrow-container"
+				onclick="window.location.href = 'marketplace.html';"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="35"
+					height="35"
+					fill="currentColor"
+					class="bi bi-arrow-left-circle-fill"
+					viewBox="0 0 16 16"
+				>
+					<path
+						d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+					/>
+				</svg>
+				<span>Volver al mercado</span>
 			</div>
 		</div>
-	</header>
 
-	<body>
 		<div class="container">
 			<h1 class="titulo-seccion">Añadir Producto</h1>
 			<form action="" method="get">
@@ -101,14 +122,6 @@
 						</option>
 					</select>
 				</div>
-				<div class="input-field">
-					<label for="imagen">Imagen del producto (opcional)</label>
-					<input
-						type="file"
-						id="imagen"
-						accept="image/jpeg, image/png"
-					/>
-				</div>
 				<div
 					class="input-field"
 					id="campoCategoriaNueva"
@@ -123,12 +136,22 @@
 						placeholder="Ingrese el nombre de la nueva categoría"
 					/>
 				</div>
+
 				<div class="input-field">
-					<label for="precio">Precio*</label>
+					<label for="imagen">Imagen del producto (opcional)</label>
+					<input
+						type="file"
+						id="imagen"
+						accept="image/jpeg, image/png"
+					/>
+				</div>
+
+				<div class="input-field">
+					<label for="precio">Precio *</label>
 					<input type="number" id="precio" placeholder="Precio" />
 				</div>
 				<div class="input-field">
-					<label for="inventario">Inventario disponible*</label>
+					<label for="inventario">Inventario disponible *</label>
 					<input
 						type="number"
 						id="inventario"

@@ -164,6 +164,7 @@ body {
 	border-radius: 4px;
 	box-sizing: border-box;
 	font-size: 17px;
+    font-family: 'Manrope', sans-serif;
 }
 
 .input-field select {
@@ -205,4 +206,26 @@ body {
 
 .error {
     border: 1px solid red !important;
+}
+
+/* Arrow devolverse */
+.container-devolver {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 30px;
+}
+
+.arrow-container {
+	cursor: pointer;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+
+.arrow-container span {
+	margin-left: 10px;
+	font-size: 20px;
 }
