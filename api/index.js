@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const personas = require("./routes/personas");
+
+const clientes = require("./routes/clientes");
 //const auth = require("./routes/auth");
 require("dotenv").config();
 
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect(process.env.MONGO_URI)
 
 
-app.use("/api", personas);
+app.use("/api", clientes);
 //app.use("/api", auth);
 
 const port = 3000;
