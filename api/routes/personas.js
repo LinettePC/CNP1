@@ -106,36 +106,38 @@ router.get('/buscar-persona-cedula', (req, res) => {
 router.post('/registrar', async (req, res) => {
 	const { body } = req;
 	try {
-	  const { rol } = body;
-	  let nueva_persona;
-	  switch (rol) {
-		case 'cliente':
-		  nueva_persona = new Cliente(body);
-		  break;
-		case 'vendedor':
-		  nueva_persona = new Vendedor(body);
-		  break;
-		case 'admin':
-		  nueva_persona = new Admin(body);
-		  break;
-		default:
-		  return res.status(400).json({ msj: 'Rol no válido.' });
-	  }
-  
-	  await nueva_persona.save();
-	  res.status(200).json({
-		resultado: true,
-		msj: 'Registro exitoso',
-		nueva_persona,
-	  });
+		const { rol } = body;
+		let nueva_persona;
+		switch (rol) {
+			case 'cliente':
+				nueva_persona = new Cliente(body);
+				break;
+			case 'vendedor':
+				nueva_persona = new Vendedor(body);
+				break;
+			case 'admin':
+				nueva_persona = new Admin(body);
+				break;
+			default:
+				return res.status(400).json({
+					msj: 'Rol no válido.',
+				});
+		}
+
+		await nueva_persona.save();
+		res.status(200).json({
+			resultado: true,
+			msj: 'Registro exitoso',
+			nueva_persona,
+		});
 	} catch (error) {
-	  res.status(500).json({
-		resultado: false,
-		msj: 'No se pudo realizar el registro',
-		error,
-	  });
+		res.status(500).json({
+			resultado: false,
+			msj: 'No se pudo realizar el registro',
+			error,
+		});
 	}
-  });
+});
 
 //http://localhost:3000/api/agregar-productos
 //Endpoint para guardar productos
