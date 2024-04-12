@@ -4,14 +4,16 @@ const schema_admin = new mongoose.Schema({
 	cedula: { type: String, required: true, unique: true },
 	correo: { type: String, required: true, unique: true },
 	nombre: { type: String, required: true, unique: false },
+
+	// Admin
 	rol: { type: String, default: 'Admin'},
 
 	// Non-required fields
 	telefono: { type: String, required: false, unique: false },
 	contrasenna: { type: String, required: false, unique: false },
 	foto: { type: String, required: false, unique: false },
-	estado: { type: String, enum: ['Activo', 'Inactivo'], default: 'Inactivo' },
 
+	// Admin specific field
 	porcentaje_ganancia: { type: String, required: false, unique: false },
 });
 

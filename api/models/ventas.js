@@ -2,17 +2,19 @@
 const mongoose = require('mongoose');
 
 const schema_venta = new mongoose.Schema({
-    // Identifying attributes
-    cedula_comprador: { type: String, required: true },
-    cedula_vendedor: { type: String, required: false },
+	// Identifying attributes
+	cedula_comprador: { type: String, required: true },
+	cedula_vendedor: { type: String, required: true },
 
-    // Sale attributes
+	// Sale attributes
+	nombres_productos: [{ type: String, required: true }],
+	precio_venta: { type: String, required: true },
+	precio_iva: { type: String, required: false },
+
 	nombre_comprador: { type: String, required: true },
-	nombre_prod: { type: String, required: true },
-    tramo: { type: String, required: true },
-    nombre_vendedor: { type: String, required: false },
-    precio_vendedor: { type: String, required: false },
-    fecha_venta: { type: String, required: false },
+	nombre_vendedor: { type: String, required: false },
+	tramo: { type: String, required: true },
+	fecha_venta: { type: String, required: false },
 });
 
 // Create models for both schemas

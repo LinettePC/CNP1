@@ -4,11 +4,20 @@ const schema_vendedor = new mongoose.Schema({
 	correo: { type: String, required: true, unique: true },
 	cedula: { type: String, required: true, unique: true },
 	nombre: { type: String, required: true, unique: false },
-	rol: { type: String, default: 'Vendedor'},
+
+	// Rol
+	rol: { type: String, default: 'Vendedor' },
 
 	// Non-required fields
 	telefono: { type: String, required: false, unique: false },
 	contrasenna: { type: String, required: false, unique: false },
+	foto: { type: String, required: false, unique: false },
+	estado: {
+		type: String,
+		enum: ['Activo', 'Inactivo', 'Rechazado'],
+		default: 'Inactivo',
+	},
+
 	// productos: [
 	// 	{
 	// 		nombre_prod: { type: String, required: false, unique: false },
@@ -16,8 +25,6 @@ const schema_vendedor = new mongoose.Schema({
 
 	// 	},
 	// ],
-	foto: { type: String, required: false, unique: false },
-	estado: { type: String, enum: ['Activo', 'Inactivo'], default: 'Inactivo' },
 });
 
 const Vendedor = mongoose.model('Vendedor', schema_vendedor, 'vendedores');

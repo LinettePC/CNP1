@@ -3,8 +3,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const clientes = require("./routes/clientes");
+const admins = require("./routes/admins");
 //const auth = require("./routes/auth");
+const clientes = require("./routes/clientes");
+const productos = require("./routes/productos");
+const vendedores = require("./routes/vendedores");
+const ventas = require("./routes/ventas");
+
 require("dotenv").config();
 
 
@@ -18,8 +23,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect(process.env.MONGO_URI)
 
 
-app.use("/api", clientes);
+app.use("/api", admins);
 //app.use("/api", auth);
+app.use("/api", clientes);
+app.use("/api", productos);
+app.use("/api", vendedores);
+app.use("/api", ventas);
 
 const port = 3000;
 app.listen(port, () => {
