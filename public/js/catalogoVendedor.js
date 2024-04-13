@@ -63,7 +63,7 @@ function crearMensajeSinProductos() {
 document.addEventListener('DOMContentLoaded', async () => {
 	let lista_productosDB = await listarProductosVendedor('12345');
 	console.log(lista_productosDB);
-
+	
 	if (lista_productosDB.length === 0) {
 		let mensajeSinProductos = crearMensajeSinProductos();
 		divMensaje.appendChild(mensajeSinProductos);

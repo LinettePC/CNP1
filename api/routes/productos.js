@@ -1,18 +1,19 @@
 const express = require('express');
 //necesitamos requerir el modelo de Clientes
 const Producto = require('../models/productos');
-const ProductoDefault = require('../models/productosDefault');
+// const ProductoDefault = require('../models/productosDefault');
 const router = express.Router();
 
 // http://localhost:3000/api/registrar-producto
 // POST --> crear nuevos registros de productos
 router.post('/registrar-producto', (req, res) => {
 	let body = req.body;
+
 	let nuevoProducto = new Producto({
-		cedula_vendedor: body.cedula_vendedor,
-		nombre: body.nombre,
-		descripcion: body.descripcion,
-		precio_vendedor: body.precio_vendedor,
+		cedula_vendedor: body.cedula_vendedor_env,
+		nombre: body.nombre_env,
+		descripcion: body.descripcion_env,
+		categoria: body.categoria_env,
 	});
 
 	nuevoProducto.save((error, productoCreado) => {
@@ -84,31 +85,28 @@ router.get('/conseguir-producto-id', (req, res) => {
 			msj: 'Debe enviar un id del producto',
 		});
 	} else {
-		Producto.find(
-			{ _id: mongoID },
-			(error, ProductoBuscado) => {
-				if (error) {
-					res.status(501).json({
-						resultado: false,
-						msj: 'Ocurrió el siguiente error:',
-						error,
+		Producto.find({ _id: mongoID }, (error, ProductoBuscado) => {
+			if (error) {
+				res.status(501).json({
+					resultado: false,
+					msj: 'Ocurrió el siguiente error:',
+					error,
+				});
+			} else {
+				if (ProductoBuscado == '') {
+					res.json({
+						resultado: true,
+						msj: 'El producto no existe',
 					});
 				} else {
-					if (ProductoBuscado == '') {
-						res.json({
-							resultado: true,
-							msj: 'El producto no existe',
-						});
-					} else {
-						res.json({
-							resultado: true,
-							msj: 'Productos encontrados:',
-							producto: ProductoBuscado,
-						});
-					}
+					res.json({
+						resultado: true,
+						msj: 'Productos encontrados:',
+						producto: ProductoBuscado,
+					});
 				}
 			}
-		);
+		});
 	}
 });
 
