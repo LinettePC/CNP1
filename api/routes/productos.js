@@ -33,6 +33,7 @@ router.post('/registrar-producto', (req, res) => {
 	});
 });
 
+
 //http://localhost:3000/api/listar-productos
 //GET--> recuperar informacion
 
@@ -163,5 +164,26 @@ router.delete('/eliminar', (req, res) => {
 		}
 	});
 });
+
+//http://localhost:3000/api/eliminar/listar-frutas-verduras
+router.get('/listar-frutas-verduras', (req, res) => {
+	Producto.find({ categoria: 'frutas_verduras' }, (error, lista) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo listar los productos',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Listado exitoso',
+				lista,
+			});
+		}
+	});
+});
+
+  
 
 module.exports = router;

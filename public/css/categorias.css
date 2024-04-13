@@ -170,14 +170,14 @@ body {
     width: 100%;
     transition: .5s ease;
 }
-.mostrador .fila{
+.mostrador #fila{
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
 }
 
-.mostrador .fila .item{
+.mostrador #fila .item{
     max-width: 255px;
     padding: 13px;
     height: 300px;
@@ -194,25 +194,25 @@ body {
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 	margin-top: 5px;
 }
-.mostrador .fila .item:hover{
+.mostrador #fila .item:hover{
     background-color: #e6e6e6;
 }
-.mostrador .fila .item img{
+.mostrador #fila .item img{
     width: 80%;
     height: auto;
     margin: 30px 0;
     object-fit: cover;
 }
-.mostrador .fila .item .descripcion{
+.mostrador #fila .item .nombre{
     margin-top: 12px;
     color: #797979;
     font-weight: bold;
     font-size: 19px;
 }
-.mostrador .fila .item .precio{
+.mostrador #fila .item .descripcion{
     color: #f85151;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 10px;
 }
 
 .tituloCategoria{

@@ -1,1 +1,34 @@
-GET http://localhost:3000/api/listar
+//Creado por Sebastian Garita, favor ignorar es para hacer pruebas de los end points, funciona como postman pero me va mejor aca
+
+GET http://localhost:3000/api/listar-vendedores
+
+###
+
+POST http://localhost:3000/api/registrar-producto
+Content-Type: application/json
+
+{
+  "cedula_vendedor_env": "9876543210",
+  "nombre_env": "Perrin",
+  "descripcion_env": "Estos no estan podridos confien",
+  "categoria_env": "frutas_verduras"
+}
+
+
+
+
+###
+
+GET http://localhost:3000/api/listar-productos-vendedor
+Content-Type: application/json
+
+{
+  "cedula": "1234567890"
+}
+
+###
+
+GET http://localhost:3000/api/listar-frutas-verduras
+Content-Type: application/json
+
+###

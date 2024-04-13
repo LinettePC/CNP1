@@ -23,6 +23,7 @@ router.get('/listar-clientes', (req, res) => {
 	});
 });
 
+
 // http://localhost:3000/api/buscar-Cliente-nombre
 // Endpoint para agarrar un usuario específico
 router.get('/buscar-cliente-nombre', (req, res) => {
