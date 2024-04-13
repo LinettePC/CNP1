@@ -17,6 +17,8 @@ const schema_cliente = new mongoose.Schema({
 	direccion: { type: String, required: false, unique: false },
 	foto: { type: String, required: false, unique: false },
 
+	fecha_de_registro: { type: String, required: false, unique: false }
+	
 	// rol: {
 	// 	type: String,
 	// 	enum: ['Cliente', 'Admin'],

@@ -1,12 +1,12 @@
 // Assuming `cedula` is the ID you want to search products for
-const listarProductosVendedor = async (cedulaBuscada) => {
+const listarProductosVendedor = async (cedulaEnviada) => {
 	let lista_productos = [];
 	await axios({
 		method: 'GET',
 		url: 'http://localhost:3000/api/listar-productos-vendedor',
 		responseType: 'json',
 		params: {
-			cedula: cedulaBuscada,
+			cedula: cedulaEnviada,
 		},
 	})
 		.then((response) => {
@@ -53,7 +53,7 @@ const conseguirProductoID = async (id_producto) => {
 		url: 'http://localhost:3000/api/conseguir-producto-id',
 		responseType: 'json',
 		params: {
-			_id: id_producto,
+			id: id_producto,
 		},
 	})
 		.then((response) => {
@@ -66,5 +66,35 @@ const conseguirProductoID = async (id_producto) => {
 		.catch((error) => {
 			console.log(error);
 		});
-	return productoBuscado[0];
+	return productoBuscado;
+};
+
+const registrarProducto = async (
+	cedulaEnviada,
+	nombreEnviado,
+	descripcionEnviada,
+	categoriaEnviada
+) => {
+	let productoRegistrado;
+	await axios({
+		method: 'POST',
+		url: 'http://localhost:3000/api/registrar-producto',
+		responseType: 'json',
+		data: {
+			cedula_vendedor_env: cedulaEnviada,
+			nombre_env: nombreEnviado,
+			descripcion_env: descripcionEnviada,
+			categoria_env: categoriaEnviada,
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				productoRegistrado = response.data.productoCreado;
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 };

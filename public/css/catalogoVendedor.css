@@ -165,7 +165,7 @@ button {
 	margin: 0px 200px;
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1375px) {
     .contenedorProducto {
         grid-template-columns: repeat(3, 1fr);
         margin: 0 20px; /* Adjust margin for smaller screens */

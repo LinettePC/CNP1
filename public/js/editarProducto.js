@@ -113,6 +113,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
 function llenarCamposProducto(info_producto) {
 	nombre.value = info_producto.nombre;
 	descripcion.value = info_producto.descripcion;
+	categoria.value = info_producto.categoria;
 	precio.value = info_producto.precio_vendedor;
 }
 

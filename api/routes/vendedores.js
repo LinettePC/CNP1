@@ -6,7 +6,30 @@ const router = express.Router();
 //http://localhost:3000/api/listar-vendedores
 //GET--> recuperar informacion
 router.get('/listar-vendedores', (req, res) => {
-	Vendedor.find((error, lista) => {
+	Vendedor.find(
+		(error, lista) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo listar los usuarios',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Listado exitosos',
+				lista,
+			});
+		}
+	});
+});
+
+router.get('/listar-vendedores-por-estado', (req, res) => {
+	let estadoRecibido = req.params.estado;
+	
+	Vendedor.find(
+		{ estado: estadoRecibido},
+		(error, lista) => {
 		if (error) {
 			res.status(500).json({
 				resultado: false,
@@ -73,33 +96,51 @@ router.get('/buscar-vendedor-cedula', (req, res) => {
 	});
 });
 
+
+function conseguirFechaFormateada() {
+	let fechaActual = new Date(); // 4/12/2024::9:06PM
+    let dia = fechaActual.getDate();
+    let mes = fechaActual.getMonth() + 1; // Enero es 0
+    let anno = fechaActual.getFullYear();
+
+	// Agrega los 0's para el formato
+    dia = dia < 10 ? '0' + dia : dia;
+    mes = mes < 10 ? '0' + mes : mes;
+
+	return `${dia}/${mes}/${anno}`;
+}
+
 // http://localhost:3000/api/registrar-vendedor
 // POST --> crear nuevos registros
 router.post('/registrar-vendedor', (req, res) => {
-	let body = req.body;
-	let nuevo_Vendedor = new Vendedor({
-		cedula: body.cedula,
-		correo: body.correo,
-		nombre: body.nombre,
-		contrasenna: body.contrasenna,
-		// foto: body.foto,
-	});
+    let body = req.body;
 
-	nuevo_Vendedor.save((error, usuarioBuscado) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo hacer el registro',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Registro exitoso',
-				usuarioBuscado,
-			});
-		}
-	});
+	let fechaFormateada = conseguirFechaFormateada();
+
+    let nuevo_Vendedor = new Vendedor({
+        cedula: body.cedula,
+        correo: body.correo,
+        nombre: body.nombre,
+        contrasenna: body.contrasenna,
+        fecha_de_registro: fechaFormateada, 
+		// Agrega la fecha de hoy con formato DD/MM/AAAA
+    });
+
+    nuevo_Vendedor.save((error, usuarioBuscado) => {
+        if (error) {
+            res.status(500).json({
+                resultado: false,
+                msj: 'No se pudo hacer el registro',
+                error,
+            });
+        } else {
+            res.status(200).json({
+                resultado: true,
+                msj: 'Registro exitoso',
+                usuarioBuscado,
+            });
+        }
+    });
 });
 
 // router.post('/registrar', async (req, res) => {

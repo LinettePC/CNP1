@@ -20,7 +20,7 @@ function crearTarjetaProducto(nombre_producto, id_producto) {
 	// Create an img element with src and alt attributes
 	var imgElement = document.createElement('img');
 	imgElement.src = '/public/img/error/noimg.jpg';
-	imgElement.alt = 'Imagen de una ' + nombre_producto;
+	imgElement.alt = 'Imagen de un(a) ' + nombre_producto;
 
 	// Append the imgElement to the "imagenProducto" div
 	imagenProducto.appendChild(imgElement);
@@ -63,13 +63,15 @@ function crearMensajeSinProductos() {
 document.addEventListener('DOMContentLoaded', async () => {
 	let lista_productosDB = await listarProductosVendedor('12345');
 	console.log(lista_productosDB);
+
+	let cantidad_productos_vendedor = lista_productosDB.length;
 	
-	if (lista_productosDB.length === 0) {
+	if (cantidad_productos_vendedor === 0) {
 		let mensajeSinProductos = crearMensajeSinProductos();
 		divMensaje.appendChild(mensajeSinProductos);
 	} else {
-		for (let index = 0; index < lista_productosDB.length; index++) {
-			let productoDB = lista_productosDB[index];
+		for (let indice = 0; indice < cantidad_productos_vendedor; indice++) {
+			let productoDB = lista_productosDB[indice];
 
 			let nuevaTarjeta = crearTarjetaProducto(productoDB.nombre, productoDB._id);
 

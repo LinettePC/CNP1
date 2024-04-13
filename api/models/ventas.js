@@ -14,7 +14,8 @@ const schema_venta = new mongoose.Schema({
 	nombre_comprador: { type: String, required: true },
 	nombre_vendedor: { type: String, required: false },
 	tramo: { type: String, required: true },
-	fecha_venta: { type: String, required: false },
+
+	fecha_de_venta: { type: String, required: false },
 });
 
 // Create models for both schemas

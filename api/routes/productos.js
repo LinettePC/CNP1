@@ -37,17 +37,18 @@ router.post('/registrar-producto', (req, res) => {
 //GET--> recuperar informacion
 
 // http://localhost:3000/api/listar-productos-vendedor
-// Endpoint para agarrar un usuario específico // USA LA CÉDULA
+// Endpoint para agarrar los productos de un usuario // USA LA CÉDULA
 router.get('/listar-productos-vendedor', (req, res) => {
-	let requestedCedula = req.query.cedula;
-	if (!requestedCedula) {
+	let cedulaBuscada = req.query.cedula;
+
+	if (!cedulaBuscada) {
 		res.status(501).json({
 			resultado: false,
-			msj: 'Debe enviar una cedula',
+			msj: 'Debe enviar una cedula.',
 		});
 	} else {
 		Producto.find(
-			{ cedula_vendedor: requestedCedula },
+			{ cedula_vendedor: cedulaBuscada },
 			(error, ProductosBuscados) => {
 				if (error) {
 					res.status(501).json({
@@ -59,13 +60,19 @@ router.get('/listar-productos-vendedor', (req, res) => {
 					if (ProductosBuscados == '') {
 						res.json({
 							resultado: true,
-							msj: 'El vendedor no tiene productos.',
+							msj:
+								'El vendedor con la cédula ' +
+								cedulaBuscada +
+								' no tiene productos.',
 							lista: [],
 						});
 					} else {
 						res.json({
 							resultado: true,
-							msj: 'Productos encontrados:',
+							msj:
+								'Productos encontrados para el vendedor con la cédula ' +
+								cedulaBuscada +
+								':',
 							lista: ProductosBuscados,
 						});
 					}
@@ -78,7 +85,7 @@ router.get('/listar-productos-vendedor', (req, res) => {
 // http://localhost:3000/api/conseguir-producto-id
 // Endpoint para agarrar un usuario específico // USA LA CÉDULA
 router.get('/conseguir-producto-id', (req, res) => {
-	let mongoID = req.query._id;
+	let mongoID = req.query.id;
 	if (!mongoID) {
 		res.status(501).json({
 			resultado: false,
@@ -102,7 +109,7 @@ router.get('/conseguir-producto-id', (req, res) => {
 					res.json({
 						resultado: true,
 						msj: 'Productos encontrados:',
-						producto: ProductoBuscado,
+						producto: ProductoBuscado[0],
 					});
 				}
 			}
