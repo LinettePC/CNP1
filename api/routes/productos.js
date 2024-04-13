@@ -14,6 +14,7 @@ router.post('/registrar-producto', (req, res) => {
 		nombre: body.nombre_env,
 		descripcion: body.descripcion_env,
 		categoria: body.categoria_env,
+		precio_vendedor: body.precio_env
 	});
 
 	nuevoProducto.save((error, productoCreado) => {

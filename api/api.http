@@ -8,10 +8,11 @@ POST http://localhost:3000/api/registrar-producto
 Content-Type: application/json
 
 {
-  "cedula_vendedor_env": "9876543210",
-  "nombre_env": "Perrin",
-  "descripcion_env": "Estos no estan podridos confien",
-  "categoria_env": "frutas_verduras"
+  "cedula_vendedor_env": "12345",
+  "nombre_env": "Naranja",
+  "descripcion_env": "Importadas de Chile",
+  "categoria_env": "frutas_verduras",
+  "precio_env": 5000
 }
 
 

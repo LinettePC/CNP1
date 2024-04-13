@@ -1,6 +1,6 @@
 const filaProducto = document.getElementById('fila')
 
-function crearTarjetaProducto(nombre, descripcion) {
+function crearTarjetaProducto(nombre, descripcion, precioVendedor) {
 
     const item = document.createElement('div');
     item.classList.add('item');
@@ -18,6 +18,13 @@ function crearTarjetaProducto(nombre, descripcion) {
     nombreElemento.classList.add('nombre');
     nombreElemento.textContent = nombre
 
+    const precioElemento = document.createElement('span');
+    const simboloMoneda = '$'
+    
+    precioElemento.classList.add('precio');
+    precioElemento.textContent = simboloMoneda + precioVendedor
+
+
     const descripcionElemento = document.createElement('p');
     descripcionElemento.classList.add('descripcion');
     descripcionElemento.textContent = descripcion;
@@ -29,6 +36,7 @@ function crearTarjetaProducto(nombre, descripcion) {
     item.appendChild(contenedorFoto);
     contenedorFoto.appendChild(imagen);
     item.appendChild(nombreElemento);
+    item.appendChild(precioElemento)
     item.appendChild(descripcionElemento);
 
 
@@ -47,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 		for (let i = 0; i < lista_FrutasVerduras.length; i++) {
 			let productoDB = lista_FrutasVerduras[i];
 
-			let nuevaTarjeta = crearTarjetaProducto(productoDB.nombre, productoDB.descripcion);
+			let nuevaTarjeta = crearTarjetaProducto(productoDB.nombre, productoDB.descripcion, productoDB.precio_vendedor);
 
 			filaProducto.appendChild(nuevaTarjeta);
 		}
