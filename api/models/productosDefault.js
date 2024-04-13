@@ -5,6 +5,7 @@ const schema_producto_default = new mongoose.Schema({
 	nombre: { type: String, required: true },
 	descripcion: { type: String, required: true },
 	imagen: { type: String, required: false },
+	categoria: { type: String, required: false },
 });
 
 // Create models for both schemas

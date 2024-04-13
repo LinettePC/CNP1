@@ -3,20 +3,20 @@ const express = require('express');
 const Venta = require('../models/ventas');
 const router = express.Router();
 
-//http://localhost:3000/api/listar-clientes
+//http://localhost:3000/api/listar-ventas
 //GET--> recuperar informacion
-router.get('/listar-clientes', (req, res) => {
-	Cliente.find((error, lista) => {
+router.get('/listar-ventas', (req, res) => {
+	Venta.find((error, lista) => {
 		if (error) {
 			res.status(500).json({
 				resultado: false,
-				msj: 'No se pudo listar los usuarios',
+				msj: 'No se pudieron listar las ventas.',
 				error,
 			});
 		} else {
 			res.status(200).json({
 				resultado: true,
-				msj: 'Listado exitosos',
+				msj: 'Ventas listadas exitosamente:',
 				lista,
 			});
 		}

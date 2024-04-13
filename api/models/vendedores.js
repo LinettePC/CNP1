@@ -17,7 +17,10 @@ const schema_vendedor = new mongoose.Schema({
 		enum: ['Activo', 'Inactivo', 'Rechazado'],
 		default: 'Inactivo',
 	},
+	razon_rechazo: { type: String, required: false, unique: false },
 
+	fecha_de_registro: { type: String, required: false, unique: false }
+	
 	// productos: [
 	// 	{
 	// 		nombre_prod: { type: String, required: false, unique: false },
@@ -30,3 +33,17 @@ const schema_vendedor = new mongoose.Schema({
 const Vendedor = mongoose.model('Vendedor', schema_vendedor, 'vendedores');
 
 module.exports = Vendedor;
+
+
+function name(params) {
+	let conseguirUsuariosBD = ["usuario1", "usuario2", "usuario3"];
+
+	let cedula_ingresada = "64534534";
+	let contraseña_ingresada = "pepito34";
+
+	for (let i = 0; i < conseguirUsuariosDB.length; i++){
+		if (cedula_ingresada == conseguirUsuariosBD[i].cedula && contraseña_ingresada == conseguirUsuariosBD[i].contrasenna) {
+            
+        }
+	}
+}
