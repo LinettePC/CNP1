@@ -192,6 +192,25 @@ router.get('/listar-frutas-verduras', (req, res) => {
 	});
 });
 
+//http://localhost:3000/api/eliminar/listar-lacteos
+router.get('/listar-lacteos', (req, res) => {
+	Producto.find({ categoria: 'lacteos' }, (error, lista) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo listar los productos',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Listado exitoso',
+				lista,
+			});
+		}
+	});
+});
+
 router.get('/listar-producto-por-id', (req, res) => {
     const productId = req.body.id; // Obtén el ID del cuerpo de la solicitud JSON
     
