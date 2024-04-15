@@ -58,12 +58,14 @@
                 <div id="welcomeDos">
 					<label>Ingresa a tu Cuenta de Cliente</label>
 				</div>
-				<div id="subtitle">
-					<h3>Iniciar Sesión</h3>
-				</div>
+
 				<form id="formLogin">
+                    <div id="subtitle">
+                        <h3>Iniciar Sesión</h3>
+                    </div>
+
 					<div class="form-group">
-						<label for="username">Identificacion</label>
+						<label for="username">Identificación</label>
                         <br>
 						<input id="input"
 							type="text"
@@ -82,9 +84,9 @@
 							required
 						/>
 					</div>
-                    <button type="submit" id="loginbutton">Ingresar</button>
+                    <button type="submit" class="loginbutton">Ingresar</button>
 					<div id="forgotpassword">
-						<label>¿Olvidó su contraseña?</label>
+						<label>¿Olvidaste tu contraseña?</label>
 						<a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
 					</div>
 					
@@ -121,12 +123,14 @@
             <div id="welcomeDos">
                 <label>Ingresa a tu Cuenta de Vendedor</label>
             </div>
-            <div id="subtitle">
-                <h3>Iniciar Sesión</h3>
-            </div>
+           
             <form id="formLogin">
+                <div id="subtitle">
+                    <h3>Iniciar Sesión</h3>
+                </div>
+
                 <div class="form-group">
-                    <label for="username">Identificacion</label>
+                    <label for="username">Identificación</label>
                     <br>
                     <input id="input"
                         type="text"
@@ -145,9 +149,9 @@
                         required
                     />
                 </div>
-                <button type="submit" id="loginbutton">Ingresar</button>
+                <button type="submit" class="loginbutton">Ingresar</button>
                 <div id="forgotpassword">
-                    <label>¿Olvidó su contraseña?</label>
+                    <label>¿Olvidaste tu contraseña?</label>
                     <a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
                 </div>
             </form>
@@ -167,13 +171,13 @@
     <div class="columnaSecTres">
 
         <div id="questionTres">
-            <h3>¿Aun no tienes cuenta?</h3>
-            <h3>Puedes crear una Cuenta de Cliente y comprar hoy</h3>
+            <h3 id="q31">¿Aun no tienes cuenta para comprar?</h3>
+            <h3 id="q32">Puedes crear una Cuenta de Cliente y comprar hoy</h3>
             
         </div>
         <br>
         <a href="registroCliente.html">
-            <br>
+            
             <div class="register-buttons">
                 
                 <button type="button" class="registerbuttons">
@@ -190,8 +194,8 @@
 
     <div class="columnaSecTres">   
         <div id="questionTres">
-            <h3>¿Quieres vender en nuestra Plataforma Virtual?</h3>
-            <h3>Puedes aplicar para una Cuenta de Vendedor hoy</h3>
+            <h3 id="q31">¿Quieres vender en nuestra Plataforma Virtual?</h3>
+            <h3 id="q32">Puedes aplicar para una Cuenta de Vendedor hoy</h3>
         </div>
        
         <a href="registroVendedor.html">
@@ -215,23 +219,27 @@
 
     <section id="seccionCuatro">
 
-        <div id="inicioSesion" class="columna">
+        <div id="imagenAdmi" class="columnaAdmin">
+            
+            <div id="logocnp">
+                <img src="./img/dosLP/admin.jpg" alt="cnp logo" id="adminImagen" />
+            </div>
+        </div> 
+
+        <div id="inicioSesion" class="columnaAdmin">
 			<div class="login">
-				<!-- <div id="logocnp">
-					<img src="img/cnplogo.png" alt="cnp logo" id="logocnpimg" />
-				</div> -->
+				
 				<div id="welcome">
 					<label>¿Eres el administrador?</label>
 				</div>
-                <!-- <div id="welcomeDos">
-					<label>Ingresa a tu Cuenta de Cliente</label>
-				</div> -->
-				<div id="subtitle">
-					<h3>Iniciar Sesión</h3>
-				</div>
+               
 				<form id="formLogin">
+                    <div id="subtitle">
+                        <h3>Iniciar Sesión</h3>
+                    </div>
+                    
 					<div class="form-group">
-						<label for="username">Identificacion</label>
+						<label for="username">Identificación</label>
                         <br>
 						<input id="input"
 							type="text"
@@ -250,24 +258,43 @@
 							required
 						/>
 					</div>
-                    <button type="submit" id="loginbutton">Ingresar</button>
+                        <button type="button" class="loginbutton">Ingresar</button>
 					<div id="forgotpassword">
 						<label>¿Olvidaste tu contraseña?</label>
 						<a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
-					</div>
-					
+					</div>	
 				</form>
+            </div>
+        </div> 
+        
+        <div id="imageLogoCNP" class="columnaAdmin">
+            <!-- <h3>Seccion Admi 2</h3> -->
+            <div id="logoCNP">
+					<img src="img/cnplogo.png" alt="cnpLogo" id="logoCNPimg" />
+			</div>
 
+        </div>
 
-
+        <!-- #logoCNP {
+            align-self: center;
+            margin-top: 50px;
+        }
+        #logoCNPimg {
+            width: 135px;
+        } -->
     </section>
+    <footer>
+
+        <p id="copyRight">&copy; 2024 La Feria del CNP - Todos los derechos reservados</p>
+
+    </footer>
 
 
 
-    <!-- FIN SECCION 4 -->
+    <!-- FIN SECCION 4 Administrador  -->
 
 
-    <!-- Seccion 3, Administrador -->
+   
 
 
 

@@ -39,10 +39,26 @@ body {
 	border-bottom-right-radius: 5px;
 	border-radius: 10px;
 	/* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); */
+
+
+
+
+
+
 }
 
 
 /* FinFormato Container Izquierdo */
+
+#formLogin{
+	/* border: solid #E5E5A4 ; */
+	padding: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
 
 #inicioSesion {
 	/* border: 1px solid purple; */
@@ -65,26 +81,37 @@ body {
 }
 
 #welcome{
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	margin-bottom: 15px;
 	display: block;
 	font-size: 30px;
+	color: #1F7544;
 }
 #welcomeDos{
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
 	margin-bottom: 25px;
 	display: block;
 	font-size: 20px;
+	color: #81B12A;
+
 }
 #subtitle{
-	margin-top: 40px;
+	margin-top: 20px;
 	margin-bottom: 25px;
 	display: block;
 	font-size: 25px;
+	/* color: #1F7544; */
 }
 #input{
+	/* background-color: #e5e5a4; */
 	margin-top: 5px;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
+	
+	/* border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-radius: 5px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
+	border: lightgrey; */
 }
 #forgotpassword{
 	margin-bottom: 25px;
@@ -161,28 +188,83 @@ body {
 /* FIN FORMATO SECCION DOS */
 /* INICIO FORMATO SECCION TRES */
 #seccionTres{
-	height: 155px;
+	height: 300px;
 	display: flex;
 	flex-direction: row;
 	justify-content:space-evenly;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-	border-radius: 10px;
+	/* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	border-radius: 10px; */
 	/* border: 1px solid purple; */
+	background-color:#e5e5a4;
 }
 
 .columnaSecTres{
-	border: 2px solid;
-	padding-top: 40px;
+	/* border: 2px solid; */
+	padding-top: 10px;
 	text-align: center;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	border-radius: 20px;
+	margin: 30px;
+	margin-top: 60px;
+	background-color:white;
+	height: 50%;
+
 
 }
+
+.loginbutton{
+	width: 110px;
+	height: 38px;
+	border: none;
+	border-radius: 5px;
+	background-color: #EBB85A;
+	color:#2e3c2d;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+
+.registerbuttons {
+	width: 200px;
+	height: 38px;
+	border: none;
+	border-radius: 5px;
+	background-color: #EBB85A;
+	color:#2e3c2d;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+button:hover {
+	background-color:#81B12A;
+}
+
+
+
+
 .register-buttons{
-	margin-top: 0;
+	margin-top: 0px;
+}
+.registerbuttons{
+	padding-top: 0px;
+	margin-top: 0px;
+}
+/* #questionTres{
+	 border: solid pink; 
+} */
+/* FIN FORMATO SECCION TRES */
+#q31{
+	color: #1F7544;
+	font-size: 25px;
+	padding: 10px;
+}
+
+#q32{
+	color:#2e3c2d;
+	padding-bottom: 0px;
+
 }
 /* FIN FORMATO SECCION TRES */
-
-
-
 #tituloF1A {
 	font-family: 'Manrope', sans-serif;
 	margin-top: 40px;
@@ -322,13 +404,7 @@ body {
 	text-decoration: underline;
 	color: #1f7544;
 }
-footer {
-	/* border: 3px solid blue; */
-	width: 100%;
-	height: 155px;
 
-	/* background-color: #E5E5A4   */
-}
 
 .margen-bottom {
 	margin-bottom: 5px;
@@ -338,4 +414,74 @@ footer {
 .margen-bottom-xl {
 	margin-bottom: 15px;
 	display: block;
+}
+
+/* Seccion Cuatro */
+#seccionCuatro{
+	display: flex;
+	height: 400px;
+	justify-content: center;
+	
+}
+.columnaAdmin{
+	
+	
+	padding: 10px;
+	margin: 0 5px;
+	align-items: flex-start;
+
+	width: 33.333%;
+	/* height: auto; */
+    /* border: 1px solid blue; */
+    padding: 40px;
+    border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-radius: 10px;
+	/* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); */
+
+
+
+}
+
+#logoCNP {
+	
+	margin-top: 50px;
+}
+#logoCNPimg {
+	margin-top: 60px;
+	margin-left: 25px;
+	width: 300px;
+	align-self: center;
+} 
+#imagenAdmi{
+	/* align-items: center; */
+	margin-top: 50px;
+}
+#adminImagen{
+	width: 380px;
+	margin-left: 25px;
+	/* align-self: center; */
+}
+
+/* Fin Seccion Cuatro */
+footer{
+	
+	/* align-items: center; */
+	height: 155px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	background-color: #E5E5A4;
+	/* border: 3px solid blue; */
+}
+#copyRight{
+	align-self: center;
+	margin-left:520px;
+	margin-top: 70px;
+	
+	/* border: 3px solid blue;  */
+	color:#2e3c2d
+
 }
