@@ -98,3 +98,20 @@ const registrarProducto = async (
 			console.log(error);
 		});
 };
+
+
+
+const obtenerProductoPorId = async (id_producto) => {
+    let productoEncontrado = {};
+    try {
+        const response = await axios.get(`http://localhost:3000/api/producto/${id_producto}`);
+        if (response.data.resultado === true) {
+            productoEncontrado = response.data.producto;
+        } else {
+            console.error('Error al obtener el producto:', response.data.msj);
+        }
+    } catch (error) {
+        console.error('Error de red al obtener el producto:', error);
+    }
+    return productoEncontrado;
+};

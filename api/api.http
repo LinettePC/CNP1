@@ -8,10 +8,11 @@ POST http://localhost:3000/api/registrar-producto
 Content-Type: application/json
 
 {
-  "cedula_vendedor_env": "9876543210",
-  "nombre_env": "Perrin",
-  "descripcion_env": "Estos no estan podridos confien",
-  "categoria_env": "frutas_verduras"
+  "cedula_vendedor_env": "12345",
+  "nombre_env": "Sandia",
+  "descripcion_env": "Las mejores sandias del planeta",
+  "categoria_env": "frutas_verduras",
+  "precio_env": 8200
 }
 
 
@@ -32,3 +33,11 @@ GET http://localhost:3000/api/listar-frutas-verduras
 Content-Type: application/json
 
 ###
+
+GET http://localhost:3000/api/listar-producto-por-id
+Content-Type: application/json
+
+{
+  "id": "661b076bd0c1bfad53b755e8"
+}
+

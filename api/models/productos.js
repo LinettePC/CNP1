@@ -11,7 +11,7 @@ const schema_producto = new mongoose.Schema({
 
     // Detalles del vendedor
 	inventario: { type: Number, required: false },
-	precio_vendedor: { type: Number, required: false },
+	precio_vendedor: { type: Number, required: true },
 	precio_con_iva: { type: Number, required: false },
 	imagen: { type: String, defaultValue: 'noimg' },
 	tramo: { type: String, required: false },

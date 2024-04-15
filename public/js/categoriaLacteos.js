@@ -1,4 +1,4 @@
-const filaProducto = document.getElementById('fila')
+const filaProducto = document.getElementById('fila');
 
 
 function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID) {
@@ -17,7 +17,7 @@ function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID) {
 
     // Imagen
     const imagen = document.createElement('img');
-    imagen.src = 'img/ejemploProducto.png'; // URL de la imagen
+    imagen.src = 'img/quesito.png'; // URL de la imagen
     imagen.alt = ''; // Texto alternativo de la imagen (opcional)
 
     // Agregar la imagen al enlace
@@ -26,7 +26,9 @@ function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID) {
     // Nombre del producto
     const nombreElemento = document.createElement('span');
     nombreElemento.classList.add('nombre');
-    nombreElemento.textContent = nombre;
+    nombreElemento.textContent = nombre; 
+    // Basicamente esta haciendo esto: <span class = "nombre">nombre<span/>
+   
 
     // Precio del producto
     const precioElemento = document.createElement('span');
@@ -44,6 +46,7 @@ function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID) {
     item.appendChild(nombreElemento); // Agregar el nombre al elemento principal
     item.appendChild(precioElemento); // Agregar el precio al elemento principal
     item.appendChild(descripcionElemento); // Agregar la descripción al elemento principal
+    //En otras palabras, llenando el div
 
     // Devolver la tarjeta creada
     return item;
@@ -51,14 +54,14 @@ function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID) {
 
 
 document.addEventListener('DOMContentLoaded', async () => {
-	let lista_FrutasVerduras = await listar_FrutasVerduras();
+	let lista_lacteos = await listar_productos("listar-lacteos");
 	
-	if (lista_FrutasVerduras.length === 0) {
+	if (lista_lacteos.length === 0) {
 		//let mensajeSinProductos = crearMensajeSinProductos();
 		//divMensaje.appendChild(mensajeSinProductos);
 	} else {
-		for (let i = 0; i < lista_FrutasVerduras.length; i++) {
-			let productoDB = lista_FrutasVerduras[i];
+		for (let i = 0; i < lista_lacteos.length; i++) {
+			let productoDB = lista_lacteos[i];
 
 			let nuevaTarjeta = crearTarjetaProducto(productoDB.nombre, productoDB.descripcion, productoDB.precio_vendedor, productoDB._id);
 

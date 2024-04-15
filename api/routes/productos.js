@@ -14,6 +14,7 @@ router.post('/registrar-producto', (req, res) => {
 		nombre: body.nombre_env,
 		descripcion: body.descripcion_env,
 		categoria: body.categoria_env,
+		precio_vendedor: body.precio_env
 	});
 
 	nuevoProducto.save((error, productoCreado) => {
@@ -172,7 +173,7 @@ router.delete('/eliminar', (req, res) => {
 	});
 });
 
-//http://localhost:3000/api/eliminar/listar-frutas-verduras
+//http://localhost:3000/api/listar-frutas-verduras
 router.get('/listar-frutas-verduras', (req, res) => {
 	Producto.find({ categoria: 'frutas_verduras' }, (error, lista) => {
 		if (error) {
@@ -190,6 +191,82 @@ router.get('/listar-frutas-verduras', (req, res) => {
 		}
 	});
 });
+
+//http://localhost:3000/api/listar-lacteos
+router.get('/listar-lacteos', (req, res) => {
+	Producto.find({ categoria: 'lacteos' }, (error, lista) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo listar los productos',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Listado exitoso',
+				lista,
+			});
+		}
+	});
+});
+
+router.get('/listar-producto-por-id', (req, res) => {
+    const productId = req.body.id; // Obtén el ID del cuerpo de la solicitud JSON
+    
+    Producto.findById(productId, (error, producto) => {
+        if (error) {
+            // Si hay un error al buscar el producto, devuelve un error 500
+            res.status(500).json({
+                resultado: false,
+                msj: 'No se pudo encontrar el producto',
+                error,
+            });
+        } else if (!producto) {
+            // Si no se encuentra el producto, devuelve un error 404
+            res.status(404).json({
+                resultado: false,
+                msj: 'Producto no encontrado',
+            });
+        } else {
+            // Si se encuentra el producto, devuelve el producto encontrado
+            res.status(200).json({
+                resultado: true,
+                msj: 'Producto encontrado',
+                producto,
+            });
+        }
+    });
+});
+
+router.get('/producto/:id', (req, res) => {
+    const productId = req.params.id; // Obtén el ID del parámetro de la URL
+    
+    Producto.findById(productId, (error, producto) => {
+        if (error) {
+            // Si hay un error al buscar el producto, devuelve un error 500
+            res.status(500).json({
+                resultado: false,
+                msj: 'No se pudo encontrar el producto',
+                error,
+            });
+        } else if (!producto) {
+            // Si no se encuentra el producto, devuelve un error 404
+            res.status(404).json({
+                resultado: false,
+                msj: 'Producto no encontrado',
+            });
+        } else {
+            // Si se encuentra el producto, devuelve el producto encontrado
+            res.status(200).json({
+                resultado: true,
+                msj: 'Producto encontrado',
+                producto,
+            });
+        }
+    });
+});
+
 
   
 
