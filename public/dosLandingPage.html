@@ -47,7 +47,7 @@
     <section id="seccionDos">
 
     <!--Container Cliente  -->
-        <div id="containerCliente" class="columna">
+        <div id="inicioSesion" class="columna">
 			<div class="login">
 				<!-- <div id="logocnp">
 					<img src="img/cnplogo.png" alt="cnp logo" id="logocnpimg" />
@@ -59,12 +59,13 @@
 					<label>Ingresa a tu Cuenta de Cliente</label>
 				</div>
 				<div id="subtitle">
-					<h3>Ingrese sus datos para iniciar sesión en su Cuenta de Cliente</h3>
+					<h3>Iniciar Sesión</h3>
 				</div>
 				<form id="formLogin">
 					<div class="form-group">
 						<label for="username">Identificacion</label>
-						<input
+                        <br>
+						<input id="input"
 							type="text"
 							id="username"
 							name="username"
@@ -73,32 +74,24 @@
 					</div>
 					<div class="form-group">
 						<label for="password">Contraseña</label>
-						<input
+                        <br>
+						<input id="input"
 							type="password"
 							id="password"
 							name="password"
 							required
 						/>
 					</div>
+                    <button type="submit" id="loginbutton">Ingresar</button>
 					<div id="forgotpassword">
 						<label>¿Olvidó su contraseña?</label>
-						<a href="olvideContrasena.html">Recuperar contraseña</a>
+						<a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
 					</div>
-					<button type="submit" id="loginbutton">Ingresar</button>
+					
 				</form>
 
-				<div id="question">
-					<h3>¿Aun no tienes cuenta?</h3>
-                    <h3>Puedes crear una Cuenta de Cliente y comprar hoy</h3>
-				</div>
-				<a href="registroCliente.html">
-					<div class="register-buttons">
-						<button type="button" class="registerbuttons">
-							Registrarse como cliente
-						</button>
-					</div>
-				</a>
-                <br>
+
+                
 				
 			</div>
 		</div>
@@ -119,22 +112,23 @@
         
     <!-- Fin Container Centro Imagenes -->
 
-    <div id="containerVendedor" class="columna">
+    <div id="inicioSesion" class="columna">
         <div class="login">
            
             <div id="welcome">
                 <label>¿Ya eres uno de nuestros Vendedores?</label>
             </div>
-            <!-- <div id="welcomeDos">
-                <label>Puedes aplicar para una Cuenta de Vendedor hoy</label>
-            </div> -->
+            <div id="welcomeDos">
+                <label>Ingresa a tu Cuenta de Vendedor</label>
+            </div>
             <div id="subtitle">
-                <h3>Ingresa tus datos para iniciar sesión en su Cuenta de Vendedor</h3>
+                <h3>Iniciar Sesión</h3>
             </div>
             <form id="formLogin">
                 <div class="form-group">
                     <label for="username">Identificacion</label>
-                    <input
+                    <br>
+                    <input id="input"
                         type="text"
                         id="username"
                         name="username"
@@ -143,45 +137,134 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña</label>
-                    <input
+                    <br>
+                    <input id="input"
                         type="password"
                         id="password"
                         name="password"
                         required
                     />
                 </div>
+                <button type="submit" id="loginbutton">Ingresar</button>
                 <div id="forgotpassword">
                     <label>¿Olvidó su contraseña?</label>
-                    <a href="olvideContrasena.html">Recuperar contraseña</a>
+                    <a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
                 </div>
-                <button type="submit" id="loginbutton">Ingresar</button>
             </form>
 
-            <div id="question">
-                <h3>¿Quieres vender en nuestra Plataforma Virtual?</h3>
-                <h3>Puedes aplicar para una Cuenta de Vendedor hoy</h3>
-            </div>
-           
-            <a href="registroVendedor.html">
-                <div class="register-buttons">
-                    <button type="button" class="registerbuttons">
-                        Registrarse como vendedor
-                    </button>
-                </div>
-            </a>
+
         </div>
     </div>
     <!-- Fin Container Vendedor  -->
+    </section>
+    <!-- FIN SECCION 2 -->
+    <!-- INICIO SECCION 3 -->
+
+    <!-- Registro Nuevos Clientes -->
+
+    <section id="seccionTres">
+
+    <div class="columnaSecTres">
+
+        <div id="questionTres">
+            <h3>¿Aun no tienes cuenta?</h3>
+            <h3>Puedes crear una Cuenta de Cliente y comprar hoy</h3>
+            
+        </div>
+        <br>
+        <a href="registroCliente.html">
+            <br>
+            <div class="register-buttons">
+                
+                <button type="button" class="registerbuttons">
+                    Registrarse como cliente
+                </button>
+            </div>
+        </a>
+
+    </div>
+
+        <!-- Fin Registro Nuevos Clientes -->
+
+        <!--Registro Nuevos Vendedores -->
+
+    <div class="columnaSecTres">   
+        <div id="questionTres">
+            <h3>¿Quieres vender en nuestra Plataforma Virtual?</h3>
+            <h3>Puedes aplicar para una Cuenta de Vendedor hoy</h3>
+        </div>
+       
+        <a href="registroVendedor.html">
+            <br>
+            <div class="register-buttons">
+                
+                <button type="button" class="registerbuttons">
+                    Registrarse como vendedor
+                </button>
+            </div>
+        </a>
+    </div> 
+        <!--Fin Registro Nuevos Vendedores -->
+        
 
 
+    </section>
+    <!-- FIN SECCION 3 -->
 
+    <!-- INICIO SECCION 4 Administrador-->
 
+    <section id="seccionCuatro">
+
+        <div id="inicioSesion" class="columna">
+			<div class="login">
+				<!-- <div id="logocnp">
+					<img src="img/cnplogo.png" alt="cnp logo" id="logocnpimg" />
+				</div> -->
+				<div id="welcome">
+					<label>¿Eres el administrador?</label>
+				</div>
+                <!-- <div id="welcomeDos">
+					<label>Ingresa a tu Cuenta de Cliente</label>
+				</div> -->
+				<div id="subtitle">
+					<h3>Iniciar Sesión</h3>
+				</div>
+				<form id="formLogin">
+					<div class="form-group">
+						<label for="username">Identificacion</label>
+                        <br>
+						<input id="input"
+							type="text"
+							id="username"
+							name="username"
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="password">Contraseña</label>
+                        <br>
+						<input id="input"
+							type="password"
+							id="password"
+							name="password"
+							required
+						/>
+					</div>
+                    <button type="submit" id="loginbutton">Ingresar</button>
+					<div id="forgotpassword">
+						<label>¿Olvidaste tu contraseña?</label>
+						<a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
+					</div>
+					
+				</form>
 
 
 
     </section>
 
-    <!-- FIN SECCION 2 -->
+
+
+    <!-- FIN SECCION 4 -->
 
 
     <!-- Seccion 3, Administrador -->
