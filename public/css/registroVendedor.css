@@ -21,9 +21,15 @@ body {
 
 .titulos-container {
 	text-align: center;
+	/* border: solid;	 */
+	align-items: center;
 }
 
 #tituloF1A {
+
+	
+	margin-left: 40px;
+	align-self: center;
 	font-family: 'Manrope', sans-serif;
 	margin-top: 40px;
 	font-size: 28px;
@@ -37,17 +43,20 @@ body {
 }
 
 #tituloF1B {
-	border: 2px red;
+	/* margin-right: 60px; */
+	/* border: 2px red; */
 	margin-top: 14px;
-	font-size: 20px;
-	margin-left: 58px;
+	font-size: 18px;
+	/* margin-left: 58px; */
 	background-color: #81B12A;
-	width: 550px;
+	width: 780px;
 	height: 27px;
 	border-radius: 14px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 	padding-top: 1%;
-	color: white
+	color: white;
+	
+	
 }
 
 #logoPerfil {
