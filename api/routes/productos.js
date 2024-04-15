@@ -192,6 +192,63 @@ router.get('/listar-frutas-verduras', (req, res) => {
 	});
 });
 
+router.get('/listar-producto-por-id', (req, res) => {
+    const productId = req.body.id; // Obtén el ID del cuerpo de la solicitud JSON
+    
+    Producto.findById(productId, (error, producto) => {
+        if (error) {
+            // Si hay un error al buscar el producto, devuelve un error 500
+            res.status(500).json({
+                resultado: false,
+                msj: 'No se pudo encontrar el producto',
+                error,
+            });
+        } else if (!producto) {
+            // Si no se encuentra el producto, devuelve un error 404
+            res.status(404).json({
+                resultado: false,
+                msj: 'Producto no encontrado',
+            });
+        } else {
+            // Si se encuentra el producto, devuelve el producto encontrado
+            res.status(200).json({
+                resultado: true,
+                msj: 'Producto encontrado',
+                producto,
+            });
+        }
+    });
+});
+
+router.get('/producto/:id', (req, res) => {
+    const productId = req.params.id; // Obtén el ID del parámetro de la URL
+    
+    Producto.findById(productId, (error, producto) => {
+        if (error) {
+            // Si hay un error al buscar el producto, devuelve un error 500
+            res.status(500).json({
+                resultado: false,
+                msj: 'No se pudo encontrar el producto',
+                error,
+            });
+        } else if (!producto) {
+            // Si no se encuentra el producto, devuelve un error 404
+            res.status(404).json({
+                resultado: false,
+                msj: 'Producto no encontrado',
+            });
+        } else {
+            // Si se encuentra el producto, devuelve el producto encontrado
+            res.status(200).json({
+                resultado: true,
+                msj: 'Producto encontrado',
+                producto,
+            });
+        }
+    });
+});
+
+
   
 
 module.exports = router;

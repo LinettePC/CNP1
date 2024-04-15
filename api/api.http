@@ -9,10 +9,10 @@ Content-Type: application/json
 
 {
   "cedula_vendedor_env": "12345",
-  "nombre_env": "Naranja",
-  "descripcion_env": "Importadas de Chile",
+  "nombre_env": "Sandia",
+  "descripcion_env": "Las mejores sandias del planeta",
   "categoria_env": "frutas_verduras",
-  "precio_env": 5000
+  "precio_env": 8200
 }
 
 
@@ -33,3 +33,11 @@ GET http://localhost:3000/api/listar-frutas-verduras
 Content-Type: application/json
 
 ###
+
+GET http://localhost:3000/api/listar-producto-por-id
+Content-Type: application/json
+
+{
+  "id": "661b076bd0c1bfad53b755e8"
+}
+
