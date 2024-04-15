@@ -173,7 +173,7 @@ router.delete('/eliminar', (req, res) => {
 	});
 });
 
-//http://localhost:3000/api/eliminar/listar-frutas-verduras
+//http://localhost:3000/api/listar-frutas-verduras
 router.get('/listar-frutas-verduras', (req, res) => {
 	Producto.find({ categoria: 'frutas_verduras' }, (error, lista) => {
 		if (error) {
@@ -192,7 +192,7 @@ router.get('/listar-frutas-verduras', (req, res) => {
 	});
 });
 
-//http://localhost:3000/api/eliminar/listar-lacteos
+//http://localhost:3000/api/listar-lacteos
 router.get('/listar-lacteos', (req, res) => {
 	Producto.find({ categoria: 'lacteos' }, (error, lista) => {
 		if (error) {

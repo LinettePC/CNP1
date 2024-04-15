@@ -17,7 +17,7 @@ function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID) {
 
     // Imagen
     const imagen = document.createElement('img');
-    imagen.src = 'img/queso.png'; // URL de la imagen
+    imagen.src = 'img/quesito.png'; // URL de la imagen
     imagen.alt = ''; // Texto alternativo de la imagen (opcional)
 
     // Agregar la imagen al enlace
