@@ -158,7 +158,7 @@ button {
 }
 
 .nosotros {
-    height: 400px;
+    height: 900px;
     display: flex;
 }
 
@@ -173,4 +173,24 @@ button {
 .historia p {
     color: white;
     margin-top: 100px;
+}
+
+
+.historia img {
+	display: flex;
+	width: 600px;
+	height: 600px;
+	margin-left: 200px;
+	margin-top: 30px;
+	
+
+}
+
+.catware-historia p{
+	display: flex;
+	align-content: center;
+	margin-top: 170px;
+	color: whitesmoke;
+	margin-right: 200px;
+	font-size: 25px;
 }
