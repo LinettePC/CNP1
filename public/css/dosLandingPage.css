@@ -485,3 +485,27 @@ footer{
 	color:#2e3c2d
 
 }
+
+#ocultar {
+	display: none;
+  }
+  
+  #toggleButton {
+    width: 200px;
+    height: 50px;
+    background-color: #EBB85A;
+    color: #2e3c2d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 20px;
+	margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#toggleButton:hover {
+    background-color: #81B12A;
+}
