@@ -37,18 +37,18 @@
 
 		<div>
 			<nav id="navUno">
-				<a id="a1" href="/public/landingPage.html">Inicio</a>
-				<a id="a1" href="#">Contáctenos</a>
+				<a id="a1" href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx">Nosotros</a>
+				<a id="a1" href="https://www.cnp.go.cr/contactenos/index.aspx">Contáctenos</a>
 			</nav>
 		</div>
 	</header>
 
     <!-- SECCION 2, Izquierda: Cliente, Centro: Imagenes, Derecha Vendedor -->
-    <section id="seccionDos">
+    <section id="seccionDos" class="cliente">
 
     <!--Container Cliente  -->
         <div id="inicioSesion" class="columna">
-			<div class="login">
+			<div class="loginCliente">
 				<!-- <div id="logocnp">
 					<img src="img/cnplogo.png" alt="cnp logo" id="logocnpimg" />
 				</div> -->
@@ -59,41 +59,18 @@
 					<label>Ingresa a tu Cuenta de Cliente</label>
 				</div>
 
-				<form id="formLogin">
-                    <div id="subtitle">
-                        <h3>Iniciar Sesión</h3>
-                    </div>
+				<form id="formLogin"> 
 
-					<div class="form-group">
-						<label for="username">Identificación</label>
-                        <br>
-						<input id="input"
-							type="text"
-							id="username"
-							name="username"
-							required
-						/>
-					</div>
-					<div class="form-group">
-						<label for="password">Contraseña</label>
-                        <br>
-						<input id="input"
-							type="password"
-							id="password"
-							name="password"
-							required
-						/>
-					</div>
-                    <button type="submit" class="loginbutton">Ingresar</button>
-					<div id="forgotpassword">
-						<label>¿Olvidaste tu contraseña?</label>
-						<a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
-					</div>
-					
-				</form>
+                <div class="register-buttons">
+                    <a href="/public/inicioSesionCliente.html">
+                        <button type="button" class="loginbutton">Iniciar Sesión</button>
 
 
-                
+                    </a>
+                </div>    
+
+                </form>
+
 				
 			</div>
 		</div>

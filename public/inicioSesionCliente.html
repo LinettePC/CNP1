@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inicioSesionCliente</title>
+
+    <!--Links para las hojas de estilos: -->
+    <!--Link a reset -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <!--Link al css de estilos respectivo -->
+    <link rel="stylesheet" href="./css/inicioSesionCliente.css" />
+    <link rel="stylesheet" href="img/logoTres.png" />
+
+    <!--Link a las letras -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+    />
+</head>
+
+<body>
+	<!--Seccion 1: Header Uno-->
+	<header id="headerUno">
+		<div class="logo">
+			<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" /></div>
+
+		<div class="titulos-container">
+			<h1 id="tituloF1A">
+				Bienvenido a la Feria del CNP </h1>
+				<h1 id="tituloF1B"> Donde puedes comprar y vender productos nacionales de tipo feria </h1>
+		</div>
+
+		<div>
+			<nav id="navUno">
+				<a id="a1" href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx">Nosotros</a>
+				<a id="a1" href="https://www.cnp.go.cr/contactenos/index.aspx">Contáctenos</a>
+			</nav>
+		</div>
+	</header>
+
+    <!-- SECCION 2, Izquierda: Cliente, Centro: Imagenes, Derecha Vendedor -->
+    <section id="seccionDos">
+
+    <!--Container Cliente  -->
+        <div id="inicioSesion" class="columna">
+			<div>
+				<!-- <div id="logocnp">
+					<img src="img/cnplogo.png" alt="cnp logo" id="logocnpimg" />
+				</div> -->
+				<div id="welcome">
+					<label>¿Quieres comprar hoy?</label>
+				</div>
+                <div id="welcomeDos">
+					<label>Ingresa a tu Cuenta de Cliente</label>
+				</div>
+
+				<form id="formLogin">
+                    <div id="subtitle">
+                        <h3>Iniciar Sesión</h3>
+                    </div>
+
+					<div class="form-group">
+						<label for="username">Identificación</label>
+                        <br>
+						<input id="input"
+							type="text"
+							id="username"
+							name="username"
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="password">Contraseña</label>
+                        <br>
+						<input id="input"
+							type="password"
+							id="password"
+							name="password"
+							required
+						/>
+					</div>
+                    <button type="submit" class="loginbutton">Ingresar</button>
+					<div id="forgotpassword">
+						<label>¿Olvidaste tu contraseña?</label>
+						<a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
+					</div>
+					
+				</form>
+
+
+                
+				
+			</div>
+		</div>
+    <!-- Fin Container Cliente -->
+
+
+        
+    <footer>
+
+        <p id="copyRight">&copy; 2024 La Feria del CNP - Todos los derechos reservados</p>
+
+    </footer>
+
+
+
+    <!-- FIN SECCION 4 Administrador  -->
+    </section>
+
+    <script src="js/dosLandingPage.js"></script>
+</body>
+</html>
