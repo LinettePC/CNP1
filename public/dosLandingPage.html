@@ -1,4 +1,3 @@
-<!-- ver landing commits Autor: Linette -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -216,8 +215,10 @@
     </section>
     <!-- FIN SECCION 3 -->
 
-    <!-- INICIO SECCION 4 Administrador-->
-
+<!-- INICIO SECCION 4 Administrador-->
+<!-- Boton para ocultar seccion admin-->
+<button id="toggleButton">Administrador</button> 
+<div id="ocultar">
     <section id="seccionCuatro">
 
         <div id="imagenAdmi" class="columnaAdmin">
@@ -228,51 +229,51 @@
         </div> 
 
         <div id="inicioSesion" class="columnaAdmin">
-			<div class="login">
-				
-				<div id="welcome">
-					<label>¿Eres el administrador?</label>
-				</div>
+            <div class="login">
+                
+                <div id="welcome">
+                    <label>¿Eres el administrador?</label>
+                </div>
                
-				<form id="formLogin">
+                <form id="formLogin">
                     <div id="subtitle">
                         <h3>Iniciar Sesión</h3>
                     </div>
                     
-					<div class="form-group">
-						<label for="username">Identificación</label>
+                    <div class="form-group">
+                        <label for="username">Identificación</label>
                         <br>
-						<input id="input"
-							type="text"
-							id="username"
-							name="username"
-							required
-						/>
-					</div>
-					<div class="form-group">
-						<label for="password">Contraseña</label>
+                        <input id="input"
+                            type="text"
+                            id="username"
+                            name="username"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
                         <br>
-						<input id="input"
-							type="password"
-							id="password"
-							name="password"
-							required
-						/>
-					</div>
+                        <input id="input"
+                            type="password"
+                            id="password"
+                            name="password"
+                            required
+                        />
+                    </div>
                         <button type="button" class="loginbutton">Ingresar</button>
-					<div id="forgotpassword">
-						<label>¿Olvidaste tu contraseña?</label>
-						<a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
-					</div>	
-				</form>
+                    <div id="forgotpassword">
+                        <label>¿Olvidaste tu contraseña?</label>
+                        <a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
+                    </div>  
+                </form>
             </div>
         </div> 
         
         <div id="imageLogoCNP" class="columnaAdmin">
             <!-- <h3>Seccion Admi 2</h3> -->
             <div id="logoCNP">
-					<img src="img/cnplogo.png" alt="cnpLogo" id="logoCNPimg" />
-			</div>
+                    <img src="img/cnplogo.png" alt="cnpLogo" id="logoCNPimg" />
+            </div>
 
         </div>
 
@@ -284,6 +285,7 @@
             width: 135px;
         } -->
     </section>
+</div> 
     <footer>
 
         <p id="copyRight">&copy; 2024 La Feria del CNP - Todos los derechos reservados</p>
@@ -293,15 +295,9 @@
 
 
     <!-- FIN SECCION 4 Administrador  -->
-
-
    
 
 
-
-    
-
-
-
+    <script src="js/dosLandingPage.js"></script>
 </body>
 </html>
