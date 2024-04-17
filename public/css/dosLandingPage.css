@@ -101,9 +101,9 @@ body {
 	border-bottom-right-radius: 10px;
 	border-radius: 10px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
-	border: solid #E5E5A4;
-	padding: 20px;
-	
+	/* border: solid #E5E5A4; */
+	padding: 20px;	
+	margin-left: 40px;
 }
 
 #subtitle{
@@ -111,7 +111,6 @@ body {
 	margin-bottom: 25px;
 	display: block;
 	font-size: 25px;
-	/* color: #1F7544; */
 }
 #input{
 	/* background-color: #e5e5a4; */
