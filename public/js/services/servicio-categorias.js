@@ -50,6 +50,23 @@ const listar_FrutasVerduras = async()=>{
     return lista_FrutasVerduras;
 }
 
+const listar_carnes = async()=>{
+
+    let lista_carnes=[]//almacenar a los productos que recuperamos de la BD
+
+    await axios({
+        method:"get",
+        url:"http://localhost:3000/api/listar-carnes",
+        responseType:"json"
+    }).then((res)=>{
+        lista_carnes = res.data.lista
+    }).catch((error)=>{
+        console.log(error);
+    })
+    
+    return lista_carnes;
+}
+
 const obtenerProductoPorId = async (id_producto) => {
     let productoEncontrado = {};
     try {
