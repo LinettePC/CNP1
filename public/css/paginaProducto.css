@@ -1,3 +1,128 @@
+/* Estilos de la barra de navegación del comprador*/
+.logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 300px;
+}
+
+#logoFeriaCnp {
+	width: 200px;
+	margin-left: 45px;
+}
+
+.carrito {
+	display: flex;
+	font-family: 'Cabin', sans-serif;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+}
+
+#textoCuenta {
+	text-decoration: none;
+	color: #000000;
+	font-size: 21px;
+	display: flex;
+	align-items: center;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-right: 3px solid black;
+	margin-right: 10px;
+}
+
+#textoCuenta svg {
+	margin-left: 5px;
+}
+
+#logoCarrito {
+	max-width: 100px;
+}
+
+.carrito-container {
+	display: flex;
+	align-items: center;
+	text-decoration: none !important;
+}
+
+#cantidadItemsCarrito {
+	color: white !important;
+	margin-left: 5px;
+	background-color: red;
+	padding: 3px 7px;
+	border-radius: 7px;
+}
+
+.navegacion {
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.barra-navegacion {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #000000;
+}
+
+.botones-navegacion {
+	font-family: 'Cabin', sans-serif;
+	font-size: 21px;
+}
+
+.barra-busqueda {
+	margin-bottom: 15px;
+}
+
+#inputBusqueda {
+	width: 550px;
+}
+
+.barra-navegacion nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+.barra-navegacion nav ul li {
+	display: inline;
+}
+
+.barra-navegacion nav ul li a {
+	color: #000000;
+	text-decoration: none;
+	margin: 0px 20px;
+}
+
+.barra-busqueda input[type='text'] {
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.barra-busqueda button {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* Estilos de la barra de navegación: final para comprador */
+
 html {
 	overflow-y: auto;
   }

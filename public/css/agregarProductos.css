@@ -269,10 +269,8 @@ button {
 
 /* Arrow devolverse */
 .container-devolver {
-	width: 100%;
-	max-width: 1400px;
-	margin-right: auto;
-	margin-left: 60px;
+	margin-right: 250px;
+	margin-left: 250px;
 	margin-bottom: 30px;
 }
 
@@ -283,7 +281,16 @@ button {
 	align-items: center;
 }
 
+
 .arrow-container span {
 	margin-left: 10px;
 	font-size: 20px;
+}
+
+.mensaje-sin-productos {
+	font-size: 26px;
+	padding: 20px;
+	border-radius: 10px;
+	font-weight: bold;
+	background-color: orange !important;
 }
