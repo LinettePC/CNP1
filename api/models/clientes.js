@@ -6,7 +6,7 @@ const schema_cliente = new mongoose.Schema({
 	nombre: { type: String, required: true, unique: false },
 
 	// Rol
-	rol: { type: String, default: 'Cliente'},
+	rol: { type: String, enum: ['1', '2', '3', '4', '5'], default: 'Cliente'},
 
 	
 
