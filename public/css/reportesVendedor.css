@@ -120,8 +120,6 @@
 
 /* Estilos de la barra de navegación: final para vendedor */
 
-
-
 /* Hecho por Isaac Ch. */
 
 body {
@@ -134,6 +132,15 @@ select {
 
 button {
 	font-family: 'Manrope', sans-serif;
+}
+
+input {
+	font-family: 'Manrope', sans-serif;
+	border: 1px solid black;
+	border-radius: 2px;
+	border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+	/* line-height: 1; */
+	font-size: 16px;
 }
 
 .seccion-titulo {
@@ -158,9 +165,19 @@ button {
 	display: flex;
 }
 
+.titulo-selects {
+	font-weight: bold;
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
 .container-selects {
 	display: flex;
 	margin-bottom: 20px;
+	align-items: center;
+	padding: 20px;
+	border-radius: 3px;
+	border: 1px solid black;
 }
 
 .selection-section {
@@ -176,6 +193,27 @@ button {
 	margin-right: 0; /* Remove margin from the last box */
 }
 
+.flex-box[aria-label='infoVenta'] {
+	flex: 1.7;
+	width: 1600px;
+}
+
+label[for='rango-fechas'] {
+	margin-left: 15px;
+}
+
+label[for='fecha-especifica'] {
+	margin-left: auto;
+}
+
+#containerFechaEspecifica {
+	margin-right: 0px;
+}
+
+#containerFechaRango {
+	display: none;
+}
+
 .select-label {
 	display: block;
 	margin-bottom: 10px;
@@ -185,6 +223,7 @@ button {
 .select-item {
 	width: 100%;
 	font-size: 16px;
+	box-sizing: border-box;
 }
 
 /* Seccion de Tabla */
@@ -230,12 +269,12 @@ button {
 	margin-right: 15px;
 	border: 2px solid black;
 	line-height: normal;
-    cursor: default;
+	cursor: default;
 }
 
 .ganancias-output:hover {
 	color: white;
-    background-color: black;
+	background-color: black;
 }
 
 .ganancias-output label {

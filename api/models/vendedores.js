@@ -20,14 +20,6 @@ const schema_vendedor = new mongoose.Schema({
 	razon_rechazo: { type: String, required: false, unique: false },
 
 	fecha_de_registro: { type: String, required: false, unique: false }
-	
-	// productos: [
-	// 	{
-	// 		nombre_prod: { type: String, required: false, unique: false },
-	// 		descripcion_prod: { type: String, required: false, unique: false },
-
-	// 	},
-	// ],
 });
 
 const Vendedor = mongoose.model('Vendedor', schema_vendedor, 'vendedores');

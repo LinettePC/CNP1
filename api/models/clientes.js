@@ -6,9 +6,7 @@ const schema_cliente = new mongoose.Schema({
 	nombre: { type: String, required: true, unique: false },
 
 	// Rol
-	rol: { type: String, enum: ['1', '2', '3', '4', '5'], default: 'Cliente'},
-
-	
+	rol: { type: String, default: 'Cliente'},
 
 	// Non-required fields
 	telefono: { type: String, required: false, unique: false },
@@ -18,19 +16,6 @@ const schema_cliente = new mongoose.Schema({
 	foto: { type: String, required: false, unique: false },
 
 	fecha_de_registro: { type: String, required: false, unique: false }
-	
-	// rol: {
-	// 	type: String,
-	// 	enum: ['Cliente', 'Admin'],
-	// 	default: 'Cliente',
-	// 	required: true,
-	// },
-	// compras: [
-	// 	{
-	// 		nombre_compra: { type: String, required: false, unique: false },
-	// 		precio_compra: { type: String, required: false, unique: false },
-	// 	},
-	// ],
 });
 
 const Cliente = mongoose.model('Cliente', schema_cliente, 'clientes');

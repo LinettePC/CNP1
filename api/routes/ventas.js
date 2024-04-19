@@ -3,6 +3,54 @@ const express = require('express');
 const Venta = require('../models/ventas');
 const router = express.Router();
 
+function conseguirFechaFormateada() {
+	let fechaActual = new Date(); // 4/12/2024::9:06PM
+	let dia = fechaActual.getDate();
+	let mes = fechaActual.getMonth() + 1; // Enero es 0
+	let anno = fechaActual.getFullYear();
+
+	// Agrega los 0's para el formato
+	dia = dia < 10 ? '0' + dia : dia;
+	mes = mes < 10 ? '0' + mes : mes;
+
+	return `${dia}/${mes}/${anno}`;
+}
+
+//http://localhost:3000/api/registrar-venta
+router.post('/registrar-venta', (req, res) => {
+	let body = req.body;
+
+	let fechaFormateada = conseguirFechaFormateada();
+
+	let nueva_Venta = new Venta({
+		cedula_comprador: body.cedula_comprador,
+		cedula_vendedor: body.cedula_vendedor,
+		nombre_producto: body.nombre_producto,
+		categoria_producto: body.categoria_producto,
+		precio_venta: body.precio_venta,
+		nombre_comprador: body.nombre_comprador,
+		nombre_vendedor: body.nombre_vendedor,
+		tramo: body.tramo,
+		fecha_de_venta: fechaFormateada,
+	});
+
+	nueva_Venta.save((error, VentaDB) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo hacer el registro de la venta',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Registro exitoso de venta',
+				VentaDB,
+			});
+		}
+	});
+});
+
 //http://localhost:3000/api/listar-ventas
 //GET--> recuperar informacion
 router.get('/listar-ventas', (req, res) => {
@@ -10,27 +58,7 @@ router.get('/listar-ventas', (req, res) => {
 		if (error) {
 			res.status(500).json({
 				resultado: false,
-				msj: 'No se pudieron listar las ventas.',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Ventas listadas exitosamente:',
-				lista,
-			});
-		}
-	});
-});
-
-//http://localhost:3000/api/listar-vendedores
-//GET--> recuperar informacion
-router.get('/listar-vendedores', (req, res) => {
-	Vendedor.find((error, lista) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo listar los usuarios',
+				msj: 'No se pudieron listar las ventas',
 				error,
 			});
 		} else {
@@ -43,243 +71,40 @@ router.get('/listar-vendedores', (req, res) => {
 	});
 });
 
-// http://localhost:3000/api/buscar-Cliente-nombre
-// Endpoint para agarrar un usuario específico
-router.get('/buscar-cliente-nombre', (req, res) => {
-	let requestedNombre = req.query.nombre;
-	Cliente.find({ nombre: requestedNombre }, (error, ClienteBuscada) => {
-		if (error) {
-			res.status(501).json({
-				resultado: false,
-				msj: 'Ocurrió el siguiente error:',
-				error,
-			});
-		} else {
-			if (ClienteBuscada == '') {
-				res.json({ msj: 'La Cliente no existe.' });
-			} else {
-				res.json({
-					resultado: true,
-					msj: 'Usuario encontrado:',
-					Cliente: ClienteBuscada,
-				});
-			}
-		}
-	});
-});
-
-// http://localhost:3000/api/buscar-Cliente-cedula
-// Endpoint para agarrar un usuario específico
-router.get('/buscar-cliente-cedula', (req, res) => {
+//http://localhost:3000/api/listar-ventas-cedula
+//GET--> recuperar informacion
+router.get('/listar-ventas-cedula', (req, res) => {
 	let requestedCedula = req.query.cedula;
-	Cliente.find({ cedula: requestedCedula }, (error, ClienteBuscada) => {
-		if (error) {
-			res.status(501).json({
-				resultado: false,
-				msj: 'Ocurrió el siguiente error:',
-				error,
-			});
-		} else {
-			if (ClienteBuscada == '') {
-				res.json({ msj: 'La Cliente no existe.' });
-			} else {
-				res.json({
-					resultado: true,
-					msj: 'Usuario encontrado:',
-					Cliente: ClienteBuscada,
-				});
-			}
-		}
-	});
-});
-
-// http://localhost:3000/api/registrar
-// POST --> crear nuevos registros
-router.post('/registrar', (req, res) => {
-	let body = req.body;
-	let nueva_Cliente = new Cliente({
-		cedula: body.cedula,
-		correo: body.correo,
-		nombre: body.nombre,
-		foto: body.foto,
-		contrasenna: body.contrasenna,
-	});
-
-	nueva_Cliente.save((error, ClienteDB) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo hacer el registro',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Registro exitoso',
-				ClienteDB,
-			});
-		}
-	});
-});
-
-// http://localhost:3000/api/registrar-vendedor
-// POST --> crear nuevos registros
-router.post('/registrar-vendedor', (req, res) => {
-	let body = req.body;
-	let nueva_Cliente = new Cliente({
-		cedula: body.cedula,
-		correo: body.correo,
-		nombre: body.nombre,
-		foto: body.foto,
-		contrasenna: body.contrasenna,
-	});
-
-	nueva_Cliente.save((error, ClienteDB) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo hacer el registro',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Registro exitoso',
-				ClienteDB,
-			});
-		}
-	});
-});
-
-router.post('/registrar', async (req, res) => {
-	const { body } = req;
-	try {
-		const { rol } = body;
-		let nueva_Cliente;
-		switch (rol) {
-			case 'cliente':
-				nueva_Cliente = new Cliente(body);
-				break;
-			case 'vendedor':
-				nueva_Cliente = new Vendedor(body);
-				break;
-			case 'admin':
-				nueva_Cliente = new Admin(body);
-				break;
-			default:
-				return res.status(400).json({
-					msj: 'Rol no válido.',
-				});
-		}
-
-		await nueva_Cliente.save();
-		res.status(200).json({
-			resultado: true,
-			msj: 'Registro exitoso',
-			nueva_Cliente,
-		});
-	} catch (error) {
-		res.status(500).json({
-			resultado: false,
-			msj: 'No se pudo realizar el registro',
-			error,
-		});
-	}
-});
-
-//http://localhost:3000/api/agregar-productos
-//Endpoint para guardar productos
-router.post('/agregar-productos', (req, res) => {
-	let mongoId = req.body._id;
-	if (mongoId) {
-		Cliente.updateOne(
-			{ _id: mongoId },
-			{
-				$push: {
-					productos: {
-						nombre_prod: req.body.nombre_prod,
-						descripcion: req.body.descripcion,
-					},
-				},
-			}
-		)
-			.then(() => {
-				res.status(201).json({
-					resultado: true,
-					msj: 'Producto agregado correctamente',
-				});
-			})
-			.catch((error) => {
+	Venta.find(
+		{
+			$or: [
+				{ cedula_comprador: requestedCedula },
+				{ cedula_vendedor: requestedCedula },
+			],
+		},
+		(error, VentaBuscada) => {
+			if (error) {
 				res.status(501).json({
 					resultado: false,
-					msj: 'No se pudo agregar el producto. Ocurrió el siguiente error:',
-					error,
-				});
-			});
-	}
-});
-
-// function (error, info) {
-//     if (error) {
-//         res.status(500).json({
-//             resultado: false,
-//             msj: 'No se pudo actualizar la Cliente',
-//             error,
-//         });
-//     } else {
-//         res.status(200).json({
-//             resultado: true,
-//             msj: 'Actulización exitosa',
-//             info,
-//         });
-//     }
-// }
-
-//http://localhost:3000/api/modificar
-//PUT --> actualizar registros existentes
-router.put('/modificar', (req, res) => {
-	let body = req.body;
-
-	Cliente.updateOne(
-		{ _id: body._id },
-		{ $set: req.body },
-		function (error, info) {
-			if (error) {
-				res.status(500).json({
-					resultado: false,
-					msj: 'No se pudo actualizar la Cliente',
+					msj: 'Ocurrió el siguiente error:',
 					error,
 				});
 			} else {
-				res.status(200).json({
-					resultado: true,
-					msj: 'Actulización exitosa',
-					info,
-				});
+				if (VentaBuscada.length === 0) {
+					res.json({ msj: 'La venta no existe.' });
+				} else {
+					res.json({
+						resultado: true,
+						msj: 'Venta encontrada:',
+						listaVentas: VentaBuscada,
+					});
+				}
 			}
 		}
 	);
 });
 
-//http://localhost:3000/api/eliminar
-//DELETE --> eliminar registros
-router.delete('/eliminar', (req, res) => {
-	let body = req.body;
-	Cliente.deleteOne({ _id: body._id }, function (error, info) {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo eliminar la Cliente',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Se eliminó la Cliente de forma exitosa',
-				info,
-			});
-		}
-	});
-});
+// http://localhost:3000/api/buscar-Cliente-cedula
+// Endpoint para agarrar un usuario específico
 
 module.exports = router;

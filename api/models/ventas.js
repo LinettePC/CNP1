@@ -7,9 +7,9 @@ const schema_venta = new mongoose.Schema({
 	cedula_vendedor: { type: String, required: true },
 
 	// Sale attributes
-	nombres_productos: [{ type: String, required: true }],
+	nombre_producto: { type: String, required: true },
+	categoria_producto: { type: String, required: true },
 	precio_venta: { type: String, required: true },
-	precio_iva: { type: String, required: false },
 
 	nombre_comprador: { type: String, required: true },
 	nombre_vendedor: { type: String, required: false },

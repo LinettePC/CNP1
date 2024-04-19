@@ -3,6 +3,19 @@ const express = require('express');
 const Cliente = require('../models/clientes');
 const router = express.Router();
 
+function conseguirFechaFormateada() {
+	let fechaActual = new Date(); // 4/12/2024::9:06PM
+	let dia = fechaActual.getDate();
+	let mes = fechaActual.getMonth() + 1; // Enero es 0
+	let anno = fechaActual.getFullYear();
+
+	// Agrega los 0's para el formato
+	dia = dia < 10 ? '0' + dia : dia;
+	mes = mes < 10 ? '0' + mes : mes;
+
+	return `${dia}/${mes}/${anno}`;
+}
+
 //http://localhost:3000/api/listar-clientes
 //GET--> recuperar informacion
 router.get('/listar-clientes', (req, res) => {
@@ -22,7 +35,6 @@ router.get('/listar-clientes', (req, res) => {
 		}
 	});
 });
-
 
 // http://localhost:3000/api/buscar-Cliente-nombre
 // Endpoint para agarrar un usuario específico
@@ -78,12 +90,16 @@ router.get('/buscar-cliente-cedula', (req, res) => {
 // POST --> crear nuevos registros
 router.post('/registrar', (req, res) => {
 	let body = req.body;
+
+	let fechaFormateada = conseguirFechaFormateada();
+
 	let nueva_Cliente = new Cliente({
 		cedula: body.cedula,
 		correo: body.correo,
 		nombre: body.nombre,
 		foto: body.foto,
 		contrasenna: body.contrasenna,
+		fecha_de_registro: fechaFormateada
 	});
 
 	nueva_Cliente.save((error, ClienteDB) => {
@@ -102,44 +118,6 @@ router.post('/registrar', (req, res) => {
 		}
 	});
 });
-
-// ###### Posible forma de registrar usuarios si se guardan todos en un mismo modelo ######
-
-// router.post('/registrar', async (req, res) => {
-// 	const { body } = req;
-// 	try {
-// 		const { rol } = body;
-// 		let nueva_Cliente;
-// 		switch (rol) {
-// 			case 'cliente':
-// 				nueva_Cliente = new Cliente(body);
-// 				break;
-// 			case 'vendedor':
-// 				nueva_Cliente = new Vendedor(body);
-// 				break;
-// 			case 'admin':
-// 				nueva_Cliente = new Admin(body);
-// 				break;
-// 			default:
-// 				return res.status(400).json({
-// 					msj: 'Rol no válido.',
-// 				});
-// 		}
-
-// 		await nueva_Cliente.save();
-// 		res.status(200).json({
-// 			resultado: true,
-// 			msj: 'Registro exitoso',
-// 			nueva_Cliente,
-// 		});
-// 	} catch (error) {
-// 		res.status(500).json({
-// 			resultado: false,
-// 			msj: 'No se pudo realizar el registro',
-// 			error,
-// 		});
-// 	}
-// });
 
 //http://localhost:3000/api/agregar-productos
 //Endpoint para guardar productos

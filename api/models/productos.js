@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const schema_producto = new mongoose.Schema({
 	// Identifying attribute
 	cedula_vendedor: { type: String, required: true },
+	tramo: { type: String, required: false },
 
     // Detalles del producto
 	nombre: { type: String, required: true },
@@ -11,10 +12,9 @@ const schema_producto = new mongoose.Schema({
 
     // Detalles del vendedor
 	inventario: { type: Number, required: false },
-	precio_vendedor: { type: Number, required: true },
+	precio_vendedor: { type: Number, required: false },
 	precio_con_iva: { type: Number, required: false },
 	imagen: { type: String, defaultValue: 'noimg' },
-	tramo: { type: String, required: false },
 	estrellas: [
 		{
 			type: String,
