@@ -139,8 +139,16 @@ input {
 	border: 1px solid black;
 	border-radius: 2px;
 	border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-	/* line-height: 1; */
 	font-size: 16px;
+}
+
+label[for="fecha-especifica"], label[for="rango-fechas"] {
+	color: red;
+}
+
+input[type="radio"]:checked {
+	accent-color: red;
+	color: white;
 }
 
 .seccion-titulo {

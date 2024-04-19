@@ -210,7 +210,6 @@ function vaciarTabla() {
 
 btnGenerarReporte.addEventListener('click', async () => {
 	vaciarTabla();
-
 	llenarTablaConFiltros();
 });
 
@@ -261,7 +260,9 @@ function llenarSelects() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-	lista_ventas = await listarVentasUsuario('54321');
+	cedulaVendedorActual = '54321';
+
+	lista_ventas = await listarVentasUsuario(cedulaVendedorActual);
 	cantVentas = lista_ventas.length;
 
 	llenarSelects();
