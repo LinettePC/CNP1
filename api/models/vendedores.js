@@ -4,6 +4,7 @@ const schema_vendedor = new mongoose.Schema({
 	correo: { type: String, required: true, unique: true },
 	cedula: { type: String, required: true, unique: true },
 	nombre: { type: String, required: true, unique: false },
+	nomTramo: { type: String, required: true, unique: false },
 
 	// Rol
 	rol: { type: String, default: 'Vendedor' },

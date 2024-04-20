@@ -8,7 +8,8 @@ const registro_persona = async (param_cedula, param_nombre, param_correo) => {
 			correo: param_correo,
 			nombre: param_nombre,
 			foto: param_foto,
-			contrasenna: param_contrasenna,
+			nomTramo: param_tramo,
+			//contrasenna: param_contrasenna,
 		},
 	})
 		.then((response) => {

@@ -7,6 +7,7 @@ const inputs = {
 	correo: document.getElementById('correo'),
 	telefono: document.getElementById('telefono'),
 	contrasenna: document.getElementById('contrasenna'),
+	confirmContrasenna: document.getElementById('confirmContrasenna'),
 };
 const botonEnviar = document.getElementById('botonEnviar');
 
@@ -111,15 +112,28 @@ function validarTelefono() {
 //debe tener al menos 1 consonante (al menos una mayuscula, al menos una minuscula)
 //debe tener al menos 1 caracter especial
 //debe tener al menos 1 numero
+// Validar contraseña
 function validarContrasenna() {
-	return validarCampo(
-		inputs.contrasenna,
-		/^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+])(?!.*[aeiouAEIOU]).{8,}$/,
-		{
-			title: 'La contraseña es inválida',
-			text: 'Revisa el formato utilizado',
-		}
-	);
+    const contrasenna = inputs.contrasenna.value;
+    const confirmContrasenna = inputs.confirmContrasenna.value;
+
+    if (contrasenna !== confirmContrasenna) {
+        Swal.fire({
+            title: 'Las contraseñas no coinciden',
+            text: 'Por favor, asegúrate de que las contraseñas coincidan',
+            icon: 'warning',
+        });
+        return false;
+    }
+
+    return validarCampo(
+        inputs.contrasenna,
+        /^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+])(?!.*[aeiouAEIOU]).{8,}$/,
+        {
+            title: 'La contraseña es inválida',
+            text: 'Revisa el formato utilizado',
+        }
+    );
 }
 
 // Limpiar todos los campos del formulario
