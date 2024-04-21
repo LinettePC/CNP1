@@ -155,7 +155,7 @@ router.post('/agregar-productos', (req, res) => {
 //     if (error) {
 //         res.status(500).json({
 //             resultado: false,
-//             msj: 'No se pudo actualizar la Cliente',
+//             msj: 'No se pudo actualizar el Cliente',
 //             error,
 //         });
 //     } else {
