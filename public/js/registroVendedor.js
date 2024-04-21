@@ -5,9 +5,10 @@ const inputs = {
 	idCliente: document.getElementById('identificacion'),
 	nombre: document.getElementById('nombre'),
 	primerApellido: document.getElementById('primerApellido'),
+	nomTramo: document.getElementById('nomTramo'),
 	correo: document.getElementById('correo'),
 	telefono: document.getElementById('telefono'),
-	contrasenna: document.getElementById('contrasenna'),
+	//contrasenna: document.getElementById('contrasenna'),
 };
 const botonEnviar = document.getElementById('botonEnviar');
 
@@ -86,6 +87,15 @@ function validarPrimerApellido() {
 	});
 }
 
+// Validar primer apellido
+function validarnomTramo() {
+    return validarCampo(inputs.nomTramo, /^[a-zA-Z0-9\s]+$/, {
+        title: 'El nombre de tramo es inválido',
+        text: 'Revisa el formato utilizado',
+    });
+}
+
+
 // Validar correo electrónico
 function validarCorreo() {
 	return validarCampo(
@@ -135,9 +145,10 @@ function principal() {
 		!validarIdentificacion() &&
 		!validarNombre() &&
 		!validarPrimerApellido() &&
+		!validarnomTramo() &&
 		!validarCorreo() &&
-		!validarTelefono() &&
-		!validarContrasenna()
+		!validarTelefono() //&&
+		//!validarContrasenna()
 	) {
 		registro_persona(parametros); // LLENAR LOS PARAMS
 		limpiarCampos();
