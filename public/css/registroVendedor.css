@@ -170,6 +170,24 @@ footer {
 }
 
 .margen-bottom-xl {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 	display: block;
+}
+
+.register-buttons {
+	
+	margin-top: 25px;
+	width: 160px;
+	height: 38px;
+	border: none;
+	border-radius: 5px;
+	background-color:#81B12A;
+	color:#2e3c2d;
+	font-size: 16px;
+}
+
+button:hover {
+	background-color: #EBB85A;
+	cursor: pointer;
+	
 }
