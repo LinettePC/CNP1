@@ -175,7 +175,6 @@ footer {
 }
 
 .register-buttons {
-	
 	margin-top: 25px;
 	width: 160px;
 	height: 38px;
@@ -189,5 +188,4 @@ footer {
 button:hover {
 	background-color: #EBB85A;
 	cursor: pointer;
-	
 }
