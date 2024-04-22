@@ -123,37 +123,57 @@ function crearTarjetaProducto(
   contenedorProducto.appendChild(infoProducto);
 
   btnAgregarCarrito.addEventListener("click", () => {
-    // Obtener la lista actual de IDs del carrito del Local Storage
-    let idsEnCarrito = JSON.parse(localStorage.getItem("ids_en_carrito")) || [];
+    let productoEnCarrito =
+      JSON.parse(localStorage.getItem("productos_en_carrito")) || [];
 
-    // Agregar el nuevo ID del producto seleccionado a la lista
-    idsEnCarrito.push(id);
+    if (
+      productoEnCarrito.find(
+        (productoParaBuscar) => productoParaBuscar.id === id
+      )
+    ) {
+      let indexBuscado = productoEnCarrito.findIndex(
+        (objeto) => objeto.id === id
+      );
+      let objetoAModificar = productoEnCarrito[indexBuscado];
+      console.log(objetoAModificar);
+      objetoAModificar.cantidad =
+        parseInt(objetoAModificar.cantidad) + parseInt(inputCantidad.value);
 
-    // Guardar la lista actualizada de IDs en el Local Storage
-    localStorage.setItem("ids_en_carrito", JSON.stringify(idsEnCarrito));
+      productoEnCarrito[indexBuscado] = objetoAModificar;
+
+      localStorage.setItem(
+        "productos_en_carrito",
+        JSON.stringify(productoEnCarrito)
+      );
+
+      Swal.fire({
+        title: "El producto ya existe en el carrito",
+        text: "Se actualizara la cantidad actual",
+        icon: "success",
+        confirmButtonText: "Entendido!",
+      });
+
+    } else {
+      const productoNuevo = {
+        id: id,
+        cantidad: inputCantidad.value,
+      };
+      productoEnCarrito.push(productoNuevo);
+      localStorage.setItem(
+        "productos_en_carrito",
+        JSON.stringify(productoEnCarrito)
+      );
+        Swal.fire({
+        title: "Producto agregado al carrito",
+        text: "",
+        icon: "success",
+        confirmButtonText: "Entendido!",
+      });
+    }
+
+    inputCantidad.value = "1";
   });
 
-  btnAgregarCarrito.addEventListener("click", () => {
-    // Obtener el ID del producto y la cantidad deseada
-    const idProducto = id; // Suponiendo que tienes una función para obtener el ID del producto
-    const cantidadDeseada = inputCantidad.value; // Suponiendo que tienes una función para obtener la cantidad deseada
-
-    // Crear un objeto que contenga el ID del producto y la cantidad
-    const productoEnCarrito = {
-        id: idProducto,
-        cantidad: cantidadDeseada
-    };
-
-    // Obtener la lista actual de productos en el carrito del Local Storage
-    let productosEnCarrito = JSON.parse(localStorage.getItem("productos_en_carrito")) || [];
-
-    // Agregar el producto al carrito
-    productosEnCarrito.push(productoEnCarrito);
-
-    // Guardar la lista actualizada de productos en el carrito en el Local Storage
-    localStorage.setItem("productos_en_carrito", JSON.stringify(productosEnCarrito));
-
-});
 
   // Devolver la tarjeta creada
   return contenedorProducto;
