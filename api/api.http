@@ -12,7 +12,8 @@ Content-Type: application/json
   "nombre_env": "Sandia",
   "descripcion_env": "Las mejores sandias del planeta",
   "categoria_env": "frutas_verduras",
-  "precio_env": 8200
+  "precio_env": 8200,
+  "inventario_env": 15
 }
 
 

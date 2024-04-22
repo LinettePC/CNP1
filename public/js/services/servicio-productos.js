@@ -115,3 +115,4 @@ const obtenerProductoPorId = async (id_producto) => {
     }
     return productoEncontrado;
 };
+
