@@ -1,0 +1,307 @@
+/* Estilos de la barra de navegación */
+.logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 300px;
+}
+
+#logoFeriaCnp {
+	width: 200px;
+	margin-left: 45px;
+}
+
+.carrito {
+	display: flex;
+	font-family: 'Cabin', sans-serif;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+}
+
+#textoCuenta {
+	text-decoration: none;
+	color: #000000;
+	font-size: 21px;
+	display: flex;
+	align-items: center;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-right: 3px solid black;
+	margin-right: 10px;
+}
+
+#textoCuenta svg {
+	margin-left: 5px;
+}
+
+#logoCarrito {
+	max-width: 100px;
+}
+
+.carrito-container {
+	display: flex;
+	align-items: center;
+	text-decoration: none !important;
+}
+
+#cantidadItemsCarrito {
+	color: white !important;
+	margin-left: 5px;
+	background-color: red;
+	padding: 3px 7px;
+	border-radius: 7px;
+}
+
+.navegacion {
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.barra-navegacion {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #000000;
+}
+
+.botones-navegacion {
+	font-family: 'Cabin', sans-serif;
+	font-size: 21px;
+}
+
+.barra-busqueda {
+	margin-bottom: 15px;
+}
+
+#inputBusqueda {
+	width: 550px;
+}
+
+.barra-navegacion nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+.barra-navegacion nav ul li {
+	display: inline;
+}
+
+.barra-navegacion nav ul li a {
+	color: #000000;
+	text-decoration: none;
+	margin: 0px 20px;
+}
+
+.barra-busqueda input[type='text'] {
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	width: 300px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.barra-busqueda button {
+	font-size: 18px;
+	font-family: 'Cabin', sans-serif;
+	padding: 10px 20px;
+	background-color: #81b12a;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* Estilos de la barra de navegación: final para comprador */ 
+
+/*Estilos body*/
+
+
+/*Estilos titulo*/
+.seccion-titulo {
+	background-color: lightgray;
+	margin-bottom: 40px;
+	padding: 20px;
+}
+
+.titulo {
+	font-weight: bold;
+	font-size: 30px;
+	text-align: center; /* Agregamos esta línea para centrar el texto */
+}
+
+.container {
+	width: 100%;
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.container-flex {
+	display: flex;
+	justify-content: space-between;
+}
+
+.row-flex {
+	display: flex !important;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 30px;
+	width: 1000px;
+}
+/*Estilos titulo*/
+
+/*Estilos del producto*/
+
+#nombreProd{
+    width: 40%;
+    
+    height: 100% ;
+    display: flex;
+    align-items: center;
+}
+#precioProd{
+    width: 20%;
+    
+    height: 100% ;
+    display: flex;
+    align-items: center;
+}
+#cantidadProd{
+    width: 20%;
+    
+    height: 100% ;
+    display: flex;
+    align-items: center;
+}
+#totalProd{
+    width: 20%;
+    
+    height: 100% ;
+    display: flex;
+    align-items: center;
+}
+
+.titulos {
+    width: 100%;
+    font-family: 'Cabin', sans-serif;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+    
+}
+
+.contenedor {
+    font-family: 'Cabin', sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.producto {
+    border-top: 1px solid grey;
+    width: 100%;
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    display: flex; /* Asegura que los elementos dentro de .producto se alineen correctamente */
+    align-items: center; /* Alinea verticalmente los elementos dentro de .producto */
+    flex-direction: row;
+    height: 160px;
+    border-bottom:1px solid grey;
+}
+
+#textoProducto{
+    width: 40%;
+    
+    height: 100% ;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+#descripProducDB{
+    margin-left: 20px;
+}
+#precioProducDB{
+    width: 20%;
+    height: 100% ;
+    display: flex;
+    align-items: center;
+}
+#cantidadProductoDB{
+    width: 20%;
+    height: 100% ;
+    display: flex;
+    align-items: center;
+}
+#totalProductoDB{
+    width: 20%;
+    height: 100% ;
+    display: flex;
+    align-items: center;
+}
+
+#imagenCarrito {
+    display: inline-block;
+    vertical-align: top; /* Alinea los elementos en la parte superior para evitar espacios adicionales */
+}
+
+#imagenCarrito img {
+    width: 100px; /* Tamaño deseado para la imagen, ajusta según sea necesario */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.irAlCheckOut {
+    font-family: 'Cabin', sans-serif;
+    display: flex;
+    align-self: flex-end;
+    align-items: center; /* Alinea verticalmente el contenido */
+    justify-content: space-around; /* Centra horizontalmente el contenido */
+    flex-direction: column;
+    width: 300px; /* Define el ancho del div */
+    height: 150px; /* Define la altura del div */
+
+    
+    margin-top: 10px;
+    
+}
+
+.irAlCheckOut h3 {
+    margin-right: 10px; /* Agrega espacio entre el precio y el botón */
+}
+
+#contenedorBoton{
+    width: 100%;
+    
+}
+.irAlCheckOut button {
+    background-color: black; /* Fondo negro para el botón */
+    color: white; /* Texto blanco para el botón */
+    padding: 8px 16px; /* Ajusta el espacio interno del botón */
+    font-size: 20px; /* Tamaño de fuente del botón */
+    width: 100%;
+    height: 50px;
+    border-radius: 4    px;
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */ 
+}
+#subTotal{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
