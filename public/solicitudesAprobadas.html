@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Solicitudes Aprobadas</title>
+		<title>Solcitudes Aprobadas</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -13,7 +13,7 @@
 		/>
 
 		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="css/solicitudesPendientes.css"
+		<link rel="stylesheet" href="css/solicitudesAprobadas.css" />
 
 		<link
 			rel="stylesheet"
@@ -32,12 +32,14 @@
 						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
 						<li><a href="portalVendedor.html">Inicio</a></li>
 						<li>
-							<a href="https://www.cnp.go.cr/contactenos/index.aspx"
+							<a
+								href="https://www.cnp.go.cr/contactenos/index.aspx"
 								>Contacto</a
 							>
 						</li>
 						<li>
-							<a href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
+							<a
+								href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
 								>Nosotros</a
 							>
 						</li>
@@ -69,63 +71,180 @@
 				<h1 class="titulo">Solicitudes Aprobadas</h1>
 			</div>
 		</div>
-        <!----------------------------------------------------FIN HEADER----------------------------------------------------------->
 
-		<<main class="container">
-			<section class="solicitudes-pendientes">
-				<div class="solicitudes-acciones">
+		
+						<div class="flex-box">
+							<div
+								class="container-flex"
+								style="align-items: center"
+							>
+								<div class="titulo-selects">Periodo</div>
+
+								<label for="fecha-especifica"
+									>Año y Mes específicos</label
+								>
+								<input
+									type="radio"
+									id="fecha-especifica"
+									name="opcion"
+									value="fecha-especifica"
+									checked
+								/>
+								<label for="rango-fechas"
+									>Rango de Fechas</label
+								>
+								<input
+									type="radio"
+									id="rango-fechas"
+									name="opcion"
+									value="rango-fechas"
+								/>
+							</div>
+							<div class="container-selects">
+								<!-- Años y meses específicos -->
+								<div
+									class="flex-box"
+									id="containerFechaEspecifica"
+								>
+									<div class="container-flex">
+										<div class="flex-box">
+											<label
+												for="selectAnno"
+												class="select-label"
+												>Año</label
+											>
+											<select
+												class="select-item"
+												id="selectAnno"
+												name="selectAnno"
+											>
+												<option value="0" selected>
+													Cualquiera
+												</option>
+												<option value="2023">
+													2023
+												</option>
+												<option value="2024">
+													2024
+												</option>
+												<option value="2025">
+													2025
+												</option>
+											</select>
+										</div>
+										<div class="flex-box">
+											<label
+												for="selectMes"
+												class="select-label"
+												>Mes</label
+											>
+
+											<select
+												class="select-item"
+												id="selectMes"
+												name="selectMes"
+											>
+												<option value="0" selected>
+													Cualquiera
+												</option>
+												<option value="1">Enero</option>
+												<option value="2">
+													Febrero
+												</option>
+												<option value="3">Marzo</option>
+												<option value="4">Abril</option>
+												<option value="5">Mayo</option>
+												<option value="6">Junio</option>
+												<option value="7">Julio</option>
+												<option value="8">
+													Agosto
+												</option>
+												<option value="9">
+													Septiembre
+												</option>
+												<option value="10">
+													Octubre
+												</option>
+												<option value="11">
+													Noviembre
+												</option>
+												<option value="12">
+													Diciembre
+												</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!-- Rango de fechas -->
+								<div class="flex-box" id="containerFechaRango">
+									<div class="container-flex">
+										<div class="flex-box">
+											<label
+												for="rangoDesde"
+												class="select-label"
+												>Desde</label
+											>
+											<input
+												class="select-item"
+												type="month"
+												id="rangoDesde"
+												name="rangoDesde"
+											/>
+										</div>
+										<div class="flex-box">
+											<label
+												for="rangoHasta"
+												class="select-label"
+												>Hasta</label
+											>
+											<input
+												class="select-item"
+												type="month"
+												id="rangoHasta"
+												name="rangoHasta"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="container-end">
+						<button
+							type="button"
+							class="boton"
+							id="btnGenerarReporte"
+						>
+							Generar Reporte
+						</button>
+					</div>
+				</form>
+			</section>
+			<section class="reporte">
+				<div class="container-tabla">
 					<table class="table">
 						<thead>
 							<tr>
-								<th class="nombre">Nombre</th>
-								<th class="apellido">Apellido</th>
-								<th class="identificacion">Identificación</th>
-								<th class="incorporacion">
-									Fecha de Solicitud
-								</th>
+								<th class="fecha">Fecha</th>
+								<th class="cedula">Cédula</th>
+								<th class="usuario">Comprador</th>
+								<th class="producto">Producto</th>
+								<th class="categoria">Categoría</th>
+								<th class="precio">Ganancia</th>
+								<th class="iva">IVA</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td class="nombre">Alejandro</td>
-								<td class="apellido">Chinchilla</td>
-								<td class="identificacion">1-3457-0982</td>
-								<td class="incorporacion">2/12/2023</td>
-			
-                                
-							</tr>
-							<tr>
-								<td class="nombre">Lorena</td>
-								<td class="apellido">Matamoros</td>
-								<td class="identificacion">3-2367-3422</td>
-								<td class="incorporacion">18/12/2023</td>
-							
-                                    
-							</tr>
-							<tr>
-								<td class="nombre">Laura</td>
-								<td class="apellido">Cisneros</td>
-								<td class="identificacion">2-6798-9134</td>
-								<td class="incorporacion">04/01/2024</td>
-						
-                                    
-							</tr>
-							<tr>
-								<td class="nombre">Victor</td>
-								<td class="apellido">Palacios</td>
-								<td class="identificacion">1-2245-7654</td>
-								<td class="incorporacion">24/01/2024</td>
-							
-                                    
-							</tr>
-							<tr>
-								<td class="nombre">Roberto</td>
-								<td class="apellido">Mora</td>
-								<td class="identificacion">1-2345-5566</td>
-								<td class="incorporacion">15/02/2024</td>
-				
-                                
-							</tr>
+						<tbody id="bodyTabla">
+							<!-- <tr>
+								<td class="fecha">Fecha</td>
+								<td class="usuario">Usuario 1</td>
+								<td class="producto">Producto A</td>
+								<td class="categoria">Categoría 1</td>
+								<td class="precio">100</td>
+								<td class="iva">15</td>
+							</tr> -->
 						</tbody>
 					</table>
 				</div>
@@ -133,12 +252,17 @@
 				<div class="container-end">
 					<button class="boton" type="button">
 						<span style="margin-right: 10px"
-							>Descargar Reporte de Solicitudes Aprobadas</span
+							>Descargar Reporte</span
 						>
 						<i class="bi bi-download"></i>
 					</button>
 				</div>
 			</section>
 		</main>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="js/services/servicio-ventas.js"></script>
+		<script src="js/reportesVendedor.js"></script>
 	</body>
 </html>
