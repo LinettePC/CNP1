@@ -86,6 +86,12 @@ router.get('/buscar-cliente-cedula', (req, res) => {
 	});
 });
 
+
+
+
+
+
+
 // http://localhost:3000/api/registrar
 // POST --> crear nuevos registros
 router.post('/registrar', (req, res) => {
@@ -95,11 +101,13 @@ router.post('/registrar', (req, res) => {
 
 	let nueva_Cliente = new Cliente({
 		cedula: body.cedula,
-		correo: body.correo,
 		nombre: body.nombre,
+		primerApellido: body.primerApellido,
+		correo: body.correo,
+		telefono: body.telefono,
 		foto: body.foto,
 		contrasenna: body.contrasenna,
-		fecha_de_registro: fechaFormateada
+		fecha_de_registro: fechaFormateada,
 	});
 
 	nueva_Cliente.save((error, ClienteDB) => {

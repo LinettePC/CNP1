@@ -1,16 +1,19 @@
 const mongoose = require('mongoose');
 
 const schema_vendedor = new mongoose.Schema({
-	correo: { type: String, required: true, unique: true },
 	cedula: { type: String, required: true, unique: true },
 	nombre: { type: String, required: true, unique: false },
-	nomTramo: { type: String, required: true, unique: false },
+	primerApellido: { type: String, required: false, unique: false },	
+	nombreTramo: { type: String, required: false, unique: false },
+	correo: { type: String, required: false, unique: false },
+	telefono: { type: String, required: false, unique: false },
+	//permisos pasar a type:boolean
+	permisos: {type: String, required: false, unique: false},
 
 	// Rol
 	rol: { type: String, default: 'Vendedor' },
 
 	// Non-required fields
-	telefono: { type: String, required: false, unique: false },
 	contrasenna: { type: String, required: false, unique: false },
 	foto: { type: String, required: false, unique: false },
 	estado: {

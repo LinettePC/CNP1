@@ -239,7 +239,7 @@ router.put('/modificar', (req, res) => {
 			if (error) {
 				res.status(500).json({
 					resultado: false,
-					msj: 'No se pudo actualizar la Cliente',
+					msj: 'No se pudo actualizar el Cliente',
 					error,
 				});
 			} else {
@@ -267,7 +267,7 @@ router.delete('/eliminar', (req, res) => {
 		} else {
 			res.status(200).json({
 				resultado: true,
-				msj: 'Se eliminó la Cliente de forma exitosa',
+				msj: 'Se eliminó el Cliente de forma exitosa',
 				info,
 			});
 		}
