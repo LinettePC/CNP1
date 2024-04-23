@@ -5,16 +5,16 @@ const schema_producto = new mongoose.Schema({
 	cedula_vendedor: { type: String, required: true },
 	tramo: { type: String, required: false },
 
-    // Detalles del producto
+	// Detalles del producto
 	nombre: { type: String, required: true },
 	descripcion: { type: String, required: true },
 	categoria: { type: String, required: true },
 
-    // Detalles del vendedor
-	inventario: { type: Number, required: false },
-	precio_vendedor: { type: Number, required: false },
-	precio_con_iva: { type: Number, required: false },
-	imagen: { type: String, defaultValue: 'noimg' },
+	// Detalles del vendedor
+	inventario: { type: String, required: false },
+	precio_vendedor: { type: String, required: false },
+	precio_con_iva: { type: String, required: false },
+	imagen: { type: String, default: 'noimg' },
 	estrellas: [
 		{
 			type: String,

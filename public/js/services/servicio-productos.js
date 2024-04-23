@@ -69,50 +69,23 @@ const conseguirProductoID = async (id_producto) => {
 	return productoBuscado;
 };
 
-const registrarProducto = async (
-	cedulaEnviada,
-	nombreEnviado,
-	descripcionEnviada,
-	categoriaEnviada
-) => {
+const registrarProducto = async (info) => {
 	let productoRegistrado;
 	await axios({
 		method: 'POST',
 		url: 'http://localhost:3000/api/registrar-producto',
 		responseType: 'json',
-		data: {
-			cedula_vendedor_env: cedulaEnviada,
-			nombre_env: nombreEnviado,
-			descripcion_env: descripcionEnviada,
-			categoria_env: categoriaEnviada,
-		},
+		data: info,
 	})
 		.then((response) => {
 			if (response.data.resultado == false) {
 				console.log(response.data.error);
 			} else {
 				productoRegistrado = response.data.productoCreado;
+				console.log(productoRegistrado);
 			}
 		})
 		.catch((error) => {
 			console.log(error);
 		});
 };
-
-
-
-const obtenerProductoPorId = async (id_producto) => {
-    let productoEncontrado = {};
-    try {
-        const response = await axios.get(`http://localhost:3000/api/producto/${id_producto}`);
-        if (response.data.resultado === true) {
-            productoEncontrado = response.data.producto;
-        } else {
-            console.error('Error al obtener el producto:', response.data.msj);
-        }
-    } catch (error) {
-        console.error('Error de red al obtener el producto:', error);
-    }
-    return productoEncontrado;
-};
-

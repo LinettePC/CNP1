@@ -9,14 +9,27 @@ const router = express.Router();
 router.post('/registrar-producto', (req, res) => {
 	let body = req.body;
 
+	iva = parseInt(body.precio_vendedor) * 0.13;
+	iva = Math.round(iva * 100) / 100;
+
+	ivaMasTotal = parseInt(body.precio_vendedor) + iva;
+
+	console.log("hello")
+
 	let nuevoProducto = new Producto({
-		cedula_vendedor: body.cedula_vendedor_env,
-		nombre: body.nombre_env,
-		descripcion: body.descripcion_env,
-		categoria: body.categoria_env,
-		precio_vendedor: body.precio_env,
-		inventario: body.inventario_env
+		cedula_vendedor: body.cedula_vendedor,
+		nombre: body.nombre,
+		tramo: body.tramo,
+		descripcion: body.descripcion,
+		categoria: body.categoria,
+		precio_vendedor: body.precio,
+		inventario: body.inventario,
+		precio_con_iva: ivaMasTotal,
 	});
+
+	if (body.imagen) {
+		nuevoProducto.imagen = body.imagen;
+	}
 
 	nuevoProducto.save((error, productoCreado) => {
 		if (error) {
@@ -34,7 +47,6 @@ router.post('/registrar-producto', (req, res) => {
 		}
 	});
 });
-
 
 //http://localhost:3000/api/listar-productos
 //GET--> recuperar informacion
@@ -231,62 +243,59 @@ router.get('/listar-carnes', (req, res) => {
 });
 
 router.get('/listar-producto-por-id', (req, res) => {
-    const productId = req.body.id; // Obtén el ID del cuerpo de la solicitud JSON
-    
-    Producto.findById(productId, (error, producto) => {
-        if (error) {
-            // Si hay un error al buscar el producto, devuelve un error 500
-            res.status(500).json({
-                resultado: false,
-                msj: 'No se pudo encontrar el producto',
-                error,
-            });
-        } else if (!producto) {
-            // Si no se encuentra el producto, devuelve un error 404
-            res.status(404).json({
-                resultado: false,
-                msj: 'Producto no encontrado',
-            });
-        } else {
-            // Si se encuentra el producto, devuelve el producto encontrado
-            res.status(200).json({
-                resultado: true,
-                msj: 'Producto encontrado',
-                producto,
-            });
-        }
-    });
+	const productId = req.body.id; // Obtén el ID del cuerpo de la solicitud JSON
+
+	Producto.findById(productId, (error, producto) => {
+		if (error) {
+			// Si hay un error al buscar el producto, devuelve un error 500
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo encontrar el producto',
+				error,
+			});
+		} else if (!producto) {
+			// Si no se encuentra el producto, devuelve un error 404
+			res.status(404).json({
+				resultado: false,
+				msj: 'Producto no encontrado',
+			});
+		} else {
+			// Si se encuentra el producto, devuelve el producto encontrado
+			res.status(200).json({
+				resultado: true,
+				msj: 'Producto encontrado',
+				producto,
+			});
+		}
+	});
 });
 
 router.get('/producto/:id', (req, res) => {
-    const productId = req.params.id; // Obtén el ID del parámetro de la URL
-    
-    Producto.findById(productId, (error, producto) => {
-        if (error) {
-            // Si hay un error al buscar el producto, devuelve un error 500
-            res.status(500).json({
-                resultado: false,
-                msj: 'No se pudo encontrar el producto',
-                error,
-            });
-        } else if (!producto) {
-            // Si no se encuentra el producto, devuelve un error 404
-            res.status(404).json({
-                resultado: false,
-                msj: 'Producto no encontrado',
-            });
-        } else {
-            // Si se encuentra el producto, devuelve el producto encontrado
-            res.status(200).json({
-                resultado: true,
-                msj: 'Producto encontrado',
-                producto,
-            });
-        }
-    });
+	const productId = req.params.id; // Obtén el ID del parámetro de la URL
+
+	Producto.findById(productId, (error, producto) => {
+		if (error) {
+			// Si hay un error al buscar el producto, devuelve un error 500
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo encontrar el producto',
+				error,
+			});
+		} else if (!producto) {
+			// Si no se encuentra el producto, devuelve un error 404
+			res.status(404).json({
+				resultado: false,
+				msj: 'Producto no encontrado',
+			});
+		} else {
+			// Si se encuentra el producto, devuelve el producto encontrado
+			res.status(200).json({
+				resultado: true,
+				msj: 'Producto encontrado',
+				producto,
+			});
+		}
+	});
 });
-
-
-  
 
 module.exports = router;
