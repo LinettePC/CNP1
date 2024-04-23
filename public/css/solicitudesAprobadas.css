@@ -163,18 +163,17 @@ input[type="radio"]:checked {
 .titulo {
 	font-weight: bold;
 	font-size: 30px;
+	margin-left: 300px;
 }
 
-.titulo h1{
-	margin-right: 100px;
-}
 
 .container-flex {
 	display: flex;
+
 }
 
 .titulo-selects {
-	margin-left: 300px;
+	margin-left: 560px;
 	font-weight: bold;
 	font-size: 25px;
 	margin-bottom: 10px;
@@ -182,7 +181,7 @@ input[type="radio"]:checked {
 
 .container-selects {
 	width: 800px;
-	margin-left: 300px;
+	margin-left: 550px;
 	display: flex;
 	margin-bottom: 20px;
 	align-items: center;
@@ -197,7 +196,7 @@ input[type="radio"]:checked {
 
 .flex-box {
 	flex: 1;
-	margin-right: 20px;
+	margin-right: 540px;
 }
 
 .flex-box:last-child {
@@ -234,13 +233,16 @@ label[for='fecha-especifica'] {
 }
 
 /* Seccion de Tabla */
+
+
 .container-tabla {
 	margin-bottom: 30px;
 }
 
 .table {
-	width: 100%;
+	width: 80%;
 	border-collapse: collapse;
+	margin-left: 220px;
 }
 
 .table th,
@@ -257,6 +259,7 @@ label[for='fecha-especifica'] {
 
 .boton {
 	font-size: 18px;
+	margin-right: 170px;
 	font-family: 'Cabin', sans-serif;
 	padding: 10px 20px;
 	background-color: #81b12a;
@@ -266,31 +269,11 @@ label[for='fecha-especifica'] {
 	cursor: pointer;
 }
 
-.ganancias-output {
-	font-size: 18px;
-	font-family: 'Cabin', sans-serif;
-	padding: 10px 20px;
-	color: black;
-	border-radius: 5px;
-	cursor: pointer;
-	margin-right: 15px;
-	border: 2px solid black;
-	line-height: normal;
-	cursor: default;
-}
 
-.ganancias-output:hover {
-	color: white;
-	background-color: black;
-}
-
-.ganancias-output label {
-	margin-right: 7px;
-	font-weight: bold;
-}
 
 .container-end {
 	display: flex;
 	justify-content: end;
 	align-items: center;
+	margin-bottom: 30px;
 }
