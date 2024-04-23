@@ -69,6 +69,29 @@ const conseguirProductoID = async (id_producto) => {
 	return productoBuscado;
 };
 
+const conseguirProductoDefaultID = async (id_producto) => {
+	let productoBuscado = [];
+	await axios({
+		method: 'GET',
+		url: 'http://localhost:3000/api/conseguir-producto-default-id',
+		responseType: 'json',
+		params: {
+			id: id_producto,
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				productoBuscado = response.data.producto;
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+	return productoBuscado;
+};
+
 const registrarProducto = async (info) => {
 	let productoRegistrado;
 	await axios({
@@ -88,4 +111,46 @@ const registrarProducto = async (info) => {
 		.catch((error) => {
 			console.log(error);
 		});
+};
+
+const registrarProductoDefault = async (info) => {
+	let productoRegistrado;
+	await axios({
+		method: 'POST',
+		url: 'http://localhost:3000/api/registrar-producto-default',
+		responseType: 'json',
+		data: info,
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				productoRegistrado = response.data.productoCreado;
+				console.log(productoRegistrado);
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
+
+const listarProductosDefault = async () => {
+	let lista_productos = [];
+	await axios({
+		method: 'GET',
+		url: 'http://localhost:3000/api/listar-productos-default',
+		responseType: 'json',
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				lista_productos = response.data.lista;
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+
+	return lista_productos;
 };

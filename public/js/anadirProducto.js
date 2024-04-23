@@ -1,5 +1,12 @@
 // Hecho por Isaac Ch.
 
+const contenedorNombre = document.getElementById('nombre');
+const contenedorDescripcion = document.getElementById('descripcion');
+const contenedorCategoria = document.getElementById('categoria');
+const contenedorCategoriaNueva = document.getElementById('categoriaNueva');
+const contenedorPrecio = document.getElementById('precio');
+const contenedorInventario = document.getElementById('inventario');
+
 const containerAgregarProducto = document.getElementById(
 	'containerAgregarProducto'
 );
@@ -18,6 +25,16 @@ document.getElementById('categoria').addEventListener('change', function () {
 		creandoNuevaCategoria = false;
 	}
 });
+
+function conseguirParamPorNombre(name, url) {
+	if (!url) url = window.location.href;
+	name = name.replace(/[\[\]]/g, '\\$&');
+	var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+		results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 
 // Recibir info del form:
 
@@ -151,6 +168,17 @@ function llenarCategorias(elementoSelect, items) {
 	elementoSelect.appendChild(opcionNuevaCat);
 }
 
+function llenarCamposProducto(info_producto) {
+	contenedorNombre.value = info_producto.nombre;
+	contenedorNombre.disabled = true;
+	
+	contenedorDescripcion.value = info_producto.descripcion;
+	contenedorDescripcion.disabled = true;
+	
+	contenedorCategoria.value = info_producto.categoria;
+	contenedorCategoria.disabled = true;
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
 	lista_categorias = await obtenerCategorias();
 
@@ -166,5 +194,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 		containerAgregarProducto.style.display = 'block';
 	} else {
 		containerMsjPermisos.style.display = 'block';
+	}
+
+	let id_producto = conseguirParamPorNombre('id');
+
+	if (id_producto) {
+		let productoDB = await conseguirProductoDefaultID(id_producto);
+
+		if (!productoDB) {
+			console.log('No existe el producto');
+		} else {
+			llenarCamposProducto(productoDB);
+		}
 	}
 });

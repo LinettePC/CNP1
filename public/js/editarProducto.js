@@ -2,12 +2,12 @@
 
 const creandoNuevaCategoria = false;
 
-const nombre = document.getElementById('nombre');
-const descripcion = document.getElementById('descripcion');
-const categoria = document.getElementById('categoria');
-const categoriaNueva = document.getElementById('categoriaNueva');
-const precio = document.getElementById('precio');
-const inventario = document.getElementById('inventario');
+const contenedorNombre = document.getElementById('nombre');
+const contenedorDescripcion = document.getElementById('descripcion');
+const contenedorCategoria = document.getElementById('categoria');
+const contenedorCategoriaNueva = document.getElementById('categoriaNueva');
+const contenedorPrecio = document.getElementById('precio');
+const contenedorInventario = document.getElementById('inventario');
 
 function conseguirParamPorNombre(name, url) {
 	if (!url) url = window.location.href;
@@ -36,12 +36,12 @@ document.querySelector('form').addEventListener('submit', function (event) {
 	event.preventDefault(); // Prevent the form from submitting normally
 
 	// Get form inputs
-	const nombre = document.getElementById('nombre').value;
-	const descripcion = document.getElementById('descripcion').value;
-	const categoria = document.getElementById('categoria').value;
-	const categoriaNueva = document.getElementById('categoriaNueva').value;
-	const precio = document.getElementById('precio').value;
-	const inventario = document.getElementById('inventario').value;
+	let nombre = document.getElementById('nombre').value;
+	let descripcion = document.getElementById('descripcion').value;
+	let categoria = document.getElementById('categoria').value;
+	let categoriaNueva = document.getElementById('categoriaNueva').value;
+	let precio = document.getElementById('precio').value;
+	let inventario = document.getElementById('inventario').value;
 
 	// Validate form fields
 	const fieldsToValidate = {
@@ -111,10 +111,10 @@ document.querySelector('form').addEventListener('submit', function (event) {
 });
 
 function llenarCamposProducto(info_producto) {
-	nombre.value = info_producto.nombre;
-	descripcion.value = info_producto.descripcion;
-	categoria.value = info_producto.categoria;
-	precio.value = info_producto.precio_vendedor;
+	contenedorNombre.value = info_producto.nombre;
+	contenedorDescripcion.value = info_producto.descripcion;
+	contenedorCategoria.value = info_producto.categoria;
+	contenedorPrecio.value = info_producto.precio_vendedor;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

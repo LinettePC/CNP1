@@ -1,7 +1,7 @@
 const express = require('express');
 //necesitamos requerir el modelo de Clientes
 const Producto = require('../models/productos');
-// const ProductoDefault = require('../models/productosDefault');
+const ProductoDefault = require('../models/productosDefault');
 const router = express.Router();
 
 // http://localhost:3000/api/registrar-producto
@@ -13,8 +13,6 @@ router.post('/registrar-producto', (req, res) => {
 	iva = Math.round(iva * 100) / 100;
 
 	ivaMasTotal = parseInt(body.precio_vendedor) + iva;
-
-	console.log("hello")
 
 	let nuevoProducto = new Producto({
 		cedula_vendedor: body.cedula_vendedor,
@@ -48,8 +46,69 @@ router.post('/registrar-producto', (req, res) => {
 	});
 });
 
-//http://localhost:3000/api/listar-productos
+router.post('/registrar-producto-default', (req, res) => {
+	let body = req.body;
+
+	let nuevoProducto = new ProductoDefault({
+		nombre: body.nombre,
+		descripcion: body.descripcion,
+		categoria: body.categoria,
+	});
+
+	if (body.imagen) {
+		nuevoProducto.imagen = body.imagen;
+	}
+
+	nuevoProducto.save((error, productoCreado) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo crear el producto',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Producto default creado exitosamente',
+				productoCreado,
+			});
+		}
+	});
+});
+
+//http://localhost:3000/api/listar-productos-default
 //GET--> recuperar informacion
+router.get('/listar-productos-default', (req, res) => {
+	let cedulaBuscada = req.query.cedula;
+
+	ProductoDefault.find((error, ProductosBuscados) => {
+		if (error) {
+			res.status(501).json({
+				resultado: false,
+				msj: 'Ocurrió el siguiente error:',
+				error,
+			});
+		} else {
+			if (ProductosBuscados == '') {
+				res.json({
+					resultado: true,
+					msj:
+						'El vendedor con la cédula ' +
+						cedulaBuscada +
+						' no tiene productos.',
+					lista: [],
+				});
+			} else {
+				res.json({
+					resultado: true,
+					msj:
+						'Productos default encontrados:',
+					lista: ProductosBuscados,
+				});
+			}
+		}
+	});
+});
 
 // http://localhost:3000/api/listar-productos-vendedor
 // Endpoint para agarrar los productos de un usuario // USA LA CÉDULA
@@ -124,6 +183,39 @@ router.get('/conseguir-producto-id', (req, res) => {
 					res.json({
 						resultado: true,
 						msj: 'Productos encontrados:',
+						producto: ProductoBuscado[0],
+					});
+				}
+			}
+		});
+	}
+});
+
+router.get('/conseguir-producto-default-id', (req, res) => {
+	let mongoID = req.query.id;
+	if (!mongoID) {
+		res.status(501).json({
+			resultado: false,
+			msj: 'Debe enviar un id del producto',
+		});
+	} else {
+		ProductoDefault.find({ _id: mongoID }, (error, ProductoBuscado) => {
+			if (error) {
+				res.status(501).json({
+					resultado: false,
+					msj: 'Ocurrió el siguiente error:',
+					error,
+				});
+			} else {
+				if (ProductoBuscado == '') {
+					res.json({
+						resultado: true,
+						msj: 'El producto no existe',
+					});
+				} else {
+					res.json({
+						resultado: true,
+						msj: 'Producto encontrado:',
 						producto: ProductoBuscado[0],
 					});
 				}

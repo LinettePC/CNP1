@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Mi Catalogo</title>
-		
+
 		<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 		">
@@ -91,11 +91,13 @@
 
 		<div class="container-flex">
 			<div>
-				<h1 class="titulo-agregar-existente">Selecciona un producto para vender</h1>
+				<h1 class="titulo-agregar-existente">
+					Selecciona un producto para vender
+				</h1>
 
-				<div class="contenedorProducto">
-					<!-- Producto 1 -->
-					<div class="tarjetaProducto">
+				<div class="contenedorProducto" id="contenedorProductosDefault">
+					<!-- Ejemplo Producto a enseñar -->
+					<!-- <div class="tarjetaProducto">
 						<div class="tituloProducto">Zanahoria</div>
 						<div class="imagenProducto">
 							<img
@@ -110,25 +112,7 @@
 								>Agregar este producto</a
 							>
 						</div>
-					</div>
-
-					<!-- Producto 2 -->
-					<div class="tarjetaProducto">
-						<div class="tituloProducto">Chayote</div>
-						<div class="imagenProducto">
-							<img
-								src="/public/img/chayote.png"
-								alt="Imagen de un chayote"
-							/>
-						</div>
-						<div>
-							<a
-								href="/public/editarProducto.html"
-								class="botonEditar"
-								>Agregar este producto</a
-							>
-						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 
@@ -155,5 +139,10 @@
 				</div>
 			</div>
 		</div>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="js/services/servicio-productos.js"></script>
+		<script src="js/agregarProducto.js"></script>
 	</body>
 </html>
