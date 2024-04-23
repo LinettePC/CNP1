@@ -150,7 +150,13 @@ function principal() {
 		!validarTelefono() //&&
 		//!validarContrasenna()
 	) {
-		registro_persona(parametros); // LLENAR LOS PARAMS
+		registro_persona(
+			idCliente, 
+			nombre,
+			primerApellido,
+			nomTramo,
+			correo,
+			telefono); 
 		limpiarCampos();
 	}
 }

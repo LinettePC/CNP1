@@ -2,18 +2,23 @@ const mongoose = require('mongoose');
 
 const schema_cliente = new mongoose.Schema({
 	cedula: { type: String, required: true, unique: true },
-	correo: { type: String, required: true, unique: true },
 	nombre: { type: String, required: true, unique: false },
+	primerApellido: { type: String, required: false, unique: false },
+	correo: { type: String, required: false, unique: true },
+	telefono: { type: String, required: false, unique: false },
+	foto: { type: String, required: false, unique: false },
+	contrasenna: { type: String, required: false, unique: false },
+	contrasennaDos: { type: String, required: false, unique: false },
+	
 
 	// Rol
 	rol: { type: String, default: 'Cliente'},
 
 	// Non-required fields
-	telefono: { type: String, required: false, unique: false },
-	contrasenna: { type: String, required: false, unique: false },
+	
 	metodo_pago: { type: String, required: false, unique: false },
 	direccion: { type: String, required: false, unique: false },
-	foto: { type: String, required: false, unique: false },
+	
 
 	fecha_de_registro: { type: String, required: false, unique: false }
 });
