@@ -169,7 +169,6 @@ input[type="radio"]:checked {
 
 .container-flex {
 	display: flex;
-
 }
 
 .titulo-selects {
@@ -268,7 +267,6 @@ label[for='fecha-especifica'] {
 	border-radius: 5px;
 	cursor: pointer;
 }
-
 
 
 .container-end {
