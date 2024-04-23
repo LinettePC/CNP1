@@ -28,6 +28,7 @@ router.post('/registrar-venta', (req, res) => {
 		nombre_producto: body.nombre_producto,
 		categoria_producto: body.categoria_producto,
 		precio_venta: body.precio_venta,
+		cantidad_comprada: body.cantidad_comprada,
 		nombre_comprador: body.nombre_comprador,
 		nombre_vendedor: body.nombre_vendedor,
 		tramo: body.tramo,

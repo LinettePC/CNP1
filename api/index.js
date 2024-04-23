@@ -9,6 +9,7 @@ const clientes = require("./routes/clientes");
 const productos = require("./routes/productos");
 const vendedores = require("./routes/vendedores");
 const ventas = require("./routes/ventas");
+const categorias = require("./routes/categorias");
 
 require("dotenv").config();
 
@@ -25,6 +26,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use("/api", admins);
 //app.use("/api", auth);
+app.use("/api", categorias);
 app.use("/api", clientes);
 app.use("/api", productos);
 app.use("/api", vendedores);

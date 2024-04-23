@@ -229,3 +229,11 @@ body {
 	margin-left: 10px;
 	font-size: 20px;
 }
+
+#containerAgregarProducto {
+    display: none;
+}
+
+#containerMsjPermisos {
+    display: none;
+}

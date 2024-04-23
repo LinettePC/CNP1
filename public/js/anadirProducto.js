@@ -1,6 +1,12 @@
 // Hecho por Isaac Ch.
 
-const creandoNuevaCategoria = false;
+const containerAgregarProducto = document.getElementById(
+	'containerAgregarProducto'
+);
+const containerMsjPermisos = document.getElementById('containerMsjPermisos');
+const selectCategoria = document.getElementById('categoria');
+
+let creandoNuevaCategoria = false;
 
 document.getElementById('categoria').addEventListener('change', function () {
 	var selectedValue = this.value;
@@ -59,8 +65,13 @@ document.querySelector('form').addEventListener('submit', function (event) {
 	}
 
 	// If a new category is being created, use the value from the new category input field
-	const categoriaFinal =
-		categoria === 'new_category' ? categoriaNueva : categoria;
+	let categoriaFinal = '';
+
+	if (creandoNuevaCategoria) {
+		categoriaFinal = categoriaNueva;
+	} else {
+		categoriaFinal = categoria;
+	}
 
 	// Construct payload object
 
@@ -93,8 +104,41 @@ document.querySelector('form').addEventListener('submit', function (event) {
 	sendDataToDatabase(payload);
 });
 
-function sendDataToDatabase(payload) {
-	// This is a placeholder function. Replace this with your actual code to send data to the database.
-	console.log('Sending data to the database:', payload);
-	// Here you can use AJAX, fetch API, or any other method to send the data to your backend
+function llenarCategorias(elementoSelect, items) {
+	items.forEach((item) => {
+		let nuevaOpcion = document.createElement('option');
+		nuevaOpcion.innerText = item;
+		nuevaOpcion.value = item;
+		elementoSelect.appendChild(nuevaOpcion);
+	});
+
+	let separador = document.createElement('option');
+	separador.innerText = '------------------------------------------';
+	separador.value = '';
+	separador.disabled = true;
+
+	let opcionNuevaCat = document.createElement('option');
+	opcionNuevaCat.innerText = 'Crear nueva categoría';
+	opcionNuevaCat.value = 'new_category';
+
+	elementoSelect.appendChild(separador);
+	elementoSelect.appendChild(opcionNuevaCat);
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+	lista_categorias = await obtenerCategorias();
+
+	let nombresCategorias = [];
+
+	lista_categorias.forEach((categoria) => {
+		nombresCategorias.push(categoria.nombre);
+	});
+
+	llenarCategorias(selectCategoria, nombresCategorias);
+
+	if (true) {
+		containerAgregarProducto.style.display = 'block';
+	} else {
+		containerMsjPermisos.style.display = 'block';
+	}
+});

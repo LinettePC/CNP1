@@ -80,7 +80,7 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container" id="containerAgregarProducto">
 			
 			<h1 class="titulo-seccion">Añadir Producto</h1>
 			<form action="" method="get">
@@ -103,7 +103,8 @@
 				<div class="input-field">
 					<label for="categoria">Categoría *</label>
 					<select id="categoria">
-						<option value="" selected disabled>
+						<!-- Ejemplo de código cargado por la base de datos -->
+						<!-- <option value="" selected disabled>
 							Seleccione una categoría
 						</option>
 						<option value="existing_category_1">
@@ -120,7 +121,7 @@
 						</option>
 						<option value="new_category">
 							Crear nueva categoría
-						</option>
+						</option> -->
 					</select>
 				</div>
 				<div
@@ -167,6 +168,18 @@
 			</form>
 		</div>
 
+		<div class="container-devolver" id="containerMsjPermisos">
+			<div
+				class="arrow-container"
+				style="font-size: 30px;"
+			>
+				Asegúrate de agregar los permisos necesarios para poder vender en el sitio
+			</div>
+		</div>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="js/services/servicio-categorias.js"></script>
 		<script src="js/anadirProducto.js"></script>
 	</body>
 </html>

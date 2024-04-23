@@ -97,3 +97,24 @@ const obtenerUrlProductoPorId = async (id_producto) => {
     }
     return urlProducto;
 };
+
+const obtenerCategorias = async () => {
+    let lista_categorias = [];
+	await axios({
+		method: 'GET',
+		url: 'http://localhost:3000/api/listar-categorias',
+		responseType: 'json',
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				lista_categorias = response.data.lista;
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+
+	return lista_categorias;
+}

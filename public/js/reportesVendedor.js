@@ -42,6 +42,8 @@ radioRangoFechas.addEventListener('change', function () {
 	}
 });
 
+const msjNoVentas = document.getElementById('msjNoVentas');
+
 //
 
 function crearFila(venta) {
@@ -54,6 +56,7 @@ function crearFila(venta) {
 	  <td>${venta.cedula_comprador}</td>
 	  <td>${venta.nombre_comprador}</td>
 	  <td>${venta.nombre_producto}</td>
+	  <td>${venta.cantidad_comprada}</td>
 	  <td>${venta.categoria_producto}</td>
 	  <td>${venta.precio_venta}</td>
 	  <td>${iva}</td>
@@ -260,20 +263,18 @@ function llenarSelects() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-	cedulaVendedorActual = '54321';
+	cedulaVendedorActual = '12345';
 
 	lista_ventas = await listarVentasUsuario(cedulaVendedorActual);
-	cantVentas = lista_ventas.length;
+
+	if (lista_ventas) {
+		cantVentas = lista_ventas.length;
+	} else {
+		msjNoVentas.style.display = 'block';
+	}
 
 	llenarSelects();
 });
-
-// 	fecha_de_venta: '18/04/2024',
-// 	nombre_comprador: 'Pepe',
-// 	nombre_producto: 'Fresa',
-// 	categoria_producto: 'Frutas',
-// 	precio_venta: '2000',
-// 	iva: '2000' * 0.13
 
 // EJEMPLO DE UNA VENTA PARA SACARLE INFO
 // ventainfo = {
@@ -284,6 +285,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 // 	categoria_producto: 'Frutas',
 // 	cedula_comprador: '12345',
 // 	cedula_vendedor: '54321',
+// cantidad_comprada: '3',
 // 	fecha_de_venta: '18/04/2024',
 // 	nombre_comprador: 'Pepe',
 // 	nombre_producto: 'Fresa',

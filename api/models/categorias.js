@@ -5,8 +5,8 @@ const schema_categorias = new mongoose.Schema({
 	tipo: {
 		type: String,
 		enum: ['Usuario', 'Default'],
-		required: true,
-		defaultValue: 'Usuario',
+		required: false,
+		default: 'Usuario',
 	}, // DEFAULT = CREADA POR ADMIN -- Otro: creada por alguien más
 });
 
