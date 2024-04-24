@@ -162,7 +162,7 @@ function principal() {
 		idCliente = document.getElementById('identificacion');
 		nombre = document.getElementById('nombre');
 		primerApellido = document.getElementById('primerApellido');
-		segundoApellido = document.getElementById("segundoApellido")
+		//segundoApellido = document.getElementById("segundoApellido")
 		correo = document.getElementById('correo');
 		telefono = document.getElementById('telefono');
 		contrasenna = document.getElementById('contrasenna');

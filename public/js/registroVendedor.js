@@ -150,15 +150,18 @@ function principal() {
 		!validarTelefono() //&&
 		//!validarContrasenna()
 	) {
+		Swal.fire({
+			title: 'Formulario enviado',
+			text: 'Recibirás un mensaje cuando tu solicitud sea revisada',
+			icon: 'success',
+		});
+		idCliente = document.getElementById('identificacion');
+		nombre = document.getElementById('nombre');
+		primerApellido = document.getElementById('primerApellido');
+		nomTramo = document.getElementById('nomTramo');
+		correo = document.getElementById('correo');
+		telefono = document.getElementById('telefono');
 		limpiarCampos();
-		registro_persona(
-			idCliente, 
-			nombre,
-			primerApellido,
-			nomTramo,
-			correo,
-			telefono); 
-		//limpiarCampos();
 	}
 }
 
