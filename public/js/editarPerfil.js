@@ -23,6 +23,37 @@ const containerNuevaContra = document.getElementById('containerNuevaContra');
 const btnIngresarContra = document.getElementById('btnIngresarContra');
 const btnNuevaContra = document.getElementById('btnIngresarContra');
 
+// COMPROBAR SI LA CONTRASENNA TIENE LOS DATOS QUE SE PIDIERON
+function contrasennaValidaFormato(str) {
+	// Comprobar si la longitud de la cadena es 8 caracteres
+	if (str.length !== 8) {
+		return false;
+	}
+
+	// Comprobar si la cadena contiene vocales
+	if (/[aeiou]/i.test(str)) {
+		return false;
+	}
+
+	// Comprobar si la cadena contiene al menos una consonante
+	if (!/[bcdfghjklmnpqrstvwxyz]/i.test(str)) {
+		return false;
+	}
+
+	// Comprobar si la cadena contiene al menos un carácter especial
+	if (!/[^a-zA-Z0-9]/.test(str)) {
+		return false;
+	}
+
+	// Comprobar si la cadena contiene al menos un número
+	if (!/\d/.test(str)) {
+		return false;
+	}
+
+	// Si se cumplen todas las condiciones, devolver true
+	return true;
+}
+
 async function verificarNuevaContrasenna() {
 	let nuevaContrasenna = document.getElementById('nuevaContrasenna');
 	let nuevaContrasennaInput = nuevaContrasenna.value;
@@ -73,49 +104,60 @@ async function verificarNuevaContrasenna() {
 					timerProgressBar: true,
 				});
 			} else {
-				nuevaContrasenna.classList.remove('error');
-				repitaContrasenna.classList.remove('error');
+				if (!contrasennaValidaFormato(nuevaContrasennaInput)) {
+					nuevaContrasenna.classList.add('error');
+					repitaContrasenna.classList.add('error');
 
-				nuevaContraJSON = {
-					contrasenna: nuevaContrasennaInput,
-				};
+					Swal.fire({
+						title: 'Contraseñas inválida',
+						html: '<p>- 8 caracteres<br>- No pueden tener vocales<br>- Al menos 1 consonante<br>- Al menos 1 char especial<br>- Al menos 1 número</p>',
+						icon: 'error',
+					});
+				} else {
+					nuevaContrasenna.classList.remove('error');
+					repitaContrasenna.classList.remove('error');
 
-				switch (rol) {
-					case 'Cliente':
-						await actualizarDatosCliente(
-							cedula_usuario,
-							nuevaContraJSON
-						);
-						break;
-					case 'Vendedor':
-						await actualizarDatosVendedor(
-							cedula_usuario,
-							nuevaContraJSON
-						);
-						break;
-					case 'Admin':
-						await actualizarDatosAdmin(
-							cedula_usuario,
-							nuevaContraJSON
-						);
-						break;
-					default:
-						break;
+					nuevaContraJSON = {
+						contrasenna: nuevaContrasennaInput,
+					};
+
+					switch (rol) {
+						case 'Cliente':
+							await actualizarDatosCliente(
+								cedula_usuario,
+								nuevaContraJSON
+							);
+							break;
+						case 'Vendedor':
+							await actualizarDatosVendedor(
+								cedula_usuario,
+								nuevaContraJSON
+							);
+							break;
+						case 'Admin':
+							await actualizarDatosAdmin(
+								cedula_usuario,
+								nuevaContraJSON
+							);
+							break;
+						default:
+							break;
+					}
+
+					Swal.fire({
+						title: 'Información de cuenta actualizada',
+						text: 'Gracias por usar nuestros servicios',
+						icon: 'success',
+						timer: 2500,
+						timerProgressBar: true,
+						showConfirmButton: false,
+						allowOutsideClick: false,
+					});
+
+					setTimeout(() => {
+						window.location.reload();
+					}, 2500);
 				}
-
-				Swal.fire({
-					title: 'Información de cuenta actualizada',
-					text: 'Gracias por usar nuestros servicios',
-					icon: 'success',
-					timer: 2500,
-					timerProgressBar: true,
-					showConfirmButton: false,
-					allowOutsideClick: false,
-				});
-
-				setTimeout(() => {
-					window.location.reload();
-				}, 2500);
 			}
 		}
 	}
@@ -346,3 +388,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	llenarCampos(usuarioActual);
 });
+
+console.log(contrasennaValidaFormato('bcdfg1!3')); // Should return true
