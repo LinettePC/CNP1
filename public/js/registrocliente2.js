@@ -168,6 +168,8 @@ function principal() {
 		foto = document.getElementById('btnoriginalF'),
 		contrasenna = document.getElementById('contrasenna');
 		boton = document.getElementById('botonEnviar');
+
+
 		//registroCliente(idCliente.value,nombre.value,primerApellido.value,correo.value,telefono.value,foto.value,contrasenna.value)
 		limpiarCampos();
 		//esta funcion no esta sirviendo, de donde salio????
