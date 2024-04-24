@@ -15,9 +15,7 @@ const schema_cliente = new mongoose.Schema({
 
 	// Non-required fields
 
-	metodo_pago: {
-		
-	},
+	metodo_pago: { type: String },
 	direccion: {
 		nombre: { type: String },
 		apellidos: { type: String },

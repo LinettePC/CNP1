@@ -95,7 +95,7 @@ async function principal() {
 				nombre: txt_nombre.value,
 				apellidos: txt_apellidos.value,
 				correo: txt_email.value,
-				teléfono: txt_telefono.value,
+				telefono: txt_telefono.value,
 				provincia: txt_provincia.value,
 				canton: txt_canton.value,
 				distrito: txt_distrito.value,
@@ -499,32 +499,45 @@ function cargarDistritos() {
 	});
 }
 
+function crearOpcionDireccion(value) {
+    var optionElement = document.createElement("option");
+    optionElement.value = value;
+    optionElement.textContent = value;
+    return optionElement;
+}
+
+function crearSeparador() {
+    var optionElement = document.createElement("option");
+    optionElement.value = "";
+    optionElement.textContent = "---------- Seleccionada previamente ----------";
+    optionElement.disabled = true;
+    return optionElement;
+}
 
 function llenarCampos(persona) {
-	// imgUsuario.src = persona.img;
-	nombreUsuario.innerText = persona.nombre;
-	apellidoUsuario.innerText = persona.primerApellido;
+	txt_nombre.value = persona.direccion.nombre;
+	txt_apellidos.value = persona.direccion.apellidos;
+	txt_telefono.value = persona.direccion.telefono;
+	txt_email.value = persona.direccion.correo;
+	txt_direccion.value = persona.direccion.direccionExacta;
 
-	nombre.value = persona.nombre;
-	primerApellido.value = persona.primerApellido;
-	correo.value = persona.correo;
-	telefono.value = persona.telefono;
+	txt_provincia.value = persona.direccion.provincia;
+	txt_canton.value = persona.direccion.canton;
+	txt_distrito.value = persona.direccion.distrito;
+
+	crearSeparador
+
+	txt_provincia.appendChild(crearSeparador());
+	txt_canton.appendChild(crearSeparador());
+	txt_distrito.appendChild(crearSeparador());
+
+	txt_provincia.appendChild(crearOpcionDireccion(persona.direccion.provincia));
+	txt_canton.appendChild(crearOpcionDireccion(persona.direccion.canton));
+	txt_distrito.appendChild(crearOpcionDireccion(persona.direccion.distrito));
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-	if (rol === 'Cliente') {
-		headerComprador.style.display = 'flex';
-
-		usuarioActual = await conseguirCompradorCedula(cedula_usuario);
-	} else {
-		headerVendedor.style.display = 'flex';
-
-		if (rol === 'Vendedor') {
-			usuarioActual = await conseguirVendedorCedula(cedula_usuario);
-		} else {
-			usuarioActual = await conseguirAdminCedula(cedula_usuario);
-		}
-	}
+	usuarioActual = await conseguirCompradorCedula(cedula_usuario);
 
 	llenarCampos(usuarioActual);
 });
