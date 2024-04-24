@@ -1,101 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout</title>
-    <link rel="stylesheet" href="css/checkout.css" />
-    <link rel="stylesheet" href="css/reset.css" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Checkout</title>
+		<link rel="stylesheet" href="css/checkout.css" />
+		<link rel="stylesheet" href="css/reset.css" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="body">
-    <div
-      class="arrow-container"
-      onclick="window.location.href = 'marketplace.html';"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="35"
-        height="35"
-        fill="currentColor"
-        class="bi bi-arrow-left-circle-fill"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
-        />
-      </svg>
-      <span>Volver al mercado</span>
-    </div>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="body">
+		<div
+			class="arrow-container"
+			onclick="window.location.href = 'marketplace.html';"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="35"
+				height="35"
+				fill="currentColor"
+				class="bi bi-arrow-left-circle-fill"
+				viewBox="0 0 16 16"
+			>
+				<path
+					d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+				/>
+			</svg>
+			<span>Volver al mercado</span>
+		</div>
 
-    <div class="contenedor">
-      <div class="formulario">
-        <div class="header-formulario">
-          <div>
-            <img src="img/logo6.png" alt="" id="logo" class="imagen-comprar" />
-          </div>
-          <div class="contenedor-texto-superior">
-            <h1>Formulario de Compra</h1>
-            <p>
-              Puede
-              <a href="pagoDireccion.html">editar su información de pago</a>
-              antes de realizar la compra
-            </p>
-          </div>
-        </div>
+		<div class="contenedor">
+			<div class="formulario">
+				<div class="header-formulario">
+					<div>
+						<img
+							src="img/logo6.png"
+							alt=""
+							id="logo"
+							class="imagen-comprar"
+						/>
+					</div>
+					<div class="contenedor-texto-superior">
+						<h1>Formulario de Compra</h1>
+						<p>
+							Puede
+							<a href="pagoDireccion.html"
+								>editar su información de pago</a
+							>
+							antes de realizar la compra
+						</p>
+					</div>
+				</div>
 
-        <div class="contenedor-flex">
-          <form id="inputsDatos" novalidate>
-            <div class="campo-container">
-              <label for="tarjetaUsada" class="etiqueta"
-                >Tarjeta seleccionada:</label
-              >
-              <div id="tarjetaUsada" class="campo">
-                <p>No hay ninguna</p>
-              </div>
-            </div>
+				<div class="contenedor-flex">
+					<form id="inputsDatos" novalidate>
+						<div class="campo-container">
+							<label for="tarjetaUsada" class="etiqueta"
+								>Tarjeta seleccionada:</label
+							>
+							<div id="tarjetaUsada" class="campo">
+								<p>No hay ninguna</p>
+							</div>
+						</div>
 
-            <div class="campo-container">
-              <label for="direccionEnvio" class="etiqueta"
-                >Dirección de envío:</label
-              >
-              <div id="direccionEnvio" class="campo">
-                <p>No hay ninguna</p>
-              </div>
-            </div>
+						<div class="campo-container">
+							<label for="direccionEnvio" class="etiqueta"
+								>Dirección de envío:</label
+							>
+							<div id="direccionEnvio" class="campo">
+								<p>No hay ninguna</p>
+							</div>
+						</div>
 
-            <div class="container-boton-info"></div>
+						<div class="container-boton-info"></div>
 
-            <div class="container-boton-pago"></div>
-          </form>
-        </div>
-      </div>
+						<div class="container-boton-pago"></div>
+					</form>
+				</div>
+			</div>
 
-      <div class="seccion-productos">
-        <h1 class="titulo-seccion-productos">Productos a comprar</h1>
+			<div class="seccion-productos">
+				<h1 class="titulo-seccion-productos">Productos a comprar</h1>
 
-        <div class="productos-flex">
+				<div class="productos-flex"></div>
+				<div class="precio-total">
+					<div class="contenedor-precio-total">
+						<span
+							>Total a pagar:
+							<span id="precioTotalCarrito">₡500.00</span></span
+						>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        </div>
-        <div class="precio-total">
-          <div class="contenedor-precio-total">
-            <span
-              >Total a pagar: <span id="precioTotalCarrito">₡500.00</span></span
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script src="js/services/servicio-productos.js"></script>
-    <script src="js/checkout.js"></script>
-
-
-  </body>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="js/services/servicio-productos.js"></script>
+		<script src="js/checkout.js"></script>
+	</body>
 </html>
