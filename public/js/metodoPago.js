@@ -1,6 +1,7 @@
 // HECHO POR ISAAC
 
 //Referencias al DOM
+const txtTipoTarjeta = document.getElementById('tipoTarjeta');
 const txtNumeroTarjeta = document.getElementById('numTarjeta');
 const txtNombrePropietario = document.getElementById('nombrePropietario');
 const txtMes = document.getElementById('mes');
@@ -49,8 +50,6 @@ txtNumeroTarjeta.addEventListener('input', function () {
 	var mastercardPattern = /^5[1-5][0-9]{14}$/;
 	var amexPattern = /^3[47][0-9]{13}$/;
 
-	console.log(cardNumber);
-
 	this.style.backgroundSize = '30px';
 
 	if (visaPattern.test(cardNumber)) {
@@ -73,6 +72,7 @@ function validarCamposVacios() {
 	let error = false;
 
 	const fields = [
+		txtTipoTarjeta,
 		txtNumeroTarjeta,
 		txtNombrePropietario,
 		txtMes,
@@ -190,7 +190,9 @@ function limpiarCampos() {
 	cvv.value = '';
 }
 
-function enviarForm() {
+const cedula_usuario = '6-0482-0213';
+
+async function enviarForm() {
 	let errorCamposVacios = validarCamposVacios();
 	let errorNumeroTarjeta = validarNumTarjeta();
 	let errorNombre = validarNombre();
@@ -221,12 +223,26 @@ function enviarForm() {
 			icon: 'warning',
 		});
 	} else {
+		var ultimosCuatro = txtNumeroTarjeta.value.split('-').pop();
+		let dataJSON = {
+			metodo_pago: `${txtTipoTarjeta.value} terminando en ${ultimosCuatro}`,
+		};
+
+		await actualizarDatosCliente(cedula_usuario, dataJSON);
+
 		Swal.fire({
-			title: 'Datos enviados',
-			text: ' Su información se ha enviado de forma correcta',
+			title: 'Información de pago actualizada',
+			text: 'Gracias por usar nuestros servicios',
 			icon: 'success',
+			timer: 2500,
+			timerProgressBar: true,
+			showConfirmButton: false,
+			allowOutsideClick: false,
 		});
-		limpiarCampos();
+
+		setTimeout(() => {
+			window.location.href = 'pagoDireccion.html';
+		}, 2500);
 	}
 }
 

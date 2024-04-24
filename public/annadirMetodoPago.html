@@ -100,6 +100,9 @@
 			<div>
 				<label for="tipoTarjeta">Tipo de tarjeta</label>
 				<select name="tipoTarjeta" id="tipoTarjeta">
+					<option value="" disabled selected>
+						Seleccione un tipo de tarjeta
+					</option>
 					<option value="VISA">VISA</option>
 					<option value="MASTERCARD">Mastercard</option>
 					<option value="AMEX">American Express</option>
@@ -165,6 +168,5 @@
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/services/servicio-personas.js"></script>
 		<script src="/public/js/metodoPago.js"></script>
-		<!-- Incluir SweetAlert -->
 	</body>
 </html>

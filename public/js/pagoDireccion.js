@@ -8,6 +8,8 @@ const txt_canton = document.getElementById('canton');
 const txt_distrito = document.getElementById('distrito');
 const txt_direccion = document.getElementById('direccion');
 
+const txt_tarjetaActual = document.getElementById('tarjetaActual');
+
 const formulario = document.getElementById('inputsDatos');
 
 // Add event listener to form submission
@@ -19,9 +21,10 @@ formulario.addEventListener('submit', function (event) {
 	principal();
 });
 
-let usuarioActual = {};
+// let usuarioActual = {};
+// const rol = 'Cliente';
+
 const cedula_usuario = '6-0482-0213';
-const rol = 'Cliente';
 
 async function principal() {
 	let error_campos_vacios = ValidarCamposVacios();
@@ -103,19 +106,7 @@ async function principal() {
 			},
 		};
 
-		switch (rol) {
-			case 'Cliente':
-				await actualizarDatosCliente(cedula_usuario, dataJSON);
-				break;
-			case 'Vendedor':
-				await actualizarDatosVendedor(cedula_usuario, dataJSON);
-				break;
-			case 'Admin':
-				await actualizarDatosAdmin(cedula_usuario, dataJSON);
-				break;
-			default:
-				break;
-		}
+		await actualizarDatosCliente(cedula_usuario, dataJSON);
 
 		Swal.fire({
 			title: 'Información de dirección actualizada',
@@ -500,18 +491,19 @@ function cargarDistritos() {
 }
 
 function crearOpcionDireccion(value) {
-    var optionElement = document.createElement("option");
-    optionElement.value = value;
-    optionElement.textContent = value;
-    return optionElement;
+	var optionElement = document.createElement('option');
+	optionElement.value = value;
+	optionElement.textContent = value;
+	return optionElement;
 }
 
 function crearSeparador() {
-    var optionElement = document.createElement("option");
-    optionElement.value = "";
-    optionElement.textContent = "---------- Seleccionada previamente ----------";
-    optionElement.disabled = true;
-    return optionElement;
+	var optionElement = document.createElement('option');
+	optionElement.value = '';
+	optionElement.textContent =
+		'---------- Seleccionada previamente ----------';
+	optionElement.disabled = true;
+	return optionElement;
 }
 
 function llenarCampos(persona) {
@@ -525,13 +517,19 @@ function llenarCampos(persona) {
 	txt_canton.value = persona.direccion.canton;
 	txt_distrito.value = persona.direccion.distrito;
 
-	crearSeparador
+	if (persona.metodo_pago) {
+		tarjetaActual.textContent = persona.metodo_pago;
+	} else {
+		tarjetaActual.textContent = 'Ninguna tarjeta agregada';
+	}
 
 	txt_provincia.appendChild(crearSeparador());
 	txt_canton.appendChild(crearSeparador());
 	txt_distrito.appendChild(crearSeparador());
 
-	txt_provincia.appendChild(crearOpcionDireccion(persona.direccion.provincia));
+	txt_provincia.appendChild(
+		crearOpcionDireccion(persona.direccion.provincia)
+	);
 	txt_canton.appendChild(crearOpcionDireccion(persona.direccion.canton));
 	txt_distrito.appendChild(crearOpcionDireccion(persona.direccion.distrito));
 }
