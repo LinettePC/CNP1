@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+mongoose.set('strictQuery', false);
 const cors = require("cors");
 
 const admins = require("./routes/admins");
