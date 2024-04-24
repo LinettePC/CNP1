@@ -150,6 +150,7 @@ function principal() {
 		!validarTelefono() //&&
 		//!validarContrasenna()
 	) {
+		limpiarCampos();
 		registro_persona(
 			idCliente, 
 			nombre,
@@ -157,7 +158,7 @@ function principal() {
 			nomTramo,
 			correo,
 			telefono); 
-		limpiarCampos();
+		//limpiarCampos();
 	}
 }
 
