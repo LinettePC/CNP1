@@ -1,3 +1,5 @@
+// HECHO POR ISAAC
+
 //Referencias al DOM
 const txtNumeroTarjeta = document.getElementById('numTarjeta');
 const txtNombrePropietario = document.getElementById('nombrePropietario');

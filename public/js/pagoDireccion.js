@@ -6,6 +6,7 @@ const txt_email = document.getElementById('email');
 const txt_provincia = document.getElementById('provincia');
 const txt_canton = document.getElementById('canton');
 const txt_distrito = document.getElementById('distrito');
+const txt_direccion = document.getElementById('direccion');
 
 const formulario = document.getElementById('inputsDatos');
 
@@ -18,7 +19,11 @@ formulario.addEventListener('submit', function (event) {
 	principal();
 });
 
-function principal() {
+let usuarioActual = {};
+const cedula_usuario = '6-0482-0213';
+const rol = 'Cliente';
+
+async function principal() {
 	let error_campos_vacios = ValidarCamposVacios();
 	let error_nombre = ValidarNombre();
 	let error_apellidos = ValidarApellidos();
@@ -85,19 +90,46 @@ function principal() {
 			confirmButtonText: 'Entendido!',
 		});
 	} else {
+		let dataJSON = {
+			direccion: {
+				nombre: txt_nombre.value,
+				apellidos: txt_apellidos.value,
+				correo: txt_email.value,
+				teléfono: txt_telefono.value,
+				provincia: txt_provincia.value,
+				canton: txt_canton.value,
+				distrito: txt_distrito.value,
+				direccionExacta: txt_direccion.value,
+			},
+		};
+
+		switch (rol) {
+			case 'Cliente':
+				await actualizarDatosCliente(cedula_usuario, dataJSON);
+				break;
+			case 'Vendedor':
+				await actualizarDatosVendedor(cedula_usuario, dataJSON);
+				break;
+			case 'Admin':
+				await actualizarDatosAdmin(cedula_usuario, dataJSON);
+				break;
+			default:
+				break;
+		}
+
 		Swal.fire({
-			title: 'Información Correcta',
-			text: 'Su solicitud de compra se envió correctamente',
+			title: 'Información de dirección actualizada',
+			text: 'Gracias por usar nuestros servicios',
 			icon: 'success',
-			timer: 3000,
+			timer: 2500,
 			timerProgressBar: true,
 			showConfirmButton: false,
+			allowOutsideClick: false,
 		});
 
-		setTimeout(function () {
-			formulario.submit();
-			window.location.href = "marketplace.html";
-		}, 3000);
+		setTimeout(() => {
+			window.location.reload();
+		}, 2500);
 	}
 }
 
@@ -466,3 +498,33 @@ function cargarDistritos() {
 		distritoSelect.appendChild(option);
 	});
 }
+
+
+function llenarCampos(persona) {
+	// imgUsuario.src = persona.img;
+	nombreUsuario.innerText = persona.nombre;
+	apellidoUsuario.innerText = persona.primerApellido;
+
+	nombre.value = persona.nombre;
+	primerApellido.value = persona.primerApellido;
+	correo.value = persona.correo;
+	telefono.value = persona.telefono;
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+	if (rol === 'Cliente') {
+		headerComprador.style.display = 'flex';
+
+		usuarioActual = await conseguirCompradorCedula(cedula_usuario);
+	} else {
+		headerVendedor.style.display = 'flex';
+
+		if (rol === 'Vendedor') {
+			usuarioActual = await conseguirVendedorCedula(cedula_usuario);
+		} else {
+			usuarioActual = await conseguirAdminCedula(cedula_usuario);
+		}
+	}
+
+	llenarCampos(usuarioActual);
+});
