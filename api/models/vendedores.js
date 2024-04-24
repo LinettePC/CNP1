@@ -4,7 +4,7 @@ const schema_vendedor = new mongoose.Schema({
 	cedula: { type: String, required: true, unique: true },
 	nombre: { type: String, required: true, unique: false },
 	primerApellido: { type: String, required: false, unique: false },
-	nombreTramo: { type: String, required: false, unique: false },
+	nomTramo: { type: String, required: false, unique: false },
 	correo: { type: String, required: false, unique: false },
 	telefono: { type: String, required: false, unique: false },
 	//permisos pasar a type:boolean

@@ -8,6 +8,8 @@ const inputs = {
 	nomTramo: document.getElementById('nomTramo'),
 	correo: document.getElementById('correo'),
 	telefono: document.getElementById('telefono'),
+	permiso: document.getElementById('btnoriginal1'),
+	foto: document.getElementById('btnoriginal2')
 	//contrasenna: document.getElementById('contrasenna'),
 };
 const botonEnviar = document.getElementById('botonEnviar');
@@ -161,6 +163,9 @@ function principal() {
 		nomTramo = document.getElementById('nomTramo');
 		correo = document.getElementById('correo');
 		telefono = document.getElementById('telefono');
+		permiso = document.getElementById('btnoriginal1');
+		foto = document.getElementById('btnoriginal2');
+		//registroVendedor(idCliente.value,nombre.value,primerApellido.value,nomTramo.value,correo.value,telefono.value,permiso.value,foto.value)
 		limpiarCampos();
 	}
 }

@@ -156,6 +156,7 @@
 						/>
 					</div>
 
+					<!-- INICIO codigo adjuntar foto -->
 					<div class="margen-bottom-xl">
 						<p class="margen-bottom">Fotografía (opcional)</p>
 						<!-- <input type="file" name="fotoCliente" placeholder="">  -->
@@ -163,20 +164,22 @@
 						<!-- Para poder cambiarle lo escrito al boton -->
 						<input
 							hidden
-							id="btnoriginal"
+							id="btnoriginalF"
 							class="form-control text-center col-md-6"
-							onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];"
+							onChange="document.getElementById('tagsmallF').innerText=document.getElementById('btnoriginalF').files[0]['name'];"
 							type="file"
 							value="Adjuntar imagen"
 						/>
 						<button
 							id="botonpersonal"
-							onClick="document.getElementById('btnoriginal').click();"
+							onClick="document.getElementById('btnoriginalF').click();"
 						>
 							Adjuntar Imagen
 						</button>
-						<small id="tagsmall">No hay archivos adjuntos</small>
+						<small id="tagsmallF">No hay archivos adjuntos</small>
 					</div>
+					<!-- FIN codigo adjuntar foto -->
+
 					<div class="margen-bottom-xl">
 						<label for="contrasenna" class="margen-bottom"
 							>Contraseña:</label
@@ -242,10 +245,9 @@
 		</main>
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="./js/services/servicioRegCliente.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<!-- <script src="js/services/servicio-registro.js"></script> -->
-
-		<script src="./js/services/servicioRegCliente.js"></script>
 		<script src="/public/js/registrocliente2.js"></script>
 	</body>
 </html>

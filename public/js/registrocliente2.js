@@ -6,6 +6,7 @@ const inputs = {
 	primerApellido: document.getElementById('primerApellido'),
 	correo: document.getElementById('correo'),
 	telefono: document.getElementById('telefono'),
+	foto: document.getElementById('btnoriginalF'),
 	contrasenna: document.getElementById('contrasenna'),
 	confirmContrasenna: document.getElementById('confirmContrasenna'),
 };
@@ -162,12 +163,12 @@ function principal() {
 		idCliente = document.getElementById('identificacion');
 		nombre = document.getElementById('nombre');
 		primerApellido = document.getElementById('primerApellido');
-		//segundoApellido = document.getElementById("segundoApellido")
 		correo = document.getElementById('correo');
 		telefono = document.getElementById('telefono');
+		foto = document.getElementById('btnoriginalF'),
 		contrasenna = document.getElementById('contrasenna');
 		boton = document.getElementById('botonEnviar');
-
+		//registroCliente(idCliente.value,nombre.value,primerApellido.value,correo.value,telefono.value,foto.value,contrasenna.value)
 		limpiarCampos();
 		//esta funcion no esta sirviendo, de donde salio????
 		//registro_persona(parametros); // LLENAR LOS PARAMS

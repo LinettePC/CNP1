@@ -1,4 +1,4 @@
-const registroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo, pCorreo, pTelefono, pPermisos,pFoto, pContrasenna) => {
+const registroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo, pCorreo, pTelefono, pPermisos, pFoto, pContrasenna) => {
 	await axios({
 		method: "post",
 		url: "http://localhost:3000/api/registrar-vendedor",
@@ -7,13 +7,13 @@ const registroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo,
 			cedula: pCedula,
             nombre: pNombre,
             primerApellido: pPrimerApellido,
-            nombreTramo: pNombreTramo,
+            nomTramo: pNombreTramo,
 			correo: pCorreo,
             telefono: pTelefono,
             permisos: pPermisos,
 			foto: pFoto,
 			contrasenna: pContrasenna,
-		},
+		}
 	})
 		.then((response) => {
 			if (response.data.resultado == false) {

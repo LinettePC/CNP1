@@ -119,9 +119,15 @@ router.post('/registrar-vendedor', (req, res) => {
 
     let nuevo_Vendedor = new Vendedor({
         cedula: body.cedula,
+		nombre: body.nombre,
+		primerApellido: body.primerApellido,
+		nomTramo: body.nomTramo,
         correo: body.correo,
-        nombre: body.nombre,
-        contrasenna: body.contrasenna,
+		telefono: body.telefono,
+		permisos: body.permisos,
+		foto: body.foto,
+		//contrasenna: body.contrasenna,
+
         fecha_de_registro: fechaFormateada, 
 		// Agrega la fecha de hoy con formato DD/MM/AAAA
     });

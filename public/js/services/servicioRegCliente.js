@@ -1,4 +1,4 @@
-const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTelefono, /*pFoto*/pContrasenna) => {
+const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTelefono, pFoto, pContrasenna) => {
 	await axios({
 		method: "post",
 		url: "http://localhost:3000/api/registrar",
@@ -9,11 +9,10 @@ const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTele
             primerApellido: pPrimerApellido,
 			correo: pCorreo,
             telefono: pTelefono,
-			//foto: pFoto,
+			foto: pFoto,
 			contrasenna: pContrasenna,
-		},
-	})
-		.then((response) => {
+		}
+	}).then((response) => {
 			if (response.data.resultado == false) {
 				switch (response.data.error.code) {
 					case 11000:
@@ -41,6 +40,11 @@ const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTele
 			console.log(error);
 		});
 };
+
+
+
+
+
 
 const listar_personas = async () => {
 	let lista_usuarios = [];

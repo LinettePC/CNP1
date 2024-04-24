@@ -144,27 +144,30 @@
 				</div>
 
 				<div class="margen-bottom-xl">
-					<p class="margen-bottom">Permisos</p>
+					<p class="margen-bottom">Permisos:</p>
 					<!-- <input type="file" name="fotoCliente" placeholder="">  -->
 					<!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
 					<!-- Para poder cambiarle lo escrito al boton -->
 					<input
 						hidden
-						id="btnoriginal"
+						id="btnoriginal1"
 						class="form-control text-center col-md-6"
-						onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];"
+						onChange="document.getElementById('tagsmall1').innerText=document.getElementById('btnoriginal1').files[0]['name'];"
 						type="file"
 						value="Adjuntar imagen"
 					/>
 					<button
 						id="botonpersonal"
-						onClick="document.getElementById('btnoriginal').click();"
+						onClick="document.getElementById('btnoriginal1').click();"
 					>
-						Adjuntar Imagen
+						Adjuntar PDF
 					</button>
-					<small id="tagsmall">No hay archivos adjuntos</small>
+					<small id="tagsmall1">No hay archivos adjuntos</small>
 				</div>
+				<!-- -------fin de boton adjuntar permisos-------------------------------------------- -->
 
+
+				<!-- inicio boton adjuntar imagen -->
 				<div class="margen-bottom-xl">
 					<p class="margen-bottom">Fotografía (opcional)</p>
 					<!-- <input type="file" name="fotoCliente" placeholder="">  -->
@@ -172,19 +175,27 @@
 					<!-- Para poder cambiarle lo escrito al boton -->
 					<input
 						hidden
-						id="btnoriginal"
+						id="btnoriginal2"
 						class="form-control text-center col-md-6"
-						onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];"
+						onChange="document.getElementById('tagsmall2').innerText=document.getElementById('btnoriginal2').files[0]['name'];"
 						type="file"
 						value="Adjuntar imagen"
 					/>
 					<button
 						id="botonpersonal"
-						onClick="document.getElementById('btnoriginal').click();"
+						onClick="document.getElementById('btnoriginal2').click();"
 					>
 						Adjuntar Imagen
 					</button>
-					<small id="tagsmall">No hay archivos adjuntos</small>
+					<small id="tagsmall2">No hay archivos adjuntos</small>
+
+					<!-- FIN boton adjuntar imagen -->
+
+					
+
+
+
+
 
 				<!-- </div>
 				<div class="margen-bottom-xl">
@@ -233,8 +244,9 @@
 		</section>
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="./js/services/servicioRegVendedor.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<script src="js/services/servicio-registro.js"></script>
+		<!-- <script src="js/services/servicio-registro.js"></script> -->
 		<script src="js/registroVendedor.js"></script>
 
 	</body>
