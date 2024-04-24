@@ -141,6 +141,7 @@ function limpiarCampos() {
 	Object.values(inputs).forEach((input) => (input.value = ''));
 }
 
+
 // Función principal de validación
 function principal() {
 	if (
@@ -152,10 +153,30 @@ function principal() {
 		!validarTelefono() &&
 		!validarContrasenna()
 	) {
-		registro_persona(parametros); // LLENAR LOS PARAMS
+		Swal.fire({
+			title: 'Datos correctos',
+			text: 'Tu Cuenta de Cliente ha sido Creada',
+			icon: 'success',
+		});
+
+		idCliente = document.getElementById('identificacion');
+		nombre = document.getElementById('nombre');
+		primerApellido = document.getElementById('primerApellido');
+		segundoApellido = document.getElementById("segundoApellido")
+		correo = document.getElementById('correo');
+		telefono = document.getElementById('telefono');
+		contrasenna = document.getElementById('contrasenna');
+		boton = document.getElementById('botonEnviar');
+
 		limpiarCampos();
+		//esta funcion no esta sirviendo, de donde salio????
+		//registro_persona(parametros); // LLENAR LOS PARAMS
+		
 	}
+
 }
+
+
 
 // Evento de clic en el botón de enviar
 botonEnviar.addEventListener('click', principal);
