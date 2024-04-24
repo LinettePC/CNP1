@@ -89,7 +89,7 @@ router.get('/buscar-vendedor-cedula', (req, res) => {
 				res.json({
 					resultado: true,
 					msj: 'Usuario encontrado:',
-					Cliente: usuarioBuscado,
+					Cliente: usuarioBuscado[0],
 				});
 			}
 		}

@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 	} else {
 		for (let i = 0; i < listaProductosParaComprar.length; i++) {
 			let idProducto = listaProductosParaComprar[i].id;
-			productoDB = await obtenerProductoPorId(idProducto);
+			productoDB = await conseguirProductoID(idProducto);
 			console.log('producto encontrado', productoDB)
 			cantidadComprar = listaProductosParaComprar[i].cantidad;
 

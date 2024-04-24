@@ -79,7 +79,7 @@ router.get('/buscar-cliente-cedula', (req, res) => {
 				res.json({
 					resultado: true,
 					msj: 'Usuario encontrado:',
-					Cliente: ClienteBuscada,
+					Cliente: ClienteBuscada[0],
 				});
 			}
 		}
@@ -105,10 +105,13 @@ router.post('/registrar', (req, res) => {
 		primerApellido: body.primerApellido,
 		correo: body.correo,
 		telefono: body.telefono,
-		foto: body.foto,
 		contrasenna: body.contrasenna,
 		fecha_de_registro: fechaFormateada,
 	});
+
+	if (body.foto) {
+		nueva_Cliente.foto = body.foto;
+	}
 
 	nueva_Cliente.save((error, ClienteDB) => {
 		if (error) {
@@ -188,6 +191,30 @@ router.put('/modificar', (req, res) => {
 				res.status(500).json({
 					resultado: false,
 					msj: 'No se pudo actualizar la Cliente',
+					error,
+				});
+			} else {
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actulización exitosa',
+					info,
+				});
+			}
+		}
+	);
+});
+
+router.put('/actualizar-datos-cliente', (req, res) => {
+	let body = req.body;
+
+	Cliente.updateOne(
+		{ cedula: body.cedula },
+		{ $set: req.body.nueva_info },
+		function (error, info) {
+			if (error) {
+				res.status(500).json({
+					resultado: false,
+					msj: 'No se pudo actualizar el cliente',
 					error,
 				});
 			} else {

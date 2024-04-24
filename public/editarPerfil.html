@@ -17,7 +17,7 @@
 	</head>
 
 	<body>
-		<header class="navegacion">
+		<header class="navegacion" id="headerComprador">
 			<div class="logo">
 				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
 			</div>
@@ -26,6 +26,63 @@
 					<ul>
 						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
 						<li><a href="marketplace.html">Tienda</a></li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/contactenos/index.aspx"
+								>Contacto</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
+								>Nosotros</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="carrito">
+				<div id="cuenta">
+					<a
+						href="/public/miPerfil.html"
+						id="textoCuenta"
+						style="border-right: 3px solid black"
+					>
+						Mi Cuenta
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							fill="currentColor"
+							class="bi bi-person-fill"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+							/></svg
+					></a>
+				</div>
+				<div>
+					<a href="checkout.html" class="carrito-container"
+						><img
+							src="img/carritoCompras.png"
+							alt="logoCarrito"
+							id="logoCarrito"
+						/><span id="cantidadItemsCarrito">1</span></a
+					>
+				</div>
+			</div>
+		</header>
+
+		<header class="navegacion" id="headerVendedor">
+			<div class="logo">
+				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+			</div>
+			<div class="barra-navegacion">
+				<nav class="botones-navegacion">
+					<ul>
+						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
+						<li><a href="portalVendedor.html">Inicio</a></li>
 						<li>
 							<a
 								href="https://www.cnp.go.cr/contactenos/index.aspx"
@@ -57,15 +114,6 @@
 								d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
 							/></svg
 					></a>
-				</div>
-				<div>
-					<a href="checkout.html" class="carrito-container"
-						><img
-							src="img/carritoCompras.png"
-							alt="logoCarrito"
-							id="logoCarrito"
-						/><span id="cantidadItemsCarrito">1</span></a
-					>
 				</div>
 			</div>
 		</header>
@@ -101,8 +149,15 @@
 			<div class="container">
 				<div class="perfil" style="width: 450px">
 					<div style="text-align: center; margin-bottom: 30px">
-						<img src="img/avatar.png" alt="Foto de perfil" />
-						<h1 class="titulo-cuenta">Nombre Apellido</h1>
+						<img
+							src="img/avatar.png"
+							alt="Foto de perfil"
+							id="imgUsuario"
+						/>
+						<h1 class="titulo-cuenta">
+							<span id="nombreUsuario">Nombre</span>
+							<span id="apellidoUsuario">Apellido</span>
+						</h1>
 					</div>
 
 					<form id="formularioCuentaCliente">
@@ -211,41 +266,81 @@
 				<div class="perfil">
 					<h1 class="titulo-cuenta">Cambiar contraseña</h1>
 
-					<div class="campo-container">
-						<label for="contrasenna" class="margen-bottom"
-							>Nueva Contraseña:</label
-						>
-						<input
-							type="text"
-							id="contrasenna"
-							name="contrasenna"
-							required
-						/>
+					<div id="containerIngreseContra">
+						<div class="campo-container">
+							<label for="contrasenna" class="margen-bottom"
+								>Ingrese su contraseña para verificar su
+								identidad:</label
+							>
+							<p></p>
+							<input
+								type="password"
+								id="contrasenna"
+								name="contrasenna"
+								required
+							/>
+						</div>
+
+						<div class="container-boton">
+							<button
+								type="button"
+								class="boton-enviar"
+								style="margin-left: auto; margin-right: auto;"
+								id="btnIngresarContra"
+							>
+								Verificar contraseña
+							</button>
+						</div>
 					</div>
 
-					<div class="campo-container">
-						<label for="contrasenna" class="margen-bottom"
-							>Repita la nueva contraseña:</label
-						>
-						<input
-							type="text"
-							id="contrasenna"
-							name="contrasenna"
-							required
-						/>
-					</div>
-					<div class="container-boton">
-						<button
-							type="button"
-							class="boton-enviar"
-							href="annadirMetodoPago.html"
-							style="margin-left: auto"
-						>
-							Modificar contraseña
-						</button>
+					<div id="containerNuevaContra">
+						<div style="color: green;">
+							Contraseña verificada exitosamente.
+						</div>
+						<br />
+						<div class="campo-container">
+							<label for="nuevaContrasenna" class="margen-bottom"
+								>Nueva Contraseña:</label
+							>
+							<input
+								type="password"
+								id="nuevaContrasenna"
+								name="nuevaContrasenna"
+								required
+							/>
+						</div>
+
+						<div class="campo-container">
+							<label for="repitaContrasenna" class="margen-bottom"
+								>Repita la nueva contraseña:</label
+							>
+							<input
+								type="password"
+								id="repitaContrasenna"
+								name="contrasenna"
+								required
+							/>
+						</div>
+
+						<div class="container-boton">
+							<button
+								type="button"
+								class="boton-enviar"
+								style="margin-left: auto"
+								id="btnCambiarContra"
+								onclick="verificarNuevaContrasenna()"
+							>
+								Modificar contraseña
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="js/services/servicio-personas.js"></script>
+		<script src="js/editarPerfil.js"></script>
 	</body>
 </html>

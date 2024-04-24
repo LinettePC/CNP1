@@ -29,7 +29,6 @@
 	padding-right: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border-right: 3px solid black;
 	margin-right: 10px;
 }
 
@@ -253,7 +252,6 @@ input {
 	align-items: center;
 }
 
-
 .arrow-container span {
 	margin-left: 10px;
 	font-size: 20px;
@@ -265,8 +263,29 @@ input {
 
 input {
 	width: 100%;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+	padding: 10px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-family: 'Manrope', sans-serif;
+}
+
+#headerComprador {
+	display: none;
+}
+
+#headerVendedor {
+	display: none;
+}
+
+.error {
+	border: 2px solid red !important;
+}
+
+.incompleto {
+	border: 2px solid orange !important;
+}
+
+#containerNuevaContra {
+	display: none;
 }

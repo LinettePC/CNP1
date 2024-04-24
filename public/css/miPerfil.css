@@ -29,7 +29,6 @@
 	padding-right: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border-right: 3px solid black;
 	margin-right: 10px;
 }
 
@@ -224,3 +223,10 @@ body {
 	background-color: #1f7544;
 }
 
+#headerComprador {
+ display: none;
+}
+
+#headerVendedor {
+	display: none;
+}
