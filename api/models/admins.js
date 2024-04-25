@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const schema_admin = new mongoose.Schema({
 	cedula: { type: String, required: true, unique: true },
-	correo: { type: String, required: true, unique: true },
-	nombre: { type: String, required: true, unique: false },
+	correo: { type: String, required: false, unique: false },
+	nombre: { type: String, required: false, unique: false },
 
 	// Admin
 	rol: { type: String, default: 'Admin'},

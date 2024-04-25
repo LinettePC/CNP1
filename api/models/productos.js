@@ -23,6 +23,7 @@ const schema_producto = new mongoose.Schema({
 			unique: false,
 		},
 	],
+	impuesto: { type: String, required: false },
 });
 
 // Create models for both schemas

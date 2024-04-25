@@ -6,6 +6,9 @@ const txt_email = document.getElementById('email');
 const txt_provincia = document.getElementById('provincia');
 const txt_canton = document.getElementById('canton');
 const txt_distrito = document.getElementById('distrito');
+const txt_direccion = document.getElementById('direccion');
+
+const txt_tarjetaActual = document.getElementById('tarjetaActual');
 
 const formulario = document.getElementById('inputsDatos');
 
@@ -18,7 +21,12 @@ formulario.addEventListener('submit', function (event) {
 	principal();
 });
 
-function principal() {
+// let usuarioActual = {};
+// const rol = 'Cliente';
+
+const cedula_usuario = '6-0482-0213';
+
+async function principal() {
 	let error_campos_vacios = ValidarCamposVacios();
 	let error_nombre = ValidarNombre();
 	let error_apellidos = ValidarApellidos();
@@ -85,19 +93,34 @@ function principal() {
 			confirmButtonText: 'Entendido!',
 		});
 	} else {
+		let dataJSON = {
+			direccion: {
+				nombre: txt_nombre.value,
+				apellidos: txt_apellidos.value,
+				correo: txt_email.value,
+				telefono: txt_telefono.value,
+				provincia: txt_provincia.value,
+				canton: txt_canton.value,
+				distrito: txt_distrito.value,
+				direccionExacta: txt_direccion.value,
+			},
+		};
+
+		await actualizarDatosCliente(cedula_usuario, dataJSON);
+
 		Swal.fire({
-			title: 'Información Correcta',
-			text: 'Su solicitud de compra se envió correctamente',
+			title: 'Información de dirección actualizada',
+			text: 'Gracias por usar nuestros servicios',
 			icon: 'success',
-			timer: 3000,
+			timer: 2500,
 			timerProgressBar: true,
 			showConfirmButton: false,
+			allowOutsideClick: false,
 		});
 
-		setTimeout(function () {
-			formulario.submit();
-			window.location.href = "marketplace.html";
-		}, 3000);
+		setTimeout(() => {
+			window.location.reload();
+		}, 2500);
 	}
 }
 
@@ -466,3 +489,53 @@ function cargarDistritos() {
 		distritoSelect.appendChild(option);
 	});
 }
+
+function crearOpcionDireccion(value) {
+	var optionElement = document.createElement('option');
+	optionElement.value = value;
+	optionElement.textContent = value;
+	return optionElement;
+}
+
+function crearSeparador() {
+	var optionElement = document.createElement('option');
+	optionElement.value = '';
+	optionElement.textContent =
+		'---------- Seleccionada previamente ----------';
+	optionElement.disabled = true;
+	return optionElement;
+}
+
+function llenarCampos(persona) {
+	txt_nombre.value = persona.direccion.nombre;
+	txt_apellidos.value = persona.direccion.apellidos;
+	txt_telefono.value = persona.direccion.telefono;
+	txt_email.value = persona.direccion.correo;
+	txt_direccion.value = persona.direccion.direccionExacta;
+
+	txt_provincia.value = persona.direccion.provincia;
+	txt_canton.value = persona.direccion.canton;
+	txt_distrito.value = persona.direccion.distrito;
+
+	if (persona.metodo_pago) {
+		tarjetaActual.textContent = persona.metodo_pago;
+	} else {
+		tarjetaActual.textContent = 'Ninguna tarjeta agregada';
+	}
+
+	txt_provincia.appendChild(crearSeparador());
+	txt_canton.appendChild(crearSeparador());
+	txt_distrito.appendChild(crearSeparador());
+
+	txt_provincia.appendChild(
+		crearOpcionDireccion(persona.direccion.provincia)
+	);
+	txt_canton.appendChild(crearOpcionDireccion(persona.direccion.canton));
+	txt_distrito.appendChild(crearOpcionDireccion(persona.direccion.distrito));
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+	usuarioActual = await conseguirCompradorCedula(cedula_usuario);
+
+	llenarCampos(usuarioActual);
+});
