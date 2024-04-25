@@ -7,8 +7,7 @@ const registro_venta = async (
 	param_cantidad_comprada,
 	param_nombre_comprador,
 	param_nombre_vendedor,
-	param_tramo,
-	param_fecha_de_venta
+	param_tramo
 ) => {
 	await axios({
 		method: 'POST',
@@ -20,11 +19,10 @@ const registro_venta = async (
 			nombre_producto: param_nombre_producto,
 			categoria_producto: param_categoria_producto,
 			precio_venta: param_precio_venta,
-			param_cantidad_comprada,
+			cantidad_comprada: param_cantidad_comprada,
 			nombre_comprador: param_nombre_comprador,
 			nombre_vendedor: param_nombre_vendedor,
 			tramo: param_tramo,
-			fecha_de_venta: param_fecha_de_venta,
 		},
 	})
 		.then((response) => {
@@ -68,6 +66,27 @@ const listarVentasUsuario = async (cedulaEnviada) => {
 				console.log(response.data.error);
 			} else {
 				lista_ventas = response.data.listaVentas;
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+
+	return lista_ventas;
+};
+
+const listarVentas = async () => {
+	let lista_ventas = [];
+	await axios({
+		method: 'GET',
+		url: 'http://localhost:3000/api/listar-ventas',
+		responseType: 'json',
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				lista_ventas = response.data.lista;
 			}
 		})
 		.catch((error) => {

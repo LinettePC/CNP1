@@ -327,3 +327,7 @@ label[for='fecha-especifica'] {
 .btnRechazar:hover {
 	background-color: rgb(192, 0, 0) !important;
 }
+
+#containerGananciasReporte {
+	display: none;
+}
