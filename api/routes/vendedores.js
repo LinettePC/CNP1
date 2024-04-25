@@ -205,6 +205,30 @@ router.post('/agregar-productos-vendedor', (req, res) => {
 	}
 });
 
+router.put('/actualizar-datos-vendedor', (req, res) => {
+	let body = req.body;
+
+	Vendedor.updateOne(
+		{ cedula: body.cedula },
+		{ $set: req.body.nueva_info },
+		function (error, info) {
+			if (error) {
+				res.status(500).json({
+					resultado: false,
+					msj: 'No se pudo actualizar el cliente',
+					error,
+				});
+			} else {
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actulización exitosa',
+					info,
+				});
+			}
+		}
+	);
+});
+
 // function (error, info) {
 //     if (error) {
 //         res.status(500).json({
@@ -247,21 +271,21 @@ router.put('/modificar', (req, res) => {
 	);
 });
 
-//http://localhost:3000/api/eliminar
+//http://localhost:3000/api/eliminar-vendedor
 //DELETE --> eliminar registros
-router.delete('/eliminar', (req, res) => {
+router.delete('/eliminar-vendedor', (req, res) => {
 	let body = req.body;
-	Cliente.deleteOne({ _id: body._id }, function (error, info) {
+	Vendedor.deleteOne({ _id: body._id }, function (error, info) {
 		if (error) {
 			res.status(500).json({
 				resultado: false,
-				msj: 'No se pudo eliminar la Cliente',
+				msj: 'No se pudo eliminar el vendedor',
 				error,
 			});
 		} else {
 			res.status(200).json({
 				resultado: true,
-				msj: 'Se eliminó el Cliente de forma exitosa',
+				msj: 'Se eliminó el vendedor de forma exitosa',
 				info,
 			});
 		}

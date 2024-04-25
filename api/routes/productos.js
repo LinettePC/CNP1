@@ -120,8 +120,7 @@ router.get('/listar-productos-default', (req, res) => {
 			} else {
 				res.json({
 					resultado: true,
-					msj:
-						'Productos default encontrados:',
+					msj: 'Productos default encontrados:',
 					lista: ProductosBuscados,
 				});
 			}
@@ -256,6 +255,31 @@ router.put('/actualizar-producto', (req, res) => {
 	let updates = req.body.updates;
 
 	Producto.updateOne(
+		{ _id: mongoID },
+		{ $set: updates },
+		function (error, info_producto) {
+			if (error) {
+				res.status(500).json({
+					resultado: false,
+					msj: 'No se pudo actualizar el producto',
+					error,
+				});
+			} else {
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actulización exitosa',
+					info_producto,
+				});
+			}
+		}
+	);
+});
+
+router.put('/actualizar-producto-default', (req, res) => {
+	let mongoID = req.body._id;
+	let updates = req.body.updates;
+
+	ProductoDefault.updateOne(
 		{ _id: mongoID },
 		{ $set: updates },
 		function (error, info_producto) {

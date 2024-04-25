@@ -331,3 +331,23 @@ label[for='fecha-especifica'] {
 #containerGananciasReporte {
 	display: none;
 }
+
+.boton-editar {
+	padding: 10px;
+	font-size: 15px;
+	background-color: rgb(0, 140, 255);
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.boton-eliminar {
+	padding: 10px;
+	font-size: 15px;
+	background-color: rgb(194, 0, 0);
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}

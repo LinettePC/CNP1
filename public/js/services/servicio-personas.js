@@ -93,6 +93,28 @@ const actualizarDatosCliente = async (p_cedula, p_datos_nuevos) => {
 		});
 };
 
+const actualizarDatosVendedor = async (p_cedula, p_datos_nuevos) => {
+	await axios({
+		method: 'PUT',
+		url: 'http://localhost:3000/api/actualizar-datos-vendedor',
+		responseType: 'json',
+		data: {
+			cedula: p_cedula,
+			nueva_info: p_datos_nuevos,
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				console.log(response.data.info);
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
+
 
 const listarClientes = async () => {
 	let lista_personas = [];
@@ -134,4 +156,47 @@ const listarVendedores = async () => {
 		});
 
 	return lista_personas;
+};
+
+
+const eliminarCliente = async (id_cliente) => {
+	await axios({
+		method: 'DELETE',
+		url: 'http://localhost:3000/api/eliminar-cliente',
+		responseType: 'json',
+		data: {
+			_id: id_cliente,
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				console.log(response.data.msj);
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
+
+const eliminarVendedor = async (id_cliente) => {
+	await axios({
+		method: 'DELETE',
+		url: 'http://localhost:3000/api/eliminar-vendedor',
+		responseType: 'json',
+		data: {
+			_id: id_cliente,
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				console.log(response.data.msj);
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 };

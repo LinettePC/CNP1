@@ -45,6 +45,31 @@ const actualizarProducto = async (id_producto, actualizaciones_producto) => {
 		});
 };
 
+const actualizarProductoDefault = async (
+	id_producto,
+	actualizaciones_producto
+) => {
+	await axios({
+		method: 'PUT',
+		url: 'http://localhost:3000/api/actualizar-producto-default',
+		responseType: 'json',
+		data: {
+			_id: id_producto,
+			updates: actualizaciones_producto,
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				console.log(response.data.msj);
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
+
 const eliminarProducto = async (id_producto) => {
 	await axios({
 		method: 'DELETE',

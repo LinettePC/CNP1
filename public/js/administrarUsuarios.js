@@ -50,17 +50,18 @@ function crearFila(persona) {
 
 	if (persona.rol === 'Cliente') {
 		row.innerHTML = `
-	  <td>${persona.fecha_de_registro}</td>
-	  <td>${persona.rol}</td>
-	  <td>${persona.cedula}</td>
-	  <td>${persona.nombre}</td>
-	  <td>${persona.primerApellido}</td>
-	  <td>${persona.telefono}</td>
-	  <td>Es cliente</td>
-      <td class="botonesAdmin">
-            <button type="button" onclick="window.location.href = 'editarUsuario.html?id=${persona._id}'">Editar</button>
-            <button type="button" onclick="eliminarUsuario(${persona._id})">Eliminar</button>
-        </td>
+	  	<td>${persona.fecha_de_registro}</td>
+		<td>${persona.rol}</td>
+		<td>${persona.cedula}</td>
+		<td>${persona.correo}</td>
+		<td>${persona.nombre}</td>
+		<td>${persona.primerApellido}</td>
+		<td>${persona.telefono}</td>
+		<td>Es cliente</td>
+		<td class="botonesAdmin">
+				<button class="boton-editar" type="button" onclick="window.location.href = 'editarUsuario.html?tipo=${persona.rol}&cedula=${persona.cedula}'">Editar</button>
+				<button class="boton-eliminar" type="button" onclick="eliminarUsuario('${persona._id}', '${persona.rol}', '${persona.cedula}')">Eliminar</button>
+        	</td>
 	`;
 	} else {
 		if (persona.tienePermisos) {
@@ -68,28 +69,30 @@ function crearFila(persona) {
             <td>${persona.fecha_de_registro}</td>
             <td>${persona.rol}</td>
             <td>${persona.cedula}</td>
+            <td>${persona.correo}</td>
             <td>${persona.nombre}</td>
             <td>${persona.primerApellido}</td>
             <td>${persona.telefono}</td>
             <td>Sí</td>
             <td class="botonesAdmin">
-                <button type="button" onclick="window.location.href = 'editarUsuario.html?id=${persona._id}'">Editar</button>
-                <button type="button" onclick="eliminarUsuario(${persona._id})">Eliminar</button>
-            </td>
+				<button class="boton-editar" type="button" onclick="window.location.href = 'editarUsuario.html?tipo=${persona.rol}&cedula=${persona.cedula}'">Editar</button>
+				<button class="boton-eliminar" type="button" onclick="eliminarUsuario('${persona._id}', '${persona.rol}', '${persona.cedula}')">Eliminar</button>
+        	</td>
             `;
 		} else {
 			row.innerHTML = `
             <td>${persona.fecha_de_registro}</td>
             <td>${persona.rol}</td>
             <td>${persona.cedula}</td>
+            <td>${persona.correo}</td>
             <td>${persona.nombre}</td>
             <td>${persona.primerApellido}</td>
             <td>${persona.telefono}</td>
             <td>No</td>
             <td class="botonesAdmin">
-                <button type="button" onclick="window.location.href = 'editarUsuario.html?id=${persona._id}'">Editar</button>
-                <button type="button" onclick="eliminarUsuario(${persona._id})">Eliminar</button>
-            </td>
+				<button class="boton-editar" type="button" onclick="window.location.href = 'editarUsuario.html?tipo=${persona.rol}&cedula=${persona.cedula}'">Editar</button>
+				<button class="boton-eliminar" type="button" onclick="eliminarUsuario('${persona._id}', '${persona.rol}', '${persona.cedula}')">Eliminar</button>
+        	</td>
             `;
 		}
 	}
@@ -97,7 +100,40 @@ function crearFila(persona) {
 	return row;
 }
 
-async function eliminarUsuario(id_mongo) {}
+async function eliminarUsuario(id_mongo, tipo_usuario, cedula_usuario) {
+	Swal.fire({
+		title: `¿Seguro que quieres eliminar el ${tipo_usuario}: '${cedula_usuario}'? `,
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#81b12a',
+		cancelButtonColor: 'rgb(198, 0, 0)',
+		confirmButtonText: 'Sí',
+		cancelButtonText: 'No',
+	}).then(async (result) => {
+		if (result.isConfirmed) {
+			// If "Sí" is clicked, proceed with deleting the product
+			if (tipo_usuario === 'Cliente') {
+				await eliminarCliente(id_mongo);
+			} else {
+				await eliminarVendedor(id_mongo);
+			}
+
+			Swal.fire({
+				title: 'Se eliminó el usuario',
+				text: 'Gracias por usar nuestros servicios',
+				icon: 'success',
+				timer: 2500,
+				timerProgressBar: true,
+				showConfirmButton: false,
+				allowOutsideClick: false,
+			});
+
+			setTimeout(() => {
+				window.location.reload();
+			}, 2500);
+		}
+	});
+}
 
 function fechaEntreRango(fecha) {
 	// Agarra la fecha como AAAA-MM // Ejemplo: 2024-04. Compara la fecha con las fechas de los rangos
@@ -245,8 +281,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 	if (!lista_usuarios) {
 		msjNoUsuarios.style.display = 'block';
 	} else {
-        llenarTablaConFiltros();
-    }
+		llenarTablaConFiltros();
+	}
 });
 
 //  EJEMPLO DE UN USUARIO PARA SACARLE INFO

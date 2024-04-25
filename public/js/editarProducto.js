@@ -109,7 +109,13 @@ document.querySelector('form').addEventListener('submit', function (event) {
 	// Check for empty fields and add the "error" class
 	for (const field in fieldsToValidate) {
 		const value = fieldsToValidate[field];
+		let esVendedor = rol === 'Vendedor';
 
+		if ((!esVendedor) && (field === 'precio' || field === 'inventario')) {
+			continue;
+		}
+	
+		// Perform validation for other fields
 		if (!value) {
 			document.getElementById(field).classList.add('error');
 		} else {
@@ -251,7 +257,6 @@ function llenarCategorias(elementoSelect, items) {
 }
 
 let id_producto = conseguirParamPorNombre('id');
-
 let productoDB = {};
 let cedula_usuario = '';
 let rol = 'Admin';
@@ -284,7 +289,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 			window.location.href = 'catalogoAdmin.html';
 		};
 
-		flechaDevolver.querySelector('span').textContent = 'Volver a "Productos disponibles en el sitio"';
+		flechaDevolver.querySelector('span').textContent =
+			'Volver a "Productos disponibles en el sitio"';
 	}
 
 	if (!productoDB) {
