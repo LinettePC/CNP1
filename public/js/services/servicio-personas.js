@@ -92,3 +92,46 @@ const actualizarDatosCliente = async (p_cedula, p_datos_nuevos) => {
 			console.log(error);
 		});
 };
+
+
+const listarClientes = async () => {
+	let lista_personas = [];
+	await axios({
+		method: 'GET',
+		url: 'http://localhost:3000/api/listar-clientes',
+		responseType: 'json',
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				lista_personas = response.data.lista;
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+
+	return lista_personas;
+};
+
+const listarVendedores = async () => {
+	let lista_personas = [];
+	await axios({
+		method: 'GET',
+		url: 'http://localhost:3000/api/listar-vendedores',
+		responseType: 'json',
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				lista_personas = response.data.lista;
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+
+	return lista_personas;
+};

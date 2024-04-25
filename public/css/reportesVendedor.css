@@ -197,6 +197,11 @@ input[type="radio"]:checked {
 	margin-right: 20px;
 }
 
+.container-periodo {
+	width: 50%;
+	margin-left: auto;
+}
+
 .flex-box:last-child {
 	margin-right: 0; /* Remove margin from the last box */
 }
