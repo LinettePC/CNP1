@@ -113,21 +113,20 @@ function conseguirFechaFormateada() {
 // http://localhost:3000/api/registrar-vendedor
 // POST --> crear nuevos registros
 router.post('/registrar-vendedor', (req, res) => {
-    let body = req.body;
 
-	let fechaFormateada = conseguirFechaFormateada();
+	const {cedula, nombre, primerApellido, nomTramo, correo, telefono, permisos, foto} = req.body;
+	const fechaFormateada = conseguirFechaFormateada();
 
     let nuevo_Vendedor = new Vendedor({
-        cedula: body.cedula,
-		nombre: body.nombre,
-		primerApellido: body.primerApellido,
-		nomTramo: body.nomTramo,
-        correo: body.correo,
-		telefono: body.telefono,
-		permisos: body.permisos,
-		foto: body.foto,
-		//contrasenna: body.contrasenna,
-
+        cedula,
+		nombre,
+		primerApellido,
+		nomTramo,
+        correo,
+		telefono,
+		permisos,
+		foto,
+		
         fecha_de_registro: fechaFormateada, 
 		// Agrega la fecha de hoy con formato DD/MM/AAAA
     });
