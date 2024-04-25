@@ -1,16 +1,14 @@
-const registro_persona = async (param_cedula, param_nombre, param_apellido, param_nomTramo, param_correo) => {
+const registro_persona = async (param_cedula, param_nombre, param_correo) => {
 	await axios({
 		method: 'POST',
 		url: 'http://localhost:3000/api/registrar',
 		responseType: 'json',
 		data: {
 			cedula: param_cedula,
-			nombre: param_nombre,
-			primerApellido: param_apellido,
-			nomTramo: param_nomTramo,
-			//foto: param_foto,
 			correo: param_correo,
-			telefono: param_tel,
+			nombre: param_nombre,
+			foto: param_foto,
+			nomTramo: param_tramo,
 			//contrasenna: param_contrasenna,
 		},
 	})
