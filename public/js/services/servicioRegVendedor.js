@@ -20,24 +20,24 @@ const registroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo,
 				switch (response.data.error.code) {
 					case 11000:
 						Swal.fire({
-							title: 'No se completó el registro',
-							text: 'La persona ya existe',
+							title: 'No se completó el envío del formulario',
+							text: 'El vendedor ya existe',
 							icon: 'error',
 						});
 						break;
-					default:
-						break;
+					// default:
+						// break;
 				}
 			} else {
 				Swal.fire({
-					title: 'Registro completado',
-					text: 'Tu cuenta de cliente ha sido creada',
+					title: 'Formulario enviado',
+					text: 'Recibirás un correo cuando tu solicitud sea revisada',
 					icon: 'success',
 				});
 			}
 		})
 		.then(() => {
-			window.location.href = 'marketplace.html';
+			window.location.href = 'dosLandingPage.html';
 		})
 		.catch((error) => {
 			console.log(error);
