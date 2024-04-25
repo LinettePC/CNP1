@@ -310,6 +310,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 		cantVentas = lista_ventas.length;
 		llenarSelects();
 
+		llenarTablaConFiltros();
+
 		let totalGanancias = 0;
 		for (let i = 0; i < lista_ventas.length; i++) {
 			let gananciaAdmin = lista_ventas[i].precio_venta * 0.1;

@@ -269,11 +269,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	if (lista_ventas) {
 		cantVentas = lista_ventas.length;
+		llenarSelects();
+		llenarTablaConFiltros();
 	} else {
 		msjNoVentas.style.display = 'block';
 	}
-
-	llenarSelects();
 });
 
 // EJEMPLO DE UNA VENTA PARA SACARLE INFO
