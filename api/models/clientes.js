@@ -3,12 +3,10 @@ const mongoose = require('mongoose');
 const schema_cliente = new mongoose.Schema({
 	cedula: { type: String, required: true, unique: true },
 	nombre: { type: String, required: true, unique: false },
-	primerApellido: { type: String, required: false, unique: false }, 
-	
-	correo: { type: String, required: false, unique: false },
-	
-	correo: { type: String, required: false, unique: false },
+	primerApellido: { type: String, required: false, unique: false },
 
+	correo: { type: String, required: false, unique: false },
+	
 	telefono: { type: String, required: false, unique: false },
 	foto: { type: String, required: false, unique: false },
 	contrasenna: { type: String, required: false, unique: false },

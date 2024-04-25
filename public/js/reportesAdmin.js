@@ -148,6 +148,7 @@ function fechaMayorQueDesde(fecha) {
 }
 
 function llenarTablaConFiltros() {
+	let selectedVendedor = selectVendedor.value;
 	let selectedComprador = selectComprador.value;
 	let selectedCategoria = selectCategoria.value;
 	let selectedProducto = selectProducto.value;
@@ -172,6 +173,12 @@ function llenarTablaConFiltros() {
 		// Variable para controlar si se debe agregar la fila a la tabla
 		let agregarFila = true;
 
+		if (
+			selectedVendedor !== '0' &&
+			venta.cedula_vendedor !== selectedVendedor
+		) {
+			agregarFila = false;
+		}
 		if (
 			selectedComprador !== '0' &&
 			venta.cedula_comprador !== selectedComprador

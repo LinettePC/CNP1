@@ -1,7 +1,11 @@
 const btnGenerarReporte = document.getElementById('btnGenerarReporte');
 const bodyTabla = document.getElementById('bodyTabla');
 let lista_personas = [];
-let cantPersonas;
+let lista_vendedores = [];
+let lista_usuarios = [];
+
+// Condiciones:
+const selectTipo = document.querySelector('#selectTipo');
 
 // Fecha específica
 const containerFechaEspecifica = document.getElementById(
@@ -42,28 +46,58 @@ const msjNoUsuarios = document.getElementById('msjNoUsuarios');
 //
 
 function crearFila(persona) {
-	// let iva = persona.precio_venta * 0.13;
-	// iva = Math.round(iva * 100) / 100;
-
 	const row = document.createElement('tr');
-	row.innerHTML = `
-	  <td>${venta.fecha_de_venta}</td>
-	  <td>${venta.cedula_comprador}</td>
-	  <td>${venta.nombre_comprador}</td>
-	  <td>${venta.nombre_producto}</td>
-	  <td>${venta.cantidad_comprada}</td>
-	  <td>${venta.categoria_producto}</td>
-	  <td>${venta.precio_venta}</td>
-	  <td>${iva}</td>
-	`;
 
-	// <td class="identificacion">1-3457-0982</td>
-	// <td class="nombre">Alejandro</td>
-	// <td class="apellido">Chinchilla</td>
-	// <td class="incorporacion">2/12/2023</td>
-	// <td class="motivo">Falta de documentación</td>
+	if (persona.rol === 'Cliente') {
+		row.innerHTML = `
+	  <td>${persona.fecha_de_registro}</td>
+	  <td>${persona.rol}</td>
+	  <td>${persona.cedula}</td>
+	  <td>${persona.nombre}</td>
+	  <td>${persona.primerApellido}</td>
+	  <td>${persona.telefono}</td>
+	  <td>Es cliente</td>
+      <td class="botonesAdmin">
+            <button type="button" onclick="window.location.href = 'editarUsuario.html?id=${persona._id}'">Editar</button>
+            <button type="button" onclick="eliminarUsuario(${persona._id})">Eliminar</button>
+        </td>
+	`;
+	} else {
+		if (persona.tienePermisos) {
+			row.innerHTML = `
+            <td>${persona.fecha_de_registro}</td>
+            <td>${persona.rol}</td>
+            <td>${persona.cedula}</td>
+            <td>${persona.nombre}</td>
+            <td>${persona.primerApellido}</td>
+            <td>${persona.telefono}</td>
+            <td>Sí</td>
+            <td class="botonesAdmin">
+                <button type="button" onclick="window.location.href = 'editarUsuario.html?id=${persona._id}'">Editar</button>
+                <button type="button" onclick="eliminarUsuario(${persona._id})">Eliminar</button>
+            </td>
+            `;
+		} else {
+			row.innerHTML = `
+            <td>${persona.fecha_de_registro}</td>
+            <td>${persona.rol}</td>
+            <td>${persona.cedula}</td>
+            <td>${persona.nombre}</td>
+            <td>${persona.primerApellido}</td>
+            <td>${persona.telefono}</td>
+            <td>No</td>
+            <td class="botonesAdmin">
+                <button type="button" onclick="window.location.href = 'editarUsuario.html?id=${persona._id}'">Editar</button>
+                <button type="button" onclick="eliminarUsuario(${persona._id})">Eliminar</button>
+            </td>
+            `;
+		}
+	}
+
 	return row;
 }
+
+async function eliminarUsuario(id_mongo) {}
 
 function fechaEntreRango(fecha) {
 	// Agarra la fecha como AAAA-MM // Ejemplo: 2024-04. Compara la fecha con las fechas de los rangos
@@ -128,6 +162,8 @@ function fechaMayorQueDesde(fecha) {
 }
 
 function llenarTablaConFiltros() {
+	let selectedTipo = selectTipo.value;
+
 	let selectedAnno = selectAnno.value;
 	let selectedMes = selectMes.value;
 
@@ -137,17 +173,20 @@ function llenarTablaConFiltros() {
 	// Limpiar la tabla antes de llenarla de nuevo
 	bodyTabla.innerHTML = '';
 
-	for (let i = 0; i < cantPersonas; i++) {
-		let persona = lista_personas[i];
-		let mes_registro = persona.fecha_de_registro.split('/')[1]; // Como la fecha está en DD/MM/AAAA, hay que hacerle split
-		let mes_registro_sin_cero = mes_venta.replace(/^0+/, ''); // Quita el "0" del mes. Ejemplo: 04 pasa a ser 4. Esto se usa para la igualdad después
-		let anno_registro = persona.fecha_de_registro.split('/')[2];
+	for (let i = 0; i < lista_usuarios.length; i++) {
+		let usuario = lista_usuarios[i];
+		let mes_registro = usuario.fecha_de_registro.split('/')[1]; // Como la fecha está en DD/MM/AAAA, hay que hacerle split
+		let mes_registro_sin_cero = mes_registro.replace(/^0+/, ''); // Quita el "0" del mes. Ejemplo: 04 pasa a ser 4. Esto se usa para la igualdad después
+		let anno_registro = usuario.fecha_de_registro.split('/')[2];
 
 		let fecha_formato_rango = `${anno_registro}-${mes_registro}`; // Crea la fecha en formato AAAA-MM
 
 		// Variable para controlar si se debe agregar la fila a la tabla
 		let agregarFila = true;
 
+		if (selectedTipo !== '0' && usuario.rol !== selectedTipo) {
+			agregarFila = false;
+		}
 		if (radioFechaEspecifica.checked) {
 			if (selectedAnno !== '0' && anno_registro !== selectedAnno) {
 				agregarFila = false;
@@ -181,7 +220,7 @@ function llenarTablaConFiltros() {
 
 		// Agregar la fila a la tabla solo si todos los filtros coinciden
 		if (agregarFila) {
-			bodyTabla.appendChild(crearFila(lista_personas[i]));
+			bodyTabla.appendChild(crearFila(lista_usuarios[i]));
 		}
 	}
 }
@@ -196,15 +235,18 @@ btnGenerarReporte.addEventListener('click', async () => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
-	cedulaVendedorActual = '12345';
-
 	lista_personas = await listarClientes();
+	lista_vendedores = await listarVendedores();
 
-	if (lista_personas) {
-		cantPersonas = lista_personas.length;
-	} else {
+	lista_usuarios = lista_personas.concat(lista_vendedores);
+
+	console.log(lista_usuarios);
+
+	if (!lista_usuarios) {
 		msjNoUsuarios.style.display = 'block';
-	}
+	} else {
+        llenarTablaConFiltros();
+    }
 });
 
 //  EJEMPLO DE UN USUARIO PARA SACARLE INFO

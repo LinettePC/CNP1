@@ -149,7 +149,7 @@ function llenarTablaConFiltros() {
 		let agregarFila = true;
 
 		if (radioFechaEspecifica.checked) {
-			if (selectedAnno !== '0' && anno_venta !== selectedAnno) {
+			if (selectedAnno !== '0' && anno_registro !== selectedAnno) {
 				agregarFila = false;
 			}
 			if (selectedMes !== '0' && mes_registro_sin_cero !== selectedMes) {
