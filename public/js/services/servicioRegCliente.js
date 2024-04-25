@@ -18,12 +18,12 @@ const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTele
 					case 11000:
 						Swal.fire({
 							title: 'No se completó el registro',
-							text: 'La persona ya existe',
+							text: 'El cliente ya existe',
 							icon: 'error',
 						});
 						break;
-					default:
-						break;
+					// default:
+						// break;
 				}
 			} else {
 				Swal.fire({
@@ -34,7 +34,7 @@ const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTele
 			}
 		})
 		.then(() => {
-			window.location.href = 'marketplace.html';
+			window.location.href = 'dosLandingPage.html';
 		})
 		.catch((error) => {
 			console.log(error);
@@ -45,12 +45,14 @@ const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTele
 
 
 
+// no he revisado esta funcion
 
+/*
 const listar_personas = async () => {
 	let lista_usuarios = [];
 
 	await axios({
-		method: 'GET',
+		method: 'get',
 		url: 'http://localhost:3000/api/listar',
 		responseType: 'json',
 	})
@@ -65,5 +67,5 @@ const listar_personas = async () => {
 		});
     return lista_usuarios;
 };
-
+*/
 // Usage: registro_persona(cedula.value, nombre.value, correo.value)
