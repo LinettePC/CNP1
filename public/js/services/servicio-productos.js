@@ -66,6 +66,27 @@ const eliminarProducto = async (id_producto) => {
 		});
 };
 
+const eliminarProductoDefault = async (id_producto) => {
+	await axios({
+		method: 'DELETE',
+		url: 'http://localhost:3000/api/eliminar-producto-default',
+		responseType: 'json',
+		data: {
+			_id: id_producto,
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				console.log(response.data.msj);
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
+
 const conseguirProductoID = async (id_producto) => {
 	let productoBuscado = [];
 	await axios({

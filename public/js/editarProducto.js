@@ -9,6 +9,8 @@ const contenedorCategoriaNueva = document.getElementById('categoriaNueva');
 const contenedorPrecio = document.getElementById('precio');
 const contenedorInventario = document.getElementById('inventario');
 
+const flechaDevolver = document.getElementById('flechaDevolver');
+
 const btnEliminar = document.getElementById('btnEliminar');
 
 function conseguirParamPorNombre(name, url) {
@@ -48,24 +50,37 @@ btnEliminar.addEventListener('click', async (event) => {
 			// If "Sí" is clicked, proceed with deleting the product
 			if (rol === 'Vendedor') {
 				await eliminarProducto(id_producto);
+
+				Swal.fire({
+					title: 'Se eliminó el producto',
+					text: 'Gracias por usar nuestros servicios',
+					icon: 'success',
+					timer: 2500,
+					timerProgressBar: true,
+					showConfirmButton: false,
+					allowOutsideClick: false,
+				});
+
+				setTimeout(() => {
+					window.location.href = 'catalogoVendedor.html';
+				}, 2500);
 			} else {
 				await eliminarProductoDefault(id_producto);
+				Swal.fire({
+					title: 'Se eliminó el producto',
+					text: 'Gracias por usar nuestros servicios',
+					icon: 'success',
+					timer: 2500,
+					timerProgressBar: true,
+					showConfirmButton: false,
+					allowOutsideClick: false,
+				});
+
+				setTimeout(() => {
+					window.location.href = 'catalogoAdmin.html';
+				}, 2500);
 			}
 		}
-
-		Swal.fire({
-			title: 'Se eliminó el producto',
-			text: 'Gracias por usar nuestros servicios',
-			icon: 'success',
-			timer: 2500,
-			timerProgressBar: true,
-			showConfirmButton: false,
-			allowOutsideClick: false,
-		});
-
-		setTimeout(() => {
-			window.location.href = 'catalogoVendedor.html';
-		}, 2500);
 	});
 });
 
@@ -239,7 +254,7 @@ let id_producto = conseguirParamPorNombre('id');
 
 let productoDB = {};
 let cedula_usuario = '';
-let rol = 'Vendedor';
+let rol = 'Admin';
 
 document.addEventListener('DOMContentLoaded', async () => {
 	lista_categorias = await obtenerCategorias();
@@ -253,8 +268,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 	llenarCategorias(contenedorCategoria, nombresCategorias);
 	// productoDB = await conseguirProductoID(id_producto);
 
-	
-
 	if (rol === 'Vendedor') {
 		usuarioActual = await conseguirVendedorCedula(cedula_usuario);
 		productoDB = await conseguirProductoID(id_producto);
@@ -265,7 +278,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 		contenedorPrecio.style.display = 'none';
 		contenedorPrecio.parentElement.style.display = 'none';
 		contenedorInventario.style.display = 'none';
-		contenedorInventario.parentElement.style.display  = 'none';
+		contenedorInventario.parentElement.style.display = 'none';
+
+		flechaDevolver.onclick = () => {
+			window.location.href = 'catalogoAdmin.html';
+		};
+
+		flechaDevolver.querySelector('span').textContent = 'Volver a "Productos disponibles en el sitio"';
 	}
 
 	if (!productoDB) {

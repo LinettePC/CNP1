@@ -76,6 +76,25 @@ router.post('/registrar-producto-default', (req, res) => {
 	});
 });
 
+router.delete('/eliminar-producto-default', (req, res) => {
+	let mongoID = req.body._id;
+	ProductoDefault.deleteOne({ _id: mongoID }, function (error, info) {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo eliminar el producto',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Se eliminó el producto de forma exitosa',
+				info,
+			});
+		}
+	});
+});
+
 //http://localhost:3000/api/listar-productos-default
 //GET--> recuperar informacion
 router.get('/listar-productos-default', (req, res) => {
