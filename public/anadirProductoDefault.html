@@ -23,7 +23,7 @@
 				<nav class="botones-navegacion">
 					<ul>
 						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
-						<li><a href="portalVendedor.html">Inicio</a></li>
+						<li><a href="portalAdmin.html">Inicio</a></li>
 						<li>
 							<a
 								href="https://www.cnp.go.cr/contactenos/index.aspx"
@@ -62,7 +62,7 @@
 		<div class="container-devolver">
 			<div
 				class="arrow-container"
-				onclick="window.location.href = 'agregarProductos.html';"
+				onclick="window.location.href = 'catalogoAdmin.html';"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -76,11 +76,11 @@
 						d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
 					/>
 				</svg>
-				<span>Volver a "Agregar productos"</span>
+				<span>Volver a "Productos disponibles en el sitio"</span>
 			</div>
 		</div>
 
-		<div class="container" id="containerAgregarProducto">
+		<div class="container">
 			
 			<h1 class="titulo-seccion">Añadir Producto</h1>
 			<form action="" method="get">
@@ -147,19 +147,6 @@
 						accept="image/jpeg, image/png"
 					/>
 				</div>
-
-				<div class="input-field">
-					<label for="precio">Precio *</label>
-					<input type="number" id="precio" placeholder="Precio" />
-				</div>
-				<div class="input-field">
-					<label for="inventario">Inventario disponible *</label>
-					<input
-						type="number"
-						id="inventario"
-						placeholder="Inventario"
-					/>
-				</div>
 				<div class="contenedor-boton">
 					<button class="save-button" type="submit">
 						Agregar producto
@@ -168,20 +155,11 @@
 			</form>
 		</div>
 
-		<div class="container-devolver" id="containerMsjPermisos">
-			<div
-				class="arrow-container"
-				style="font-size: 30px;"
-			>
-				Asegúrate de agregar los permisos necesarios para poder vender en el sitio
-			</div>
-		</div>
-
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/services/servicio-categorias.js"></script>
 		<script src="js/services/servicio-productos.js"></script>
 		<script src="js/services/servicio-personas.js"></script>
-		<script src="js/anadirProducto.js"></script>
+		<script src="js/anadirProductoDefault.js"></script>
 	</body>
 </html>
