@@ -57,7 +57,26 @@
             <div id="welcomeDos">
                 <label>Ingresa a tu Cuenta de Vendedor</label>
             </div>
-           
+
+            <div class="margen-bottom-xl">
+                <input
+                    type="radio"
+                    id="idNacional"
+                    name="tipoIdentificacion"
+                    value="nacional"
+                    checked
+                />
+                <label for="idNacional">Nacional</label>
+            
+                <input
+                    type="radio"
+                    id="idDimex"
+                    name="tipoIdentificacion"
+                    value="dimex"
+                />
+                <label for="idDimex">DIMEX</label>
+            </div>
+
             <form id="formLogin">
                 <div id="subtitle">
                     <h3>Iniciar Sesión</h3>
@@ -66,7 +85,7 @@
                 <div class="form-group">
                     <label for="username">Identificación</label>
                     <br>
-                    <input id="input"
+                    <input 
                         type="text"
                         id="username"
                         name="username"
@@ -76,14 +95,14 @@
                 <div class="form-group">
                     <label for="password">Contraseña</label>
                     <br>
-                    <input id="input"
+                    <input 
                         type="password"
                         id="password"
                         name="password"
                         required
                     />
                 </div>
-                <button type="submit" class="loginbutton">Ingresar</button>
+                <button type="button" class="loginbutton" id="submit-button">Ingresar</button>
                 <div id="forgotpassword">
                     <label>¿Olvidaste tu contraseña?</label>
                     <a id="a2" href="olvideContrasena.html">Recuperar contraseña</a>
@@ -115,5 +134,8 @@
 
 
     <script src="js/dosLandingPage.js"></script>
+    <script src="js/iniciarSesionVendedor.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
