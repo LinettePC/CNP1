@@ -6,7 +6,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Solicitudes Pendientes</title>
+		<title>Reportes</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -70,7 +70,7 @@
 
 		<div class="seccion-titulo">
 			<div class="container">
-				<h1 class="titulo">Solicitudes Pendientes</h1>
+				<h1 class="titulo">Reportes de Admin</h1>
 			</div>
 		</div>
 
@@ -78,7 +78,78 @@
 			<section class="selection-section">
 				<form id="formReporte">
 					<div class="container-flex">
-						<div class="container-periodo">
+						<div class="flex-box" aria-label="infoVentaAdmin">
+							<div class="titulo-selects">
+								Información de venta
+							</div>
+							<div class="container-selects">
+								<div class="flex-box">
+									<label
+										class="select-label"
+										for="selectComprador"
+										>Comprador</label
+									>
+									<select
+										class="select-item"
+										id="selectComprador"
+										name="selectComprador"
+									>
+										<option value="0" selected>
+											Cualquiera
+										</option>
+									</select>
+								</div>
+								<div class="flex-box">
+									<label
+										class="select-label"
+										for="selectVendedor"
+										>Vendedor</label
+									>
+									<select
+										class="select-item"
+										id="selectVendedor"
+										name="selectVendedor"
+									>
+										<option value="0" selected>
+											Cualquiera
+										</option>
+									</select>
+								</div>
+								<div class="flex-box">
+									<label
+										class="select-label"
+										for="selectCategoria"
+										>Categoría</label
+									>
+									<select
+										class="select-item"
+										id="selectCategoria"
+										name="selectCategoria"
+									>
+										<option value="0" selected>
+											Cualquiera
+										</option>
+									</select>
+								</div>
+								<div class="flex-box">
+									<label
+										class="select-label"
+										for="selectProducto"
+										>Producto</label
+									>
+									<select
+										class="select-item"
+										id="selectProducto"
+										name="selectProducto"
+									>
+										<option value="0" selected>
+											Cualquiera
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="flex-box">
 							<div
 								class="container-flex"
 								style="align-items: center"
@@ -232,41 +303,43 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th class="nombre">Nombre</th>
-								<th class="apellido">Apellido</th>
-								<th class="identificacion">Identificación</th>
-								<th class="incorporacion">
-									Fecha de Solicitud
-								</th>
-								<th class="aprobar-rechazar">
-									Aprobar / Rechazar
-								</th>
+								<th class="fecha">Fecha</th>
+								<th class="cedula">Cédula</th>
+								<th class="usuario">Comprador</th>
+								<th class="producto">Producto</th>
+								<th class="cantidad">Cantidad</th>
+								<th class="categoria">Categoría</th>
+								<th class="precio">Ganancia</th>
+								<th class="iva">IVA</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td class="nombre">Alejandro</td>
-								<td class="apellido">Chinchilla</td>
-								<td class="identificacion">1-3457-0982</td>
-								<td class="incorporacion">2/12/2023</td>
-								<td class="aprobar-rechazar">
-									<button class="btnAprobar">Aprobar</button>
-									<button class="btnRechazar">Rechazar</button>
-								</td>
-							</tr>
+						<tbody id="bodyTabla">
+							<!-- <tr>
+								<td class="fecha">Fecha</td>
+								<td class="usuario">Usuario 1</td>
+								<td class="producto">Producto A</td>
+								<td class="categoria">Categoría 1</td>
+								<td class="precio">100</td>
+								<td class="iva">15</td>
+							</tr> -->
 						</tbody>
 					</table>
 				</div>
 
-				<div id="msjNoUsuarios" style="font-size: 30px; display: none">
-					No hay solicitudes pendientes
+				<div id="msjNoVentas" style="font-size: 30px; display: none">No hay ventas en el sitio</div>
+
+				<div class="container-end">
+					<div class="ganancias-output">
+						<label for="totalGanancias">Total de ganancias:</label>
+						<output id="outputTotalGanancias">₡0</output>
+					</div>
 				</div>
 			</section>
 		</main>
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<script src="js/services/servicio-personas.js"></script>
-		<script src="js/solicitudesPendientes.js"></script>
+		<script src="js/services/servicio-ventas.js"></script>
+		<script src="js/reportesVendedor.js"></script>
 	</body>
 </html>

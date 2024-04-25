@@ -142,11 +142,12 @@ input {
 	font-size: 16px;
 }
 
-label[for="fecha-especifica"], label[for="rango-fechas"] {
+label[for='fecha-especifica'],
+label[for='rango-fechas'] {
 	color: red;
 }
 
-input[type="radio"]:checked {
+input[type='radio']:checked {
 	accent-color: red;
 	color: white;
 }
@@ -208,6 +209,11 @@ input[type="radio"]:checked {
 
 .flex-box[aria-label='infoVenta'] {
 	flex: 1.7;
+	width: 1600px;
+}
+
+.flex-box[aria-label='infoVentaAdmin'] {
+	flex: 1.9;
 	width: 1600px;
 }
 
@@ -299,4 +305,25 @@ label[for='fecha-especifica'] {
 	display: flex;
 	justify-content: end;
 	align-items: center;
+}
+
+.aprobar-rechazar button {
+	justify-content: center;
+	padding: 4px;
+	margin: 5px;
+	border-radius: 4px;
+	padding: 10px 20px;
+	color: white !important;
+}
+.aprobar-rechazar button {
+	cursor: pointer;
+	background-color: gray !important;
+}
+
+.btnAprobar:hover {
+	background-color: #81b12a !important;
+}
+
+.btnRechazar:hover {
+	background-color: rgb(192, 0, 0) !important;
 }

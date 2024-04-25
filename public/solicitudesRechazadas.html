@@ -1,5 +1,7 @@
+<!--Autor: Isaac Ch.  -->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,7 +15,7 @@
 		/>
 
 		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="/public/css/solicitudesPendientes.css"
+		<link rel="stylesheet" href="css/reportesVendedor.css" />
 
 		<link
 			rel="stylesheet"
@@ -30,14 +32,16 @@
 				<nav class="botones-navegacion">
 					<ul>
 						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
-						<li><a href="portalVendedor.html">Inicio</a></li>
+						<li><a href="portalAdmin.html">Inicio</a></li>
 						<li>
-							<a href="https://www.cnp.go.cr/contactenos/index.aspx"
+							<a
+								href="https://www.cnp.go.cr/contactenos/index.aspx"
 								>Contacto</a
 							>
 						</li>
 						<li>
-							<a href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
+							<a
+								href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
 								>Nosotros</a
 							>
 						</li>
@@ -69,11 +73,162 @@
 				<h1 class="titulo">Solicitudes Rechazadas</h1>
 			</div>
 		</div>
-        <!----------------------------------------------------FIN HEADER----------------------------------------------------------->
 
-		<<main class="container">
-			<section class="solicitudes-pendientes">
-				<div class="solicitudes-acciones">
+		<main class="container">
+			<section class="selection-section">
+				<form id="formReporte">
+					<div class="container-flex">
+						<div class="container-periodo">
+							<div
+								class="container-flex"
+								style="align-items: center"
+							>
+								<div class="titulo-selects">Periodo</div>
+
+								<label for="fecha-especifica"
+									>Año y Mes específicos</label
+								>
+								<input
+									type="radio"
+									id="fecha-especifica"
+									name="opcion"
+									value="fecha-especifica"
+									checked
+								/>
+								<label for="rango-fechas"
+									>Rango de Fechas</label
+								>
+								<input
+									type="radio"
+									id="rango-fechas"
+									name="opcion"
+									value="rango-fechas"
+								/>
+							</div>
+							<div class="container-selects">
+								<!-- Años y meses específicos -->
+								<div
+									class="flex-box"
+									id="containerFechaEspecifica"
+								>
+									<div class="container-flex">
+										<div class="flex-box">
+											<label
+												for="selectAnno"
+												class="select-label"
+												>Año</label
+											>
+											<select
+												class="select-item"
+												id="selectAnno"
+												name="selectAnno"
+											>
+												<option value="0" selected>
+													Cualquiera
+												</option>
+												<option value="2023">
+													2023
+												</option>
+												<option value="2024">
+													2024
+												</option>
+												<option value="2025">
+													2025
+												</option>
+											</select>
+										</div>
+										<div class="flex-box">
+											<label
+												for="selectMes"
+												class="select-label"
+												>Mes</label
+											>
+
+											<select
+												class="select-item"
+												id="selectMes"
+												name="selectMes"
+											>
+												<option value="0" selected>
+													Cualquiera
+												</option>
+												<option value="1">Enero</option>
+												<option value="2">
+													Febrero
+												</option>
+												<option value="3">Marzo</option>
+												<option value="4">Abril</option>
+												<option value="5">Mayo</option>
+												<option value="6">Junio</option>
+												<option value="7">Julio</option>
+												<option value="8">
+													Agosto
+												</option>
+												<option value="9">
+													Septiembre
+												</option>
+												<option value="10">
+													Octubre
+												</option>
+												<option value="11">
+													Noviembre
+												</option>
+												<option value="12">
+													Diciembre
+												</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!-- Rango de fechas -->
+								<div class="flex-box" id="containerFechaRango">
+									<div class="container-flex">
+										<div class="flex-box">
+											<label
+												for="rangoDesde"
+												class="select-label"
+												>Desde</label
+											>
+											<input
+												class="select-item"
+												type="month"
+												id="rangoDesde"
+												name="rangoDesde"
+											/>
+										</div>
+										<div class="flex-box">
+											<label
+												for="rangoHasta"
+												class="select-label"
+												>Hasta</label
+											>
+											<input
+												class="select-item"
+												type="month"
+												id="rangoHasta"
+												name="rangoHasta"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="container-end">
+						<button
+							type="button"
+							class="boton"
+							id="btnGenerarReporte"
+						>
+							Generar Reporte
+						</button>
+					</div>
+				</form>
+			</section>
+			<section class="reporte">
+				<div class="container-tabla">
 					<table class="table">
 						<thead>
 							<tr>
@@ -83,70 +238,30 @@
 								<th class="incorporacion">
 									Fecha de Solicitud
 								</th>
-                                <th class="motivo">Motivo de negación</th>
+								<th class="motivo">Motivo de negación</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="bodyTabla">
 							<tr>
 								<td class="identificacion">1-3457-0982</td>
 								<td class="nombre">Alejandro</td>
 								<td class="apellido">Chinchilla</td>
 								<td class="incorporacion">2/12/2023</td>
-                                <td class="motivo">Falta de documentación</td>
-			
-                                
-							</tr>
-							<tr>
-								<td class="nombre">Lorena</td>
-								<td class="apellido">Matamoros</td>
-								<td class="identificacion">3-2367-3422</td>
-								<td class="incorporacion">18/12/2023</td>
-                                <td class="motivo">Venta de otro tipo de productos</td>
-
-							
-                                    
-							</tr>
-							<tr>
-								<td class="nombre">Laura</td>
-								<td class="apellido">Cisneros</td>
-								<td class="identificacion">2-6798-9134</td>
-								<td class="incorporacion">04/01/2024</td>
-                                <td class="motivo">Falta de documentación</td>
-						
-
-                                    
-							</tr>
-							<tr>
-								<td class="nombre">Victor</td>
-								<td class="apellido">Palacios</td>
-								<td class="identificacion">1-2245-7654</td>
-								<td class="incorporacion">24/01/2024</td>
-                                <td class="motivo">No proporciona el permiso municipal</td>
-							
-                                    
-							</tr>
-							<tr>
-								<td class="nombre">Roberto</td>
-								<td class="apellido">Mora</td>
-								<td class="identificacion">1-2345-5566</td>
-								<td class="incorporacion">15/02/2024</td>
-                                <td class="motivo">Falta de documentación</td>
-				
-                                
+								<td class="motivo">Falta de documentación</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 
-				<div class="container-end">
-					<button class="boton" type="button">
-						<span style="margin-right: 10px"
-							>Descargar Reporte de Solicitudes Rechazadas</span
-						>
-						<i class="bi bi-download"></i>
-					</button>
+				<div id="msjNoUsuarios" style="font-size: 30px; display: none">
+					No hay solicitudes rechazadas
 				</div>
 			</section>
 		</main>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="js/services/servicio-personas.js"></script>
+		<script src="js/solicitudesRechazadas.js"></script>
 	</body>
 </html>
