@@ -239,3 +239,7 @@ button {
 	margin-left: 10px;
 	font-size: 20px;
 }
+
+#btnEliminar {
+	background-color: rgb(198, 0, 0);
+}

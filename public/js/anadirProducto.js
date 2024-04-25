@@ -133,6 +133,12 @@ document
 async function registrarInfo(payload) {
 	await registrarProducto(payload);
 
+	let categoriaJSON = { nombre: payload.categoria };
+
+	if (creandoNuevaCategoria) {
+		await registrarCategoria(categoriaJSON);
+	}
+
 	Swal.fire({
 		title: 'Se registró el producto',
 		text: 'Gracias por usar nuestros servicios',
@@ -140,6 +146,7 @@ async function registrarInfo(payload) {
 		timer: 2500,
 		timerProgressBar: true,
 		showConfirmButton: false,
+		allowOutsideClick: false,
 	});
 
 	setTimeout(() => {
@@ -171,10 +178,10 @@ function llenarCategorias(elementoSelect, items) {
 function llenarCamposProducto(info_producto) {
 	contenedorNombre.value = info_producto.nombre;
 	contenedorNombre.disabled = true;
-	
+
 	contenedorDescripcion.value = info_producto.descripcion;
 	contenedorDescripcion.disabled = true;
-	
+
 	contenedorCategoria.value = info_producto.categoria;
 	contenedorCategoria.disabled = true;
 }

@@ -24,14 +24,34 @@ const listarProductosVendedor = async (cedulaEnviada) => {
 };
 
 const actualizarProducto = async (id_producto, actualizaciones_producto) => {
-	let lista_productos = [];
 	await axios({
 		method: 'PUT',
 		url: 'http://localhost:3000/api/actualizar-producto',
 		responseType: 'json',
-		body: {
+		data: {
 			_id: id_producto,
 			updates: actualizaciones_producto,
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				console.log(response.data.msj);
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
+
+const eliminarProducto = async (id_producto) => {
+	await axios({
+		method: 'DELETE',
+		url: 'http://localhost:3000/api/eliminar-producto',
+		responseType: 'json',
+		data: {
+			_id: id_producto,
 		},
 	})
 		.then((response) => {

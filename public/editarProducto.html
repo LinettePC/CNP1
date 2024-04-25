@@ -105,21 +105,16 @@
 						<option value="" selected disabled>
 							Seleccione una categoría
 						</option>
-						<option value="existing_category_1">
+						<!-- Ejm Categoria -->
+						<!-- <option value="existing_category_1">
 							Existing Category 1
-						</option>
-						<option value="existing_category_2">
-							Existing Category 2
-						</option>
-						<option value="existing_category_3">
-							Existing Category 3
-						</option>
-						<option value="" disabled>
+						</option> -->
+						<!-- <option value="" disabled>
 							------------------------------------------
 						</option>
 						<option value="new_category">
 							Crear nueva categoría
-						</option>
+						</option> -->
 					</select>
 				</div>
 				<div
@@ -159,6 +154,9 @@
 					/>
 				</div>
 				<div class="contenedor-boton">
+					<button class="save-button" id="btnEliminar">
+						Eliminar Producto
+					</button>
 					<button class="save-button" type="submit">
 						Enviar modificaciones
 					</button>
@@ -167,7 +165,10 @@
 		</div>
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/services/servicio-productos.js"></script>
+		<script src="js/services/servicio-categorias.js"></script>
+		<script src="js/services/servicio-personas.js"></script>
 		<script src="js/editarProducto.js"></script>
 	</body>
 </html>
