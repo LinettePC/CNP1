@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (id_producto) {
     // Llamar a la función para obtener el producto por su ID
-    let objetoProducto = await obtenerProductoPorId(id_producto);
+    let objetoProducto = await conseguirProductoID(id_producto);
 
     if (objetoProducto) {
       // Verificar si se obtuvo un producto válido
