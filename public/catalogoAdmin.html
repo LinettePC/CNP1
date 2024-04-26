@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Mi Catálogo</title>
 		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="/public/css/catalogoAdmin.css" />
+		<link rel="stylesheet" href="css/catalogoVendedor.css" />
 		<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 		">
@@ -60,129 +60,83 @@
 			</div>
 		</header>
 
-		<div class="seccion-titulo">
-			<div class="container">
-				<h1 class="titulo">Catálogo disponible en el sitio web</h1>
-			</div>
-		</div>
-
-		<div class="contenedorProducto">
-			<!-- Producto 1 -->
-			<div class="tarjetaProducto">
-				<div class="tituloProducto">Zanahoria</div>
-				<div class="imagenProducto">
-					<img
-						src="/public/img/zanahoria.png"
-						alt="Imagen de una zanahoria"
-					/>
-				</div>
-				<div>
-					<a href="/public/editarProducto.html" class="botonEditar"
-						>Editar producto</a
-					>
+		<main>
+			<div class="seccion-titulo">
+				<div class="container">
+					<h1 class="titulo">Productos disponibles en el sitio</h1>
 				</div>
 			</div>
 
-			<!-- Producto 2 -->
-			<div class="tarjetaProducto">
-				<div class="tituloProducto">Chayote</div>
-				<div class="imagenProducto">
-					<img
-						src="/public/img/chayote.png"
-						alt="Imagen de un chayote"
-					/>
-				</div>
-				<div>
-					<a href="/public/editarProducto.html" class="botonEditar"
-						>Editar producto</a
-					>
-				</div>
-			</div>
-
-			<!-- Producto 3 -->
-			<div class="tarjetaProducto">
-				<div class="tituloProducto">Lechuga</div>
-				<div class="imagenProducto">
-					<img
-						src="/public/img/lechuga.png"
-						alt="Imagen de una lechuga"
-					/>
-				</div>
-				<div>
-					<a href="/public/editarProducto.html" class="botonEditar"
-						>Editar producto</a
-					>
-				</div>
-			</div>
-
-			<!-- Producto 4 -->
-			<div class="tarjetaProducto">
-				<div class="tituloProducto">Tomate</div>
-				<div class="imagenProducto">
-					<img
-						src="/public/img/tomate.jpg"
-						alt="Imagen de un tomate"
-					/>
-				</div>
-				<div>
-					<a href="/public/editarProducto.html" class="botonEditar"
-						>Editar producto</a
-					>
-				</div>
-			</div>
-			<!----Producto 5-->
-			<div class="tarjetaProducto">
-				<div class="tituloProducto">Papa</div>
-				<div class="imagenProducto">
-					<img
-						src="/public/img/potato-potato-transparent-background-ai-generated-free-png.webp"
-						alt="Imagen de un tomate"
-					/>
-				</div>
-				<div>
-					<a href="/public/editarProducto.html" class="botonEditar"
-						>Editar producto</a
-					>
-				</div>
-			</div>
-			<!-----Producto 6-->
-			<div class="tarjetaProducto">
-				<div class="tituloProducto">Yuca</div>
-				<div class="imagenProducto">
-					<img
-						src="/public/img/image-42-e1602131932355.png"
-						alt="Imagen de un tomate"
-					/>
-				</div>
-				<div>
-					<a href="/public/editarProducto.html" class="botonEditar"
-						>Editar producto</a
-					>
-				</div>
-			</div>
-		</div>
-
-		<!-- Añadir nuevo producto -->
-		<div style="display: flex; justify-content: right">
-			<a
-				class="botonAgregar"
-				style="margin-top: 20px"
-				href="agregarProductos.html"
-			>
-				Agregar un nuevo producto
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="20"
-					height="20"
-					fill="currentColor"
-					class="bi bi-plus-square-fill"
-					viewBox="0 0 16 16"
+			<div class="container-devolver">
+				<div
+					class="arrow-container"
+					onclick="window.location.href = 'portalAdmin.html';"
 				>
-					<path
-						d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"
-					/>
-				</svg>
-			</a>
-		</div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="35"
+						height="35"
+						fill="currentColor"
+						class="bi bi-arrow-left-circle-fill"
+						viewBox="0 0 16 16"
+					>
+						<path
+							d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+						/>
+					</svg>
+					<span>Volver al inicio</span>
+				</div>
+			</div>
+
+			<div id="divMensaje" class="container-devolver">
+
+			</div>
+			<div class="contenedorProducto" id="canasta">
+				<!-- Ejemplo Tarjeta -->
+				<!-- <div class="tarjetaProducto">
+					<div class="tituloProducto">Zanahoria</div>
+					<div class="imagenProducto">
+						<img
+							src="/public/img/zanahoria.png"
+							alt="Imagen de una zanahoria"
+						/>
+					</div>
+					<div>
+						<a
+							href="/public/editarProducto.html"
+							class="botonEditar"
+							>Editar producto</a
+						>
+					</div>
+				</div> -->
+			</div>
+
+			<!-- Añadir nuevo producto -->
+			<div style="display: flex; justify-content: right">
+				<a
+					class="botonAgregar"
+					style="margin-top: 20px"
+					href="anadirProductoDefault.html"
+				>
+					Crear nueva plantilla de producto
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						fill="currentColor"
+						class="bi bi-plus-square-fill"
+						viewBox="0 0 16 16"
+					>
+						<path
+							d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"
+						/>
+					</svg>
+				</a>
+			</div>
+		</main>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="js/services/servicio-productos.js"></script>
+		<script src="js/catalogoAdmin.js"></script>
 	</body>
 </html>

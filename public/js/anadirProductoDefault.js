@@ -4,8 +4,6 @@ const contenedorNombre = document.getElementById('nombre');
 const contenedorDescripcion = document.getElementById('descripcion');
 const contenedorCategoria = document.getElementById('categoria');
 const contenedorCategoriaNueva = document.getElementById('categoriaNueva');
-const contenedorPrecio = document.getElementById('precio');
-const contenedorInventario = document.getElementById('inventario');
 
 const containerAgregarProducto = document.getElementById(
 	'containerAgregarProducto'
@@ -48,16 +46,12 @@ document
 		const descripcion = document.getElementById('descripcion').value;
 		const categoria = document.getElementById('categoria').value;
 		const categoriaNueva = document.getElementById('categoriaNueva').value;
-		const precio = document.getElementById('precio').value;
-		const inventario = document.getElementById('inventario').value;
 
 		// Validate form fields
 		const fieldsToValidate = {
 			nombre: nombre,
 			descripcion: descripcion,
 			categoria: categoria,
-			precio: precio,
-			inventario: inventario,
 		};
 
 		// Check for empty fields and add the "error" class
@@ -102,23 +96,15 @@ document
 		// Check if an image hasn't been uploaded
 		if (!uploadedImage) {
 			payload = {
-				cedula_vendedor: '12345',
 				nombre: nombre,
-				tramo: 'Tramo Test',
 				descripcion: descripcion,
 				categoria: categoriaFinal,
-				precio_vendedor: precio,
-				inventario: inventario,
 			};
 		} else {
 			payload = {
-				cedula_vendedor: '12345',
 				nombre: nombre,
-				tramo: 'Tramo Test',
 				descripcion: descripcion,
 				categoria: categoriaFinal,
-				precio_vendedor: precio,
-				inventario: inventario,
 				imagen: uploadedImage,
 			};
 		}
@@ -131,7 +117,7 @@ document
 	});
 
 async function registrarInfo(payload) {
-	await registrarProducto(payload);
+	await registrarProductoDefault(payload);
 
 	let categoriaJSON = { nombre: payload.categoria };
 
@@ -150,7 +136,7 @@ async function registrarInfo(payload) {
 	});
 
 	setTimeout(() => {
-		window.location.href = 'catalogoVendedor.html';
+		window.location.href = 'catalogoAdmin.html';
 	}, 2500);
 }
 
@@ -188,17 +174,10 @@ function llenarCamposProducto(info_producto) {
 
 let usuarioActual = {};
 let cedula_usuario = '54321';
+let rol = 'Vendedor';
 
 document.addEventListener('DOMContentLoaded', async () => {
 	lista_categorias = await obtenerCategorias();
-
-	usuarioActual = await conseguirVendedorCedula(cedula_usuario);
-
-	if (usuarioActual.tienePermisos) {
-		containerAgregarProducto.style.display = 'block';
-	} else {
-		containerMsjPermisos.style.display = 'block';
-	}
 
 	let nombresCategorias = [];
 
@@ -207,16 +186,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 	});
 
 	llenarCategorias(selectCategoria, nombresCategorias);
-
-	let id_producto = conseguirParamPorNombre('id');
-
-	if (id_producto) {
-		let productoDB = await conseguirProductoDefaultID(id_producto);
-
-		if (!productoDB) {
-			console.log('No existe el producto');
-		} else {
-			llenarCamposProducto(productoDB);
-		}
-	}
 });

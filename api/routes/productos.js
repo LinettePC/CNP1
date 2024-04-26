@@ -20,7 +20,7 @@ router.post('/registrar-producto', (req, res) => {
 		tramo: body.tramo,
 		descripcion: body.descripcion,
 		categoria: body.categoria,
-		precio_vendedor: body.precio,
+		precio_vendedor: body.precio_vendedor,
 		inventario: body.inventario,
 		precio_con_iva: ivaMasTotal,
 	});
@@ -76,6 +76,25 @@ router.post('/registrar-producto-default', (req, res) => {
 	});
 });
 
+router.delete('/eliminar-producto-default', (req, res) => {
+	let mongoID = req.body._id;
+	ProductoDefault.deleteOne({ _id: mongoID }, function (error, info) {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo eliminar el producto',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Se eliminó el producto de forma exitosa',
+				info,
+			});
+		}
+	});
+});
+
 //http://localhost:3000/api/listar-productos-default
 //GET--> recuperar informacion
 router.get('/listar-productos-default', (req, res) => {
@@ -101,8 +120,7 @@ router.get('/listar-productos-default', (req, res) => {
 			} else {
 				res.json({
 					resultado: true,
-					msj:
-						'Productos default encontrados:',
+					msj: 'Productos default encontrados:',
 					lista: ProductosBuscados,
 				});
 			}
@@ -257,21 +275,46 @@ router.put('/actualizar-producto', (req, res) => {
 	);
 });
 
-//http://localhost:3000/api/eliminar
-//DELETE --> eliminar registros
-router.delete('/eliminar', (req, res) => {
+router.put('/actualizar-producto-default', (req, res) => {
 	let mongoID = req.body._id;
-	Cliente.deleteOne({ _id: mongoID }, function (error, info) {
+	let updates = req.body.updates;
+
+	ProductoDefault.updateOne(
+		{ _id: mongoID },
+		{ $set: updates },
+		function (error, info_producto) {
+			if (error) {
+				res.status(500).json({
+					resultado: false,
+					msj: 'No se pudo actualizar el producto',
+					error,
+				});
+			} else {
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actulización exitosa',
+					info_producto,
+				});
+			}
+		}
+	);
+});
+
+//http://localhost:3000/api/eliminar-producto
+//DELETE --> eliminar registros
+router.delete('/eliminar-producto', (req, res) => {
+	let mongoID = req.body._id;
+	Producto.deleteOne({ _id: mongoID }, function (error, info) {
 		if (error) {
 			res.status(500).json({
 				resultado: false,
-				msj: 'No se pudo eliminar la Cliente',
+				msj: 'No se pudo eliminar el producto',
 				error,
 			});
 		} else {
 			res.status(200).json({
 				resultado: true,
-				msj: 'Se eliminó la Cliente de forma exitosa',
+				msj: 'Se eliminó el producto de forma exitosa',
 				info,
 			});
 		}

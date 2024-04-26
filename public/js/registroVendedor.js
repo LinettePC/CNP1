@@ -14,11 +14,15 @@ const inputs = {
 };
 const botonEnviar = document.getElementById('botonEnviar');
 
+
+
+
 // Función para validar campos vacíos
 function validarCamposVacios() {
 	let error = false;
-	Object.values(inputs).forEach((input) => {
-		if (!input.value.trim()) {
+	const listinputs = 	Object.values(inputs).filter((input) => input != null)
+	listinputs.forEach((input) => {
+		if (input.value && !input.value.trim()) {
 			error = true;
 			input.classList.add('error');
 		} else {
@@ -137,7 +141,8 @@ function validarContrasenna() {
 
 // Limpiar todos los campos del formulario
 function limpiarCampos() {
-	Object.values(inputs).forEach((input) => (input.value = ''));
+	const listinputs = 	Object.values(inputs).filter((input) => input != null)
+	listinputs.forEach((input) => (input.value = ''));
 }
 
 // Función principal de validación

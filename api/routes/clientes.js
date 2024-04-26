@@ -228,21 +228,21 @@ router.put('/actualizar-datos-cliente', (req, res) => {
 	);
 });
 
-//http://localhost:3000/api/eliminar
+//http://localhost:3000/api/eliminar-cliente
 //DELETE --> eliminar registros
-router.delete('/eliminar', (req, res) => {
+router.delete('/eliminar-cliente', (req, res) => {
 	let body = req.body;
 	Cliente.deleteOne({ _id: body._id }, function (error, info) {
 		if (error) {
 			res.status(500).json({
 				resultado: false,
-				msj: 'No se pudo eliminar la Cliente',
+				msj: 'No se pudo eliminar el cliente',
 				error,
 			});
 		} else {
 			res.status(200).json({
 				resultado: true,
-				msj: 'Se eliminó la Cliente de forma exitosa',
+				msj: 'Se eliminó el cliente de forma exitosa',
 				info,
 			});
 		}

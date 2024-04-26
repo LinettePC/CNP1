@@ -1,0 +1,125 @@
+<!--Autor: Isaac Ch.  -->
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Editar categorías</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/reportesVendedor.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+		/>
+	</head>
+
+	<body>
+		<header class="navegacion">
+			<div class="logo">
+				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+			</div>
+			<div class="barra-navegacion">
+				<nav class="botones-navegacion">
+					<ul>
+						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
+						<li><a href="portalAdmin.html">Inicio</a></li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/contactenos/index.aspx"
+								>Contacto</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
+								>Nosotros</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="carrito">
+				<div id="cuenta">
+					<a href="/public/miPerfil.html" id="textoCuenta">
+						Mi Cuenta
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							fill="currentColor"
+							class="bi bi-person-fill"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+							/></svg
+					></a>
+				</div>
+			</div>
+		</header>
+
+		<div class="seccion-titulo">
+			<div class="container">
+				<h1 class="titulo">Editar categorías</h1>
+			</div>
+		</div>
+
+		<main class="container">
+			<section class="reporte">
+				<div class="container-tabla">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="nombre">Nombre de categoría</th>
+								<th class="tipo">Tipo</th>
+								<th class="administrar">Administrar</th>
+							</tr>
+						</thead>
+						<tbody id="bodyTabla">
+							<!-- Ejemplo ROW -->
+							<!-- <tr>
+								<td class="fechaRegistro">Fecha de registro</td>
+								<td class="tipo">Tipo</td>
+								<td class="identificacion">Identificación</td>
+								<td class="nombre">Nombre del usuario</td>
+								<td class="apellido">Apellido del usuario</td>
+								<td class="telefono">Telefono</td>
+								<td class="permisos">¿Tiene permisos?</td>
+								<td class="botonesAdmin">
+									<button>Editar</button>
+									<button>Eliminar</button>
+								</td>
+							</tr> -->
+						</tbody>
+					</table>
+				</div>
+
+				<div style="display: flex">
+					<button id="btnAgregarCategoria" onclick="agregarCategoriaSitio()">Agregar categoría</button>
+				</div>
+
+				<div
+					id="msjNoCategorias"
+					style="font-size: 30px; display: none"
+				>
+					No hay categorías en el sitio
+				</div>
+			</section>
+		</main>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="js/services/servicio-categorias.js"></script>
+		<script src="js/editarCategorias.js"></script>
+	</body>
+</html>

@@ -6,8 +6,7 @@ const router = express.Router();
 //http://localhost:3000/api/listar-vendedores
 //GET--> recuperar informacion
 router.get('/listar-vendedores', (req, res) => {
-	Vendedor.find(
-		(error, lista) => {
+	Vendedor.find((error, lista) => {
 		if (error) {
 			res.status(500).json({
 				resultado: false,
@@ -26,10 +25,8 @@ router.get('/listar-vendedores', (req, res) => {
 
 router.get('/listar-vendedores-por-estado', (req, res) => {
 	let estadoRecibido = req.params.estado;
-	
-	Vendedor.find(
-		{ estado: estadoRecibido},
-		(error, lista) => {
+
+	Vendedor.find({ estado: estadoRecibido }, (error, lista) => {
 		if (error) {
 			res.status(500).json({
 				resultado: false,
@@ -96,16 +93,15 @@ router.get('/buscar-vendedor-cedula', (req, res) => {
 	});
 });
 
-
 function conseguirFechaFormateada() {
 	let fechaActual = new Date(); // 4/12/2024::9:06PM
-    let dia = fechaActual.getDate();
-    let mes = fechaActual.getMonth() + 1; // Enero es 0
-    let anno = fechaActual.getFullYear();
+	let dia = fechaActual.getDate();
+	let mes = fechaActual.getMonth() + 1; // Enero es 0
+	let anno = fechaActual.getFullYear();
 
 	// Agrega los 0's para el formato
-    dia = dia < 10 ? '0' + dia : dia;
-    mes = mes < 10 ? '0' + mes : mes;
+	dia = dia < 10 ? '0' + dia : dia;
+	mes = mes < 10 ? '0' + mes : mes;
 
 	return `${dia}/${mes}/${anno}`;
 }
@@ -113,40 +109,32 @@ function conseguirFechaFormateada() {
 // http://localhost:3000/api/registrar-vendedor
 // POST --> crear nuevos registros
 router.post('/registrar-vendedor', (req, res) => {
-    let body = req.body;
+	const body = req.body;
+	const fechaFormateada = conseguirFechaFormateada();
 
-	let fechaFormateada = conseguirFechaFormateada();
+	let nuevo_Vendedor = new Vendedor(body);
 
-    let nuevo_Vendedor = new Vendedor({
-        cedula: body.cedula,
-		nombre: body.nombre,
-		primerApellido: body.primerApellido,
-		nomTramo: body.nomTramo,
-        correo: body.correo,
-		telefono: body.telefono,
-		permisos: body.permisos,
-		foto: body.foto,
-		//contrasenna: body.contrasenna,
+	nuevo_Vendedor.fecha_de_registro = fechaFormateada;
 
-        fecha_de_registro: fechaFormateada, 
-		// Agrega la fecha de hoy con formato DD/MM/AAAA
-    });
+	if (body.foto) {
+		nuevo_Vendedor.foto = pFoto;
+	}
 
-    nuevo_Vendedor.save((error, usuarioBuscado) => {
-        if (error) {
-            res.status(500).json({
-                resultado: false,
-                msj: 'No se pudo hacer el registro',
-                error,
-            });
-        } else {
-            res.status(200).json({
-                resultado: true,
-                msj: 'Registro exitoso',
-                usuarioBuscado,
-            });
-        }
-    });
+	nuevo_Vendedor.save((error, usuarioRegistrado) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo hacer el registro',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Registro exitoso',
+				usuarioRegistrado,
+			});
+		}
+	});
 });
 
 // router.post('/registrar', async (req, res) => {
@@ -217,6 +205,30 @@ router.post('/agregar-productos-vendedor', (req, res) => {
 	}
 });
 
+router.put('/actualizar-datos-vendedor', (req, res) => {
+	let body = req.body;
+
+	Vendedor.updateOne(
+		{ cedula: body.cedula },
+		{ $set: req.body.nueva_info },
+		function (error, info) {
+			if (error) {
+				res.status(500).json({
+					resultado: false,
+					msj: 'No se pudo actualizar el cliente',
+					error,
+				});
+			} else {
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actulización exitosa',
+					info,
+				});
+			}
+		}
+	);
+});
+
 // function (error, info) {
 //     if (error) {
 //         res.status(500).json({
@@ -259,21 +271,21 @@ router.put('/modificar', (req, res) => {
 	);
 });
 
-//http://localhost:3000/api/eliminar
+//http://localhost:3000/api/eliminar-vendedor
 //DELETE --> eliminar registros
-router.delete('/eliminar', (req, res) => {
+router.delete('/eliminar-vendedor', (req, res) => {
 	let body = req.body;
-	Cliente.deleteOne({ _id: body._id }, function (error, info) {
+	Vendedor.deleteOne({ _id: body._id }, function (error, info) {
 		if (error) {
 			res.status(500).json({
 				resultado: false,
-				msj: 'No se pudo eliminar la Cliente',
+				msj: 'No se pudo eliminar el vendedor',
 				error,
 			});
 		} else {
 			res.status(200).json({
 				resultado: true,
-				msj: 'Se eliminó el Cliente de forma exitosa',
+				msj: 'Se eliminó el vendedor de forma exitosa',
 				info,
 			});
 		}

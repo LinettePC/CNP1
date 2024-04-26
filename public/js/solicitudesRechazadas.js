@@ -1,12 +1,7 @@
 const btnGenerarReporte = document.getElementById('btnGenerarReporte');
 const bodyTabla = document.getElementById('bodyTabla');
-let lista_ventas = [];
-let cantVentas;
-
-// Condiciones:
-const selectComprador = document.querySelector('#selectComprador');
-const selectCategoria = document.querySelector('#selectCategoria');
-const selectProducto = document.querySelector('#selectProducto');
+let lista_personas = [];
+let cantPersonas;
 
 // Fecha específica
 const containerFechaEspecifica = document.getElementById(
@@ -42,13 +37,13 @@ radioRangoFechas.addEventListener('change', function () {
 	}
 });
 
-const msjNoVentas = document.getElementById('msjNoVentas');
+const msjNoUsuarios = document.getElementById('msjNoUsuarios');
 
 //
 
-function crearFila(venta) {
-	let iva = venta.precio_venta * 0.13;
-	iva = Math.round(iva * 100) / 100;
+function crearFila(persona) {
+	// let iva = persona.precio_venta * 0.13;
+	// iva = Math.round(iva * 100) / 100;
 
 	const row = document.createElement('tr');
 	row.innerHTML = `
@@ -61,6 +56,12 @@ function crearFila(venta) {
 	  <td>${venta.precio_venta}</td>
 	  <td>${iva}</td>
 	`;
+
+	// <td class="identificacion">1-3457-0982</td>
+	// <td class="nombre">Alejandro</td>
+	// <td class="apellido">Chinchilla</td>
+	// <td class="incorporacion">2/12/2023</td>
+	// <td class="motivo">Falta de documentación</td>
 	return row;
 }
 
@@ -127,10 +128,6 @@ function fechaMayorQueDesde(fecha) {
 }
 
 function llenarTablaConFiltros() {
-	let selectedComprador = selectComprador.value;
-	let selectedCategoria = selectCategoria.value;
-	let selectedProducto = selectProducto.value;
-
 	let selectedAnno = selectAnno.value;
 	let selectedMes = selectMes.value;
 
@@ -140,40 +137,22 @@ function llenarTablaConFiltros() {
 	// Limpiar la tabla antes de llenarla de nuevo
 	bodyTabla.innerHTML = '';
 
-	for (let i = 0; i < cantVentas; i++) {
-		let venta = lista_ventas[i];
-		let mes_venta = venta.fecha_de_venta.split('/')[1]; // Como la fecha está en DD/MM/AAAA, hay que hacerle split
-		let mes_venta_sin_cero = mes_venta.replace(/^0+/, ''); // Quita el "0" del mes. Ejemplo: 04 pasa a ser 4. Esto se usa para la igualdad después
-		let anno_venta = venta.fecha_de_venta.split('/')[2];
+	for (let i = 0; i < cantPersonas; i++) {
+		let persona = lista_personas[i];
+		let mes_registro = persona.fecha_de_registro.split('/')[1]; // Como la fecha está en DD/MM/AAAA, hay que hacerle split
+		let mes_registro_sin_cero = mes_venta.replace(/^0+/, ''); // Quita el "0" del mes. Ejemplo: 04 pasa a ser 4. Esto se usa para la igualdad después
+		let anno_registro = persona.fecha_de_registro.split('/')[2];
 
-		let fecha_formato_rango = `${anno_venta}-${mes_venta}`; // Crea la fecha en formato AAAA-MM
+		let fecha_formato_rango = `${anno_registro}-${mes_registro}`; // Crea la fecha en formato AAAA-MM
 
 		// Variable para controlar si se debe agregar la fila a la tabla
 		let agregarFila = true;
 
-		if (
-			selectedComprador !== '0' &&
-			venta.cedula_comprador !== selectedComprador
-		) {
-			agregarFila = false;
-		}
-		if (
-			selectedCategoria !== '0' &&
-			venta.categoria_producto !== selectedCategoria
-		) {
-			agregarFila = false;
-		}
-		if (
-			selectedProducto !== '0' &&
-			venta.nombre_producto !== selectedProducto
-		) {
-			agregarFila = false;
-		}
 		if (radioFechaEspecifica.checked) {
-			if (selectedAnno !== '0' && anno_venta !== selectedAnno) {
+			if (selectedAnno !== '0' && anno_registro !== selectedAnno) {
 				agregarFila = false;
 			}
-			if (selectedMes !== '0' && mes_venta_sin_cero !== selectedMes) {
+			if (selectedMes !== '0' && mes_registro_sin_cero !== selectedMes) {
 				agregarFila = false;
 			}
 		} else {
@@ -202,7 +181,7 @@ function llenarTablaConFiltros() {
 
 		// Agregar la fila a la tabla solo si todos los filtros coinciden
 		if (agregarFila) {
-			bodyTabla.appendChild(crearFila(lista_ventas[i]));
+			bodyTabla.appendChild(crearFila(lista_personas[i]));
 		}
 	}
 }
@@ -216,80 +195,33 @@ btnGenerarReporte.addEventListener('click', async () => {
 	llenarTablaConFiltros();
 });
 
-function llenarSelects() {
-	let compradores = [];
-	let productos = [];
-	let categorias = [];
-
-	// Función para agregar opciones al elemento select
-	function agregarOpciones(elementoSelect, items) {
-		items.forEach((item) => {
-			let nuevaOpcion = document.createElement('option');
-			nuevaOpcion.innerText = item;
-			nuevaOpcion.value = item;
-			elementoSelect.appendChild(nuevaOpcion);
-		});
-	}
-
-	// Iterar a través de cada objeto en la lista
-	lista_ventas.forEach((venta) => {
-		// Extraer valores para compradores
-		let compradorCedula = venta.cedula_comprador;
-		if (!compradores.includes(compradorCedula)) {
-			compradores.push(compradorCedula);
-		}
-
-		// Extraer valores para productos
-		let nombreProducto = venta.nombre_producto;
-		if (!productos.includes(nombreProducto)) {
-			productos.push(nombreProducto);
-		}
-
-		// Extraer valores para categorías
-		let categoriaProducto = venta.categoria_producto;
-		if (!categorias.includes(categoriaProducto)) {
-			categorias.push(categoriaProducto);
-		}
-	});
-
-	// Agregar opciones para compradores
-	agregarOpciones(selectComprador, compradores);
-
-	// Agregar opciones para productos
-	agregarOpciones(selectProducto, productos);
-
-	// Agregar opciones para categorías
-	agregarOpciones(selectCategoria, categorias);
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
 	cedulaVendedorActual = '12345';
 
-	lista_ventas = await listarVentasUsuario(cedulaVendedorActual);
+	lista_personas = await listarClientes();
 
-	if (lista_ventas) {
-		cantVentas = lista_ventas.length;
-		llenarSelects();
-		llenarTablaConFiltros();
+	if (lista_personas) {
+		cantPersonas = lista_personas.length;
 	} else {
-		msjNoVentas.style.display = 'block';
+		msjNoUsuarios.style.display = 'block';
 	}
 });
 
-// EJEMPLO DE UNA VENTA PARA SACARLE INFO
-// ventainfo = {
-// 	_id: '66216816290ad2651cc23278',
-// 	cedula_comprador: '12345',
-// 	cedula_vendedor: '54321',
-// 	nombre_producto: 'Fresa',
-// 	categoria_producto: 'Frutas',
-// 	cedula_comprador: '12345',
-// 	cedula_vendedor: '54321',
-// cantidad_comprada: '3',
-// 	fecha_de_venta: '18/04/2024',
-// 	nombre_comprador: 'Pepe',
-// 	nombre_producto: 'Fresa',
-// 	nombre_vendedor: 'Alberto',
-// 	precio_venta: '2000',
-// 	tramo: 'Fresas Alberto',
-// };
+//  EJEMPLO DE UN USUARIO PARA SACARLE INFO
+//  cedula: { type: String, required: true, unique: true },
+// 	nombre: { type: String, required: true, unique: false },
+// 	primerApellido: { type: String, required: false, unique: false },
+// 	nomTramo: { type: String, required: false, unique: false },
+// 	correo: { type: String, required: false, unique: false },
+// 	telefono: { type: String, required: false, unique: false },
+// 	tienePermisos: { type: Boolean, required: false, unique: false }, // Si tiene = TRUE. Si no tiene = FALSE
+// 	rol: { type: String, default: 'Vendedor' },
+// 	contrasenna: { type: String, required: false, unique: false },
+// 	foto: { type: String, required: false, unique: false },
+// 	estado: {
+// 		type: String,
+// 		enum: ['Activo', 'Inactivo', 'Rechazado'],
+// 		default: 'Inactivo',
+// 	},
+// 	razon_rechazo: { type: String, required: false, unique: false },
+// 	fecha_de_registro: { type: String, required: false, unique: false },

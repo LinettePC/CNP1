@@ -3,9 +3,9 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Editar producto</title>
+		<title>Añadir producto</title>
 		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="/public/css/editarProducto.css" />
+		<link rel="stylesheet" href="/public/css/anadirProducto.css" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +23,7 @@
 				<nav class="botones-navegacion">
 					<ul>
 						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
-						<li><a href="portalVendedor.html">Inicio</a></li>
+						<li><a href="portalAdmin.html">Inicio</a></li>
 						<li>
 							<a
 								href="https://www.cnp.go.cr/contactenos/index.aspx"
@@ -62,8 +62,7 @@
 		<div class="container-devolver">
 			<div
 				class="arrow-container"
-				onclick="window.location.href = 'catalogoVendedor.html';"
-				id="flechaDevolver"
+				onclick="window.location.href = 'catalogoAdmin.html';"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -77,15 +76,16 @@
 						d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
 					/>
 				</svg>
-				<span>Volver al catálogo</span>
+				<span>Volver a "Productos disponibles en el sitio"</span>
 			</div>
 		</div>
 
 		<div class="container">
-			<h1 class="titulo-seccion">Editar Producto</h1>
+			
+			<h1 class="titulo-seccion">Añadir plantilla de Producto</h1>
 			<form action="" method="get">
 				<div class="input-field">
-					<label for="nombre">Nuevo nombre del producto </label>
+					<label for="nombre">Nombre del producto *</label>
 					<input
 						type="text"
 						id="nombre"
@@ -93,7 +93,7 @@
 					/>
 				</div>
 				<div class="input-field">
-					<label for="descripcion">Nueva descripción </label>
+					<label for="descripcion">Descripción *</label>
 					<input
 						type="text"
 						id="descripcion"
@@ -101,16 +101,22 @@
 					/>
 				</div>
 				<div class="input-field">
-					<label for="categoria">Nueva categoría </label>
+					<label for="categoria">Categoría *</label>
 					<select id="categoria">
+						<!-- Ejemplo de código cargado por la base de datos -->
 						<option value="" selected disabled>
 							Seleccione una categoría
 						</option>
-						<!-- Ejm Categoria -->
 						<!-- <option value="existing_category_1">
 							Existing Category 1
-						</option> -->
-						<!-- <option value="" disabled>
+						</option>
+						<option value="existing_category_2">
+							Existing Category 2
+						</option>
+						<option value="existing_category_3">
+							Existing Category 3
+						</option>
+						<option value="" disabled>
 							------------------------------------------
 						</option>
 						<option value="new_category">
@@ -132,34 +138,18 @@
 						placeholder="Ingrese el nombre de la nueva categoría"
 					/>
 				</div>
+
 				<div class="input-field">
-					<label for="imagen"
-						>Nueva imagen del producto (opcional)</label
-					>
+					<label for="imagen">Imagen del producto (opcional)</label>
 					<input
 						type="file"
 						id="imagen"
 						accept="image/jpeg, image/png"
 					/>
 				</div>
-				<div class="input-field">
-					<label for="precio">Nuevo precio</label>
-					<input type="number" id="precio" placeholder="Precio" />
-				</div>
-				<div class="input-field">
-					<label for="inventario">Nuevo inventario disponible</label>
-					<input
-						type="number"
-						id="inventario"
-						placeholder="Inventario"
-					/>
-				</div>
 				<div class="contenedor-boton">
-					<button class="save-button" id="btnEliminar">
-						Eliminar Producto
-					</button>
 					<button class="save-button" type="submit">
-						Enviar modificaciones
+						Agregar producto
 					</button>
 				</div>
 			</form>
@@ -167,9 +157,9 @@
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<script src="js/services/servicio-productos.js"></script>
 		<script src="js/services/servicio-categorias.js"></script>
+		<script src="js/services/servicio-productos.js"></script>
 		<script src="js/services/servicio-personas.js"></script>
-		<script src="js/editarProducto.js"></script>
+		<script src="js/anadirProductoDefault.js"></script>
 	</body>
 </html>
