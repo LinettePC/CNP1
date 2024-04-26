@@ -127,9 +127,9 @@ const obtenerCategorias = async () => {
 	return lista_categorias;
 };
 
-const registrarCategoria = async (info) => {
+const registrarCategoria = async (info, tipo) => {
 	let categoriaRegistrada;
-	console.log(info);
+	
 	await axios({
 		method: 'POST',
 		url: 'http://localhost:3000/api/registrar-categoria',
@@ -142,6 +142,51 @@ const registrarCategoria = async (info) => {
 			} else {
 				categoriaRegistrada = response.data.CategoriaDB;
 				console.log(categoriaRegistrada);
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+	});
+};
+
+const eliminarCategoria = async (id_categoria) => {
+	await axios({
+		method: 'DELETE',
+		url: 'http://localhost:3000/api/eliminar-categoria',
+		responseType: 'json',
+		data: {
+			_id: id_categoria,
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				console.log(response.data.msj);
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
+
+const actualizarCategoria = async (id_categoria, nuevo_nombre) => {
+	await axios({
+		method: 'PUT',
+		url: 'http://localhost:3000/api/actualizar-categoria',
+		responseType: 'json',
+		data: {
+			_id: id_categoria,
+			update: {
+				nombre: nuevo_nombre,
+			},
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				console.log(response.data.info);
 			}
 		})
 		.catch((error) => {

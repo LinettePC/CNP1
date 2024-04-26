@@ -52,8 +52,53 @@ router.get('/listar-categorias', (req, res) => {
 	});
 });
 
-//http://localhost:3000/api/listar-vendedores
-//GET--> recuperar informacion
+//http://localhost:3000/api/actualizar-categoria
+//PUT--> recuperar informacion
+router.put('/actualizar-categoria', (req, res) => {
+	let body = req.body;
+
+	console.log(body);
+	Categoria.updateOne(
+		{ _id: body._id },
+		{ $set: body.update },
+		function (error, info) {
+			if (error) {
+				res.status(500).json({
+					resultado: false,
+					msj: 'No se pudo actualizar la categoría',
+					error,
+				});
+			} else {
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actulización exitosa',
+					info,
+				});
+			}
+		}
+	);
+});
+
+//http://localhost:3000/api/eliminar-categoria
+//DELETE--> eliminar
+router.delete('/eliminar-categoria', (req, res) => {
+	let body = req.body;
+	Categoria.deleteOne({ _id: body._id }, function (error, info) {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo eliminar la categoría',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Se eliminó la categoría de forma exitosa',
+				info,
+			});
+		}
+	});
+});
 
 // http://localhost:3000/api/buscar-Cliente-nombre
 // Endpoint para agarrar un usuario específico

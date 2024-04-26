@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 	let cantidadItemsCarrito = document.getElementById('cantidadItemsCarrito');
 
-	let itemsActuales = JSON.parse(localStorage.getItem("productos_en_carrito")) || [];
+	let itemsActuales =
+		JSON.parse(localStorage.getItem('productos_en_carrito')) || [];
 
 	let cantItemsActuales = itemsActuales.length;
 
