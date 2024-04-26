@@ -120,6 +120,13 @@
 	border-radius: 5px;
 	cursor: pointer;
 }
+#cantidadItemsCarrito {
+	color: white !important;
+	margin-left: 5px;
+	background-color: red;
+	padding: 3px 7px;
+	border-radius: 7px;
+}
 
 /* Estilos de la barra de navegación: final para comprador */
 
