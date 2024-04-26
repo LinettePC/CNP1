@@ -154,27 +154,25 @@ function principal() {
 		!validarTelefono() &&
 		!validarContrasenna()
 	) {
+
+		//cuando ya sirva, podemos comentar este Sweetalert para que no hayan dos
+		//porque hay otro en el doc de servicioRegCliente.js
 		Swal.fire({
-			title: 'Datos correctos',
+			title: 'Datos correctos!!!!',
 			text: 'Tu Cuenta de Cliente ha sido Creada',
 			icon: 'success',
 		});
 
-		idCliente = document.getElementById('identificacion');
-		nombre = document.getElementById('nombre');
-		primerApellido = document.getElementById('primerApellido');
-		correo = document.getElementById('correo');
-		telefono = document.getElementById('telefono');
-		foto = document.getElementById('btnoriginalF'),
-		contrasenna = document.getElementById('contrasenna');
-		boton = document.getElementById('botonEnviar');
+		let cedula = idCliente.value
+        let nombre = nombre.value
+        let primerApellido = primerApellido.value
+		let correo = correo.value
+        let telefono = telefono.value
+		let foto = foto.value
+		let contrasenna = contrasenna.value
 
-
-		//registroCliente(idCliente.value,nombre.value,primerApellido.value,correo.value,telefono.value,foto.value,contrasenna.value)
-		limpiarCampos();
-		//esta funcion no esta sirviendo, de donde salio????
-		//registro_persona(parametros); // LLENAR LOS PARAMS
-		
+		registroCliente(cedula,nombre,primerApellido,correo,telefono,foto,contrasenna)
+		limpiarCampos();	
 	}
 
 }

@@ -1,4 +1,5 @@
-const registroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo, pCorreo, pTelefono, pPermisos, pFoto, pContrasenna) => {
+//e realidad esta funcion no es de registro, es de envio de formulario
+const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo, pCorreo, pTelefono, pPermisos, pFoto, /*pContrasenna*/) => {
 	await axios({
 		method: "post",
 		url: "http://localhost:3000/api/registrar-vendedor",
@@ -12,7 +13,7 @@ const registroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo,
             telefono: pTelefono,
             permisos: pPermisos,
 			foto: pFoto,
-			contrasenna: pContrasenna,
+			//contrasenna: pContrasenna,
 		}
 	})
 		.then((response) => {
@@ -24,9 +25,9 @@ const registroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo,
 							text: 'El vendedor ya existe',
 							icon: 'error',
 						});
-						break;
-					// default:
-						// break;
+							break;
+						default:
+							break;
 				}
 			} else {
 				Swal.fire({
@@ -37,10 +38,12 @@ const registroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo,
 			}
 		})
 		.then(() => {
-			window.location.href = 'dosLandingPage.html';
+			setTimeout(()=>{
+				window.location.href = 'dosLandingPage.html';
+			},3000)
 		})
-		.catch((error) => {
-			console.log(error);
+		.catch((err) => {
+			console.log(err);
 		});
 };
 

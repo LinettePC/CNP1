@@ -22,8 +22,6 @@ const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTele
 							icon: 'error',
 						});
 						break;
-					// default:
-						// break;
 				}
 			} else {
 				Swal.fire({
@@ -34,10 +32,13 @@ const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTele
 			}
 		})
 		.then(() => {
-			window.location.href = 'dosLandingPage.html';
+			setTimeout(()=>{
+				window.location.href = 'dosLandingPage.html';
+			},3000)
+			
 		})
-		.catch((error) => {
-			console.log(error);
+		.catch((err) => {
+			console.log(err);
 		});
 };
 

@@ -152,20 +152,26 @@ function principal() {
 		!validarTelefono() //&&
 		//!validarContrasenna()
 	) {
+		//cuando ya sirva, podemos comentar este Sweetalert para que no hayan dos
+		//porque hay otro en el doc de servicioRegCliente.js
 		Swal.fire({
 			title: 'Formulario enviado',
 			text: 'Recibirás un mensaje cuando tu solicitud sea revisada',
-			icon: 'success',
+			icon: 'success'
 		});
-		idCliente = document.getElementById('identificacion');
-		nombre = document.getElementById('nombre');
-		primerApellido = document.getElementById('primerApellido');
-		nomTramo = document.getElementById('nomTramo');
-		correo = document.getElementById('correo');
-		telefono = document.getElementById('telefono');
-		permiso = document.getElementById('btnoriginal1');
-		foto = document.getElementById('btnoriginal2');
-		//registroVendedor(idCliente.value,nombre.value,primerApellido.value,nomTramo.value,correo.value,telefono.value,permiso.value,foto.value)
+		cedula = idCliente.value
+		nombre = nombre.value
+		primerApellido = primerApellido.value
+		nomTramo = nomTramo.value
+		correo = correo.value
+		telefono = telefono.value
+		permiso = permiso.value
+		foto = foto.value
+		contrasenna = contrasenna.value
+		
+		// //preRegistroVendedor(idCliente.value,nombre.value,primerApellido.value,nomTramo.value,correo.value,telefono.value,permiso.value,foto.value)
+		
+		preRegistroVendedor(cedula,nombre,primerApellido,nomTramo,correo,telefono,permiso,foto)
 		limpiarCampos();
 	}
 }
