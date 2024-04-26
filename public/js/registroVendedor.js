@@ -145,6 +145,9 @@ function limpiarCampos() {
 	listinputs.forEach((input) => (input.value = ''));
 }
 
+
+
+
 // Función principal de validación
 function principal() {
 	if (
@@ -164,21 +167,19 @@ function principal() {
 			text: 'Recibirás un mensaje cuando tu solicitud sea revisada',
 			icon: 'success'
 		});
-
-
-		let cedula = idCliente.value
-		let nombre = nombre.value
-		let primerApellido = primerApellido.value
-		let nomTramo = nomTramo.value
-		let correo = correo.value
-		let telefono = telefono.value
-		let permiso = permiso.value
-		let foto = foto.value
-		let contrasenna = contrasenna.value
+		// let cedula = idCliente.value
+		// let nombre = nombre.value
+		// let primerApellido = primerApellido.value
+		// let nomTramo = nomTramo.value
+		// let correo = correo.value
+		// let telefono = telefono.value
+		// let permiso = permiso.value
+		// let foto = foto.value
+		// let contrasenna = contrasenna.value
 		
-		//preRegistroVendedor(idCliente.value,nombre.value,primerApellido.value,nomTramo.value,correo.value,telefono.value,permiso.value,foto.value)
+		preRegistroVendedor(idCliente.value,nombre.value,primerApellido.value,nomTramo.value,correo.value,telefono.value,permiso.value,foto.value)
 		
-		preRegistroVendedor(cedula,nombre,primerApellido,nomTramo,correo,telefono,permiso,foto)
+		//preRegistroVendedor(cedula,nombre,primerApellido,nomTramo,correo,telefono,permiso,foto)
 		limpiarCampos();
 	}
 }
