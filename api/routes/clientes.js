@@ -92,28 +92,22 @@ router.get('/buscar-cliente-cedula', (req, res) => {
 
 
 
-// http://localhost:3000/api/registrar
+// http://localhost:3000/api/registrar-cliente
 // POST --> crear nuevos registros
-router.post('/registrar', (req, res) => {
-	let body = req.body;
 
-	let fechaFormateada = conseguirFechaFormateada();
+router.post('/registrar-vendedor', (req, res) => {
+	const body = req.body;
+	const fechaFormateada = conseguirFechaFormateada();
 
-	let nueva_Cliente = new Cliente({
-		cedula: body.cedula,
-		nombre: body.nombre,
-		primerApellido: body.primerApellido,
-		correo: body.correo,
-		telefono: body.telefono,
-		contrasenna: body.contrasenna,
-		fecha_de_registro: fechaFormateada,
-	});
+	let nuevo_Cliente = new Cliente(body);
+
+	nuevo_Cliente.fecha_de_registro = fechaFormateada;
 
 	if (body.foto) {
-		nueva_Cliente.foto = body.foto;
+		nuevo_Cliente.foto = pFoto;
 	}
 
-	nueva_Cliente.save((error, ClienteDB) => {
+	nuevo_Cliente.save((error, usuarioRegistrado) => {
 		if (error) {
 			res.status(500).json({
 				resultado: false,
@@ -124,11 +118,14 @@ router.post('/registrar', (req, res) => {
 			res.status(200).json({
 				resultado: true,
 				msj: 'Registro exitoso',
-				ClienteDB,
+				usuarioRegistrado,
 			});
 		}
 	});
 });
+
+
+
 
 //http://localhost:3000/api/agregar-productos
 //Endpoint para guardar productos
