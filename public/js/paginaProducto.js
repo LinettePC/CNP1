@@ -1,5 +1,9 @@
 const contenedorGeneral = document.getElementById("contenedorGeneral");
 
+function formatearNumeroConComas(numero) {
+	return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
 function crearTarjetaProducto(
   nombre,
   categoria,
@@ -41,7 +45,7 @@ function crearTarjetaProducto(
   // Precio del producto
   const precioElemento = document.createElement("h1");
   precioElemento.classList.add("precio");
-  precioElemento.textContent = "₡" + precio + " i.v.i";
+  precioElemento.textContent = "₡" + formatearNumeroConComas(precio);
 
   // Tramo del producto
   const tramoElemento = document.createElement("h1");
@@ -206,3 +210,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("No se proporcionó un ID de producto en la URL.");
   }
 });
+
+function guardarPaginaActual() {
+  localStorage.setItem('paginaActual', window.location.href);
+}
+
+// Función para redirigir a la página anterior
+function regresarPaginaAnterior() {
+  const paginaAnterior = localStorage.getItem('paginaActual');
+  if (paginaAnterior) {
+      window.location.href = paginaAnterior;
+  } else {
+      // Manejo de error si no se encuentra la página anterior
+      console.error('No se pudo encontrar la página anterior en el localStorage.');
+  }
+}
+
+

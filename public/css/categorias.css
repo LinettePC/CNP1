@@ -19,6 +19,24 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
+.container-devolver {
+	margin-right: 250px;
+	margin-left: 250px;
+
+}
+
+.arrow-container {
+	cursor: pointer;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+
+.arrow-container span {
+	margin-left: 10px;
+	font-size: 20px;
+}
 
 .login {
 	height: 100%;
@@ -238,6 +256,8 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
 
 
 

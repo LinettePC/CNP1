@@ -1,4 +1,7 @@
 const filaProducto = document.getElementById('fila');
+function formatearNumeroConComas(numero) {
+	return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 
 
 function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID) {
@@ -33,7 +36,7 @@ function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID) {
     // Precio del producto
     const precioElemento = document.createElement('span');
     precioElemento.classList.add('precio');
-    precioElemento.textContent = '$' + precioVendedor;
+    precioElemento.textContent =  "₡" + formatearNumeroConComas(precioVendedor);
 
     // Descripción del producto
     const descripcionElemento = document.createElement('p');
