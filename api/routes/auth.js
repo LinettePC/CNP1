@@ -15,16 +15,34 @@ router.get('/validarLogAdministrador',(req,res)=>{
   admin.findOne({cedula:req.body.cedula})
     .then()
 
-
-
 })
 
 //ruta para el login del cliente
 //http://localhost:3000/api/validarLogCliente
 router.get('/validarLogCliente',(req,res)=>{
   cliente.findOne({cedula:req.body.cedula})
-    .then()
-
+    .then(
+      function(usuario){
+        if(usuario){
+          if(usuario.contrasenna == req.body.contrasenna){
+            res.json({
+              resultado:true,
+              usuario:usuario
+            })
+          }else{
+            res.json({
+              resultado:false,
+              mensaje:"Las contraseñas no coinciden"
+            })
+          }
+        }else{
+          res.json({
+            resultado:false,
+            mensaje:"Este cliente no existe"
+          })
+        }
+      }
+    )
 })
 
 //ruta para el login del vendedor
