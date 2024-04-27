@@ -45,6 +45,10 @@ router.get('/validarLogCliente',(req,res)=>{
     )
 })
 
+
+
+
+
 //ruta para el login del vendedor
 //http://localhost:3000/api/validarLogVendedor
 router.get('/validarLogVendedor',(req,res)=>{
