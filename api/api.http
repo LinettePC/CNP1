@@ -8,24 +8,25 @@ POST http://localhost:3000/api/registrar-producto
 Content-Type: application/json
 
 {
-  "cedula_vendedor_env": "12345",
-  "nombre_env": "Sandia",
-  "descripcion_env": "Las mejores sandias del planeta",
-  "categoria_env": "frutas_verduras",
-  "precio_env": 8200,
-  "inventario_env": 15
+  "cedula_vendedor": "123456789",
+  "nombre": "Manzana",
+  "tramo": "A",
+  "descripcion": "Fruta fresca y jugosa",
+  "categoria": "frutas_verduras",
+  "precio_vendedor": "800",
+  "inventario": "100",
+  "precio_con_iva": "59500"
 }
-
 
 
 
 ###
 
-GET http://localhost:3000/api/listar-productos-vendedor
+DELETE  http://localhost:3000/api/eliminar-producto
 Content-Type: application/json
 
 {
-  "cedula": "1234567890"
+  "_id": "662c59a96cfb8f545b917aec"
 }
 
 ###
