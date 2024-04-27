@@ -17,7 +17,6 @@ function validarCamposVacios() {
 			input.classList.remove('error');
 		}
 	});
-
 	if (error) {
 		Swal.fire({
 			title: 'Existen Campos Vacíos',
@@ -25,11 +24,8 @@ function validarCamposVacios() {
 			icon: 'warning',
 		});
 	}
-
 	return !error;
 }
-
-
 
 // Función para validar un campo con una expresión regular
 function validarCampo(input, expresion, errorMessage) {
@@ -45,7 +41,6 @@ function validarCampo(input, expresion, errorMessage) {
 	input.classList.remove('error');
 	return false;
 }
-
 
 // Validar identificación
 function validarIdentificacion() {
@@ -68,12 +63,10 @@ function validarIdentificacion() {
 	return false;
 }
 
-
 // Limpiar todos los campos del formulario
 function limpiarCampos() {
 	Object.values(inputs).forEach((input) => (input.value = ''));
 }
-
 
 // Función principal de validación
 function principal() {
@@ -81,21 +74,29 @@ function principal() {
 		validarCamposVacios() &&
 		!validarIdentificacion()
 	) {
-		Swal.fire({
-			title: 'Datos correctos',
-			text: '',
-			icon: 'success',
-		});
-
+		// Swal.fire({
+		// 	title: 'Datos correctos',
+		// 	text: '',
+		// 	icon: 'success',
+		// });
 		idCliente = document.getElementById('username');
 		contrasenna = document.getElementById('password');
 		boton = document.getElementById('submit-button');
 
 		limpiarCampos();
-		
-		
+		validarCliente(idCliente,contrasenna)	
 	}
-
+	
+	// else{
+	// 	idCliente = document.getElementById('username');
+	// 	contrasenna = document.getElementById('password');
+	// 	validarCliente(idCliente,contrasenna)
+	// 	Swal.fire({
+	// 		title: 'Cliente no',
+	// 		text: '',
+	// 		icon: 'success',
+	// 	});
+	// }
 }
 
 
