@@ -7,8 +7,6 @@ const vendedor = require("../models/vendedores");
 const router = express.Router();
 
 
-
-
 //ruta para el login del administrador
 //http://localhost:3000/api/validarLogAdministrador
 
@@ -22,7 +20,7 @@ const router = express.Router();
 
 
 
-/*
+
 //ruta para el login del cliente
 //http://localhost:3000/api/validarLogCliente
 router.get('/validarLogCliente',(req,res)=>{
@@ -51,7 +49,7 @@ router.get('/validarLogCliente',(req,res)=>{
     )
 })
 
-*/
+
 
 
 
@@ -113,3 +111,5 @@ router.post("/login-cliente", (req, res) => {});
 // POST --> login
 router.post("/login-admin", (req, res) => {});
 */
+
+module.exports = router
