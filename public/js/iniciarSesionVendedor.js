@@ -83,7 +83,7 @@ function principal() {
 	) {
 		Swal.fire({
 			title: 'Datos correctos',
-			text: 'Datos correctos',
+			text: '',
 			icon: 'success',
 		});
 

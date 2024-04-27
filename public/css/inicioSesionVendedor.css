@@ -514,5 +514,8 @@ footer{
 #submit-button{
 	/* border: 1px solid red; */
 	margin-top: 13px;
-
+}
+#username{
+	/* border: 1px solid red;  */
+	margin-bottom: 13px;
 }

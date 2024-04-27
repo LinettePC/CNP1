@@ -1,16 +1,46 @@
 const express = require("express");
 //necesitamos requerir el modelo de Clientes
-const Admin = require("../models/admins");
-const vendedores = require("../models/vendedores");
+const admin = require("../models/admins");
 const cliente = require("../models/clientes");
+const vendedor = require("../models/vendedores");
+
 const router = express.Router();
 
-//ruta para el login del vendedor
-router.get('/validarVendedor')
 
+
+
+//ruta para el login del administrador
+//http://localhost:3000/api/validarLogAdministrador
+router.get('/validarLogAdministrador',(req,res)=>{
+  admin.findOne({cedula:req.body.cedula})
+    .then()
+
+
+
+})
 
 //ruta para el login del cliente
-router.get('/validarCliente')
+//http://localhost:3000/api/validarLogCliente
+router.get('/validarLogCliente',(req,res)=>{
+  cliente.findOne({cedula:req.body.cedula})
+    .then()
+
+})
+
+//ruta para el login del vendedor
+//http://localhost:3000/api/validarLogVendedor
+router.get('/validarLogVendedor',(req,res)=>{
+  vendedor.findOne({cedula:req.body.cedula})
+    .then()
+
+
+})
+
+
+
+
+
+
 
 
 
