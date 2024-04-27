@@ -76,23 +76,24 @@ function principal() {
 		validarCamposVacios() &&
 		!validarIdentificacion()
 	) {
-		 Swal.fire({
-		 	title: 'Datos correctos :)',
-		  	text: '',
-		  	icon: 'success',
-		  });
+		//  Swal.fire({
+		//  	title: 'Datos correctos :)',
+		//   	text: '',
+		//   	icon: 'success',
+		//   });
+
+		//validarCliente(idCliente,contrasenna)  
 		idCliente = document.getElementById('username');
 		contrasenna = document.getElementById('password');
 		boton = document.getElementById('submit-button');
-
-
-
-		const inputs = {
-			idCliente: document.getElementById('username'),
-			contrasenna: document.getElementById('password'),
-		};
-		validarCliente(inputs.idCliente,inputs.contrasenna)
-		limpiarCampos();
+		
+		// const inputs = {
+		// 	idCliente: document.getElementById('username'),
+		// 	contrasenna: document.getElementById('password'),
+		// };
+		// validarCliente(inputs.idCliente,inputs.contrasenna)
+		validarCliente(idCliente,contrasenna)
+		//limpiarCampos();
 			
 	}
 	

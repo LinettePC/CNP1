@@ -4,7 +4,7 @@
 const validarCliente = async (pCedula, pContrasenna) =>{
     await axios({
         method:"get",
-        url:"//http://localhost:3000/api/validarLogCliente",
+        url:"http://localhost:3000/api/validarLogCliente",
         responseType:"json",
         data:{
             cedula:pCedula,

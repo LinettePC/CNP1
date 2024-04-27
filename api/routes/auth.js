@@ -1,7 +1,8 @@
-const express = require("express");
+
+const express = require('express');
 //necesitamos requerir el modelo de Clientes
 const admin = require("../models/admins");
-const cliente = require("../models/clientes");
+const cliente = require('../models/clientes');
 const vendedor = require("../models/vendedores");
 
 const router = express.Router();
