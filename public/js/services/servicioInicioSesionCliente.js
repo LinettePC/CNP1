@@ -1,4 +1,6 @@
 //Autor: Linette
+
+//esta ruta esta en doc 
 const validarCliente = async (pCedula, pContrasenna) =>{
     await axios({
         method:"get",
@@ -17,14 +19,15 @@ const validarCliente = async (pCedula, pContrasenna) =>{
             })
         }else{
             //sessionStorage.setItem("estado","Activo") no necesario creo
-            //sessionStorage.setItem("rol","cliente") no necesario creo
+            sessionStorage.setItem("rol","cliente") //no necesario creo;
             //sessionStorage.setItem("estado",res.data.resultado.estado) no necesario creo
             Swal.fire({
-                title: 'Datos correctos',
+                title: 'Datos correctos!!!',
                 text: '',
                 icon: 'success',
             });
             window.location.href= "miPerfil.html"
+            
         }
     })
 }

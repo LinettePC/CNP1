@@ -11,12 +11,18 @@ const router = express.Router();
 
 //ruta para el login del administrador
 //http://localhost:3000/api/validarLogAdministrador
-router.get('/validarLogAdministrador',(req,res)=>{
-  admin.findOne({cedula:req.body.cedula})
-    .then()
 
-})
 
+// router.get('/validarLogAdministrador',(req,res)=>{
+//   admin.findOne({cedula:req.body.cedula})
+//     .then()
+
+// })
+
+
+
+
+/*
 //ruta para el login del cliente
 //http://localhost:3000/api/validarLogCliente
 router.get('/validarLogCliente',(req,res)=>{
@@ -45,19 +51,16 @@ router.get('/validarLogCliente',(req,res)=>{
     )
 })
 
-
+*/
 
 
 
 //ruta para el login del vendedor
 //http://localhost:3000/api/validarLogVendedor
-router.get('/validarLogVendedor',(req,res)=>{
-  vendedor.findOne({cedula:req.body.cedula})
-    .then()
-
-
-})
-
+// router.get('/validarLogVendedor',(req,res)=>{
+//   vendedor.findOne({cedula:req.body.cedula})
+//     .then()
+// })
 
 
 
@@ -70,6 +73,7 @@ router.get('/validarLogVendedor',(req,res)=>{
 
 
 
+/*
 
 //de aca para abajo esta sin revisar por Linette
 
@@ -98,6 +102,9 @@ router.post("/login-vendedor", (req, res) => {
   );
 });
 
+*/
+
+/*
 // http://localhost:3000/api/login-cliente
 // POST --> login
 router.post("/login-cliente", (req, res) => {});
@@ -105,3 +112,4 @@ router.post("/login-cliente", (req, res) => {});
 // http://localhost:3000/api/login-admin
 // POST --> login
 router.post("/login-admin", (req, res) => {});
+*/
