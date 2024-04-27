@@ -16,9 +16,9 @@ const validarCliente = "" async(pCedula, pContrasenna) =>{
                 icon:"warning"
             })
         }else{
-            //sessionStorage.setItem("estado",Activo) no necesario
-            //sessionStorage.setItem("rol","cliente") no necesario
-            //sessionStorage.setItem("estado",res.data.resultado.estado) no necesario
+            //sessionStorage.setItem("estado","Activo") no necesario creo
+            //sessionStorage.setItem("rol","cliente") no necesario creo
+            //sessionStorage.setItem("estado",res.data.resultado.estado) no necesario creo
             window.location.href= "miPerfil.html"
         }
     })
