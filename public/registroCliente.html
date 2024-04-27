@@ -159,24 +159,9 @@
 					<!-- INICIO codigo adjuntar foto -->
 					<div class="margen-bottom-xl">
 						<p class="margen-bottom">Fotografía (opcional)</p>
-						<!-- <input type="file" name="fotoCliente" placeholder="">  -->
-						<!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
-						<!-- Para poder cambiarle lo escrito al boton -->
-						<input
-							hidden
-							id="btnoriginalF"
-							class="form-control text-center col-md-6"
-							onChange="document.getElementById('tagsmallF').innerText=document.getElementById('btnoriginalF').files[0]['name'];"
-							type="file"
-							value="Adjuntar imagen"
-						/>
-						<button
-							id="botonpersonal"
-							onClick="document.getElementById('btnoriginalF').click();"
-						>
-							Adjuntar Imagen
-						</button>
-						<small id="tagsmallF">No hay archivos adjuntos</small>
+						<input hidden id="fotoInput" class="form-control text-center col-md-6" type="file" />
+						<button id="adjuntarFoto">Adjuntar Imagen</button>
+						<small id="fotoLabel">No hay archivos adjuntos</small>
 					</div>
 					<!-- FIN codigo adjuntar foto -->
 

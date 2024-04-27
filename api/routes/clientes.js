@@ -16,6 +16,41 @@ function conseguirFechaFormateada() {
 	return `${dia}/${mes}/${anno}`;
 }
 
+
+// http://localhost:3000/api/registrar-clientes
+// POST --> crear nuevos registros de clientes
+
+router.post('/registrar-clientes', (req, res) => {
+	const body = req.body;
+	const fechaFormateada = conseguirFechaFormateada();
+
+	let nuevo_Cliente = new Cliente(body);
+
+	nuevo_Cliente.fecha_de_registro = fechaFormateada;
+
+	if (body.foto) {
+		nuevo_Cliente.foto = pFoto;
+	}
+
+	nuevo_Cliente.save((error, usuarioRegistrado) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo hacer el registro',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Registro exitoso',
+				usuarioRegistrado,
+			});
+		}
+	});
+});
+
+
+
 //http://localhost:3000/api/listar-clientes
 //GET--> recuperar informacion
 router.get('/listar-clientes', (req, res) => {
@@ -92,37 +127,7 @@ router.get('/buscar-cliente-cedula', (req, res) => {
 
 
 
-// http://localhost:3000/api/registrar-cliente
-// POST --> crear nuevos registros
 
-router.post('/registrar-vendedor', (req, res) => {
-	const body = req.body;
-	const fechaFormateada = conseguirFechaFormateada();
-
-	let nuevo_Cliente = new Cliente(body);
-
-	nuevo_Cliente.fecha_de_registro = fechaFormateada;
-
-	if (body.foto) {
-		nuevo_Cliente.foto = pFoto;
-	}
-
-	nuevo_Cliente.save((error, usuarioRegistrado) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo hacer el registro',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Registro exitoso',
-				usuarioRegistrado,
-			});
-		}
-	});
-});
 
 
 

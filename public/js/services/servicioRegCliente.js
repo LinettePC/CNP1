@@ -1,7 +1,7 @@
-const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTelefono, pFoto, pContrasenna) => {
+const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTelefono, /*pFoto, */pContrasenna) => {
 	await axios({
 		method: "post",
-		url: "http://localhost:3000/api/registrar",
+		url: "http://localhost:3000/api/registrar-clientes",
 		responseType: 'json',
 		data: {
 			cedula: pCedula,
@@ -9,7 +9,7 @@ const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTele
             primerApellido: pPrimerApellido,
 			correo: pCorreo,
             telefono: pTelefono,
-			foto: pFoto,
+			//foto: pFoto,
 			contrasenna: pContrasenna,
 		}
 	}).then((response) => {
