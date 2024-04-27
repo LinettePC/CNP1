@@ -5,6 +5,22 @@ const vendedores = require("../models/vendedores");
 const cliente = require("../models/clientes");
 const router = express.Router();
 
+//ruta para el login del vendedor
+router.get('/validarVendedor')
+
+
+//ruta para el login del cliente
+router.get('/validarCliente')
+
+
+
+
+
+
+
+
+//de aca para abajo esta sin revisar por Linette
+
 // http://localhost:3000/api/login-vendedor
 // POST --> login
 router.post("/login-vendedor", (req, res) => {

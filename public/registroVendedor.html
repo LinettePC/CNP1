@@ -1,203 +1,175 @@
 <!--Autor: Linette-->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Registro Vendedor</title>
-		<!--Links para las hojas de estilos: -->
-		<!--Link a reset -->
-		<link rel="stylesheet" href="css/reset.css" />
-		<!--Link al css de estilos respectivo -->
-		<link rel="stylesheet" href="css/registroVendedor.css" />
-		<!-- <link rel="stylesheet" href="/public/img/logoTres.png">  -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro Vendedor</title>
+    <!--Links para las hojas de estilos: -->
+    <!--Link a reset -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <!--Link al css de estilos respectivo -->
+    <link rel="stylesheet" href="css/registroVendedor.css" />
+    <!-- <link rel="stylesheet" href="/public/img/logoTres.png">  -->
 
-		<!--Link a las letras -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<!--Header Uno-->
-		<header id="headerUno">
-			<div class="logo" style="margin-right: auto;">
-				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
-			</div>
+    <!--Link a las letras -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Header Uno-->
+    <header id="headerUno">
+      <div class="logo" style="margin-right: auto">
+        <img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+      </div>
 
-			<div class="titulos-container">
-				<h1 id="tituloF1A">
-					Ahora puedes vender productos en la Feria del CNP
-				</h1>
-				<h1 id="tituloF1B">
-					Puedes llenar una solicitud y te enviaremos un correo electrónico cuando tu cuenta este aprobada
-				</h1>
-			</div>
+      <div class="titulos-container">
+        <h1 id="tituloF1A">
+          Ahora puedes vender productos en la Feria del CNP
+        </h1>
+        <h1 id="tituloF1B">
+          Puedes llenar una solicitud y te enviaremos un correo electrónico
+          cuando tu cuenta este aprobada
+        </h1>
+      </div>
 
-			<div style="margin-left: auto;">
-				<nav id="navUno">
-					<a id="a1" href="dosLandingPage.html">Inicio</a>
-					<a id="a1" href="https://www.cnp.go.cr/contactenos/index.aspx">Contáctenos</a>
-				</nav>
-			</div>
-		</header>
+      <div style="margin-left: auto">
+        <nav id="navUno">
+          <a id="a1" href="dosLandingPage.html">Inicio</a>
+          <a id="a1" href="https://www.cnp.go.cr/contactenos/index.aspx"
+            >Contáctenos</a
+          >
+        </nav>
+      </div>
+    </header>
 
-		<section id="formulario">
-			<div id="tituloForm">
-				<div class="logo">
-					<img
-						src="img/profile.png"
-						alt="logo"
-						id="logoPerfil"
-					/>
-				</div>
-				<div>
-					<h1 id="tituloF2">Formulario de Vendedor</h1>
-				</div>
-			</div>
+    <section id="formulario">
+      <div id="tituloForm">
+        <div class="logo">
+          <img src="img/profile.png" alt="logo" id="logoPerfil" />
+        </div>
+        <div>
+          <h1 id="tituloF2">Formulario de Vendedor</h1>
+        </div>
+      </div>
 
-			<form id="formularioCuentaCliente">
-				<div class="margen-bottom-xl">
-					<input
-						type="radio"
-						id="idNacional"
-						name="tipoIdentificacion"
-						value="nacional"
-						checked
-					/>
-					<label for="idNacional">Cédula Nacional</label>
+      <form id="formularioCuentaCliente">
+        <div class="margen-bottom-xl">
+          <input
+            type="radio"
+            id="idNacional"
+            name="tipoIdentificacion"
+            value="nacional"
+            checked
+          />
+          <label for="idNacional">Cédula Nacional</label>
 
-					<input
-						type="radio"
-						id="idDimex"
-						name="tipoIdentificacion"
-						value="dimex"
-					/>
-					<label for="idDimex">DIMEX</label>
+          <input
+            type="radio"
+            id="idDimex"
+            name="tipoIdentificacion"
+            value="dimex"
+          />
+          <label for="idDimex">DIMEX</label>
 
-					<!-- <input type="radio" id="idPasaporte" name="tipoIdentificacion" value="pasaporte">
+          <!-- <input type="radio" id="idPasaporte" name="tipoIdentificacion" value="pasaporte">
                 <label for="pasaporte">Pasaporte</label> -->
-				</div>
+        </div>
 
-				<div class="margen-bottom-xl">
-					<!-- <p>Identificación:</p> -->
-					<label for="identificacion" class="margen-bottom"
-						>Identificación:</label
-					>
-					<p></p>
-					<input
-						type="text"
-						id="identificacion"
-						name="identificacion"
-						required
-					/>
-				</div>
+        <div class="margen-bottom-xl">
+          <!-- <p>Identificación:</p> -->
+          <label for="identificacion" class="margen-bottom"
+            >Identificación:</label
+          >
+          <p></p>
+          <input
+            type="text"
+            id="identificacion"
+            name="identificacion"
+            required
+          />
+        </div>
 
-				<div class="margen-bottom-xl">
-					<label for="nombre" class="margen-bottom">Nombre:</label>
-					<!-- <p>Nombre:</p> -->
-					<p></p>
-					<input type="text" id="nombre" name="nombre" required />
-				</div>
+        <div class="margen-bottom-xl">
+          <label for="nombre" class="margen-bottom">Nombre:</label>
+          <!-- <p>Nombre:</p> -->
+          <p></p>
+          <input type="text" id="nombre" name="nombre" required />
+        </div>
 
-				<div class="margen-bottom-xl">
-					<label for="primerApellido" class="margen-bottom"
-						>Primer Apellido:</label
-					>
-					<!-- <p>Primer Apellido:</p> -->
-					<p></p>
-					<input
-						type="text"
-						id="primerApellido"
-						name="primerApellido"
-						required
-					/>
-				</div>
+        <div class="margen-bottom-xl">
+          <label for="primerApellido" class="margen-bottom"
+            >Primer Apellido:</label
+          >
+          <!-- <p>Primer Apellido:</p> -->
+          <p></p>
+          <input
+            type="text"
+            id="primerApellido"
+            name="primerApellido"
+            required
+          />
+        </div>
 
-				<div class="margen-bottom-xl">
-					<label for="nombreTramo" class="margen-bottom"
-						>Nombre del Tramo: <p></p>(Este es el nombre de empresa que tus clientes van a ver):</label>
-					<p></p>
-					<input 
-					type="text" 
-					id="nomTramo" 
-					name="nombTramo" 
-					required/>
-				</div>
-				<div class="margen-bottom-xl">
-					<label for="correo" class="margen-bottom">Correo:</label>
-					<!-- <p>Correo:</p> -->
-					<p></p>
-					<input type="email" id="correo" name="correo" required />
-				</div>
+        <div class="margen-bottom-xl">
+          <label for="nombreTramo" class="margen-bottom"
+            >Nombre del Tramo:
+            <p></p>
+            (Este es el nombre de empresa que tus clientes van a ver):</label
+          >
+          <p></p>
+          <input type="text" id="nomTramo" name="nombTramo" required />
+        </div>
+        <div class="margen-bottom-xl">
+          <label for="correo" class="margen-bottom">Correo:</label>
+          <!-- <p>Correo:</p> -->
+          <p></p>
+          <input type="email" id="correo" name="correo" required />
+        </div>
 
-				<div class="margen-bottom-xl">
-					<label for="telefono" class="margen-bottom"
-						>Teléfono:</label
-					>
-					<!-- <p>Teléfono:</p> -->
-					<p></p>
-					<input type="text" id="telefono" name="telefono" required />
-				</div>
+        <div class="margen-bottom-xl">
+          <label for="telefono" class="margen-bottom">Teléfono:</label>
+          <!-- <p>Teléfono:</p> -->
+          <p></p>
+          <input type="text" id="telefono" name="telefono" required />
+        </div>
 
-				<div class="margen-bottom-xl">
-					<p class="margen-bottom">Permisos:</p>
-					<!-- <input type="file" name="fotoCliente" placeholder="">  -->
-					<!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
-					<!-- Para poder cambiarle lo escrito al boton -->
-					<input
-						hidden
-						id="btnoriginal1"
-						class="form-control text-center col-md-6"
-						onChange="document.getElementById('tagsmall1').innerText=document.getElementById('btnoriginal1').files[0]['name'];"
-						type="file"
-						value="Adjuntar imagen"
-					/>
-					<button
-						id="botonpersonal"
-						onClick="document.getElementById('btnoriginal1').click();"
-					>
-						Adjuntar PDF
-					</button>
-					<small id="tagsmall1">No hay archivos adjuntos</small>
-				</div>
-				<!-- -------fin de boton adjuntar permisos-------------------------------------------- -->
+        <div class="margen-bottom-xl">
+          <p class="margen-bottom">Permisos:</p>
+          <input
+            hidden
+            id="permisoInput"
+            class="form-control text-center col-md-6"
+            type="file"
+          />
+          <button id="adjuntarPermiso" class="botonAdjuntar">
+            Adjuntar PDF
+          </button>
+          <small id="permisoLabel">No hay archivos adjuntos</small>
+        </div>
 
+        <div class="margen-bottom-xl">
+          <p class="margen-bottom">Fotografía (opcional)</p>
+          <input
+            hidden
+            id="fotoInput"
+            class="form-control text-center col-md-6"
+            type="file"
+          />
+          <button id="adjuntarFoto" class="botonAdjuntar">
+            Adjuntar Imagen
+          </button>
+          <small id="fotoLabel">No hay archivos adjuntos</small>
+        </div>
 
-				<!-- inicio boton adjuntar imagen -->
-				<div class="margen-bottom-xl">
-					<p class="margen-bottom">Fotografía (opcional)</p>
-					<!-- <input type="file" name="fotoCliente" placeholder="">  -->
-					<!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
-					<!-- Para poder cambiarle lo escrito al boton -->
-					<input
-						hidden
-						id="btnoriginal2"
-						class="form-control text-center col-md-6"
-						onChange="document.getElementById('tagsmall2').innerText=document.getElementById('btnoriginal2').files[0]['name'];"
-						type="file"
-						value="Adjuntar imagen"
-					/>
-					<button
-						id="botonpersonal"
-						onClick="document.getElementById('btnoriginal2').click();"
-					>
-						Adjuntar Imagen
-					</button>
-					<small id="tagsmall2">No hay archivos adjuntos</small>
+        <!-- FIN boton adjuntar imagen -->
 
-					<!-- FIN boton adjuntar imagen -->
-
-					
-
-
-
-
-
-				<!-- </div>
+        <!-- </div>
 				<div class="margen-bottom-xl">
 					<label for="contrasenna" class="margen-bottom"
 						>Contraseña:</label>
@@ -210,7 +182,7 @@
 					/>
 				</div> -->
 
-				<!-- <div class="margen-bottom-xl">
+        <!-- <div class="margen-bottom-xl">
 					<label for="contrasenna" class="margen-bottom"
 						>Vuelve a escribir la Contraseña:</label
 					>
@@ -222,7 +194,7 @@
 						required
 					/>
 				</div> -->
-				<!-- <div>
+        <!-- <div>
 					<ul id="formato contrasenna" type="list-style-type:disc">
 						<li id="" type="circle">Debe tener 8 o más caracteres</li>
 						<li id="" type="circle">No debe tener vocales </li>
@@ -233,21 +205,23 @@
 					</ul>
 				</div> -->
 
-				<div style="display: flex">
-					<button class="register-buttons"
-						style="margin-left: auto"
-						type="button"
-						id="botonEnviar">Enviar Solicitud
-					</button>
-				</div>
-			</form>
-		</section>
+        <div style="display: flex">
+          <button
+            class="register-buttons"
+            style="margin-left: auto"
+            type="button"
+            id="botonEnviar"
+          >
+            Enviar Solicitud
+          </button>
+        </div>
+      </form>
+    </section>
 
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script src="./js/services/servicioRegVendedor.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<!-- <script src="js/services/servicio-registro.js"></script> -->
-		<script src="js/registroVendedor.js"></script>
-
-	</body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/services/servicioRegVendedor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="js/services/servicio-registro.js"></script> -->
+    <script src="js/registroVendedor.js"></script>
+  </body>
 </html>
