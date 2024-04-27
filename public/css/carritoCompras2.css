@@ -1,4 +1,8 @@
 /* Estilos de la barra de navegación */
+.oculto {
+    display: none;
+}
+
 .logo {
 	display: flex;
 	flex-direction: row;
@@ -128,6 +132,7 @@
 
 /*Estilos titulo*/
 .seccion-titulo {
+	font-family: 'Cabin', sans-serif;
 	background-color: lightgray;
 	margin-bottom: 40px;
 	padding: 20px;
@@ -201,18 +206,48 @@
     
 }
 
+
+
 .contenedor {
+    font-family: 'Cabin', sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    max-height: 450px; /* Establece la altura máxima */
+    overflow-y: auto; /* Activa el desbordamiento vertical con desplazamiento */
+}
+
+
+.contenedorTitulos{
     font-family: 'Cabin', sans-serif;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     
     flex-direction: column;
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
 }
 
+.contenedor::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+  }
+  
+  .contenedor::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color del fondo del track */
+  }
+  
+  .contenedor::-webkit-scrollbar-thumb {
+    background: #888; /* Color del thumb */
+  }
+  
+
 .producto {
+    padding-top: 15px;
+    padding-bottom: 15px;
     border-top: 1px solid grey;
     width: 100%;
     font-family: 'Cabin', sans-serif;
@@ -221,8 +256,8 @@
     align-items: center; /* Alinea verticalmente los elementos dentro de .producto */
     flex-direction: row;
     height: 160px;
-    border-bottom:1px solid grey;
 }
+
 
 #textoProducto{
     width: 40%;
@@ -241,12 +276,84 @@
     display: flex;
     align-items: center;
 }
-#cantidadProductoDB{
+
+.contenerCantidad{
     width: 20%;
-    height: 100% ;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.cantidad { 
+    width: 100px;
+    height: 40px; /* Aumenta la altura */
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 3px;
     display: flex;
     align-items: center;
+
 }
+
+.cantidadInput {
+    color: #292929;
+    width: 40px; /* Aumenta el ancho */
+    text-align: center;
+    font-size: 15px;
+    background-color: transparent;
+    border: none;
+    font-family: 'Cabin', sans-serif;
+}
+
+.btn-minus{
+    color: #292929;
+    padding: 8px; /* Aumenta el padding */
+    font-size: 30px; /* Aumenta el tamaño de la fuente */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Cabin', sans-serif;
+}
+.btn-plus {
+    color: #292929;
+    padding: 8px; /* Aumenta el padding */
+    font-size: 30px; /* Aumenta el tamaño de la fuente */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 5px;
+    font-family: 'Cabin', sans-serif;
+}
+
+.btn-confirmarEditar {
+    margin-top: 5px;
+    font-family: 'Cabin', sans-serif;
+    background-color: black; /* Fondo negro para el botón */
+    color: white; /* Texto blanco para el botón */
+    /* Ajusta el espacio interno del botón */
+    font-size: 15px; /* Tamaño de fuente del botón */
+    width: 100px;
+    height: 25px;
+    border-radius: 5    px;
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */ 
+}
+
+.btn-eliminar{
+    margin-top: 5px;
+    font-family: 'Cabin', sans-serif;
+    background-color: rgb(150, 2, 2); /* Fondo negro para el botón */
+    color: white; /* Texto blanco para el botón */
+    /* Ajusta el espacio interno del botón */
+    font-size: 15px; /* Tamaño de fuente del botón */
+    width: 100px;
+    height: 25px;
+    border-radius: 5    px;
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */ 
+}
+
 #totalProductoDB{
     width: 20%;
     height: 100% ;
@@ -274,7 +381,7 @@
     width: 300px; /* Define el ancho del div */
     height: 150px; /* Define la altura del div */
 
-    
+    margin: 0 auto;
     margin-top: 10px;
     
 }
@@ -299,9 +406,17 @@
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */ 
 }
 #subTotal{
+    font-size: 25px;
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    font-family: 'Cabin', sans-serif;
     margin-bottom: 10px;
+    font-weight: 50;
+}
+
+.totalFinal{
+    margin-left: 8px;
+    font-weight: 600;
 }
