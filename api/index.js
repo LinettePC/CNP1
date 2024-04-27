@@ -5,7 +5,7 @@ mongoose.set('strictQuery', false);
 const cors = require("cors");
 
 const admins = require("./routes/admins");
-//const auth = require("./routes/auth");
+const auth = require("./routes/auth");
 const clientes = require("./routes/clientes");
 const productos = require("./routes/productos");
 const vendedores = require("./routes/vendedores");
@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 app.use("/api", admins);
-//app.use("/api", auth);
+app.use("/api", auth);
 app.use("/api", categorias);
 app.use("/api", clientes);
 app.use("/api", productos);

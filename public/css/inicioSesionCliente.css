@@ -510,3 +510,13 @@ footer{
 #toggleButton:hover {
     background-color: #81B12A;
 }
+
+#submit-button{
+	/* border: 1px solid red; */
+	margin-top: 13px;
+}
+
+#username{
+	/* border: 1px solid red;  */
+	margin-bottom: 13px;
+}
