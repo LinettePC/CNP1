@@ -155,7 +155,12 @@ function crearTarjetaProducto(
         text: "Se actualizara la cantidad actual",
         icon: "success",
         confirmButtonText: "Entendido!",
-      });
+      }).then((result) => {
+        // Después de mostrar el mensaje, reiniciar la página
+        if (result.isConfirmed) {
+            location.reload(); // Recargar la página
+        }
+    });
 
     } else {
       const productoNuevo = {
@@ -172,7 +177,12 @@ function crearTarjetaProducto(
         text: "",
         icon: "success",
         confirmButtonText: "Entendido!",
-      });
+      }).then((result) => {
+        // Después de mostrar el mensaje, reiniciar la página
+        if (result.isConfirmed) {
+            location.reload(); // Recargar la página
+        }
+    });
     }
 
     inputCantidad.value = "1";
