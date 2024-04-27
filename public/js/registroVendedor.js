@@ -208,11 +208,11 @@ function principal() {
 		let nomTramo = inputs.nomTramo.value;
 		let correo = inputs.correo.value;
 		let telefono = inputs.telefono.value;
-		let permiso = inputs.permiso.value;
-		let foto = inputs.foto.value;
+		//let permiso = inputs.permiso.value;
+		//let foto = inputs.foto.value;
 		
 		
-		preRegistroVendedor(cedula, nombre, primerApellido, nomTramo, correo, telefono, permiso, foto);
+	preRegistroVendedor(cedula, nombre, primerApellido, nomTramo, correo, telefono /*, permiso, foto*/);
 		
 		//preRegistroVendedor(cedula,nombre,primerApellido,nomTramo,correo,telefono,permiso,foto)
 		limpiarCampos();

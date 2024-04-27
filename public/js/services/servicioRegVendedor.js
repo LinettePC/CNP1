@@ -1,5 +1,5 @@
 //e realidad esta funcion no es de registro, es de envio de formulario
-const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo, pCorreo, pTelefono, pPermisos, pFoto, /*pContrasenna*/) => {
+const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo, pCorreo, pTelefono, /*pPermisos, pFoto, pContrasenna*/) => {
 	await axios({
 		method: "post",
 		url: "http://localhost:3000/api/registrar-vendedor",
@@ -11,8 +11,8 @@ const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTra
             nomTramo: pNombreTramo,
 			correo: pCorreo,
             telefono: pTelefono,
-            permisos: pPermisos,
-			foto: pFoto,
+            //permisos: pPermisos,
+			//foto: pFoto,
 			//contrasenna: pContrasenna,
 		}
 	})
