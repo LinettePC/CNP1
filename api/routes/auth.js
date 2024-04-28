@@ -24,7 +24,8 @@ const router = express.Router();
 
 //ruta para el login del cliente
 //http://localhost:3000/api/validarLogCliente
-router.get('/validarLogCliente',(req,res)=>{
+//es post porque solo "post" y "put tienen acceso a req.body"
+router.post('/validarLogCliente',(req,res)=>{
   cliente.findOne({cedula:req.body.cedula})
     .then(
       function(usuario){
