@@ -33,7 +33,7 @@ router.post('/validarLogCliente',(req,res)=>{
           if(usuario.contrasenna == req.body.contrasenna){
             res.json({
               resultado:true,
-              usuario:usuario
+              usuario
             })
           }else{
             res.json({

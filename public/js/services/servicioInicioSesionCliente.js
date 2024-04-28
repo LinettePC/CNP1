@@ -11,6 +11,7 @@ const validarCliente = async (pCedula, pContrasenna) =>{
             contrasenna:pContrasenna
         }
     }).then((res)=>{
+        console.log(res)
         if(res.data.resultado==false){
             Swal.fire({
                 title:"Datos incorrectos",
@@ -18,17 +19,68 @@ const validarCliente = async (pCedula, pContrasenna) =>{
                 icon:"warning"
             })
         }else{
+
             Swal.fire({
                 title: 'Datos correctos!!!',
                 text: '',
                 icon: 'success',
-            });
-            //sessionStorage.setItem("estado","Activo") no necesario creo
-            sessionStorage.setItem("rol","cliente") //no necesario creo;
-            sessionStorage.setItem("estado",res.data.resultado.estado) //no necesario creo
+            })//.then(()=>{
+                setTimeout(()=>{
+                
+                 sessionStorage.setItem("cedula",res.data.usuario.cedula)
+                 sessionStorage.setItem("nombre",res.data.usuario.nombre)
+            //     // sessionStorage.setItem("primerApellido",res.data.usuario.primerApellido)
+            //     // sessionStorage.setItem("correo",res.data.usuario.correo)
+            //     // sessionStorage.setItem("telefono",res.data.usuario.telefono)
+    
+            //     //sessionStorage.setItem("rol","cliente") //no necesario;
+            //     //sessionStorage.setItem("estado",res.data.resultado.estado) //no necesario
+    
+                 window.location.href= "miPerfil.html"
+             },2000)
 
-            window.location.href= "miPerfil.html"
+           // })
+                
+
+
+       
+
+                
+
+
+
+
+
+
+            // setTimeout(()=>{
+            //     Swal.fire({
+            //         title: 'Datos correctos!!!',
+            //         text: '',
+            //         icon: 'success',
+            //     });
+            //     sessionStorage.setItem("cedula",res.data.usuario.cedula)
+            //     sessionStorage.setItem("nombre",res.data.usuario.nombre)
+            //     // sessionStorage.setItem("primerApellido",res.data.usuario.primerApellido)
+            //     // sessionStorage.setItem("correo",res.data.usuario.correo)
+            //     // sessionStorage.setItem("telefono",res.data.usuario.telefono)
+    
+            //     //sessionStorage.setItem("rol","cliente") //no necesario;
+            //     //sessionStorage.setItem("estado",res.data.resultado.estado) //no necesario
+    
+            //     window.location.href= "miPerfil.html"
+            // },1000)
+        
             
+
+
+
+
+
+
+
+
+
+
         }
     })
 }
