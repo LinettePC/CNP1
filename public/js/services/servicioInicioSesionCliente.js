@@ -19,13 +19,14 @@ const validarCliente = async (pCedula, pContrasenna) =>{
                 icon:"warning"
             })
         }else{
+            //setTimeout(()=>{
 
             Swal.fire({
                 title: 'Datos correctos!!!',
                 text: '',
                 icon: 'success',
-            })//.then(()=>{
-                setTimeout(()=>{
+            }).then(()=>{
+             setTimeout(()=>{
                 
                  sessionStorage.setItem("cedula",res.data.usuario.cedula)
                  sessionStorage.setItem("nombre",res.data.usuario.nombre)
@@ -37,9 +38,9 @@ const validarCliente = async (pCedula, pContrasenna) =>{
             //     //sessionStorage.setItem("estado",res.data.resultado.estado) //no necesario
     
                  window.location.href= "miPerfil.html"
-             },2000)
+             },1000)
 
-           // })
+            })
                 
 
 
