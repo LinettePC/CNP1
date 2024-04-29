@@ -21,33 +21,34 @@ function conseguirFechaFormateada() {
 // POST --> crear nuevos registros de clientes
 
 router.post('/registrar-clientes', (req, res) => {
-	const body = req.body;
+    let body = req.body;
 	const fechaFormateada = conseguirFechaFormateada();
+    let nuevo_Cliente = new Cliente({
+        cedula: body.cedula,
+		nombre: body.nombre,
+		primerApellido: body.primerApellido,
+        correo: body.correo,
+        foto: body.foto,
+        contrasenna: body.contrasenna,
+    });
 
-	let nuevo_Cliente = new Cliente(body);
-
-	nuevo_Cliente.fecha_de_registro = fechaFormateada;
-
-	if (body.foto) {
-		nuevo_Cliente.foto = pFoto;
-	}
-
-	nuevo_Cliente.save((error, usuarioRegistrado) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo hacer el registro',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Registro exitoso',
-				usuarioRegistrado,
-			});
-		}
-	});
+    nuevo_Cliente.save((error, usuarioRegistrado) => {
+        if (error) {
+            res.status(500).json({
+                resultado: false,
+                msj: "No se pudo hacer el registro",
+                error
+            });
+        } else {
+            res.status(200).json({
+                resultado: true,
+                msj: "Registro exitoso",
+                usuarioRegistrado,
+            });
+        }
+    });
 });
+
 
 
 
