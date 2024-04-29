@@ -47,14 +47,12 @@ function crearFila(persona) {
 
 	const row = document.createElement('tr');
 	row.innerHTML = `
-	  <td>${venta.fecha_de_venta}</td>
-	  <td>${venta.cedula_comprador}</td>
-	  <td>${venta.nombre_comprador}</td>
-	  <td>${venta.nombre_producto}</td>
-	  <td>${venta.cantidad_comprada}</td>
-	  <td>${venta.categoria_producto}</td>
-	  <td>${venta.precio_venta}</td>
-	  <td>${iva}</td>
+	<td>${persona.cedula}</td>
+	<td>${persona.nomTramo}</td>
+	<td>${persona.nombre}</td>
+	<td>${persona.primerApellido}</td>
+	<td>${persona.fecha_de_registro}</td>
+	<td>${persona.estado}</td>
 	`;
 
 	// <td class="identificacion">1-3457-0982</td>
@@ -137,10 +135,11 @@ function llenarTablaConFiltros() {
 	// Limpiar la tabla antes de llenarla de nuevo
 	bodyTabla.innerHTML = '';
 
-	for (let i = 0; i < cantPersonas; i++) {
-		let persona = lista_personas[i];
+	for (let i = 0; i < lista_vendedores.length; i++) {
+		let persona = lista_vendedores[i];
+
 		let mes_registro = persona.fecha_de_registro.split('/')[1]; // Como la fecha está en DD/MM/AAAA, hay que hacerle split
-		let mes_registro_sin_cero = mes_venta.replace(/^0+/, ''); // Quita el "0" del mes. Ejemplo: 04 pasa a ser 4. Esto se usa para la igualdad después
+		let mes_registro_sin_cero = mes_registro.replace(/^0+/, ''); // Quita el "0" del mes. Ejemplo: 04 pasa a ser 4. Esto se usa para la igualdad después
 		let anno_registro = persona.fecha_de_registro.split('/')[2];
 
 		let fecha_formato_rango = `${anno_registro}-${mes_registro}`; // Crea la fecha en formato AAAA-MM
@@ -181,7 +180,9 @@ function llenarTablaConFiltros() {
 
 		// Agregar la fila a la tabla solo si todos los filtros coinciden
 		if (agregarFila) {
-			bodyTabla.appendChild(crearFila(lista_personas[i]));
+			if (persona.estado == 'Inactivo') {
+				bodyTabla.appendChild(crearFila(persona));
+			}
 		}
 	}
 }
@@ -196,12 +197,10 @@ btnGenerarReporte.addEventListener('click', async () => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
-	cedulaVendedorActual = '12345';
+	lista_vendedores = await listarVendedores();
 
-	lista_personas = await listarClientes();
-
-	if (lista_personas) {
-		cantPersonas = lista_personas.length;
+	if (listarVendedores) {
+		llenarTablaConFiltros();
 	} else {
 		msjNoUsuarios.style.display = 'block';
 	}
