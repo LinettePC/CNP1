@@ -138,7 +138,7 @@ const listarClientes = async () => {
 };
 
 const listarVendedores = async () => {
-	let lista_personas = [];
+	let lista_personas = []; // Lista vacía
 	await axios({
 		method: 'GET',
 		url: 'http://localhost:3000/api/listar-vendedores',
@@ -148,14 +148,14 @@ const listarVendedores = async () => {
 			if (response.data.resultado == false) {
 				console.log(response.data.error);
 			} else {
-				lista_personas = response.data.lista;
+				lista_personas = response.data.lista; // Guarde en la lista vacía TODOS los vendedores que se encontró en la base de datos
 			}
 		})
 		.catch((error) => {
 			console.log(error);
 		});
 
-	return lista_personas;
+	return lista_personas; // Devolver la lista que se llenó
 };
 
 

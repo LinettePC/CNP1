@@ -156,14 +156,7 @@
 						/>
 					</div>
 
-					<!-- INICIO codigo adjuntar foto -->
-					<div class="margen-bottom-xl">
-						<p class="margen-bottom">Fotografía (opcional)</p>
-						<input hidden id="fotoInput" class="form-control text-center col-md-6" type="file" />
-						<button id="adjuntarFoto">Adjuntar Imagen</button>
-						<small id="fotoLabel">No hay archivos adjuntos</small>
-					</div>
-					<!-- FIN codigo adjuntar foto -->
+					
 
 					<div class="margen-bottom-xl">
 						<label for="contrasenna" class="margen-bottom"
@@ -216,6 +209,14 @@
 						</ul>
 					</div>
 
+					<!-- INICIO codigo adjuntar foto -->
+					<div class="foto">
+						<img id="foto-usuario" >
+		
+						<button type="button" id="btn-subir-foto">Subir Foto</button>
+					</div>
+					<!-- FIN codigo adjuntar foto -->
+
 					<div style="display: flex">
 						<button class="register-buttons"
 							style="margin-left: auto"
@@ -234,5 +235,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<!-- <script src="js/services/servicio-registro.js"></script> -->
 		<script src="/public/js/registrocliente2.js"></script>
+		<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+		<script src="./js/services/servicioImagen.js"></script>
 	</body>
+	
 </html>

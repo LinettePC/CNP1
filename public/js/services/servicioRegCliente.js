@@ -1,16 +1,16 @@
-const registroCliente = async (pCedula, pNombre, pPrimerApellido, pCorreo, pTelefono, /*pFoto, */pContrasenna) => {
+const registroCliente = async (pcedula, pnombre, pprimerApellido, pcorreo, ptelefono, pcontrasenna,pfotoId) => {
 	await axios({
 		method: "post",
 		url: "http://localhost:3000/api/registrar-clientes",
 		responseType: 'json',
 		data: {
-			cedula: pCedula,
-            nombre: pNombre,
-            primerApellido: pPrimerApellido,
-			correo: pCorreo,
-            telefono: pTelefono,
-			//foto: pFoto,
-			contrasenna: pContrasenna,
+			cedula: pcedula,
+            nombre: pnombre,
+            primerApellido: pprimerApellido,
+			correo: pcorreo,
+            telefono: ptelefono,
+			contrasenna: pcontrasenna,
+			foto: pfotoId,
 		}
 	}).then((response) => {
 			if (response.data.resultado == false) {
