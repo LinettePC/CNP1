@@ -30,12 +30,12 @@ const validarCliente = async (pCedula, pContrasenna) =>{
                 
                  sessionStorage.setItem("cedula",res.data.usuario.cedula)
                  sessionStorage.setItem("nombre",res.data.usuario.nombre)
-            //     // sessionStorage.setItem("primerApellido",res.data.usuario.primerApellido)
-            //     // sessionStorage.setItem("correo",res.data.usuario.correo)
-            //     // sessionStorage.setItem("telefono",res.data.usuario.telefono)
+                 sessionStorage.setItem("primerApellido",res.data.usuario.primerApellido)
+                 sessionStorage.setItem("correo",res.data.usuario.correo)
+                 sessionStorage.setItem("telefono",res.data.usuario.telefono)
     
-            //     //sessionStorage.setItem("rol","cliente") //no necesario;
-            //     //sessionStorage.setItem("estado",res.data.resultado.estado) //no necesario
+                 //sessionStorage.setItem("rol","cliente") //ejemplo
+                 //sessionStorage.setItem("estado",res.data.resultado.estado) //ejemplo
     
                  window.location.href= "miPerfil.html"
              },1000)
