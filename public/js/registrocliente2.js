@@ -1,27 +1,3 @@
-// Referencias al DOM
-const fotoInput = document.getElementById('fotoInput');
-const adjuntarFotoBtn = document.getElementById('adjuntarFoto');
-const fotoLabel = document.getElementById('fotoLabel');
-
-// Función para actualizar etiqueta de archivo adjunto
-function actualizarEtiqueta(input, label) {
-    input.addEventListener('change', function() {
-        label.innerText = input.files[0] ? input.files[0].name : 'No hay archivos adjuntos';
-    });
-}
-
-// Actualizar etiqueta de foto
-actualizarEtiqueta(fotoInput, fotoLabel);
-
-// Evento de clic en botón para adjuntar foto
-adjuntarFotoBtn.addEventListener('click', function(event) {
-    event.preventDefault(); // Evitar que se envíe el formulario automáticamente
-    fotoInput.click();
-});
-
-
-
-
 
 // Referencias al DOM
 const form = document.getElementById('formularioCuentaCliente');
@@ -31,10 +7,11 @@ const inputs = {
 	primerApellido: document.getElementById('primerApellido'),
 	correo: document.getElementById('correo'),
 	telefono: document.getElementById('telefono'),
-	foto: document.getElementById('adjuntarFoto'),
+	
 	contrasenna: document.getElementById('contrasenna'),
 	confirmContrasenna: document.getElementById('confirmContrasenna'),
 };
+const foto = document.querySelector("#foto-usuario");
 const botonEnviar = document.getElementById('botonEnviar');
 
 // Función para validar campos vacíos
@@ -194,11 +171,11 @@ function principal() {
         let nombre = inputs.nombre.value
         let primerApellido = inputs.primerApellido.value
 		let correo = inputs.correo.value
-        let telefono = inputs.telefono.value
-		let foto = inputs.foto.value
+        let telefono = inputs.telefono.value 
 		let contrasenna = inputs.contrasenna.value
+		let fotoId = foto.src;
 
-		registroCliente(cedula,nombre,primerApellido,correo,telefono,/*foto,*/contrasenna)
+		registroCliente(cedula,nombre,primerApellido,correo,telefono,contrasenna, fotoId)
 		limpiarCampos();	
 	}
 
