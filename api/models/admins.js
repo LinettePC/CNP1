@@ -10,7 +10,7 @@ const schema_admin = new mongoose.Schema({
 
 	// Non-required fields
 	telefono: { type: String, required: false, unique: false },
-	contrasenna: { type: String, required: false, unique: false },
+	contrasenna: { type: String, required: true, unique: false },
 	foto: { type: String, required: false, unique: false },
 
 	// Admin specific field

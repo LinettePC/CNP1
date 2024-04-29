@@ -180,6 +180,30 @@ function limpiarCampos() {
 	listinputs.forEach((input) => (input.value = ''));
 }
 
+//se va a crear la primer contrasenna temporal aunque admin no lo haya aprobado todavia
+//se va a crear la contrasenna con 7 caracterers para diferenciar esta de la contrasennna que 
+//el vendedor crea que es de 8 o mas caracteres
+const generarContrasenaTemporal = () => {
+    // Longitud de la contraseña temporal
+    const longitud = 7;
+    // Caracteres que se usarán para generar la contraseña temporal
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
+    let contrasenaTemporal = '';
+    for (let i = 0; i < longitud; i++) {
+        const indice = Math.floor(Math.random() * caracteres.length);
+        contrasenaTemporal += caracteres.charAt(indice);
+        //contrasenaTemporal = contrasenaTemporal + caracteres.charAt(indice)
+    }
+    return contrasenaTemporal;
+};
+
+
+
+
+
+
+
+
 
 
 
@@ -196,12 +220,12 @@ function principal() {
 		//!validarContrasenna()
 	) {
 		//cuando ya sirva, podemos comentar este Sweetalert para que no hayan dos
-		//porque hay otro en el doc de servicioRegCliente.js
-		Swal.fire({
-			title: 'Formulario enviado',
-			text: 'Recibirás un mensaje cuando tu solicitud sea revisada',
-			icon: 'success'
-		});
+		//porque hay otro en el doc de servicioRegVendedor.js
+		// Swal.fire({
+		// 	title: 'Formulario enviado',
+		// 	text: 'Recibirás un mensaje cuando tu solicitud sea revisada',
+		// 	icon: 'success'
+		// });
 		let cedula = inputs.idCliente.value;
 		let nombre = inputs.nombre.value;
 		let primerApellido = inputs.primerApellido.value;
@@ -210,9 +234,10 @@ function principal() {
 		let telefono = inputs.telefono.value;
 		//let permiso = inputs.permiso.value;
 		//let foto = inputs.foto.value;
+		let contrasenna = generarContrasenaTemporal();
 		
 		
-	preRegistroVendedor(cedula, nombre, primerApellido, nomTramo, correo, telefono /*, permiso, foto*/);
+		preRegistroVendedor(cedula, nombre, primerApellido, nomTramo, correo, telefono, /*, permiso, foto*/contrasenna);
 		
 		//preRegistroVendedor(cedula,nombre,primerApellido,nomTramo,correo,telefono,permiso,foto)
 		limpiarCampos();

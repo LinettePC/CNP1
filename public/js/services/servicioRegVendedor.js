@@ -1,5 +1,5 @@
-//e realidad esta funcion no es de registro, es de envio de formulario
-const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo, pCorreo, pTelefono, /*pPermisos, pFoto, pContrasenna*/) => {
+//en realidad esta funcion no es de registro, es de envio de formulario
+const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTramo, pCorreo, pTelefono, /*pPermisos, pFoto,*/ pContrasenna) => {
 	await axios({
 		method: "post",
 		url: "http://localhost:3000/api/registrar-vendedor",
@@ -13,7 +13,7 @@ const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTra
             telefono: pTelefono,
             //permisos: pPermisos,
 			//foto: pFoto,
-			//contrasenna: pContrasenna,
+			contrasenna: pContrasenna,
 		}
 	})
 		.then((response) => {
@@ -40,7 +40,7 @@ const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTra
 		.then(() => {
 			setTimeout(()=>{
 				window.location.href = 'dosLandingPage.html';
-			},3000)
+			},4000)
 		})
 		.catch((err) => {
 			console.log(err);

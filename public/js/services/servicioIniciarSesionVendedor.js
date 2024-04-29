@@ -1,1 +1,2 @@
-const validarVendedor = 
+//Autor:Linette
+const validarVendedor = ""
