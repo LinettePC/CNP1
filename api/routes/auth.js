@@ -1,6 +1,5 @@
 
 const express = require('express');
-//necesitamos requerir el modelo de Clientes
 const admin = require("../models/admins");
 const cliente = require('../models/clientes');
 const vendedor = require("../models/vendedores");
@@ -11,14 +10,31 @@ const router = express.Router();
 //ruta para el login del administrador
 //http://localhost:3000/api/validarLogAdministrador
 
-
-// router.get('/validarLogAdministrador',(req,res)=>{
-//   admin.findOne({cedula:req.body.cedula})
-//     .then()
-
-// })
-
-
+router.post('/validarLogAdministrador',(req,res)=>{
+   admin.findOne({cedula:req.body.cedula})
+     .then(
+      function(usuario){
+        if(usuario){
+          if(usuario.contrasenna == req.body.contrasenna){
+            res.json({
+              resultado:true,
+              usuario
+            })
+          }else{
+            res.json({
+              resultado:false,
+              mensaje:"La contraseña no es correcta"
+            })
+          }
+        }else{
+          res.json({
+            resultado:false,
+            mensaje:"Este administrador no existe"
+          })
+        }
+      }
+    )
+})
 
 
 
@@ -52,15 +68,12 @@ router.post('/validarLogCliente',(req,res)=>{
 })
 
 
-
-
-
 //ruta para el login del vendedor
 //http://localhost:3000/api/validarLogVendedor
-// router.get('/validarLogVendedor',(req,res)=>{
-//   vendedor.findOne({cedula:req.body.cedula})
-//     .then()
-// })
+router.post('/validarLogVendedor',(req,res)=>{
+   vendedor.findOne({cedula:req.body.cedula})
+     .then()
+ })
 
 
 
