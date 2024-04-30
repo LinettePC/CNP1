@@ -46,6 +46,6 @@ const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTra
 			console.log(err);
 		});
 };
-
+  
 // function generarContrasenna(){}
 //se puede hacer aca o en archivo de validaciones
