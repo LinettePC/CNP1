@@ -76,20 +76,20 @@ function principal() {
 		validarCamposVacios() &&
 		!validarIdentificacion()
 	) {
-		Swal.fire({
-			title: 'Datos correctos :)',
-			text: '',
-			icon: 'success',
-		});
+		// Swal.fire({
+		// 	title: 'Datos correctos :)',
+		// 	text: '',
+		// 	icon: 'success',
+		// });
 
-		// idVendor = document.getElementById('username');
+		// idVendedor = document.getElementById('username');
 		// contrasenna = document.getElementById('password');
 		boton = document.getElementById('submit-button');
 		const inputs = {
-			idVendor: document.getElementById('username'),
+			idVendedor: document.getElementById('username'),
 			contrasenna: document.getElementById('password'),
 	   };
-	   validarVendedor(inputs.idVendor.value,inputs.contrasenna.value)
+	   validarVendedor(inputs.idVendedor.value,inputs.contrasenna.value)
 	   limpiarCampos();
 	}
 }
