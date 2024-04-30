@@ -1,7 +1,7 @@
 // Referencias al DOM
 const form = document.getElementById('formLogin');
 const inputs = {
-	idVendor: document.getElementById('username'),
+	idVendedor: document.getElementById('username'),
 	contrasenna: document.getElementById('password'),
 };
 const botonEnviar = document.getElementById('submit-button');
@@ -17,7 +17,6 @@ function validarCamposVacios() {
 			input.classList.remove('error');
 		}
 	});
-
 	if (error) {
 		Swal.fire({
 			title: 'Existen Campos Vacíos',
@@ -25,11 +24,8 @@ function validarCamposVacios() {
 			icon: 'warning',
 		});
 	}
-
 	return !error;
 }
-
-
 
 // Función para validar un campo con una expresión regular
 function validarCampo(input, expresion, errorMessage) {
@@ -46,7 +42,6 @@ function validarCampo(input, expresion, errorMessage) {
 	return false;
 }
 
-
 // Validar identificación
 function validarIdentificacion() {
 	const tipoId = document.querySelector(
@@ -60,7 +55,7 @@ function validarIdentificacion() {
 		expresion = /^[0-9]{12}$/;
 	}
 	if (expresion) {
-		return validarCampo(inputs.idVendor, expresion, {
+		return validarCampo(inputs.idVendedor, expresion, {
 			title: 'La identificación es incorrecta',
 			text: 'Revisa el formato utilizado',
 		});
@@ -68,34 +63,50 @@ function validarIdentificacion() {
 	return false;
 }
 
-
 // Limpiar todos los campos del formulario
 function limpiarCampos() {
 	Object.values(inputs).forEach((input) => (input.value = ''));
 }
 
-
 // Función principal de validación
+
+
 function principal() {
 	if (
 		validarCamposVacios() &&
 		!validarIdentificacion()
 	) {
-		Swal.fire({
-			title: 'Datos correctos',
-			text: '',
-			icon: 'success',
-		});
+		//   Swal.fire({
+		//   	title: 'Datos correctos :)',
+		//    	text: '',
+		//    	icon: 'success',
+		//    });
 
-		idVendor = document.getElementById('username');
-		contrasenna = document.getElementById('password');
+		//validarCliente(idCliente,contrasenna)  
+		// idCliente = document.getElementById('username');
+		// contrasenna = document.getElementById('password');
 		boton = document.getElementById('submit-button');
-
+		
+		const inputs = {
+		 	idVendedor: document.getElementById('username'),
+		 	contrasenna: document.getElementById('password'),
+		};
+		validarCliente(inputs.idVendedor.value,inputs.contrasenna.value)
+		//validarCliente(idCliente,contrasenna)
 		limpiarCampos();
-		
-		
+			
 	}
-
+	
+	// else{
+	// 	idCliente = document.getElementById('username');
+	// 	contrasenna = document.getElementById('password');
+	// 	validarCliente(idCliente,contrasenna)
+	// 	Swal.fire({
+	// 		title: 'Cliente no',
+	// 		text: '',
+	// 		icon: 'success',
+	// 	});
+	// }
 }
 
 

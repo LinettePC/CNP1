@@ -7,33 +7,39 @@ const router = express.Router();
 // POST --> crear nuevos registros
 
 router.post('/registrar-vendedor', (req, res) => {
-	const body = req.body;
-	const fechaFormateada = conseguirFechaFormateada();
+    const body = req.body;
+    const fechaFormateada = conseguirFechaFormateada();
 
-	let nuevo_Vendedor = new Vendedor(body);
+    let nuevo_Vendedor = new Vendedor({
+        cedula: body.cedula,
+		nombre: body.nombre,
+		primerApellido: body.primerApellido,
+		nomTramo: body.nomTramo,
+        correo: body.correo,
+        foto: body.foto,
+		permiso: body.permiso,
+        contrasenna: body.contrasenna,
+    });
 
-	nuevo_Vendedor.fecha_de_registro = fechaFormateada;
+   
 
-	if (body.foto) {
-		nuevo_Vendedor.foto = pFoto;
-	}
-
-	nuevo_Vendedor.save((error, usuarioRegistrado) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo hacer el registro',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Registro exitoso',
-				usuarioRegistrado,
-			});
-		}
-	});
+    nuevo_Vendedor.save((error, usuarioRegistrado) => {
+        if (error) {
+            res.status(500).json({
+                resultado: false,
+                msj: 'No se pudo hacer el registro',
+                error,
+            });
+        } else {
+            res.status(200).json({
+                resultado: true,
+                msj: 'Registro exitoso',
+                usuarioRegistrado,
+            });
+        }
+    });
 });
+
 
 
 

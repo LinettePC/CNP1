@@ -1,39 +1,4 @@
 //Autor: Linette
-
-// Referencias al DOM
-const permisoInput = document.getElementById('permisoInput');
-const fotoInput = document.getElementById('fotoInput');
-const adjuntarPermisoBtn = document.getElementById('adjuntarPermiso');
-const adjuntarFotoBtn = document.getElementById('adjuntarFoto');
-const permisoLabel = document.getElementById('permisoLabel');
-const fotoLabel = document.getElementById('fotoLabel');
-
-
-// Funciones para actualizar etiquetas de archivos adjuntos
-function actualizarEtiqueta(input, label) {
-    input.addEventListener('change', function() {
-        label.innerText = input.files[0] ? input.files[0].name : 'No hay archivos adjuntos';
-    });
-}
-
-// Actualizar etiquetas de permiso y foto
-actualizarEtiqueta(permisoInput, permisoLabel);
-actualizarEtiqueta(fotoInput, fotoLabel);
-
-// Eventos de clic en botones para adjuntar archivos
-adjuntarPermisoBtn.addEventListener('click', function(event) {
-    event.preventDefault(); // Evitar que se envíe el formulario automáticamente
-    permisoInput.click();
-});
-
-adjuntarFotoBtn.addEventListener('click', function(event) {
-    event.preventDefault(); // Evitar que se envíe el formulario automáticamente
-    fotoInput.click();
-});
-
-
-
-
 // Referencias al DOM
 const form = document.getElementById('formularioCuentaCliente');
 const inputs = {
@@ -42,11 +7,10 @@ const inputs = {
 	primerApellido: document.getElementById('primerApellido'),
 	nomTramo: document.getElementById('nomTramo'),
 	correo: document.getElementById('correo'),
-	telefono: document.getElementById('telefono'),
-	permiso: document.getElementById('btnoriginal1'),
-	foto: document.getElementById('btnoriginal2')
-	//contrasenna: document.getElementById('contrasenna'),
+	telefono: document.getElementById('telefono'),	
 };
+const foto = document.querySelector("#foto-usuario");
+const permiso = document.querySelector("#foto-permiso");
 const botonEnviar = document.getElementById('botonEnviar');
 
 
@@ -201,12 +165,6 @@ const generarContrasenaTemporal = () => {
 
 
 
-
-
-
-
-
-
 // Función principal de validación
 function principal() {
 	if (
@@ -216,8 +174,7 @@ function principal() {
 		!validarPrimerApellido() &&
 		!validarnomTramo() &&
 		!validarCorreo() &&
-		!validarTelefono() //&&
-		//!validarContrasenna()
+		!validarTelefono()
 	) {
 		//cuando ya sirva, podemos comentar este Sweetalert para que no hayan dos
 		//porque hay otro en el doc de servicioRegVendedor.js
@@ -232,14 +189,13 @@ function principal() {
 		let nomTramo = inputs.nomTramo.value;
 		let correo = inputs.correo.value;
 		let telefono = inputs.telefono.value;
-		//let permiso = inputs.permiso.value;
-		//let foto = inputs.foto.value;
+		let pFoto = foto.src;
+		let pPermiso = permiso.src;
 		let contrasenna = generarContrasenaTemporal();
 		
 		
-		preRegistroVendedor(cedula, nombre, primerApellido, nomTramo, correo, telefono, /*, permiso, foto*/contrasenna);
+		preRegistroVendedor(cedula, nombre, primerApellido, nomTramo, correo, telefono, pPermiso, pFoto, contrasenna);
 		
-		//preRegistroVendedor(cedula,nombre,primerApellido,nomTramo,correo,telefono,permiso,foto)
 		limpiarCampos();
 	}
 }
