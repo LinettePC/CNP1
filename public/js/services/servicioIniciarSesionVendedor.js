@@ -55,7 +55,7 @@ const validarVendedor = async(pCedula,pContrasenna,/*pEstado*/)=>{
                     //sessionStorage.setItem("rol","cliente") //ejemplo
                     //sessionStorage.setItem("estado",res.data.resultado.estado) //ejemplo
     
-                    window.location.href= "portalVendedor.html"
+                    window.location.href= "miPerfil.html"
 
                 },1000)
 

@@ -1,0 +1,215 @@
+.error {
+	border: 1px solid red;
+}
+
+body {
+	font-family: 'Cabin', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#logoFeriaCnp {
+	width: 200px;
+	margin-left: 45px;
+}
+
+.titulos-container {
+	text-align: center;	
+}
+
+#tituloF1A {
+	font-family: 'Manrope', sans-serif;
+	margin-top: 40px;
+	font-size: 28px;
+	background-color: #1F7544;
+	width: 700px;
+	height: 36px;
+	border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	padding-top: 1%;
+	color: white;	
+}
+
+#tituloF1B {
+	border: 2px red;
+	margin-top: 14px;
+	margin-left: 58px;
+	font-size: 20px;
+	background-color: #81B12A;
+	width: 550px;
+	height: 27px;
+	border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	padding-top: 1%;
+	color: white
+}
+
+#logoPerfil {
+	width: 100px;
+	display: flex;
+	flex-direction: row;
+}
+
+#tituloF2 {
+	/* border: solid red; */
+	display: flex;
+	align-self: right;
+	margin-right: 30px;
+	margin-top: 40px;
+}
+
+#tituloForm {
+	border: 5px solid #e5e5a4;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	align-self: center;
+	background-color: #e5e5a4;
+	padding: 20px;
+	padding-left: 24px;
+	/* color: #2E3C2D; */
+	font-size: 26px;
+	text-align: center;
+	/* font-family: 'Manrope', sans-serif; */
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+#headerUno {
+	height: 155px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+}
+
+#formulario {
+	padding: 20px 0px;
+	/* background-color: #1f7544; */
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
+	border-radius: 10px;
+}
+/* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); */
+/* .metodoP {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 5px; 
+}*/
+
+#formularioCuentaCliente {
+	border: 5px solid #e5e5a4;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	align-self: center;
+	background-color: white;
+	padding: 20px;
+	padding-left: 24px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	
+}
+
+#navUno {
+	display: flex;
+	/* border: 3px solid orange;  */
+	font-size: 20px;
+	width: 250px;
+	float: right;
+	text-align: right;
+	/* margin-bottom:50px; */
+	align-self: center;
+	margin-top: 50px;
+	color: #2e3c2d;
+}
+
+#navDos {
+	display: flex;
+	/* border: 3px solid orange; */
+	font-size: 20px;
+	width: 250px;
+	float: right;
+	text-align: right;
+	/* margin-right:60px;  */
+	align-self: center;
+	margin-top: 40px;
+}
+
+#a1 {
+	color: #2e3c2d;
+	text-decoration: none;
+	padding: 18px;
+	/* font-size: 18px; */
+}
+#a1:hover {
+	text-decoration: underline;
+	color: #1f7544;
+}
+footer {
+	/* border: 3px solid blue; */
+	width: 100%;
+	height: 155px;
+
+	/* background-color: #E5E5A4   */
+}
+
+.margen-bottom {
+	margin-bottom: 5px;
+	display: block;
+}
+
+.margen-bottom-xl {
+	margin-bottom: 15px;
+	display: block;
+}
+.register-buttons {
+	
+	padding: 5px;
+	margin-top: 20px;
+	width: 180px;
+	border: none;
+	border-radius: 5px;
+	background-color:#81B12A;
+	color:#2e3c2d;
+	font-size: 16px;
+}
+
+button:hover {
+	background-color: #EBB85A;
+	cursor: pointer;
+	
+}
+
+
+
+.foto button {
+    background-color: #81B12A;
+    color: #2e3c2d;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+	margin-top: 5px; 
+}
+
+.foto button:hover {
+    background-color: #EBB85A; /* Cambiamos el color de fondo al hacer hover */
+    cursor: pointer;
+}

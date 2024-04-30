@@ -1,0 +1,197 @@
+<!--Autor: Linette-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CambioContrasenna</title>
+		<!--Links para las hojas de estilos: -->
+		<!--Link a reset -->
+		<link rel="stylesheet" href="css/reset.css" />
+		<!--Link al css de estilos respectivo -->
+		<link rel="stylesheet" href="css/cambioContrasennaVend.css" />
+		<link rel="stylesheet" href="img/logoTres.png" />
+
+		<!--Link a las letras -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<!--Header Uno-->
+		<header id="headerUno">
+			<div class="logo">
+				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+			</div>
+
+			<div class="titulos-container">
+				<h1 id="tituloF1A">
+					Bienvenido, eres un nuevo vendedor del CNP
+				</h1>
+				<h1 id="tituloF1B">
+					Debes cambiar la primer contraseña que se te envió por correo  
+				</h1>
+			</div>
+
+			<div>
+				<nav id="navUno">
+					<a id="a1" href="dosLandingPage.html">Inicio</a>
+					<a id="a1" href="https://www.cnp.go.cr/contactenos/index.aspx">Contáctenos</a>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section id="formulario">
+				<div id="tituloForm">
+					<div class="logo">
+						<img
+							src="/public/img/profile.png"
+							alt="logo"
+							id="logoPerfil"
+						/>
+					</div>
+					<div>
+						<h1 id="tituloF2">Cambio de Contraseña</h1>
+					</div>
+				</div>
+
+				<form id="formularioCuentaCliente">
+					<div class="margen-bottom-xl">
+						<input
+							type="radio"
+							id="idNacional"
+							name="tipoIdentificacion"
+							value="nacional"
+							checked
+						/>
+						<label for="idNacional">Cédula Nacional</label>
+
+						<input
+							type="radio"
+							id="idDimex"
+							name="tipoIdentificacion"
+							value="dimex"
+						/>
+						<label for="idDimex">DIMEX</label>
+
+						<!-- <input type="radio" id="idPasaporte" name="tipoIdentificacion" value="pasaporte">
+					<label for="pasaporte">Pasaporte</label> -->
+					</div>
+
+					<div class="margen-bottom-xl">
+						<!-- <p>Identificación:</p> -->
+						<label for="identificacion" class="margen-bottom"
+							>Identificación:</label
+						>
+						<p></p>
+						<input
+							type="text"
+							id="identificacion"
+							name="identificacion"
+							required
+						/>
+					</div>
+
+                    <div class="margen-bottom-xl">
+						<label for="contrasenna" class="margen-bottom"
+							>Contraseña Actual:</label
+						>
+						<p>(Esta es la contraseña que recibiste por correo)</p>
+						<p></p>
+						<input
+							type="password"
+							id="primerContrasenna"
+							name="contrasenna"
+							required
+						/>
+					</div>
+
+
+					<div class="margen-bottom-xl">
+						<label for="contrasenna" class="margen-bottom"
+							>Nueva Contraseña:</label
+						>
+						<p></p>
+						<input
+							type="password"
+							id="contrasenna"
+							name="contrasenna"
+							required
+						/>
+					</div>
+
+					<div class="margen-bottom-xl">
+						<label for="contrasenna" class="margen-bottom"
+							>Vuelve a escribir la Nueva Contraseña:</label
+						>
+						<!-- <p>Contraseña:</p> -->
+						<p></p>
+						<input
+							type="text"
+							id="confirmContrasenna"
+        					name="confirmContrasenna"
+							required
+						/>
+					</div>
+					<div>
+						<ul
+							id="formato contrasenna"
+							type="list-style-type:disc"
+						>
+							<li id="" type="circle">
+								Debe tener 8 o más caracteres
+							</li>
+							<li id="" type="circle">No debe tener vocales</li>
+							<li id="" type="circle">
+								Debe tener al menos una letra mayúscula
+							</li>
+							<li id="" type="circle">
+								Debe tener al menos una letra minúscula
+							</li>
+							<li id="" type="circle">
+								Debe tener al menos un número
+							</li>
+							<li id="" type="circle">
+								Debe tener al menos un símbolo
+							</li>
+						</ul>
+					</div>
+
+					
+
+					<div style="display: flex">
+						<button class="register-buttons"
+							style="margin-left: auto"
+							type="button"
+							id="botonEnviar"
+						>
+							Cambiar Contraseña
+						</button>
+					</div>
+				</form>
+			</section>
+		</main>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		
+        <!-- Hay que crear un nuevo servicio pero para modificar la  -->
+        <!-- contrasenna del vendedor -->
+
+        <script src="./js/services/servicioRegCliente.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		
+        <!-- para este se tomo de base el registrocliente2 pero se  -->
+        <!-- debe modificar para el Vendedor y solo necesita el id y contrasenna -->
+		<script src="/public/js/cambioContrasennaVend.js"></script>
+		
+        <!-- estos dos de abajo ya no van a ser necesarios -->
+        <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+		<script src="./js/services/servicioImagen.js"></script>
+	</body>
+	
+</html>
