@@ -193,7 +193,7 @@ eliminarBtn.addEventListener("click", () => {
   totalProductoDBDiv.id = "totalProductoDB";
   let total = document.createElement("h3");
   let totalPorProducto = precioUnitario * cantidad
-  total.textContent = `${formatearNumeroConComas(totalPorProducto)}`; 
+  total.textContent = `₡${formatearNumeroConComas(totalPorProducto)}`;
   totalProductoDBDiv.appendChild(total);
   productoDiv.appendChild(totalProductoDBDiv);
 
@@ -203,7 +203,7 @@ eliminarBtn.addEventListener("click", () => {
 // Función para actualizar el total final
 function actualizarTotal(nuevoTotal) {
   totalSumado = parseInt(totalFinal.innerText) + nuevoTotal;
-  totalFinal.textContent = formatearNumeroConComas(totalSumado);
+  totalFinal.textContent =  `₡${formatearNumeroConComas(totalSumado)}`;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
