@@ -78,37 +78,37 @@ router.post('/validarLogVendedor',(req,res)=>{
           if(req.body.estado == "Activo"){
             if((usuario.contrasenna == req.body.contrasenna) && (usuario.contrasenna.length == 7)){
               res.json({
+                resultado:1,
                 mensaje:"Debe cambiar primer contrasenna"
               })
               
             }else if((usuario.contrasenna == req.body.contrasenna) && (usuario.contrasenna.length >= 8)){
               res.json({
+                resultado:2,
                 mensaje:"Puede iniciar sesion"
               })
             }else{
               res.json({
+                resultado:3,
                 mensaje:"Contrasenna incorrecta"
               })
             }
-
-
           }else if(req.body.estado == "Inactivo"){
             res.json({
-              resultado:false,
+              resultado:4,
               mensaje:"Debe esperar a que la solicitud sea revisada",
             })
           }else if(req.body.estado == "Rechazado"){
             res.json({
-              resultado:false,
+              resultado:5,
               mensaje:"La solicitud con esta identificacion fue rechazada",
             })
-
-        }else{
-          res.json({
-            resultado:false,
-            mensaje:"Este vendedor no existe"
-          })
-        }
+          }
+      }else{
+        res.json({
+          resultado:6,
+          mensaje:"Este vendedor no existe"
+        })
       }
      
  })
