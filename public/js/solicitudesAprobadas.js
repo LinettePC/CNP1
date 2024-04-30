@@ -200,10 +200,12 @@ btnGenerarReporte.addEventListener('click', async () => {
 document.addEventListener('DOMContentLoaded', async () => {
 	lista_vendedores = await listarVendedores();
 
-	if (lista_vendedores) {
-		llenarTablaConFiltros();
-	} else {
+	let cantActivos = lista_vendedores.filter(item => item.estado === 'Activo').length;
+
+	if (cantActivos == 0) {
 		msjNoUsuarios.style.display = 'block';
+	} else {
+		llenarTablaConFiltros();
 	}
 });
 

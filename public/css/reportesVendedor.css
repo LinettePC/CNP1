@@ -320,12 +320,21 @@ label[for='fecha-especifica'] {
 	background-color: gray !important;
 }
 
+.btnAprobar, .btnRechazar {
+	padding: 4px 10px;
+	cursor: pointer;
+}
+
 .btnAprobar:hover {
 	background-color: #81b12a !important;
+	color: white;
+	border-radius: 3px;
 }
 
 .btnRechazar:hover {
 	background-color: rgb(192, 0, 0) !important;
+	color: white;
+	border-radius: 3px;
 }
 
 #containerGananciasReporte {

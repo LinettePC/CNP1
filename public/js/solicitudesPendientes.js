@@ -1,6 +1,6 @@
 const btnGenerarReporte = document.getElementById('btnGenerarReporte');
 const bodyTabla = document.getElementById('bodyTabla');
-let lista_personas = [];
+let lista_vendedores = [];
 let cantPersonas;
 
 // Fecha específica
@@ -42,27 +42,162 @@ const msjNoUsuarios = document.getElementById('msjNoUsuarios');
 //
 
 function crearFila(persona) {
-	// let iva = persona.precio_venta * 0.13;
-	// iva = Math.round(iva * 100) / 100;
-
 	const row = document.createElement('tr');
-	row.innerHTML = `
-	  <td>${venta.fecha_de_venta}</td>
-	  <td>${venta.cedula_comprador}</td>
-	  <td>${venta.nombre_comprador}</td>
-	  <td>${venta.nombre_producto}</td>
-	  <td>${venta.cantidad_comprada}</td>
-	  <td>${venta.categoria_producto}</td>
-	  <td>${venta.precio_venta}</td>
-	  <td>${iva}</td>
-	`;
 
-	// <td class="identificacion">1-3457-0982</td>
-	// <td class="nombre">Alejandro</td>
-	// <td class="apellido">Chinchilla</td>
-	// <td class="incorporacion">2/12/2023</td>
-	// <td class="motivo">Falta de documentación</td>
+	if (persona.tienePermisos) {
+		row.innerHTML = `
+	    <td>${persona.cedula}</td>
+	    <td>${persona.nombre}</td>
+	    <td>${persona.primerApellido}</td>
+	    <td>Sí</td>
+	    <td>${persona.fecha_de_registro}</td>
+	    <td>
+            <button class="btnAprobar" type="button" onclick="aprobarSolicitud('${persona.cedula}')">Aceptar</button>
+        </td>
+
+		<td>
+		<button class="btnRechazar" type="button" onclick="rechazarSolicitud('${persona.cedula}')">Rechazar</button>
+		</td>
+	`;
+	} else {
+		row.innerHTML = `
+	    <td>${persona.cedula}</td>
+	    <td>${persona.nombre}</td>
+	    <td>${persona.primerApellido}</td>
+	    <td>No</td>
+	    <td>${persona.fecha_de_registro}</td>
+	    <td>
+            <button class="btnAprobar" type="button" onclick="aprobarSolicitud('${persona.cedula}')">Aceptar</button>
+        </td>
+
+		<td>
+		<button class="btnRechazar" type="button" onclick="rechazarSolicitud('${persona.cedula}')">Rechazar</button>
+		</td>
+	`;
+	}
+
 	return row;
+}
+
+// <td class="identificacion">1-3457-0982</td>
+// <td class="nombre">Alejandro</td>
+// <td class="apellido">Chinchilla</td>
+// <td class="incorporacion">2/12/2023</td>
+// <td class="motivo">Falta de documentación</td>
+
+async function aprobarSolicitud(cedula) {
+	Swal.fire({
+		title: `¿Seguro que quieres aprobar al usuario con la cédula: '${cedula}'? `,
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#81b12a',
+		cancelButtonColor: 'rgb(198, 0, 0)',
+		confirmButtonText: 'Sí',
+		cancelButtonText: 'No',
+	}).then(async (result) => {
+		if (result.isConfirmed) {
+			let datosJSON = {
+				estado: 'Activo',
+			};
+
+			await actualizarDatosVendedor(cedula, datosJSON);
+
+			Swal.fire({
+				title: 'Usuario aprobado exitosamente',
+				text: "El usuario puede ser visto en 'Solicitudes aprobadas'",
+				icon: 'success',
+				timer: 3000,
+				timerProgressBar: true,
+				showConfirmButton: false,
+				allowOutsideClick: false,
+			});
+
+			setTimeout(() => {
+				window.location.reload();
+			}, 3000);
+		}
+	});
+}
+
+async function rechazarSolicitud(cedula) {
+	Swal.fire({
+		title: `¿Seguro que quieres rechazar al usuario con la cédula: '${cedula}'? `,
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#81b12a',
+		cancelButtonColor: 'rgb(198, 0, 0)',
+		confirmButtonText: 'Sí',
+		cancelButtonText: 'No',
+	}).then((result) => {
+		if (result.isConfirmed) {
+			Swal.fire({
+				title: `Ingrese la razón de rechazo del usuario '${cedula}':`,
+				input: 'text',
+				inputAttributes: {
+					autocapitalize: 'off',
+				},
+				showCancelButton: true,
+				confirmButtonColor: '#81b12a',
+				cancelButtonColor: 'rgb(198, 0, 0)',
+				confirmButtonText: 'Rechazar usuario',
+				cancelButtonText: 'Cancelar',
+			}).then(async (result) => {
+				if (result.isConfirmed) {
+					let datosJSON = {
+						estado: 'Rechazado',
+						razon_rechazo: result.value,
+					};
+
+					await actualizarDatosVendedor(cedula, datosJSON);
+
+					Swal.fire({
+						title: 'Usuario rechazado exitosamente',
+						text: "El usuario puede ser visto en 'Solicitudes rechazadas'",
+						icon: 'success',
+						timer: 3000,
+						timerProgressBar: true,
+						showConfirmButton: false,
+						allowOutsideClick: false,
+					});
+
+					setTimeout(() => {
+						window.location.reload();
+					}, 3000);
+				}
+			});
+		}
+	});
+
+	Swal.fire({
+		title: `Ingrese el nombre nuevo de la categoria: '${nombre_categoria}'`,
+		input: 'text',
+		inputAttributes: {
+			autocapitalize: 'off',
+		},
+		showCancelButton: true,
+		confirmButtonColor: '#81b12a',
+		cancelButtonColor: 'rgb(198, 0, 0)',
+		confirmButtonText: 'Enviar nuevo nombre',
+		cancelButtonText: 'Cancelar',
+	}).then(async (result) => {
+		if (result.isConfirmed) {
+			await actualizarCategoria(id_mongo, result.value);
+
+			Swal.fire({
+				title: 'Se actualizó la categoría',
+				text: 'Gracias por usar nuestros servicios',
+				icon: 'success',
+				timer: 2500,
+				timerProgressBar: true,
+				showConfirmButton: false,
+				allowOutsideClick: false,
+			});
+
+			setTimeout(() => {
+				window.location.reload();
+			}, 2500);
+		}
+	});
 }
 
 function fechaEntreRango(fecha) {
@@ -137,10 +272,11 @@ function llenarTablaConFiltros() {
 	// Limpiar la tabla antes de llenarla de nuevo
 	bodyTabla.innerHTML = '';
 
-	for (let i = 0; i < cantPersonas; i++) {
-		let persona = lista_personas[i];
+	for (let i = 0; i < lista_vendedores.length; i++) {
+		let persona = lista_vendedores[i];
+
 		let mes_registro = persona.fecha_de_registro.split('/')[1]; // Como la fecha está en DD/MM/AAAA, hay que hacerle split
-		let mes_registro_sin_cero = mes_venta.replace(/^0+/, ''); // Quita el "0" del mes. Ejemplo: 04 pasa a ser 4. Esto se usa para la igualdad después
+		let mes_registro_sin_cero = mes_registro.replace(/^0+/, ''); // Quita el "0" del mes. Ejemplo: 04 pasa a ser 4. Esto se usa para la igualdad después
 		let anno_registro = persona.fecha_de_registro.split('/')[2];
 
 		let fecha_formato_rango = `${anno_registro}-${mes_registro}`; // Crea la fecha en formato AAAA-MM
@@ -181,7 +317,8 @@ function llenarTablaConFiltros() {
 
 		// Agregar la fila a la tabla solo si todos los filtros coinciden
 		if (agregarFila) {
-			bodyTabla.appendChild(crearFila(lista_personas[i]));
+			if (persona.estado == 'Inactivo')
+				bodyTabla.appendChild(crearFila(lista_vendedores[i]));
 		}
 	}
 }
@@ -196,14 +333,16 @@ btnGenerarReporte.addEventListener('click', async () => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
-	cedulaVendedorActual = '12345';
+	lista_vendedores = await listarVendedores();
 
-	lista_personas = await listarClientes();
+	let cantInactivos = lista_vendedores.filter(
+		(item) => item.estado === 'Inactivo'
+	).length;
 
-	if (lista_personas) {
-		cantPersonas = lista_personas.length;
-	} else {
+	if (cantInactivos == 0) {
 		msjNoUsuarios.style.display = 'block';
+	} else {
+		llenarTablaConFiltros();
 	}
 });
 
