@@ -53,6 +53,7 @@ function crearFila(persona) {
 	<td>${persona.primerApellido}</td>
 	<td>${persona.fecha_de_registro}</td>
 	<td>${persona.estado}</td>
+	<td>${persona.razon_rechazo}</td>
 	`;
 
 	// <td class="identificacion">1-3457-0982</td>
@@ -180,7 +181,7 @@ function llenarTablaConFiltros() {
 
 		// Agregar la fila a la tabla solo si todos los filtros coinciden
 		if (agregarFila) {
-			if (persona.estado == 'Inactivo') {
+			if (persona.estado == 'Rechazado') {
 				bodyTabla.appendChild(crearFila(persona));
 			}
 		}
@@ -199,10 +200,12 @@ btnGenerarReporte.addEventListener('click', async () => {
 document.addEventListener('DOMContentLoaded', async () => {
 	lista_vendedores = await listarVendedores();
 
-	if (listarVendedores) {
-		llenarTablaConFiltros();
-	} else {
+	let cantRechazados = lista_vendedores.filter(item => item.estado === 'Rechazado').length;
+
+	if (cantRechazados == 0) {
 		msjNoUsuarios.style.display = 'block';
+	} else {
+		llenarTablaConFiltros();
 	}
 });
 

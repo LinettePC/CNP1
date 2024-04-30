@@ -42,62 +42,162 @@ const msjNoUsuarios = document.getElementById('msjNoUsuarios');
 //
 
 function crearFila(persona) {
-
 	const row = document.createElement('tr');
-	row.innerHTML = `
-	  <td>${persona.cedula}</td>
-	  <td>${persona.nombre}</td>
-	  <td>${persona.primerApellido}</td>
-	  <td>${persona.fecha_de_registro}</td>
-	  <td>
-            <button class="btnAprobar" data-cedula="${persona.cedula}">Aceptar</button>
+
+	if (persona.tienePermisos) {
+		row.innerHTML = `
+	    <td>${persona.cedula}</td>
+	    <td>${persona.nombre}</td>
+	    <td>${persona.primerApellido}</td>
+	    <td>Sí</td>
+	    <td>${persona.fecha_de_registro}</td>
+	    <td>
+            <button class="btnAprobar" type="button" onclick="aprobarSolicitud('${persona.cedula}')">Aceptar</button>
         </td>
 
 		<td>
-		<button class="btnRechazar" data-cedula="${persona.cedula}">Rechazar</button>
+		<button class="btnRechazar" type="button" onclick="rechazarSolicitud('${persona.cedula}')">Rechazar</button>
 		</td>
 	`;
+	} else {
+		row.innerHTML = `
+	    <td>${persona.cedula}</td>
+	    <td>${persona.nombre}</td>
+	    <td>${persona.primerApellido}</td>
+	    <td>No</td>
+	    <td>${persona.fecha_de_registro}</td>
+	    <td>
+            <button class="btnAprobar" type="button" onclick="aprobarSolicitud('${persona.cedula}')">Aceptar</button>
+        </td>
 
-	// <td class="identificacion">1-3457-0982</td>
-	// <td class="nombre">Alejandro</td>
-	// <td class="apellido">Chinchilla</td>
-	// <td class="incorporacion">2/12/2023</td>
-	// <td class="motivo">Falta de documentación</td>
+		<td>
+		<button class="btnRechazar" type="button" onclick="rechazarSolicitud('${persona.cedula}')">Rechazar</button>
+		</td>
+	`;
+	}
 
-const btnAprobar = row.querySelector('.btnAprobar');
-btnAprobar.addEventListener('click', () => {
-    aprobarSolicitud(persona.cedula);
-});
+	return row;
+}
 
-const btnRechazar = row.querySelector('.btnRechazar');
-btnRechazar.addEventListener('click', () => {
-    rechazarSolicitud(persona.cedula);
-});
+// <td class="identificacion">1-3457-0982</td>
+// <td class="nombre">Alejandro</td>
+// <td class="apellido">Chinchilla</td>
+// <td class="incorporacion">2/12/2023</td>
+// <td class="motivo">Falta de documentación</td>
 
 async function aprobarSolicitud(cedula) {
-    try {
-        const response = await axios.put(`http://localhost:3000/api/vendedores/${cedula}/estado`, { nuevo_estado: 'Activo' });
-        console.log(response.data);
+	Swal.fire({
+		title: `¿Seguro que quieres aprobar al usuario con la cédula: '${cedula}'? `,
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#81b12a',
+		cancelButtonColor: 'rgb(198, 0, 0)',
+		confirmButtonText: 'Sí',
+		cancelButtonText: 'No',
+	}).then(async (result) => {
+		if (result.isConfirmed) {
+			let datosJSON = {
+				estado: 'Activo',
+			};
 
-    } catch (error) {
-        console.error('Error al aprobar la solicitud:', error);
-    }
+			await actualizarDatosVendedor(cedula, datosJSON);
+
+			Swal.fire({
+				title: 'Usuario aprobado exitosamente',
+				text: "El usuario puede ser visto en 'Solicitudes aprobadas'",
+				icon: 'success',
+				timer: 3000,
+				timerProgressBar: true,
+				showConfirmButton: false,
+				allowOutsideClick: false,
+			});
+
+			setTimeout(() => {
+				window.location.reload();
+			}, 3000);
+		}
+	});
 }
 
 async function rechazarSolicitud(cedula) {
-    try {
-        const response = await axios.put(`http://localhost:3000/api/vendedores/${cedula}/estado`, { nuevo_estado: 'Rechazado' });
-        
-        console.log(response.data);
+	Swal.fire({
+		title: `¿Seguro que quieres rechazar al usuario con la cédula: '${cedula}'? `,
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#81b12a',
+		cancelButtonColor: 'rgb(198, 0, 0)',
+		confirmButtonText: 'Sí',
+		cancelButtonText: 'No',
+	}).then((result) => {
+		if (result.isConfirmed) {
+			Swal.fire({
+				title: `Ingrese la razón de rechazo del usuario '${cedula}':`,
+				input: 'text',
+				inputAttributes: {
+					autocapitalize: 'off',
+				},
+				showCancelButton: true,
+				confirmButtonColor: '#81b12a',
+				cancelButtonColor: 'rgb(198, 0, 0)',
+				confirmButtonText: 'Rechazar usuario',
+				cancelButtonText: 'Cancelar',
+			}).then(async (result) => {
+				if (result.isConfirmed) {
+					let datosJSON = {
+						estado: 'Rechazado',
+						razon_rechazo: result.value,
+					};
 
-    } catch (error) {
-        console.error('Error al rechazar la solicitud:', error);
-    }
-}
+					await actualizarDatosVendedor(cedula, datosJSON);
 
+					Swal.fire({
+						title: 'Usuario rechazado exitosamente',
+						text: "El usuario puede ser visto en 'Solicitudes rechazadas'",
+						icon: 'success',
+						timer: 3000,
+						timerProgressBar: true,
+						showConfirmButton: false,
+						allowOutsideClick: false,
+					});
 
-return row;
+					setTimeout(() => {
+						window.location.reload();
+					}, 3000);
+				}
+			});
+		}
+	});
 
+	Swal.fire({
+		title: `Ingrese el nombre nuevo de la categoria: '${nombre_categoria}'`,
+		input: 'text',
+		inputAttributes: {
+			autocapitalize: 'off',
+		},
+		showCancelButton: true,
+		confirmButtonColor: '#81b12a',
+		cancelButtonColor: 'rgb(198, 0, 0)',
+		confirmButtonText: 'Enviar nuevo nombre',
+		cancelButtonText: 'Cancelar',
+	}).then(async (result) => {
+		if (result.isConfirmed) {
+			await actualizarCategoria(id_mongo, result.value);
+
+			Swal.fire({
+				title: 'Se actualizó la categoría',
+				text: 'Gracias por usar nuestros servicios',
+				icon: 'success',
+				timer: 2500,
+				timerProgressBar: true,
+				showConfirmButton: false,
+				allowOutsideClick: false,
+			});
+
+			setTimeout(() => {
+				window.location.reload();
+			}, 2500);
+		}
+	});
 }
 
 function fechaEntreRango(fecha) {
@@ -174,7 +274,7 @@ function llenarTablaConFiltros() {
 
 	for (let i = 0; i < lista_vendedores.length; i++) {
 		let persona = lista_vendedores[i];
-		
+
 		let mes_registro = persona.fecha_de_registro.split('/')[1]; // Como la fecha está en DD/MM/AAAA, hay que hacerle split
 		let mes_registro_sin_cero = mes_registro.replace(/^0+/, ''); // Quita el "0" del mes. Ejemplo: 04 pasa a ser 4. Esto se usa para la igualdad después
 		let anno_registro = persona.fecha_de_registro.split('/')[2];
@@ -218,7 +318,7 @@ function llenarTablaConFiltros() {
 		// Agregar la fila a la tabla solo si todos los filtros coinciden
 		if (agregarFila) {
 			if (persona.estado == 'Inactivo')
-			bodyTabla.appendChild(crearFila(lista_vendedores[i]));
+				bodyTabla.appendChild(crearFila(lista_vendedores[i]));
 		}
 	}
 }
@@ -235,10 +335,14 @@ btnGenerarReporte.addEventListener('click', async () => {
 document.addEventListener('DOMContentLoaded', async () => {
 	lista_vendedores = await listarVendedores();
 
-	if (lista_vendedores) {
-		llenarTablaConFiltros();
-	} else {
+	let cantInactivos = lista_vendedores.filter(
+		(item) => item.estado === 'Inactivo'
+	).length;
+
+	if (cantInactivos == 0) {
 		msjNoUsuarios.style.display = 'block';
+	} else {
+		llenarTablaConFiltros();
 	}
 });
 
