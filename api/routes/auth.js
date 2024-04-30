@@ -95,20 +95,20 @@ router.post('/validarLogVendedor',(req,res)=>{
             }
           }else if(req.body.estado == "Inactivo"){
             res.json({
-              resultado:false,
+              resultado:4,
               mensaje:"Debe esperar a que la solicitud sea revisada",
             })
           }else if(req.body.estado == "Rechazado"){
             res.json({
-              resultado:false,
+              resultado:5,
               mensaje:"La solicitud con esta identificacion fue rechazada",
             })
-        }else{
-          res.json({
-            resultado:false,
-            mensaje:"Este vendedor no existe"
-          })
-        }
+          }
+      }else{
+        res.json({
+          resultado:6,
+          mensaje:"Este vendedor no existe"
+        })
       }
      
  })

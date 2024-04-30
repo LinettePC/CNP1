@@ -34,6 +34,7 @@ const validarCliente = async (pCedula, pContrasenna) =>{
                         sessionStorage.setItem("primerApellido",res.data.usuario.primerApellido)
                         sessionStorage.setItem("correo",res.data.usuario.correo)
                         sessionStorage.setItem("telefono",res.data.usuario.telefono)
+                        //estos no son todos los atributos pero creo que solo se necesita cedula
     
                     //sessionStorage.setItem("rol","cliente") //ejemplo
                     //sessionStorage.setItem("estado",res.data.resultado.estado) //ejemplo
