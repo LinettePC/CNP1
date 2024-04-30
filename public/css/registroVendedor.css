@@ -189,3 +189,22 @@ button:hover {
 	background-color: #EBB85A;
 	cursor: pointer;
 }
+
+
+.subir-foto-btn,
+.foto button {
+	width: 160px;
+	height: 38px;
+	background-color: #81B12A;
+	color: #2e3c2d;
+	font-size: 16px;
+	border: none;
+	border-radius: 5px;
+	margin: 5px; 
+}
+
+.subir-foto-btn:hover,
+.foto button:hover {
+	background-color: #EBB85A; /* Cambiamos el color de fondo al hacer hover */
+	cursor: pointer;
+}

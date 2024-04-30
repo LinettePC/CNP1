@@ -28,6 +28,7 @@ router.post('/registrar-clientes', (req, res) => {
 		nombre: body.nombre,
 		primerApellido: body.primerApellido,
         correo: body.correo,
+		telefono: body.telefono,
         foto: body.foto,
         contrasenna: body.contrasenna,
     });
