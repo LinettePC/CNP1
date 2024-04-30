@@ -76,13 +76,22 @@ function principal() {
 		validarCamposVacios() &&
 		!validarIdentificacion()
 	) {
-		
-		
-		limpiarCampos();
-			
+		Swal.fire({
+			title: 'Datos correctos :)',
+			text: '',
+			icon: 'success',
+		});
+
+		// idVendor = document.getElementById('username');
+		// contrasenna = document.getElementById('password');
+		boton = document.getElementById('submit-button');
+		const inputs = {
+			idVendor: document.getElementById('username'),
+			contrasenna: document.getElementById('password'),
+	   };
+	   validarVendedor(inputs.idVendor.value,inputs.contrasenna.value)
+	   limpiarCampos();
 	}
-	
-	
 }
 
 

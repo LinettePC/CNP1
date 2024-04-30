@@ -144,6 +144,7 @@ body {
 }
 
 #a2 {
+	/* border: 1px solid red; */
 	color: #81B12A;
 	text-decoration: none;
 	/* padding: 18px; */
@@ -155,7 +156,9 @@ body {
 }
 
 #forgotpassword{
+	/* border: 1px solid red; */
 	margin-top: 8px;
+	/* font-size: 14px; */
 }
 
 #question{
@@ -488,6 +491,13 @@ button:hover {
 	width: 380px;
 	margin-left: 25px;
 	/* align-self: center; */
+}
+#botonEnviar{
+	margin-top: 15px;
+}
+#username{
+	margin-bottom: 15px;
+
 }
 
 /* Fin Seccion Cuatro */

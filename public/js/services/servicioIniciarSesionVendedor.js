@@ -1,5 +1,5 @@
 //Autor:Linette
-const validarVendedor = async(pCedula,pContrasenna,pEstado)=>{
+const validarVendedor = async(pCedula,pContrasenna,/*pEstado*/)=>{
     await axios({
         method:"post",
         url:"http://localhost:3000/api/validarLogVendedor",
@@ -28,8 +28,8 @@ const validarVendedor = async(pCedula,pContrasenna,pEstado)=>{
                     //sessionStorage.setItem("rol","cliente") //ejemplo
                     //sessionStorage.setItem("estado",res.data.resultado.estado) //ejemplo
                     
-                    //falta crear este html cambioContrasennaVendedor.html
-                    window.location.href= "#.html"
+                    //falta crear este html cambioContrasennaVend.html
+                    window.location.href= "cambioContrasennaVend.html"
                     
                 },1000)
 
