@@ -82,20 +82,21 @@ function principal() {
 		!validarIdentificacion()
 	) {
 		Swal.fire({
-			title: 'Datos correctos',
+			title: 'Datos correctos :)',
 			text: '',
 			icon: 'success',
 		});
 
-		idVendor = document.getElementById('username');
-		contrasenna = document.getElementById('password');
+		// idVendor = document.getElementById('username');
+		// contrasenna = document.getElementById('password');
 		boton = document.getElementById('submit-button');
-
-		limpiarCampos();
-		
-		
+		const inputs = {
+			idVendor: document.getElementById('username'),
+			contrasenna: document.getElementById('password'),
+	   };
+	   validarVendedor(inputs.idVendor.value,inputs.contrasenna.value)
+	   limpiarCampos();
 	}
-
 }
 
 
