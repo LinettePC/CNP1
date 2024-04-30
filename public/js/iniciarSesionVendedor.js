@@ -76,37 +76,13 @@ function principal() {
 		validarCamposVacios() &&
 		!validarIdentificacion()
 	) {
-		//   Swal.fire({
-		//   	title: 'Datos correctos :)',
-		//    	text: '',
-		//    	icon: 'success',
-		//    });
-
-		//validarCliente(idCliente,contrasenna)  
-		// idCliente = document.getElementById('username');
-		// contrasenna = document.getElementById('password');
-		boton = document.getElementById('submit-button');
 		
-		const inputs = {
-		 	idVendedor: document.getElementById('username'),
-		 	contrasenna: document.getElementById('password'),
-		};
-		validarCliente(inputs.idVendedor.value,inputs.contrasenna.value)
-		//validarCliente(idCliente,contrasenna)
+		
 		limpiarCampos();
 			
 	}
 	
-	// else{
-	// 	idCliente = document.getElementById('username');
-	// 	contrasenna = document.getElementById('password');
-	// 	validarCliente(idCliente,contrasenna)
-	// 	Swal.fire({
-	// 		title: 'Cliente no',
-	// 		text: '',
-	// 		icon: 'success',
-	// 	});
-	// }
+	
 }
 
 
