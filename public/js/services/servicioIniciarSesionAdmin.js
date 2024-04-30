@@ -1,0 +1,1 @@
+const validarAdministrador = async(pCedula,pContrasenna)
