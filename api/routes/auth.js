@@ -72,10 +72,48 @@ router.post('/validarLogCliente',(req,res)=>{
 //http://localhost:3000/api/validarLogVendedor
 router.post('/validarLogVendedor',(req,res)=>{
    vendedor.findOne({cedula:req.body.cedula})
-     .then()
+     .then(
+      function(usuario){
+        if(usuario){
+          if(req.body.estado == "Activo"){
+            if((usuario.contrasenna == req.body.contrasenna) && (usuario.contrasenna.length == 7)){
+              res.json({
+                mensaje:"Debe cambiar primer contrasenna"
+              })
+              
+            }else if((usuario.contrasenna == req.body.contrasenna) && (usuario.contrasenna.length >= 8)){
+              res.json({
+                mensaje:"Puede iniciar sesion"
+              })
+            }else{
+              res.json({
+                mensaje:"Contrasenna incorrecta"
+              })
+            }
+
+
+          }else if(req.body.estado == "Inactivo"){
+            res.json({
+              resultado:false,
+              mensaje:"Debe esperar a que la solicitud sea revisada",
+            })
+          }else if(req.body.estado == "Rechazado"){
+            res.json({
+              resultado:false,
+              mensaje:"La solicitud con esta identificacion fue rechazada",
+            })
+
+        }else{
+          res.json({
+            resultado:false,
+            mensaje:"Este vendedor no existe"
+          })
+        }
+      }
+     
  })
 
-
+})
 
 
 
