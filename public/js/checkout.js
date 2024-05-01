@@ -144,8 +144,6 @@ function revisarDatosUsuario() {
 	var tarjetaText = tarjetaUsadaDiv.textContent.trim();
 	var direccionText = direccionEnvioDiv.textContent.trim();
 
-	console.log(tarjetaText, direccionText);
-
 	if (
 		tarjetaText === 'No hay ninguna' &&
 		direccionText === 'No hay ninguna'
