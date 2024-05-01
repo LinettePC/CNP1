@@ -258,3 +258,45 @@ button {
     margin-right: 25px;
     width: 35px;
 }
+
+#masCategorias{
+	font-family: 'Cabin', sans-serif;	
+	display: flex;
+	align-items: end;
+	
+}
+
+#masCategorias button{
+	width: 100px;
+	height: 50px;
+	font-family: 'Cabin', sans-serif;
+	color: #ffffff;	
+	background-color: #81B12A;
+	border: #000000;
+	border-radius: 8px;
+	cursor: pointer;
+	
+	
+}
+
+.categorias{
+	
+	font-family: 'Cabin', sans-serif;
+	/* border: 1px solid red; */
+	width: 	70%;
+	padding-left: 200px;
+    height: auto;
+	font-size: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: start;
+	justify-content: space-between;
+	text-decoration: none;
+
+}
+.categorias li	{
+	color:#000000;
+	list-style: none;
+}
+
+
