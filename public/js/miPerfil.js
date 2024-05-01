@@ -19,8 +19,8 @@ function llenarCampos(persona) {
 	cedulaUsuario.innerText = persona.cedula;
 }
 
-const cedula_usuario = '6-0482-0213';
-const rol = 'Cliente';
+const cedula_usuario = sessionStorage.getItem('cedula');
+const rol = sessionStorage.getItem('rol');
 
 document.addEventListener('DOMContentLoaded', async () => {
 	let usuarioActual = {};

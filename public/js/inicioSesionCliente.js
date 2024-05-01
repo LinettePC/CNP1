@@ -70,46 +70,28 @@ function limpiarCampos() {
 
 // Función principal de validación
 
-
 function principal() {
-	if (
-		validarCamposVacios() &&
-		!validarIdentificacion()
-	) {
+	if (validarCamposVacios() && !validarIdentificacion()) {
 		//   Swal.fire({
 		//   	title: 'Datos correctos :)',
 		//    	text: '',
 		//    	icon: 'success',
 		//    });
 
-		//validarCliente(idCliente,contrasenna)  
+		//validarCliente(idCliente,contrasenna)
 		// idCliente = document.getElementById('username');
 		// contrasenna = document.getElementById('password');
 		boton = document.getElementById('submit-button');
-		
+
 		const inputs = {
-		 	idCliente: document.getElementById('username'),
-		 	contrasenna: document.getElementById('password'),
+			idCliente: document.getElementById('username'),
+			contrasenna: document.getElementById('password'),
 		};
-		validarCliente(inputs.idCliente.value,inputs.contrasenna.value)
+		validarCliente(inputs.idCliente.value, inputs.contrasenna.value);
 		//validarCliente(idCliente,contrasenna)
 		limpiarCampos();
-			
 	}
-	
-	// else{
-	// 	idCliente = document.getElementById('username');
-	// 	contrasenna = document.getElementById('password');
-	// 	validarCliente(idCliente,contrasenna)
-	// 	Swal.fire({
-	// 		title: 'Cliente no',
-	// 		text: '',
-	// 		icon: 'success',
-	// 	});
-	// }
 }
-
-
 
 // Evento de clic en el botón de enviar
 botonEnviar.addEventListener('click', principal);
