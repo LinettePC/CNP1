@@ -65,11 +65,19 @@ function validarIdentificacion() {
 // Event listener para el botón de enviar
 botonEnviar.addEventListener('click', function() {
     if (validarCamposVacios() && validarIdentificacion()) {
-        // Aquí puedes colocar el código para enviar el formulario si todos los campos son válidos
+        // Aquí puedes colocar el código para la funcion del Servicio si todos los campos son válidos
+        boton = document.getElementById('submit-button');
+		
+		const inputs = {
+		 	idAdmin: document.getElementById('username'),
+		 	contrasenna: document.getElementById('password'),
+		};
+		validarAdministrador(inputs.idAdmin.value,inputs.contrasenna.value)
+		//validarCliente(idCliente,contrasenna)
+		limpiarCampos();
 
 
 
-
-        console.log('Formulario enviado correctamente');
+        console.log('');
     }
 });
