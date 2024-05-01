@@ -200,16 +200,31 @@ button:hover {
 
 
 
-.foto button {
+/* Estilos para contener la imagen */
+.foto {
+	max-width: 100px; /* Ancho máximo de la imagen */
+	max-height: 100px; /* Altura máxima de la imagen */
+	overflow: hidden; /* Ocultar partes de la imagen que excedan el tamaño máximo */
+}
+
+.foto img {
+	width: 100%; /* Para asegurar que la imagen se ajuste al contenedor */
+	height: auto; /* Para mantener la proporción de la imagen */
+}
+
+/* Estilos para los botones */
+#btn-subir-foto {
     background-color: #81B12A;
     color: #2e3c2d;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
-	margin-top: 5px; 
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 100px; 
+	height: 45px;
 }
 
-.foto button:hover {
+#btn-subir-foto:hover {
     background-color: #EBB85A; /* Cambiamos el color de fondo al hacer hover */
     cursor: pointer;
 }

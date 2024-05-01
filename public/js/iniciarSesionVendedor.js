@@ -76,15 +76,16 @@ function principal() {
 		validarCamposVacios() &&
 		!validarIdentificacion()
 	) {
-		// Swal.fire({
-		// 	title: 'Datos correctos :)',
-		// 	text: '',
-		// 	icon: 'success',
-		// });
+		 Swal.fire({
+		 	title: ':) Datos correctos :)',
+		 	text: '',
+		 	icon: 'success',
+		 });
 
 		// idVendedor = document.getElementById('username');
 		// contrasenna = document.getElementById('password');
-		boton = document.getElementById('submit-button');
+		// botonEnviar = document.getElementById('submit-button');
+		boton = document.getElementById('submit-button'); 
 		const inputs = {
 			idVendedor: document.getElementById('username'),
 			contrasenna: document.getElementById('password'),
@@ -93,8 +94,6 @@ function principal() {
 	   limpiarCampos();
 	}
 }
-
-
 
 // Evento de clic en el botón de enviar
 botonEnviar.addEventListener('click', principal);
