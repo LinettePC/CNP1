@@ -19,16 +19,14 @@ const botonEnviar = document.getElementById('botonEnviar');
 // Función para validar campos vacíos
 function validarCamposVacios() {
 	let error = false;
-	const listinputs = 	Object.values(inputs).filter((input) => input != null)
-	listinputs.forEach((input) => {
-		if (input.value && !input.value.trim()) {
+	Object.values(inputs).forEach((input) => {
+		if (!input.value.trim()) {
 			error = true;
 			input.classList.add('error');
 		} else {
 			input.classList.remove('error');
 		}
 	});
-
 	if (error) {
 		Swal.fire({
 			title: 'Existen Campos Vacíos',
@@ -36,7 +34,6 @@ function validarCamposVacios() {
 			icon: 'warning',
 		});
 	}
-
 	return !error;
 }
 

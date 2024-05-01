@@ -25,11 +25,21 @@ router.post('/registrar-vendedor', (req, res) => {
 
     nuevo_Vendedor.save((error, usuarioRegistrado) => {
         if (error) {
-            res.status(500).json({
-                resultado: false,
-                msj: 'No se pudo hacer el registro',
-                error,
-            });
+            if (error.code === 11000) {
+                // Error de clave duplicada
+                res.status(409).json({
+                    resultado: false,
+                    msj: 'No se pudo hacer el registro',
+                    error,
+                });
+            } else {
+                // Otro tipo de error
+                res.status(500).json({
+                    resultado: false,
+                    msj: 'Error interno del servidor',
+                    error,
+                });
+            }
         } else {
             res.status(200).json({
                 resultado: true,
