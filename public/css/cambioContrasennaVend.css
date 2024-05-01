@@ -163,13 +163,38 @@ body {
 	text-decoration: underline;
 	color: #1f7544;
 }
-footer {
+
+
+footer{
 	/* border: 3px solid blue; */
 	width: 100%;
+	/* align-items: center;  */
 	height: 155px;
-
-	/* background-color: #E5E5A4   */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	background-color: #E5E5A4;
+	/* border: 3px solid blue; */
 }
+#copyRight{
+	align-self: center;
+	margin-left:490px;
+	margin-top: 95px;
+	
+	/* border: 3px solid blue;  */
+	color:#2e3c2d
+
+}
+
+#ocultar {
+	display: none;
+	
+  }
+
+
+
 
 .margen-bottom {
 	margin-bottom: 5px;
