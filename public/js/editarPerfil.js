@@ -110,7 +110,7 @@ async function verificarNuevaContrasenna() {
 
 					Swal.fire({
 						title: 'Contraseñas inválida',
-						html: '<p>- 8 caracteres<br>- No pueden tener vocales<br>- Al menos 1 consonante<br>- Al menos 1 char especial<br>- Al menos 1 número</p>',
+						html: '<p>- Al menos 8 caracteres<br>- No puede tener vocales<br>- Al menos 1 consonante<br>- Al menos 1 carácter especial<br>- Al menos 1 número</p>',
 						icon: 'error',
 					});
 				} else {
@@ -368,8 +368,8 @@ function llenarCampos(persona) {
 }
 
 let usuarioActual = {};
-const cedula_usuario = '6-0482-0213';
-const rol = 'Cliente';
+const cedula_usuario = sessionStorage.getItem('cedula');
+const rol = sessionStorage.getItem('rol');
 
 document.addEventListener('DOMContentLoaded', async () => {
 	if (rol === 'Cliente') {

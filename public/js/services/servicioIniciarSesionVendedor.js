@@ -12,9 +12,9 @@ const validarVendedor = async (pCedula, pContrasenna /*pEstado*/) => {
 		if (res.data.resultado == 1) {
 			Swal.fire({
 				title: 'Tu cuenta fue aprobada',
-				text: 'Por favor, cambia tu contraseña',
+				text: 'Por favor, cambia tu contraseña. Pronto serás redireccionado.',
 				icon: 'success',
-				timer: 2000,
+				timer: 2500,
 				timerProgressBar: true,
 				showConfirmButton: false,
 				allowOutsideClick: false,
@@ -25,7 +25,7 @@ const validarVendedor = async (pCedula, pContrasenna /*pEstado*/) => {
 
 			setTimeout(() => {
 				window.location.href = 'cambioContraTemp.html';
-			}, 2000);
+			}, 2500);
 		} else if (res.data.resultado == 2) {
 			Swal.fire({
 				title: 'Datos correctos',
