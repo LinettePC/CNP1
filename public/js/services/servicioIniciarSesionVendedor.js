@@ -16,7 +16,7 @@ const validarVendedor = async(pCedula,pContrasenna,/*pEstado*/)=>{
                 text:"Ahora debes cambiar la contraseña",
                 icon:"success"
             }).then(()=>{
-                //tengo que mandarlo al otro html para que haga nueva contrasenna
+                //Se manda a cambioContrasennaVend.html para que cambie primer contrasenna
                 setTimeout(()=>{
                 
                     sessionStorage.setItem("cedula",res.data.usuario.cedula)
@@ -29,14 +29,10 @@ const validarVendedor = async(pCedula,pContrasenna,/*pEstado*/)=>{
                     //sessionStorage.setItem("estado",res.data.resultado.estado) //ejemplo
                     
                     //falta crear este html cambioContrasennaVend.html
-                    window.location.href= "cambioContrasennaVend.html"
-                    
+                    window.location.href= "cambioContrasennaVend.html"    
                 },1000)
-
             })
             
-
-
         }else if(res.data.resultado==2){
             Swal.fire({
                 title: 'Datos correctos!!!',
