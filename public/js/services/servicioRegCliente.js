@@ -13,33 +13,40 @@ const registroCliente = async (pcedula, pnombre, pprimerApellido, pcorreo, ptele
 			foto: pfotoId,
 		}
 	}).then((response) => {
-			if (response.data.resultado == false) {
-				switch (response.data.error.code) {
-					case 11000:
-						Swal.fire({
-							title: 'No se completó el registro',
-							text: 'El cliente ya existe',
-							icon: 'error',
-						});
-						break;
-				}
+		if (response.data.resultado === false) {
+			if (response.data.error && response.data.error.code === 11000 && response.data.error.keyPattern && response.data.error.keyPattern.cedula) {
+				Swal.fire({
+					title: 'No se completó el envío del formulario',
+					text: 'La cédula ya existe',
+					icon: 'error',
+				});
 			} else {
 				Swal.fire({
-					title: 'Registro completado',
-					text: 'Tu cuenta de cliente ha sido creada',
-					icon: 'success',
+					title: 'No se completó el envío del formulario',
+					text: response.data.msj,
+					icon: 'error',
 				});
 			}
-		})
-		.then(() => {
-			setTimeout(()=>{
-				window.location.href = 'dosLandingPage.html';
-			},3000)
-			
-		})
-		.catch((err) => {
-			console.log(err);
+		} else {
+			Swal.fire({
+				title: 'Formulario enviado',
+				text: 'Recibirás un correo cuando tu solicitud sea revisada',
+				icon: 'success',
+			}).then(() => {
+				setTimeout(()=>{
+					window.location.href = 'dosLandingPage.html';
+				}, 4000);
+			});
+		}
+	})
+	.catch((err) => {
+		console.log(err);
+		Swal.fire({
+			title: 'Error',
+			text: 'Hubo un error al procesar tu solicitud, esa cedula ya existe.',
+			icon: 'error',
 		});
+	});
 };
 
 
