@@ -28,7 +28,7 @@ const validarVendedor = async(pCedula,pContrasenna,/*pEstado*/)=>{
                     //sessionStorage.setItem("rol","cliente") //ejemplo
                     //sessionStorage.setItem("estado",res.data.resultado.estado) //ejemplo
                     
-                    //falta crear este html cambioContrasennaVend.html
+                    //falta hacer validaciones y servicio para html cambioContrasennaVend.html
                     window.location.href= "cambioContrasennaVend.html"    
                 },1000)
             })
