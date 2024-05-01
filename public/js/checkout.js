@@ -15,7 +15,7 @@ function actualizarTotal(nuevoTotal) {
   precioTotalCarrito.textContent = `₡${formatearNumeroConComas(totalSumado)}`;
 }
 
-function agregarProductoParaComprar(nombre, cantidad, precio, id) {
+function agregarProductoParaComprar(nombre, cantidad, precio, id, imagenProducto) {
   // Crear el contenedor principal del producto
   const productoDiv = document.createElement("div");
   productoDiv.classList.add("producto");
@@ -26,7 +26,7 @@ function agregarProductoParaComprar(nombre, cantidad, precio, id) {
 
   // Crear la imagen
   const imagen = document.createElement("img");
-  imagen.src = "img/quesito.png";
+  imagen.src = imagenProducto;
   imagen.alt = "";
   imagen.classList.add("imagen-ejemplo");
 
@@ -101,7 +101,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         productoDB.nombre,
         cantidadComprar,
         productoDB.precio_vendedor * cantidadComprar,
-        productoDB._id
+        productoDB._id,
+        productoDB.imagen
       );
 
       productosFlex.appendChild(nuevaTarjeta);

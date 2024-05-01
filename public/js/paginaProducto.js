@@ -10,7 +10,8 @@ function crearTarjetaProducto(
   precio,
   tramo,
   descripcion,
-  id
+  id,
+  imagenProducto
 ) {
   // Crear el contenedor principal del producto
   const contenedorProducto = document.createElement("div");
@@ -22,7 +23,7 @@ function crearTarjetaProducto(
 
   // Imagen del producto
   const imagen = document.createElement("img");
-  imagen.src = "img/ejemploProducto.png"; // URL de la imagen del producto
+  imagen.src = imagenProducto; // URL de la imagen del producto
   imagen.alt = ""; // Texto alternativo de la imagen (opcional)
 
   // Agregar la imagen al contenedor de la imagen
@@ -210,7 +211,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         objetoProducto.precio_vendedor,
         objetoProducto.cedula_vendedor,
         objetoProducto.descripcion,
-        objetoProducto._id
+        objetoProducto._id,
+        objetoProducto.imagen
       );
       contenedorGeneral.appendChild(nuevaTarjeta);
     } else {

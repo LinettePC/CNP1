@@ -4,7 +4,7 @@ function formatearNumeroConComas(numero) {
 	return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID) {
+function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID, imagenProducto) {
     // Crear el elemento de la tarjeta de producto
     const item = document.createElement('div');
     item.classList.add('item');
@@ -20,7 +20,7 @@ function crearTarjetaProducto(nombre, descripcion, precioVendedor, productoID) {
 
     // Imagen
     const imagen = document.createElement('img');
-    imagen.src = 'img/quesito.png'; // URL de la imagen
+    imagen.src = imagenProducto; // URL de la imagen
     imagen.alt = ''; // Texto alternativo de la imagen (opcional)
 
     // Agregar la imagen al enlace
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 		for (let i = 0; i < lista_lacteos.length; i++) {
 			let productoDB = lista_lacteos[i];
 
-			let nuevaTarjeta = crearTarjetaProducto(productoDB.nombre, productoDB.descripcion, productoDB.precio_vendedor, productoDB._id);
+			let nuevaTarjeta = crearTarjetaProducto(productoDB.nombre, productoDB.descripcion, productoDB.precio_vendedor, productoDB._id, productoDB.imagen);
 
 			filaProducto.appendChild(nuevaTarjeta);
 		}

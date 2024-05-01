@@ -267,6 +267,7 @@ body {
 }
 
 
+
 .contenedorFooter {
     position: fixed; /* Fija el footer en la parte inferior de la ventana del navegador */
     bottom: 0; /* Lo posiciona en la parte inferior */
@@ -280,6 +281,13 @@ body {
 }
 
 
+.contenedorGeneral {
+	width: auto;
+    height: 90%;
+    margin: 30px 0;
+    object-fit:cover;
+}
+
 
 .contenedorProducto {
     display: flex;
@@ -288,62 +296,68 @@ body {
     align-items: center;
     margin: 0 auto;
     justify-content: space-between;
+
 }
 
 
 .contenedorImagen {
-    padding: 77px; /* Aumenta el padding */
-    max-width: 350px; /* Aumenta el ancho máximo del contenedor */
-    max-height: 350px; /* Aumenta la altura máxima del contenedor */
+	padding: 35px;
+    width: 50%;
+    height: 350px;
     overflow: hidden;
-    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 }
 
 .contenedorImagen img {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    display: block;
+	width: auto;
+    height: 90%;
+    margin: 30px 0;
+    object-fit:cover;
 }
 
+
 .contenedorProducto .infoProducto .nombre {
-    font-size: 35px; /* Aumenta el tamaño de la fuente */
-    margin-top: 20px; /* Aumenta el margen superior */
+    font-size: 45px; /* Aumenta el tamaño de la fuente */
+    margin-top: 30px; /* Aumenta el margen superior */
     font-weight: 600;
 }
 
 .contenedorProducto .infoProducto .nomCategoria {
-    font-size: 14px; /* Aumenta el tamaño de la fuente */
-    margin-top: 12px; /* Aumenta el margen superior */
+    font-size: 18px; /* Aumenta el tamaño de la fuente */
+    margin-top: 20px; /* Aumenta el margen superior */
     font-weight: 600;
 }
 
 .contenedorProducto .infoProducto .tramo {
-    font-size: 18px; /* Aumenta el tamaño de la fuente */
-    margin-top: 40px; /* Aumenta el margen superior */
+    font-size: 22px; /* Aumenta el tamaño de la fuente */
+    margin-top: 55px; /* Aumenta el margen superior */
 }
 
 .contenedorProducto .infoProducto .tituloDescripcion {
-    font-size: 18px; /* Aumenta el tamaño de la fuente */
-    margin-top: 38px; /* Aumenta el margen superior */
+    font-size: 22px; /* Aumenta el tamaño de la fuente */
+    margin-top: 50px; /* Aumenta el margen superior */
     font-weight: 800;
 }
 
 .contenedorProducto .infoProducto .descripcion {
-    font-size: 18px; /* Aumenta el tamaño de la fuente */
-    margin-top: 20px; /* Aumenta el margen superior */
+    font-size: 22px; /* Aumenta el tamaño de la fuente */
+    margin-top: 30px; /* Aumenta el margen superior */
 }
 
 .contenedorProducto .infoProducto .precio {
-    font-size: 35px; /* Aumenta el tamaño de la fuente */
-    margin-top: 40px; /* Aumenta el margen superior */
+    font-size: 45px; /* Aumenta el tamaño de la fuente */
+    margin-top: 55px; /* Aumenta el margen superior */
 }
 
 .infoProducto {
-	margin-left: 44px;
+	margin-left: 56px;
     display: flex;
     flex-direction: column;
-    width: 60%; /* Aumenta el ancho del contenedor */
+    width: 50%; /* Aumenta el ancho del contenedor */
  
 }
 

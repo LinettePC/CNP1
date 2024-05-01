@@ -61,7 +61,7 @@ function crearMensajeSinProductos() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-	let lista_productosDB = await listarProductosVendedor('12345');
+	let lista_productosDB = await listarProductosVendedor('123456789');
 	console.log(lista_productosDB);
 
 	let cantidad_productos_vendedor = lista_productosDB.length;

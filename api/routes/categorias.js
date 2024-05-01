@@ -9,6 +9,7 @@ router.post('/registrar-categoria', (req, res) => {
 
 	let nueva_Categoria = new Categoria({
 		nombre: body.nombre,
+		tipo: body.tipo
 	});
 
 	if (body.tipo) {

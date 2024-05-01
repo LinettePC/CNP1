@@ -164,7 +164,7 @@ const registrarProducto = async (info) => {
 		method: 'POST',
 		url: 'http://localhost:3000/api/registrar-producto',
 		responseType: 'json',
-		data: info,
+		data: info, // Corregir esta línea
 	})
 		.then((response) => {
 			if (response.data.resultado == false) {

@@ -7,6 +7,7 @@ const contenedorCategoriaNueva = document.getElementById('categoriaNueva');
 const contenedorPrecio = document.getElementById('precio');
 const contenedorInventario = document.getElementById('inventario');
 
+
 const containerAgregarProducto = document.getElementById(
 	'containerAgregarProducto'
 );
@@ -94,8 +95,8 @@ document
 
 		// Construct payload object
 
-		const imageInput = document.getElementById('imagen');
-		const uploadedImage = imageInput.files[0];
+		const uploadedImage = document.getElementById("foto-producto");
+	
 
 		let payload;
 
@@ -119,7 +120,7 @@ document
 				categoria: categoriaFinal,
 				precio_vendedor: precio,
 				inventario: inventario,
-				imagen: uploadedImage,
+				imagen: uploadedImage.src,
 			};
 		}
 

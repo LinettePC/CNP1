@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Añadir producto</title>
 		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="/public/css/anadirProducto.css" />
+		<link rel="stylesheet" href="css/anadirProducto.css" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -141,11 +141,15 @@
 
 				<div class="input-field">
 					<label for="imagen">Imagen del producto (opcional)</label>
-					<input
-						type="file"
-						id="imagen"
-						accept="image/jpeg, image/png"
-					/>
+					<div class="divImagenProducto">
+						<img id="foto-producto">
+					</div>
+					<div id="divBoton">
+						<button type="button"
+						id="btn-subir-foto-producto" 
+						>Subir Foto</button>
+					</div>
+		
 				</div>
 
 				<div class="input-field">
@@ -177,11 +181,13 @@
 			</div>
 		</div>
 
+		<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/services/servicio-categorias.js"></script>
 		<script src="js/services/servicio-productos.js"></script>
 		<script src="js/services/servicio-personas.js"></script>
+		<script src="js/services/servicioImagenProducto.js"></script>
 		<script src="js/anadirProducto.js"></script>
 	</body>
 </html>
