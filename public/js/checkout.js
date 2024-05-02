@@ -86,16 +86,33 @@ function agregarProductoParaComprar(
 	return productoDiv;
 }
 
+function crearMensajeSinProductos() {
+	const productoDiv = document.createElement('div');
+	// productoDiv.classList.add('nombre-producto');
+	productoDiv.innerHTML =
+		'<span class="nombre-producto">No hay productos en el <a href="carritoCompras.html">carrito.</a></span> <br> <span style="font-size: 17px">Agregue productos para poder comprar en el sitio.</span>';
+
+	return productoDiv;
+}
+
 window.addEventListener('load', async () => {
+	usuarioActual = await conseguirCompradorCedula(cedula_usuario);
+
 	listaProductosParaComprar =
 		JSON.parse(localStorage.getItem('productos_en_carrito')) || [];
 
 	console.log(listaProductosParaComprar);
 
 	if (listaProductosParaComprar.length === 0) {
-		//let mensajeSinProductos = crearMensajeSinProductos();
-		//divMensaje.appendChild(mensajeSinProductos);
+		let mensajeSinProductos = crearMensajeSinProductos();
+		productosFlex.appendChild(mensajeSinProductos);
 	} else {
+		if (usuarioActual) {
+			llenarCampos(usuarioActual);
+		}
+
+		revisarDatosUsuario();
+
 		let totalProductos = 0;
 		for (let i = 0; i < listaProductosParaComprar.length; i++) {
 			let idProducto = listaProductosParaComprar[i].id;
@@ -183,13 +200,3 @@ function llenarCampos(persona) {
 
 let usuarioActual = {};
 const cedula_usuario = sessionStorage.getItem('cedula');
-
-window.addEventListener('load', async () => {
-	usuarioActual = await conseguirCompradorCedula(cedula_usuario);
-
-	if (usuarioActual) {
-		llenarCampos(usuarioActual);
-	}
-
-	revisarDatosUsuario();
-});
