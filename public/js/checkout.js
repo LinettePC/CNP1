@@ -176,7 +176,7 @@ function revisarDatosUsuario() {
 
 function llenarCampos(persona) {
 	// ${persona.direccion.provincia}
-	let direccionString = `${persona.direccion.direccionExacta} / ${persona.direccion.distrito} / ${persona.direccion.canton}`;
+	let direccionString = `${persona.nombre} ${persona.primerApellido} /  ${persona.direccion.direccionExacta} / ${persona.direccion.distrito} / ${persona.direccion.canton}`;
 
 	tarjetaUsada.innerHTML = persona.metodo_pago;
 	direccionEnvio.innerHTML = direccionString;

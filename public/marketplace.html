@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/marketplace.css" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,8 +12,7 @@
 			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="css/marketplace.css" />
+
 		<title>Marketplace</title>
 	</head>
 	<body>
@@ -53,20 +53,29 @@
 			<div class="carrito">
 				<div id="cuenta">
 					<a href="miPerfil.html" id="textoCuenta">
-						Mi Cuenta
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							fill="currentColor"
-							class="bi bi-person-fill"
-							viewBox="0 0 16 16"
-						>
-							<path
-								d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
-							/></svg
 					></a>
+					<a href="miPerfil.html">
+						<span> Ver mi Cuenta</span>
+						</a>
+				
+				
 				</div>
+				<a href="miPerfil.html" id="enlaceSVG">
+					<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="40"
+					height="40"
+					fill="currentColor"
+					class="bi bi-person-fill"
+					viewBox="0 0 16 16"
+				>
+					<path
+						d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+					/></svg
+		
+					></a>
+				
+				
 				<div>
 					<a href="carritoCompras.html" class="carrito-container"
 						><img
@@ -76,6 +85,7 @@
 						/><span id="cantidadItemsCarrito">0</span></a
 					>
 				</div>
+			</div>
 			</div>
 		</header>
 
@@ -144,5 +154,10 @@
 				</div>
 			</div>
 		</footer>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="/public/js/services/servicio-personas.js"></script>
+		<script src="/public/js/marketplace.js"></script>
+	
 	</body>
+
 </html>

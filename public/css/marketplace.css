@@ -17,7 +17,7 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	width: 300px;
+	width: 400px;
 }
 
 #textoCuenta {
@@ -26,16 +26,34 @@
 	font-size: 21px;
 	display: flex;
 	align-items: center;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	border-right: 3px solid black;
-	margin-right: 10px;
 }
 
-#textoCuenta svg {
-	margin-left: 5px;
+#cuenta{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
+
+#cuenta span{
+	margin-top: 3px;
+	font-size: 13px;
+	color: gray;
+}
+
+svg {
+	font-size: 29px;
+	border-right: 3px #81b12a solid;
+	margin-right: 15px;
+	padding-right: 13px;
+	padding-left: 8px;
+}
+
+#enlaceSVG{
+	text-decoration: none;
+	color: black;
+}
+
 
 #logoCarrito {
 	max-width: 100px;
