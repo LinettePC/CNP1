@@ -55,7 +55,12 @@ function agregarProductoParaComprar(
 	const cantidadSpan = document.createElement('span');
 	cantidadSpan.classList.add('unidades-producto');
 	cantidadSpan.textContent = cantidad;
-	const cantidadTexto = document.createTextNode(' Unidades');
+	let cantidadTexto;
+	if (parseInt(cantidad) === 1) {
+		cantidadTexto = document.createTextNode(' Unidad');
+	} else {
+		cantidadTexto = document.createTextNode(' Unidades');
+	}
 	cantidadUnidadesParrafo.appendChild(cantidadSpan);
 	cantidadUnidadesParrafo.appendChild(cantidadTexto);
 	cantidadDiv.appendChild(cantidadUnidadesParrafo);
@@ -95,11 +100,17 @@ function crearMensajeSinProductos() {
 	return productoDiv;
 }
 
+let listaProductosParaComprar =
+	JSON.parse(localStorage.getItem('productos_en_carrito')) || [];
+
+let totalProductos = 0;
+
 window.addEventListener('load', async () => {
 	usuarioActual = await conseguirCompradorCedula(cedula_usuario);
 
-	listaProductosParaComprar =
-		JSON.parse(localStorage.getItem('productos_en_carrito')) || [];
+	if (usuarioActual) {
+		llenarCampos(usuarioActual);
+	}
 
 	console.log(listaProductosParaComprar);
 
@@ -107,29 +118,24 @@ window.addEventListener('load', async () => {
 		let mensajeSinProductos = crearMensajeSinProductos();
 		productosFlex.appendChild(mensajeSinProductos);
 	} else {
-		if (usuarioActual) {
-			llenarCampos(usuarioActual);
-		}
-
 		revisarDatosUsuario();
 
-		let totalProductos = 0;
 		for (let i = 0; i < listaProductosParaComprar.length; i++) {
 			let idProducto = listaProductosParaComprar[i].id;
-			productoDB = await conseguirProductoID(idProducto);
+			let productoDB = await conseguirProductoID(idProducto);
 			console.log('producto encontrado', productoDB);
 			cantidadComprar = listaProductosParaComprar[i].cantidad;
 
 			let nuevaTarjeta = agregarProductoParaComprar(
 				productoDB.nombre,
 				cantidadComprar,
-				productoDB.precio_vendedor * cantidadComprar,
+				productoDB.precio_con_iva * cantidadComprar,
 				productoDB._id,
 				productoDB.imagen
 			);
 
 			productosFlex.appendChild(nuevaTarjeta);
-			totalProductos += productoDB.precio_vendedor * cantidadComprar;
+			totalProductos += productoDB.precio_con_iva * cantidadComprar;
 		}
 		actualizarTotal(totalProductos);
 	}
@@ -186,8 +192,61 @@ function revisarDatosUsuario() {
 		buyButton.innerHTML = 'Realizar compra';
 		buyButton.type = 'submit';
 		buyButton.classList.add('boton-comprar');
+
+		buyButton.addEventListener('click', (event) => realizarCompra(event));
+
 		contenedorBotonPago.appendChild(buyButton);
 	}
+}
+
+async function realizarCompra(event) {
+	event.preventDefault();
+
+	for (let i = 0; i < listaProductosParaComprar.length; i++) {
+		let idProducto = listaProductosParaComprar[i].id;
+		let productoDB = await conseguirProductoID(idProducto);
+
+		cantidadComprar = listaProductosParaComprar[i].cantidad;
+
+		nombreVendedor = await conseguirVendedorCedula(
+			productoDB.cedula_vendedor
+		).nombre;
+
+		let ventaString = (
+			productoDB.precio_con_iva * cantidadComprar
+		).toString();
+
+		let datosVenta = {
+			cedula_comprador: usuarioActual.cedula,
+			cedula_vendedor: productoDB.cedula_vendedor,
+			id_producto: productoDB._id,
+			nombre_producto: productoDB.nombre,
+			categoria_producto: productoDB.categoria,
+			precio_venta: ventaString,
+			cantidad_comprada: cantidadComprar,
+			nombre_comprador: usuarioActual.nombre,
+			nombre_vendedor: 'checkout linea 220',
+			tramo: productoDB.tramo,
+		};
+		await registro_venta(datosVenta);
+		await actualizarInventarioProdudcto(productoDB._id, cantidadComprar);
+	}
+
+	localStorage.clear();
+
+	Swal.fire({
+		title: 'Compra exitosa',
+		text: `Su compra de ₡${totalProductos} se ha realizado exitosamente.`,
+		icon: 'success',
+		timer: 2500,
+		timerProgressBar: true,
+		showConfirmButton: false,
+		allowOutsideClick: false,
+	});
+
+	setTimeout(() => {
+		window.location.href = 'marketplace.html';
+	}, 2500);
 }
 
 function llenarCampos(persona) {

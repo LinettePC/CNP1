@@ -22,7 +22,6 @@ function crearTarjetaProducto(
 	// Enlace
 	const enlace = document.createElement('a');
 	enlace.href = `paginaProducto.html?id=${productoID}`; // URL dinámica del producto
-	enlace.target = '_blank'; // Abre el enlace en una nueva pestaña
 
 	// Imagen
 	const imagen = document.createElement('img');

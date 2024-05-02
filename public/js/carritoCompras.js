@@ -29,7 +29,6 @@ function agregarProductoParaComprar(
 	//Crear Enlace
 	const enlace = document.createElement('a');
 	enlace.href = `paginaProducto.html?id=${id}`; // URL dinámica del producto
-	enlace.target = '_blank'; // Abre el enlace en una nueva pestaña
 
 	// Crear el div para la imagen
 	let imagenCarritoDiv = document.createElement('div');

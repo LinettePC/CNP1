@@ -280,8 +280,7 @@ function comentarioSinReviews() {
 
 let id_producto = '';
 let usuarioActual = {};
-// let cedula = sessionStorage.getItem('cedula');
-let cedula = '604820213';
+let cedula = sessionStorage.getItem('cedula');
 let botonDejarReviews = document.getElementById('botonDejarReviews');
 let msjDejarReviews = document.getElementById('msjDejarReviews');
 

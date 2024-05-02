@@ -275,6 +275,51 @@ router.put('/actualizar-producto', (req, res) => {
 	);
 });
 
+router.put('/actualizar-inventario-producto', (req, res) => {
+	let mongoID = req.body._id;
+	let cantidad_restada = req.body.cantidad_restada;
+
+	Producto.findById(mongoID, (error, producto) => {
+		if (error) {
+			return res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo encontrar el producto',
+				error,
+			});
+		}
+
+		if (!producto) {
+			return res.status(404).json({
+				resultado: false,
+				msj: 'Producto no encontrado',
+			});
+		}
+
+		let nuevoInventario = (
+			parseInt(producto.inventario) - parseInt(cantidad_restada)
+		).toString();
+
+		Producto.updateOne(
+			{ _id: mongoID },
+			{ $set: { inventario: nuevoInventario } },
+			(error, info_producto) => {
+				if (error) {
+					return res.status(500).json({
+						resultado: false,
+						msj: 'No se pudo actualizar el producto',
+						error,
+					});
+				}
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actualización exitosa',
+					info_producto,
+				});
+			}
+		);
+	});
+});
+
 router.put('/actualizar-producto-default', (req, res) => {
 	let mongoID = req.body._id;
 	let updates = req.body.updates;

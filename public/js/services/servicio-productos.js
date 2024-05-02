@@ -242,3 +242,25 @@ const listarProductosDefault = async () => {
 
 	return lista_productos;
 };
+
+const actualizarInventarioProdudcto = async (id_producto, cantidad_restada) => {
+	await axios({
+		method: 'PUT',
+		url: 'http://localhost:3000/api/actualizar-inventario-producto',
+		responseType: 'json',
+		data: {
+			_id: id_producto,
+			cantidad_restada: cantidad_restada,
+		},
+	})
+		.then((response) => {
+			if (response.data.resultado == false) {
+				console.log(response.data.error);
+			} else {
+				console.log(response.data.msj);
+			}
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};

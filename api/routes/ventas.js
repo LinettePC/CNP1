@@ -21,20 +21,11 @@ router.post('/registrar-venta', (req, res) => {
 	let body = req.body;
 
 	let fechaFormateada = conseguirFechaFormateada();
+	console.log(body);
 
-	let nueva_Venta = new Venta({
-		cedula_comprador: body.cedula_comprador,
-		cedula_vendedor: body.cedula_vendedor,
-		id_producto: body.id_producto,
-		nombre_producto: body.nombre_producto,
-		categoria_producto: body.categoria_producto,
-		precio_venta: body.precio_venta,
-		cantidad_comprada: body.cantidad_comprada,
-		nombre_comprador: body.nombre_comprador,
-		nombre_vendedor: body.nombre_vendedor,
-		tramo: body.tramo,
-		fecha_de_venta: fechaFormateada,
-	});
+	let nueva_Venta = new Venta(body);
+
+	nueva_Venta.fecha_de_venta = fechaFormateada;
 
 	nueva_Venta.save((error, VentaDB) => {
 		if (error) {
