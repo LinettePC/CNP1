@@ -270,7 +270,7 @@ btnGenerarReporte.addEventListener('click', async () => {
 	llenarTablaConFiltros();
 });
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	lista_personas = await listarClientes();
 	lista_vendedores = await listarVendedores();
 

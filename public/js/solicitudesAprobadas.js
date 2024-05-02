@@ -136,7 +136,7 @@ function llenarTablaConFiltros() {
 
 	for (let i = 0; i < lista_vendedores.length; i++) {
 		let persona = lista_vendedores[i];
-		
+
 		// fecha_de_registro = "24/04/2024"
 		// fecha_de_registro.split("/")[1] = [24, 04, 2024]
 		let mes_registro = persona.fecha_de_registro.split('/')[1]; // Como la fecha está en DD/MM/AAAA, hay que hacerle split
@@ -197,10 +197,12 @@ btnGenerarReporte.addEventListener('click', async () => {
 	llenarTablaConFiltros();
 });
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	lista_vendedores = await listarVendedores();
 
-	let cantActivos = lista_vendedores.filter(item => item.estado === 'Activo').length;
+	let cantActivos = lista_vendedores.filter(
+		(item) => item.estado === 'Activo'
+	).length;
 
 	if (cantActivos == 0) {
 		msjNoUsuarios.style.display = 'block';

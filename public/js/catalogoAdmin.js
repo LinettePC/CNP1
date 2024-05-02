@@ -60,7 +60,7 @@ function crearMensajeSinProductos() {
 	return divMensajeSinProductos;
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	let lista_productosDB = await listarProductosDefault();
 	console.log(lista_productosDB);
 

@@ -60,12 +60,12 @@ function crearMensajeSinProductos() {
 	return divMensajeSinProductos;
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	let lista_productosDB = await listarProductosVendedor('123456789');
 	console.log(lista_productosDB);
 
 	let cantidad_productos_vendedor = lista_productosDB.length;
-	
+
 	if (cantidad_productos_vendedor === 0) {
 		let mensajeSinProductos = crearMensajeSinProductos();
 		divMensaje.appendChild(mensajeSinProductos);
@@ -73,7 +73,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 		for (let indice = 0; indice < cantidad_productos_vendedor; indice++) {
 			let productoDB = lista_productosDB[indice];
 
-			let nuevaTarjeta = crearTarjetaProducto(productoDB.nombre, productoDB._id);
+			let nuevaTarjeta = crearTarjetaProducto(
+				productoDB.nombre,
+				productoDB._id
+			);
 
 			canasta.appendChild(nuevaTarjeta);
 		}

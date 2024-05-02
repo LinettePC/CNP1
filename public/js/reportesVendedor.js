@@ -262,7 +262,7 @@ function llenarSelects() {
 	agregarOpciones(selectCategoria, categorias);
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	cedulaVendedorActual = '12345';
 
 	lista_ventas = await listarVentasUsuario(cedulaVendedorActual);

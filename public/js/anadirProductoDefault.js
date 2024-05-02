@@ -176,7 +176,7 @@ let usuarioActual = {};
 let cedula_usuario = '54321';
 let rol = 'Vendedor';
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();
 
 	let nombresCategorias = [];

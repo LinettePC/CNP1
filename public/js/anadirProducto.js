@@ -7,7 +7,6 @@ const contenedorCategoriaNueva = document.getElementById('categoriaNueva');
 const contenedorPrecio = document.getElementById('precio');
 const contenedorInventario = document.getElementById('inventario');
 
-
 const containerAgregarProducto = document.getElementById(
 	'containerAgregarProducto'
 );
@@ -95,8 +94,7 @@ document
 
 		// Construct payload object
 
-		const uploadedImage = document.getElementById("foto-producto");
-	
+		const uploadedImage = document.getElementById('foto-producto');
 
 		let payload;
 
@@ -190,7 +188,7 @@ function llenarCamposProducto(info_producto) {
 let usuarioActual = {};
 let cedula_usuario = '54321';
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();
 
 	usuarioActual = await conseguirVendedorCedula(cedula_usuario);

@@ -528,7 +528,7 @@ function llenarCampos(persona) {
 	}
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	usuarioActual = await conseguirCompradorCedula(cedula_usuario);
 
 	if (usuarioActual) {

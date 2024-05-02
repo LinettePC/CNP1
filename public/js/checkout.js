@@ -86,7 +86,7 @@ function agregarProductoParaComprar(
 	return productoDiv;
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	listaProductosParaComprar =
 		JSON.parse(localStorage.getItem('productos_en_carrito')) || [];
 
@@ -155,8 +155,7 @@ function revisarDatosUsuario() {
 			'Para realizar su compra, por favor agregue <br/> su información de dirección y pago.';
 		changeInfoError.classList.add('error-mensaje');
 
-		changeInfoButton.innerHTML =
-			'Agregar información de dirección y pago';
+		changeInfoButton.innerHTML = 'Agregar información de dirección y pago';
 
 		changeInfoButton.href = 'pagoDireccion.html';
 
@@ -185,7 +184,7 @@ function llenarCampos(persona) {
 let usuarioActual = {};
 const cedula_usuario = sessionStorage.getItem('cedula');
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	usuarioActual = await conseguirCompradorCedula(cedula_usuario);
 
 	if (usuarioActual) {

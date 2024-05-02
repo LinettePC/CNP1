@@ -143,8 +143,8 @@ async function verificarNuevaContrasenna() {
 				});
 
 				setTimeout(() => {
-                    window.location.href = 'miPerfil.html';
-                }, 2500);
+					window.location.href = 'miPerfil.html';
+				}, 2500);
 			}
 		}
 	}
@@ -154,7 +154,7 @@ let usuarioActual = {};
 const cedula_usuario = sessionStorage.getItem('cedula');
 const rol = sessionStorage.getItem('rol');
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	if (rol === 'Cliente') {
 		usuarioActual = await conseguirCompradorCedula(cedula_usuario);
 	} else {

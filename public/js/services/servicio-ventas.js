@@ -1,6 +1,7 @@
 const registro_venta = async (
 	param_cedula_comprador,
 	param_cedula_vendedor,
+	param_id_producto,
 	param_nombre_producto,
 	param_categoria_producto,
 	param_precio_venta,
@@ -16,6 +17,7 @@ const registro_venta = async (
 		data: {
 			cedula_comprador: param_cedula_comprador,
 			cedula_vendedor: param_cedula_vendedor,
+			id_producto: param_id_producto,
 			nombre_producto: param_nombre_producto,
 			categoria_producto: param_categoria_producto,
 			precio_venta: param_precio_venta,

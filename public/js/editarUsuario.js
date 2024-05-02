@@ -194,11 +194,11 @@ let cedula_usuario = conseguirParamPorNombre('cedula');
 const tipo_usuario = conseguirParamPorNombre('tipo');
 let usuario = {};
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	if (tipo_usuario === 'Cliente') {
 		usuario = await conseguirCompradorCedula(cedula_usuario);
 	} else {
-        usuario = await conseguirVendedorCedula(cedula_usuario);
+		usuario = await conseguirVendedorCedula(cedula_usuario);
 	}
 
 	llenarCampos(usuario);

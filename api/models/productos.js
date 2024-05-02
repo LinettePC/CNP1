@@ -15,12 +15,11 @@ const schema_producto = new mongoose.Schema({
 	precio_vendedor: { type: String, required: false },
 	precio_con_iva: { type: String, required: false },
 	imagen: { type: String, default: 'noimg' },
-	estrellas: [
+	reviews: [
 		{
-			type: String,
-			enum: ['1', '2', '3', '4', '5'],
-			required: false,
-			unique: false,
+			usuario: { type: String },
+			estrellas: { type: String },
+			comentario: { type: String },
 		},
 	],
 	impuesto: { type: String, required: false },

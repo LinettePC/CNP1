@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
 	let cantidadItemsCarrito = document.getElementById('cantidadItemsCarrito');
 
 	let itemsActuales =

@@ -300,6 +300,31 @@ router.put('/actualizar-producto-default', (req, res) => {
 	);
 });
 
+router.put('/agregar-review-producto', (req, res) => {
+	let mongoID = req.body._id;
+	let updates = req.body.updates;
+
+	Producto.updateOne(
+		{ _id: mongoID },
+		{ $push: updates },
+		function (error, info_producto) {
+			if (error) {
+				res.status(500).json({
+					resultado: false,
+					msj: 'No se pudo actualizar el producto',
+					error,
+				});
+			} else {
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actulización exitosa',
+					info_producto,
+				});
+			}
+		}
+	);
+});
+
 //http://localhost:3000/api/eliminar-producto
 //DELETE --> eliminar registros
 router.delete('/eliminar-producto', (req, res) => {

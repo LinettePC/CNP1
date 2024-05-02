@@ -1,4 +1,6 @@
-const contenedorProductosDefault = document.getElementById('contenedorProductosDefault');
+const contenedorProductosDefault = document.getElementById(
+	'contenedorProductosDefault'
+);
 
 function agregarTarjetaProducto(producto) {
 	// Create div element for the product card
@@ -14,7 +16,7 @@ function agregarTarjetaProducto(producto) {
 	const imagenProducto = document.createElement('div');
 	imagenProducto.classList.add('imagenProducto');
 	const img = document.createElement('img');
-    img.src = '/public/img/error/noimg.jpg';
+	img.src = '/public/img/error/noimg.jpg';
 	img.alt = 'Imagen de un(a) ' + producto.nombre;
 	imagenProducto.appendChild(img);
 
@@ -35,10 +37,10 @@ function agregarTarjetaProducto(producto) {
 	contenedorProductosDefault.appendChild(tarjetaProducto);
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	const lista_productos_default = await listarProductosDefault();
 
-    console.log(lista_productos_default);
+	console.log(lista_productos_default);
 
 	lista_productos_default.forEach((producto) => {
 		agregarTarjetaProducto(producto);

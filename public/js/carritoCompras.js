@@ -15,7 +15,8 @@ function agregarProductoParaComprar(
 	cantidad,
 	precioUnitario,
 	id,
-	imagenProducto
+	imagenProducto,
+	max_inventario
 ) {
 	// Crear el contenedor principal para el producto
 	let productoDiv = document.createElement('div');
@@ -44,6 +45,7 @@ function agregarProductoParaComprar(
 	let descripProducDBDiv = document.createElement('div');
 	descripProducDBDiv.id = 'descripProducDB';
 	let nombreProductoElement = document.createElement('h3');
+	nombreProductoElement.style.fontWeight = 'bold';
 	nombreProductoElement.textContent = nombreProducto;
 	let descripcionElement = document.createElement('h4');
 	descripcionElement.textContent = descripcion;
@@ -106,22 +108,36 @@ function agregarProductoParaComprar(
 
 	productoDiv.appendChild(divContenedorCantidad);
 
+	// Hecho por Isaac
+	inputCantidad.addEventListener('input', function () {
+		this.value = this.value.replace(/\D/g, '');
+
+		var value = parseInt(this.value);
+		if (value >= max_inventario) {
+			this.value = max_inventario;
+		}
+		if (isNaN(value) || value < 0) {
+			this.value = 1;
+		}
+	});
+
 	// Event listeners para los botones de aumentar y reducir cantidad
 	btnPlus.addEventListener('click', () => {
-		actualizarCantidad(+1);
+		actualizarCantidad(+1, max_inventario);
 	});
 
 	btnMinus.addEventListener('click', () => {
-		actualizarCantidad(-1);
+		actualizarCantidad(-1, max_inventario);
 	});
 
-	function actualizarCantidad(cambio) {
+	function actualizarCantidad(cambio, max) {
 		let nuevaCantidad = parseInt(inputCantidad.value) + cambio;
 		if (nuevaCantidad < 1) {
 			nuevaCantidad = 1; // Evitar cantidades negativas
 		}
-		if (nuevaCantidad > parseInt(productoDB.inventario)) {
-			nuevaCantidad = parseInt(productoDB.inventario);
+
+		if (nuevaCantidad > parseInt(max)) {
+			nuevaCantidad = parseInt(max);
 		}
 		inputCantidad.value = nuevaCantidad;
 	}
@@ -213,7 +229,7 @@ function actualizarTotal(nuevoTotal) {
 	totalFinal.textContent = `₡${formatearNumeroConComas(totalSumado)}`;
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	// Ocultar el contenedor de productos inicialmente
 	productosFlex.style.display = 'none';
 
@@ -241,7 +257,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 				cantidadComprar,
 				productoDB.precio_vendedor,
 				productoDB._id,
-				productoDB.imagen
+				productoDB.imagen,
+				productoDB.inventario
 			);
 
 			productosFlex.appendChild(nuevaTarjeta);

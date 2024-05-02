@@ -137,7 +137,7 @@ function llenarTabla() {
 	}
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();
 
 	if (!lista_categorias) {

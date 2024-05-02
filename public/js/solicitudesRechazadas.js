@@ -197,10 +197,12 @@ btnGenerarReporte.addEventListener('click', async () => {
 	llenarTablaConFiltros();
 });
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	lista_vendedores = await listarVendedores();
 
-	let cantRechazados = lista_vendedores.filter(item => item.estado === 'Rechazado').length;
+	let cantRechazados = lista_vendedores.filter(
+		(item) => item.estado === 'Rechazado'
+	).length;
 
 	if (cantRechazados == 0) {
 		msjNoUsuarios.style.display = 'block';

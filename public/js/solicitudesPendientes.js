@@ -332,7 +332,7 @@ btnGenerarReporte.addEventListener('click', async () => {
 	llenarTablaConFiltros();
 });
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	lista_vendedores = await listarVendedores();
 
 	let cantInactivos = lista_vendedores.filter(

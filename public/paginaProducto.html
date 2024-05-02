@@ -46,30 +46,25 @@
 			</div>
 			<div class="carrito">
 				<div id="cuenta">
-					<a href="miPerfil.html" id="textoCuenta">
-					</a>
+					<a href="miPerfil.html" id="textoCuenta"> </a>
 					<a href="miPerfil.html">
 						<span> Ver mi Cuenta</span>
-						</a>
-				
-				
+					</a>
 				</div>
 				<a href="miPerfil.html" id="enlaceSVG">
 					<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="40"
-					height="40"
-					fill="currentColor"
-					class="bi bi-person-fill"
-					viewBox="0 0 16 16"
-				>
-					<path
-						d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
-					/></svg
-		
-					></a>
-				
-				
+						xmlns="http://www.w3.org/2000/svg"
+						width="40"
+						height="40"
+						fill="currentColor"
+						class="bi bi-person-fill"
+						viewBox="0 0 16 16"
+					>
+						<path
+							d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+						/></svg
+				></a>
+
 				<div>
 					<a href="carritoCompras.html" class="carrito-container"
 						><img
@@ -79,7 +74,6 @@
 						/><span id="cantidadItemsCarrito">0</span></a
 					>
 				</div>
-			</div>
 			</div>
 		</header>
 
@@ -104,20 +98,86 @@
 			</div>
 		</div>
 		<div id="contenedorGeneral"></div>
-	</body>
-	<footer>
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-		<script src="js/services/servicio-productos.js"></script>
-		<script src="js/services/servicio-personas.js"></script>
-		<script src="js/marketplace.js"></script>
-		<script src="js/paginaProducto.js"></script>
-		<script src="js/scriptCarrito.js"></script>
-		<div class="contenedorFooter">
-			<img src="img/contactoLogo.png" alt="" id="logoContacto" />
-			<div class="footerLinks">
-				<a href="#">Nosotros</a>
-				<a href="#">Contacto</a>
+
+		<div class="contenedor-reviews">
+			<div style="display: flex; margin-bottom: 20px; align-items: center">
+				<h2 class="titulo-reviews">Reviews</h2>
+				<p
+					id="msjDejarReviews"
+					style="margin-left: auto; font-size: 17px; font-style: italic;"
+				>
+					Solo puede dejar reviews de productos que ha comprado
+					previamente
+				</p>
+				<button
+					type="button"
+					class="boton-review"
+					id="botonDejarReviews"
+					onclick="showStarRating()"
+				>
+					Agregar review
+				</button>
+			</div>
+
+			<div class="mostrador" id="reviewsProducto">
+				<!-- <div class="review">
+					<div class="usuario-review">
+						<p>Usuario</p>
+					</div>
+					<div class="flex-estrellas">
+						<img
+							src="img/estrellas/star.svg"
+							alt="estrella"
+							class="estrella"
+						/>
+						<img
+							src="img/estrellas/star.svg"
+							alt="estrella"
+							class="estrella"
+						/>
+						<img
+							src="img/estrellas/star.svg"
+							alt="estrella"
+							class="estrella"
+						/>
+						<img
+							src="img/estrellas/star.svg"
+							alt="estrella"
+							class="estrella"
+						/>
+						<img
+							src="img/estrellas/star.svg"
+							alt="estrella"
+							class="estrella"
+						/>
+					</div>
+					<div class="comentario">
+						<p>Hola</p>
+					</div>
+				</div>
+				<div class="review">
+					<div class="comentario">
+						<p>Todavía no hay reseñas para este producto</p>
+					</div>
+				</div> -->
 			</div>
 		</div>
-	</footer>
+
+		<footer>
+			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+			<script src="js/services/servicio-productos.js"></script>
+			<script src="js/services/servicio-personas.js"></script>
+			<script src="js/services/servicio-ventas.js"></script>
+			<!-- <script src="js/marketplace.js"></script> -->
+			<script src="js/paginaProducto.js"></script>
+			<script src="js/scriptCarrito.js"></script>
+			<div class="contenedorFooter">
+				<img src="img/contactoLogo.png" alt="" id="logoContacto" />
+				<div class="footerLinks">
+					<a href="#">Nosotros</a>
+					<a href="#">Contacto</a>
+				</div>
+			</div>
+		</footer>
+	</body>
 </html>

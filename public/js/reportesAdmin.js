@@ -303,7 +303,7 @@ function llenarSelects() {
 	agregarOpciones(selectCategoria, categorias);
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	lista_ventas = await listarVentas();
 
 	if (lista_ventas) {

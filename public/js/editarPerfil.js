@@ -205,12 +205,7 @@ btnIngresarContra.addEventListener('click', () => {
 telefono.addEventListener('input', function (event) {
 	// Remove non-numeric characters
 	telefono.value = telefono.value.replace(/\D/g, '');
-
-	// Add dash after 4 numbers
-	if (telefono.value.length > 4) {
-		telefono.value = telefono.value.replace(/(\d{4})(\d{1})/, '$1-$2');
-	}
-
+	
 	// Limit to 9 characters
 	if (telefono.value.length > 9) {
 		telefono.value = telefono.value.slice(0, 9);
@@ -227,9 +222,10 @@ function correoValido(correo) {
 function telefonoValido(telefono) {
 	// Regular expression for the format "1234-5678" (any number)
 	var telefonoRegex = /^\d{8}$/;
+	var telefonoRegex2 = /^\d{4}-\d{4}$/;
 
 	// Check if the telefono matches the regex pattern
-	return telefonoRegex.test(telefono);
+	return telefonoRegex.test(telefono) || telefonoRegex2.test(telefono);
 }
 
 document
@@ -371,7 +367,7 @@ let usuarioActual = {};
 const cedula_usuario = sessionStorage.getItem('cedula');
 const rol = sessionStorage.getItem('rol');
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	if (rol === 'Cliente') {
 		headerComprador.style.display = 'flex';
 

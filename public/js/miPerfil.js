@@ -22,7 +22,7 @@ function llenarCampos(persona) {
 const cedula_usuario = sessionStorage.getItem('cedula');
 const rol = sessionStorage.getItem('rol');
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	let usuarioActual = {};
 
 	if (rol === 'Cliente') {

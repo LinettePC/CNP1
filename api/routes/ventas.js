@@ -25,6 +25,7 @@ router.post('/registrar-venta', (req, res) => {
 	let nueva_Venta = new Venta({
 		cedula_comprador: body.cedula_comprador,
 		cedula_vendedor: body.cedula_vendedor,
+		id_producto: body.id_producto,
 		nombre_producto: body.nombre_producto,
 		categoria_producto: body.categoria_producto,
 		precio_venta: body.precio_venta,

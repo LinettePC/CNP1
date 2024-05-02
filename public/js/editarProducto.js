@@ -111,10 +111,10 @@ document.querySelector('form').addEventListener('submit', function (event) {
 		const value = fieldsToValidate[field];
 		let esVendedor = rol === 'Vendedor';
 
-		if ((!esVendedor) && (field === 'precio' || field === 'inventario')) {
+		if (!esVendedor && (field === 'precio' || field === 'inventario')) {
 			continue;
 		}
-	
+
 		// Perform validation for other fields
 		if (!value) {
 			document.getElementById(field).classList.add('error');
@@ -261,7 +261,7 @@ let productoDB = {};
 let cedula_usuario = '';
 let rol = 'Admin';
 
-document.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();
 
 	let nombresCategorias = [];

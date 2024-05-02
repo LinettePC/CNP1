@@ -1,70 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrito</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/carritoCompras.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </head>
-  <body>
-    <header class="navegacion">
-      <div class="logo">
-        <a href="marketplace.html">
-          <img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
-        </a>
-      </div>
-      <div class="barra-navegacion">
-        <nav class="botones-navegacion">
-          <ul>
-            <!-- <li><a href="portalAdmin.html">Portal</a></li> -->
-            <li><a href="marketplace.html">Tienda</a></li>
-            <li>
-              <a href="https://www.cnp.go.cr/contactenos/index.aspx"
-                >Contacto</a
-              >
-            </li>
-            <li>
-              <a href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
-                >Nosotros</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="carrito">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Carrito</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/carritoCompras.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	</head>
+	<body>
+		<header class="navegacion">
+			<div class="logo">
+				<a href="marketplace.html">
+					<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+				</a>
+			</div>
+			<div class="barra-navegacion">
+				<nav class="botones-navegacion">
+					<ul>
+						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
+						<li><a href="marketplace.html">Tienda</a></li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/contactenos/index.aspx"
+								>Contacto</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.cnp.go.cr/acercacnp/quienes_somos.aspx"
+								>Nosotros</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="carrito">
 				<div id="cuenta">
-					<a href="miPerfil.html" id="textoCuenta">
-					</a>
+					<a href="miPerfil.html" id="textoCuenta"> </a>
 					<a href="miPerfil.html">
 						<span> Ver mi Cuenta</span>
-						</a>
-				
-				
+					</a>
 				</div>
 				<a href="miPerfil.html" id="enlaceSVG">
 					<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="40"
-					height="40"
-					fill="currentColor"
-					class="bi bi-person-fill"
-					viewBox="0 0 16 16"
-				>
-					<path
-						d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
-					/></svg
-		
-					></a>
-				
-				
+						xmlns="http://www.w3.org/2000/svg"
+						width="40"
+						height="40"
+						fill="currentColor"
+						class="bi bi-person-fill"
+						viewBox="0 0 16 16"
+					>
+						<path
+							d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+						/></svg
+				></a>
+
 				<div>
 					<a href="carritoCompras.html" class="carrito-container"
 						><img
@@ -75,50 +72,51 @@
 					>
 				</div>
 			</div>
-      </div>
-    </header>
+		</header>
 
-    <div class="seccion-titulo">
-      <div class="container">
-        <h1 class="titulo">Carrito de compras</h1>
-      </div>
-    </div>
+		<div class="seccion-titulo">
+			<div class="container">
+				<h1 class="titulo">Carrito de compras</h1>
+			</div>
+		</div>
 
-    <div class="contenedorTitulos">
-      <div class="titulos">
-        <div id="nombreProd">
-          <h2>Producto</h2>
-        </div>
-        <div id="precioProd">
-          <h2>Precio</h2>
-        </div>
-        <div id="cantidadProd">
-          <h2>Cantidad</h2>
-        </div>
-        <div id="totalProd">
-          <h2>Total</h2>
-        </div>
-        <div style="width: 15px"></div>
-      </div>
-    </div>
+		<div class="contenedorTitulos">
+			<div class="titulos">
+				<div id="nombreProd">
+					<h2>Producto</h2>
+				</div>
+				<div id="precioProd">
+					<h2>Precio</h2>
+				</div>
+				<div id="cantidadProd">
+					<h2>Cantidad</h2>
+				</div>
+				<div id="totalProd">
+					<h2>Total</h2>
+				</div>
+				<div style="width: 15px"></div>
+			</div>
+		</div>
 
-    <div class="contenedor"></div>
+		<div class="contenedor"></div>
 
-    <div class="irAlCheckOut">
-      <div id="subTotal">
-        <div><h2>Subtotal:</h2></div>
-        <div><h3 class="totalFinal">0</h3></div>
-      </div>
-      <p>Impuestos y envio calculados al finalizar la compra</p>
+		<div class="irAlCheckOut">
+			<div id="subTotal">
+				<div><h2>Subtotal:</h2></div>
+				<div><h3 class="totalFinal">0</h3></div>
+			</div>
+			<p>Impuestos y envio calculados al finalizar la compra</p>
 
-      <div id="contenedorBoton">
-        <a href="checkout.html"><button>Ir a pagar</button></a>
-      </div>
-    </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/services/servicio-categorias.js"></script>
-    <script src="js/services/servicio-personas.js"></script>
-    <script src="js/marketplace.js"></script>
-    <script src="js/carritoCompras.js"></script>
-  </body>
+			<div id="contenedorBoton">
+				<a href="checkout.html"><button>Ir a pagar</button></a>
+			</div>
+		</div>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="js/services/servicio-categorias.js"></script>
+		<script src="js/services/servicio-personas.js"></script>
+		<script src="js/services/servicio-ventas.js"></script>
+		<script src="js/marketplace.js"></script>
+		<script src="js/scriptCarrito.js"></script>
+		<script src="js/carritoCompras.js"></script>
+	</body>
 </html>
