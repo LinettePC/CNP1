@@ -1,6 +1,6 @@
 //Creado por Sebastian Garita, favor ignorar es para hacer pruebas de los end points, funciona como postman pero me va mejor aca
 
-GET http://localhost:3000/api/listar-categorias
+GET http://localhost:3000/api/listar-clientes
 
 ###
 
