@@ -98,8 +98,6 @@ router.delete('/eliminar-producto-default', (req, res) => {
 //http://localhost:3000/api/listar-productos-default
 //GET--> recuperar informacion
 router.get('/listar-productos-default', (req, res) => {
-	let cedulaBuscada = req.query.cedula;
-
 	ProductoDefault.find((error, ProductosBuscados) => {
 		if (error) {
 			res.status(501).json({
@@ -111,10 +109,33 @@ router.get('/listar-productos-default', (req, res) => {
 			if (ProductosBuscados == '') {
 				res.json({
 					resultado: true,
-					msj:
-						'El vendedor con la cédula ' +
-						cedulaBuscada +
-						' no tiene productos.',
+					msj: 'No hay productos default',
+					lista: [],
+				});
+			} else {
+				res.json({
+					resultado: true,
+					msj: 'Productos default encontrados:',
+					lista: ProductosBuscados,
+				});
+			}
+		}
+	});
+});
+
+router.get('/listar-productos', (req, res) => {
+	Producto.find((error, ProductosBuscados) => {
+		if (error) {
+			res.status(501).json({
+				resultado: false,
+				msj: 'Ocurrió el siguiente error:',
+				error,
+			});
+		} else {
+			if (ProductosBuscados == '') {
+				res.json({
+					resultado: true,
+					msj: 'No hay productos',
 					lista: [],
 				});
 			} else {
