@@ -1,4 +1,3 @@
-
 // Referencias al DOM
 const form = document.getElementById('formularioCuentaCliente');
 const inputs = {
@@ -7,11 +6,11 @@ const inputs = {
 	primerApellido: document.getElementById('primerApellido'),
 	correo: document.getElementById('correo'),
 	telefono: document.getElementById('telefono'),
-	
+
 	contrasenna: document.getElementById('contrasenna'),
 	confirmContrasenna: document.getElementById('confirmContrasenna'),
 };
-const foto = document.querySelector("#foto-usuario");
+const foto = document.querySelector('#foto-usuario');
 const botonEnviar = document.getElementById('botonEnviar');
 
 // Función para validar campos vacíos
@@ -115,34 +114,33 @@ function validarTelefono() {
 //debe tener al menos 1 numero
 // Validar contraseña
 function validarContrasenna() {
-    const contrasenna = inputs.contrasenna.value;
-    const confirmContrasenna = inputs.confirmContrasenna.value;
+	const contrasenna = inputs.contrasenna.value;
+	const confirmContrasenna = inputs.confirmContrasenna.value;
 
-    if (contrasenna !== confirmContrasenna) {
-        Swal.fire({
-            title: 'Las contraseñas no coinciden',
-            text: 'Por favor, asegúrate de que las contraseñas coincidan',
-            icon: 'warning',
-        });
-        return false;
-    }
+	if (contrasenna !== confirmContrasenna) {
+		Swal.fire({
+			title: 'Las contraseñas no coinciden',
+			text: 'Por favor, asegúrate de que las contraseñas coincidan',
+			icon: 'warning',
+		});
+		return false;
+	}
 
-    return validarCampo(
-        inputs.contrasenna,
-        /^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+])(?!.*[aeiouAEIOU]).{8,}$/,
-        {
-            title: 'La contraseña es inválida',
-            text: 'Revisa el formato utilizado',
-        }
-    );
+	return validarCampo(
+		inputs.contrasenna,
+		/^(?=.*[bcdfghjklmnñpqrstvwxyz])(?=.*[BCDFGHJKLMNÑPQRSTVWXYZ])(?=.*[0-9])(?=.*[!@#$%^&*()-_+])(?!.*[aeiouAEIOU]).{8,}$/,
+		{
+			title: 'La contraseña es inválida',
+			text: 'Revisa el formato utilizado',
+		}
+	);
 }
 
 // Limpiar todos los campos del formulario
 function limpiarCampos() {
-	const listinputs = 	Object.values(inputs).filter((input) => input != null)
+	const listinputs = Object.values(inputs).filter((input) => input != null);
 	listinputs.forEach((input) => (input.value = ''));
 }
-
 
 // Función principal de validación
 function principal() {
@@ -155,30 +153,26 @@ function principal() {
 		!validarTelefono() &&
 		!validarContrasenna()
 	) {
-
-		//cuando ya sirva, podemos comentar este Sweetalert para que no hayan dos
-		//porque hay otro en el doc de servicioRegCliente.js
-		Swal.fire({
-			title: 'Datos correctos!!!!',
-			text: 'Tu Cuenta de Cliente ha sido Creada',
-			icon: 'success',
-		});
-
-		let cedula = inputs.idCliente.value
-        let nombre = inputs.nombre.value
-        let primerApellido = inputs.primerApellido.value
-		let correo = inputs.correo.value
-        let telefono = inputs.telefono.value 
-		let contrasenna = inputs.contrasenna.value
+		let cedula = inputs.idCliente.value;
+		let nombre = inputs.nombre.value;
+		let primerApellido = inputs.primerApellido.value;
+		let correo = inputs.correo.value;
+		let telefono = inputs.telefono.value;
+		let contrasenna = inputs.contrasenna.value;
 		let fotoId = foto.src;
 
-		registroCliente(cedula,nombre,primerApellido,correo,telefono,contrasenna, fotoId)
-		limpiarCampos();	
+		registroCliente(
+			cedula,
+			nombre,
+			primerApellido,
+			correo,
+			telefono,
+			contrasenna,
+			fotoId
+		);
+		limpiarCampos();
 	}
-
 }
-
-
 
 // Evento de clic en el botón de enviar
 botonEnviar.addEventListener('click', principal);

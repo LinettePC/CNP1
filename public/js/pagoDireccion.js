@@ -24,7 +24,7 @@ formulario.addEventListener('submit', function (event) {
 // let usuarioActual = {};
 // const rol = 'Cliente';
 
-const cedula_usuario = '6-0482-0213';
+const cedula_usuario = sessionStorage.getItem('cedula');
 
 async function principal() {
 	let error_campos_vacios = ValidarCamposVacios();
@@ -196,7 +196,7 @@ function ValidarTelefono() {
 function ValidarProvincia() {
 	let error = false;
 	let inputProvincia = txt_provincia.value;
-	let expresion = /^[a-zA-ZáéíóúÁÉÍÓÚ\s.,;:'"-]+$/;
+	let expresion = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s.,;:'"-]+$/;
 	if (expresion.test(inputProvincia) == false) {
 		error = true;
 		txt_provincia.classList.add('error');
@@ -209,7 +209,7 @@ function ValidarProvincia() {
 function ValidarCanton() {
 	let error = false;
 	let inputCanton = txt_canton.value;
-	let expresion = /^[a-zA-ZáéíóúÁÉÍÓÚ\s.,;:'"-]+$/;
+	let expresion = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s.,;:'"-]+$/;
 	if (expresion.test(inputCanton) == false) {
 		error = true;
 		txt_canton.classList.add('error');
@@ -222,7 +222,7 @@ function ValidarCanton() {
 function ValidarDistrito() {
 	let error = false;
 	let inputDistrito = txt_distrito.value;
-	let expresion = /^[a-zA-ZáéíóúÁÉÍÓÚ\s.,;:'"-]+$/;
+	let expresion = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s.,;:'"-]+$/;
 
 	if (expresion.test(inputDistrito) == false) {
 		error = true;
@@ -514,7 +514,11 @@ function llenarCampos(persona) {
 	txt_direccion.value = persona.direccion.direccionExacta;
 
 	txt_provincia.value = persona.direccion.provincia;
+	cargarCantones();
+
 	txt_canton.value = persona.direccion.canton;
+	cargarDistritos();
+
 	txt_distrito.value = persona.direccion.distrito;
 
 	if (persona.metodo_pago) {
@@ -522,20 +526,12 @@ function llenarCampos(persona) {
 	} else {
 		tarjetaActual.textContent = 'Ninguna tarjeta agregada';
 	}
-
-	txt_provincia.appendChild(crearSeparador());
-	txt_canton.appendChild(crearSeparador());
-	txt_distrito.appendChild(crearSeparador());
-
-	txt_provincia.appendChild(
-		crearOpcionDireccion(persona.direccion.provincia)
-	);
-	txt_canton.appendChild(crearOpcionDireccion(persona.direccion.canton));
-	txt_distrito.appendChild(crearOpcionDireccion(persona.direccion.distrito));
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
 	usuarioActual = await conseguirCompradorCedula(cedula_usuario);
 
-	llenarCampos(usuarioActual);
+	if (usuarioActual) {
+		llenarCampos(usuarioActual);
+	}
 });

@@ -190,7 +190,7 @@ function limpiarCampos() {
 	cvv.value = '';
 }
 
-const cedula_usuario = '6-0482-0213';
+const cedula_usuario = sessionStorage.getItem('cedula');
 
 async function enviarForm() {
 	let errorCamposVacios = validarCamposVacios();

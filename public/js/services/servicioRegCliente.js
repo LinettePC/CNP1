@@ -29,14 +29,18 @@ const registroCliente = async (pcedula, pnombre, pprimerApellido, pcorreo, ptele
 			}
 		} else {
 			Swal.fire({
-				title: 'Formulario enviado',
-				text: 'Recibirás un correo cuando tu solicitud sea revisada',
+				title: 'Registro exitoso',
+				text: 'Puede proceder a ingresar a su cuenta',
 				icon: 'success',
-			}).then(() => {
-				setTimeout(()=>{
-					window.location.href = 'dosLandingPage.html';
-				}, 4000);
+				timer: 2000,
+				timerProgressBar: true,
+				showConfirmButton: false,
+				allowOutsideClick: false,
 			});
+
+			setTimeout(() => {
+				window.location.href = 'inicioSesionCliente.html';
+			}, 2000);
 		}
 	})
 	.catch((err) => {

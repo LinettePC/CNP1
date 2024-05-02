@@ -226,7 +226,7 @@ function correoValido(correo) {
 
 function telefonoValido(telefono) {
 	// Regular expression for the format "1234-5678" (any number)
-	var telefonoRegex = /^\d{4}-\d{4}$/;
+	var telefonoRegex = /^\d{8}$/;
 
 	// Check if the telefono matches the regex pattern
 	return telefonoRegex.test(telefono);
@@ -307,7 +307,7 @@ document
 		if (!telefonoValido(telefono)) {
 			Swal.fire({
 				title: 'Teléfono inválido',
-				html: 'Por favor, use un formato válido de teléfono: <br/> "XXXX-XXXX"',
+				html: 'Por favor, use un formato válido de teléfono: <br/> "XXXXXXXX"',
 				icon: 'error',
 			});
 			document.getElementById('telefono').classList.add('error');
@@ -389,4 +389,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 	llenarCampos(usuarioActual);
 });
 
-console.log(contrasennaValidaFormato('bcdfg1!3')); // Should return true
+console.log(contrasennaValidaFormato('Bcdfg1!3')); // Should return true

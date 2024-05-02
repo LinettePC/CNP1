@@ -419,3 +419,19 @@
     margin-left: 8px;
     font-weight: 600;
 }
+
+body {
+	background-color: #ffffff;
+}
+
+body {
+	font-family: 'Manrope', sans-serif;
+}
+
+select {
+	font-family: 'Manrope', sans-serif;
+}
+
+button {
+	font-family: 'Manrope', sans-serif;
+}
