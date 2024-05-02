@@ -183,7 +183,7 @@ body {
     display: flex;
     padding: 0;
     width: 400%;
-    animation: slide 24s infinite alternate ease-in-out;   
+    animation: slide 24s infinite ease-in-out;   
 }
 
 .sliderFrame li{
