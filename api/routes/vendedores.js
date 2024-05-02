@@ -164,34 +164,34 @@ function conseguirFechaFormateada() {
 
 // http://localhost:3000/api/registrar-vendedor
 // POST --> crear nuevos registros
-router.post('/registrar-vendedor', (req, res) => {
-	const body = req.body;
-	const fechaFormateada = conseguirFechaFormateada();
+//router.post('/registrar-vendedor', (req, res) => {
+//	const body = req.body;
+//	const fechaFormateada = conseguirFechaFormateada();
 
-	let nuevo_Vendedor = new Vendedor(body);
+//	let nuevo_Vendedor = new Vendedor(body);
 
-	nuevo_Vendedor.fecha_de_registro = fechaFormateada;
+//	nuevo_Vendedor.fecha_de_registro = fechaFormateada;
 
-	if (body.foto) {
-		nuevo_Vendedor.foto = pFoto;
-	}
+//	if (body.foto) {
+//		nuevo_Vendedor.foto = pFoto;
+//	}
 
-	nuevo_Vendedor.save((error, usuarioRegistrado) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo hacer el registro',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Registro exitoso',
-				usuarioRegistrado,
-			});
-		}
-	});
-});
+//	nuevo_Vendedor.save((error, usuarioRegistrado) => {
+//		if (error) {
+//			res.status(500).json({
+//				resultado: false,
+//				msj: 'No se pudo hacer el registro',
+//				error,
+//			});
+//		} else {
+//			res.status(200).json({
+//				resultado: true,
+//				msj: 'Registro exitoso',
+//				usuarioRegistrado,
+//			});
+//		}
+//	});
+//});
 
 // router.post('/registrar', async (req, res) => {
 // 	const { body } = req;

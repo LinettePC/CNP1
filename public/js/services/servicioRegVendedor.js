@@ -17,8 +17,20 @@ const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTra
         }
     })
 	.then((response) => {
-		if (response.data.resultado === false) {
-			if (response.data.error && response.data.error.code === 11000 && response.data.error.keyPattern && response.data.error.keyPattern.cedula) {
+			Swal.fire({
+				title: 'Formulario enviado',
+				text: 'Recibirás un correo cuando tu solicitud sea revisada',
+				icon: 'success',
+			}).then(() => {
+				setTimeout(()=>{
+					window.location.href = 'dosLandingPage.html';
+				}, 4000);
+			});
+		
+	})
+	.catch((err) => {
+		
+			if (err.response.data.error.code === 11000 && err.response.data.error.keyPattern && err.response.data.error.keyPattern.cedula) {
 				Swal.fire({
 					title: 'No se completó el envío del formulario',
 					text: 'La cédula ya existe',
@@ -31,24 +43,6 @@ const preRegistroVendedor = async (pCedula, pNombre, pPrimerApellido, pNombreTra
 					icon: 'error',
 				});
 			}
-		} else {
-			Swal.fire({
-				title: 'Formulario enviado',
-				text: 'Recibirás un correo cuando tu solicitud sea revisada',
-				icon: 'success',
-			}).then(() => {
-				setTimeout(()=>{
-					window.location.href = 'dosLandingPage.html';
-				}, 4000);
-			});
-		}
-	})
-	.catch((err) => {
-		console.log(err);
-		Swal.fire({
-			title: 'Error',
-			text: 'Hubo un error al procesar tu solicitud, esa cedula ya existe.',
-			icon: 'error',
-		});
+		
 	});
 };
