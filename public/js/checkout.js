@@ -230,7 +230,7 @@ async function realizarCompra(event) {
 			precio_venta: ventaString,
 			cantidad_comprada: cantidadComprar,
 			nombre_comprador: usuarioActual.nombre,
-			nombre_vendedor: 'checkout linea 220',
+			nombre_vendedor: nombreVendedor,
 			tramo: productoDB.tramo,
 		};
 		await registro_venta(datosVenta);
