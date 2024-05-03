@@ -82,7 +82,11 @@
 				<nav class="botones-navegacion">
 					<ul>
 						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
-						<li><a href="portalVendedor.html">Inicio</a></li>
+						<li>
+							<a href="portalVendedor.html" id="hrefInicio"
+								>Inicio</a
+							>
+						</li>
 						<li>
 							<a
 								href="https://www.cnp.go.cr/contactenos/index.aspx"
@@ -150,8 +154,8 @@
 				<div class="perfil" style="width: 450px">
 					<div style="text-align: center; margin-bottom: 30px">
 						<img
-							src="img/avatar.png"
-							alt="Foto de perfil"
+							src="/public/img/loading.gif"
+							alt=""
 							id="imgUsuario"
 						/>
 						<h1 class="titulo-cuenta">
@@ -185,6 +189,20 @@
 								type="text"
 								id="primerApellido"
 								name="primerApellido"
+								required
+							/>
+						</div>
+						
+						<div class="margen-bottom-xl" id="inputTramo">
+							<label for="tramo" class="margen-bottom"
+								>Nuevo Nombre de Tramo:</label
+							>
+							<!-- <p>Primer Apellido:</p> -->
+							<p></p>
+							<input
+								type="text"
+								id="tramo"
+								name="tramo"
 								required
 							/>
 						</div>
@@ -224,29 +242,42 @@
 							/>
 						</div>
 
-						<div class="margen-bottom-xl">
-							<p class="margen-bottom">Fotografía (opcional)</p>
-							<!-- <input type="file" name="fotoCliente" placeholder="">  -->
-							<!-- Codigo de: https://es.stackoverflow.com/questions/466040/c%C3%B3mo-puedo-cambiar-el-nombre-seleccionar-archivo-a-adjuntar-documento-sin-a#:~:text=No%20se%20puede%20cambiar%20directamente,tal%20cual%20el%20input%20escondido. -->
-							<!-- Para poder cambiarle lo escrito al boton -->
-							<input
-								hidden
-								id="btnoriginal"
-								class="form-control text-center col-md-6"
-								onChange="document.getElementById('tagsmall').innerText=document.getElementById('btnoriginal').files[0]['name'];"
-								type="file"
-								value="Adjuntar imagen"
-							/>
-							<button
-								id="botonpersonal"
-								onClick="document.getElementById('btnoriginal').click();"
+						<div class="margen-bottom-xl" id="inputGanancia">
+							<label for="ganancia" class="margen-bottom"
+								>Porcentaje de ganancia en el sitio:</label
 							>
-								Adjuntar Imagen
-							</button>
-							<small id="tagsmall"
-								>No hay archivos adjuntos</small
+							<!-- <p>Teléfono:</p> -->
+							<p></p>
+							<input
+								type="text"
+								id="ganancia"
+								name="ganancia"
+								required
+							/>
+						</div>
+
+						<div id="inputPermiso">
+							<input
+								type="file"
+								accept="application/pdf"
+								id="file-upload"
+								style="display: none"
+							/>
+							<label
+								for="file-upload"
+								class="subir-foto-btn"
+								id="btn-subir-permiso"
+								>Subir permiso de venta</label
 							>
 						</div>
+
+						<!-- INICIO codigo adjuntar foto -->
+						<div class="foto">
+							<button type="button" id="btn-subir-foto">
+								Subir Foto
+							</button>
+						</div>
+						<!-- FIN codigo adjuntar foto -->
 
 						<div style="display: flex">
 							<button
@@ -285,7 +316,7 @@
 							<button
 								type="button"
 								class="boton-enviar"
-								style="margin-left: auto; margin-right: auto;"
+								style="margin-left: auto; margin-right: auto"
 								id="btnIngresarContra"
 							>
 								Verificar contraseña
@@ -294,7 +325,7 @@
 					</div>
 
 					<div id="containerNuevaContra">
-						<div style="color: green;">
+						<div style="color: green">
 							Contraseña verificada exitosamente.
 						</div>
 						<br />
@@ -343,5 +374,10 @@
 		<script src="js/services/servicio-personas.js"></script>
 		<script src="js/editarPerfil.js"></script>
 		<script src="js/scriptCarrito.js"></script>
+		<script
+			src="https://widget.cloudinary.com/v2.0/global/all.js"
+			type="text/javascript"
+		></script>
+		<script src="./js/services/servicioImagen.js"></script>
 	</body>
 </html>

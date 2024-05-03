@@ -29,14 +29,19 @@ function agregarProductoParaComprar(
 	//Crear Enlace
 	const enlace = document.createElement('a');
 	enlace.href = `paginaProducto.html?id=${id}`; // URL dinámica del producto
-	enlace.target = '_blank'; // Abre el enlace en una nueva pestaña
 
 	// Crear el div para la imagen
 	let imagenCarritoDiv = document.createElement('div');
 	imagenCarritoDiv.id = 'imagenCarrito';
 	let imagen = document.createElement('img');
-	imagen.src = imagenProducto;
-	imagen.alt = '';
+
+	if (imagenProducto == '' || !imagenProducto || imagenProducto == 'noimg') {
+		imagen.src = '/public/img/error/noimg.jpg';
+	} else {
+		imagen.src = imagenProducto;
+	}
+
+	imagen.alt = `Imagen de ${nombreProducto}`;
 	enlace.appendChild(imagen);
 	imagenCarritoDiv.appendChild(enlace);
 	textoProductoDiv.appendChild(imagenCarritoDiv);

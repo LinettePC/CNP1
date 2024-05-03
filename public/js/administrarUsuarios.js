@@ -52,7 +52,7 @@ function crearFila(persona) {
 		row.innerHTML = `
 	  	<td>${persona.fecha_de_registro}</td>
 		<td>${persona.rol}</td>
-		<td>${persona.cedula}</td>
+		<td><a href="perfilPublico.html?tipo=Cliente&cedula=${persona.cedula}">${persona.cedula}</a></td>
 		<td>${persona.correo}</td>
 		<td>${persona.nombre}</td>
 		<td>${persona.primerApellido}</td>
@@ -64,11 +64,11 @@ function crearFila(persona) {
         	</td>
 	`;
 	} else {
-		if (persona.tienePermisos) {
+		if (persona.permisos) {
 			row.innerHTML = `
             <td>${persona.fecha_de_registro}</td>
             <td>${persona.rol}</td>
-            <td>${persona.cedula}</td>
+            <td><a href="perfilPublico.html?tipo=Vendedor&cedula=${persona.cedula}">${persona.cedula}</a></td>
             <td>${persona.correo}</td>
             <td>${persona.nombre}</td>
             <td>${persona.primerApellido}</td>
@@ -83,7 +83,7 @@ function crearFila(persona) {
 			row.innerHTML = `
             <td>${persona.fecha_de_registro}</td>
             <td>${persona.rol}</td>
-            <td>${persona.cedula}</td>
+            <td><a href="perfilPublico.html?tipo=Vendedor&cedula=${persona.cedula}">${persona.cedula}</a></td>
             <td>${persona.correo}</td>
             <td>${persona.nombre}</td>
             <td>${persona.primerApellido}</td>
@@ -292,7 +292,7 @@ window.addEventListener('load', async () => {
 // 	nomTramo: { type: String, required: false, unique: false },
 // 	correo: { type: String, required: false, unique: false },
 // 	telefono: { type: String, required: false, unique: false },
-// 	tienePermisos: { type: Boolean, required: false, unique: false }, // Si tiene = TRUE. Si no tiene = FALSE
+// 	permisos: { type: Boolean, required: false, unique: false }, // Si tiene = TRUE. Si no tiene = FALSE
 // 	rol: { type: String, default: 'Vendedor' },
 // 	contrasenna: { type: String, required: false, unique: false },
 // 	foto: { type: String, required: false, unique: false },

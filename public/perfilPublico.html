@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Mi perfil</title>
+		<title>Perfil de usuario</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -121,46 +121,10 @@
 				</div>
 			</div>
 		</header>
-
+		
 		<div class="seccion-titulo">
 			<div class="container-titulo" style="display: flex">
-				<h1 class="titulo">Mi cuenta</h1>
-				<button
-					style="
-						margin-left: auto;
-						border: 2px solid rgb(170, 0, 0);
-						color: white;
-						background-color: rgb(170, 0, 0);
-						display: flex;
-						align-items: center;
-						cursor: pointer;
-						font-size: 17px;
-						padding: 3px 15px;
-						border-radius: 4px;
-						font-weight: bold;
-					"
-					id="btnCerrarSesion"
-				>
-					Cerrar sesión
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="16"
-						height="16"
-						fill="currentColor"
-						class="bi bi-box-arrow-right"
-						viewBox="0 0 16 16"
-						style="margin-left: 10px"
-					>
-						<path
-							fill-rule="evenodd"
-							d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"
-						/>
-						<path
-							fill-rule="evenodd"
-							d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"
-						/>
-					</svg>
-				</button>
+				<h1 class="titulo">Perfil del usuario</h1>
 			</div>
 		</div>
 
@@ -184,33 +148,9 @@
 							><span id="tramoVendedor"></span>
 						</p>
 					</div>
+					<p>Identificación: <span id="cedulaUsuario"></span></p>
 					<p>Correo electrónico: <span id="correoUsuario"></span></p>
 					<p>Teléfono: <span id="telefonoUsuario"></span></p>
-					<p>Identificación: <span id="cedulaUsuario"></span></p>
-					<br />
-
-					<a type="submit" href="editarPerfil.html"
-						>Modificar información de cuenta</a
-					>
-					<div id="containerPago">
-						<br />
-						<hr />
-						<br />
-						<a type="submit" href="pagoDireccion.html"
-							>Información de pago y dirección</a
-						>
-					</div>
-					<div id="containerReporte">
-						<br />
-						<hr />
-						<br />
-						<a
-							type="submit"
-							id="reportesClientes"
-							href="/public/reportesCliente.html"
-							>Mi historial de compras</a
-						>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -218,11 +158,8 @@
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/services/servicio-personas.js"></script>
-		<script src="js/miPerfil.js"></script>
+		<script src="js/perfilPublico.js"></script>
 
 		<script src="js/scriptCarrito.js"></script>
-
-		<!--***link para boton cerrarSesion***********************  -->
-		<script src="../public/js/services/cerrarSesion.js"></script>
 	</body>
 </html>

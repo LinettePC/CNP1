@@ -141,17 +141,16 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
 	// Construct payload object
 
-	const imageInput = document.getElementById('imagen');
-	const uploadedImage = imageInput.files[0];
+	const uploadedImage = document.getElementById('foto-producto');
 
 	let payload;
 
 	// Check if an image is uploaded
 	if (!uploadedImage) {
 		payload = {
-			cedula_vendedor: '12345',
+			cedula_vendedor: usuarioActual.cedula,
 			nombre: nombre,
-			tramo: 'Tramo Test',
+			tramo: usuarioActual.nomTramo,
 			descripcion: descripcion,
 			categoria: categoriaFinal,
 			precio_vendedor: precio,
@@ -159,14 +158,14 @@ document.querySelector('form').addEventListener('submit', function (event) {
 		};
 	} else {
 		payload = {
-			cedula_vendedor: '12345',
+			cedula_vendedor: usuarioActual.cedula,
 			nombre: nombre,
-			tramo: 'Tramo Test',
+			tramo: usuarioActual.nomTramo,
 			descripcion: descripcion,
 			categoria: categoriaFinal,
 			precio_vendedor: precio,
 			inventario: inventario,
-			imagen: uploadedImage,
+			imagen: uploadedImage.src,
 		};
 	}
 
@@ -198,7 +197,11 @@ async function registrarInfo(payload) {
 	});
 
 	setTimeout(() => {
-		window.location.href = 'catalogoVendedor.html';
+		if (rol === 'Vendedor') {
+			window.location.href = 'catalogoVendedor.html';
+		} else {
+			window.location.href = 'catalogoAdmin.html';
+		}
 	}, 2500);
 }
 
@@ -258,8 +261,9 @@ function llenarCategorias(elementoSelect, items) {
 
 let id_producto = conseguirParamPorNombre('id');
 let productoDB = {};
-let cedula_usuario = '';
-let rol = 'Admin';
+let cedula_usuario = sessionStorage.getItem('cedula');
+let rol = sessionStorage.getItem('rol');
+let usuarioActual = {};
 
 window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();

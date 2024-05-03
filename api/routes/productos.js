@@ -98,8 +98,6 @@ router.delete('/eliminar-producto-default', (req, res) => {
 //http://localhost:3000/api/listar-productos-default
 //GET--> recuperar informacion
 router.get('/listar-productos-default', (req, res) => {
-	let cedulaBuscada = req.query.cedula;
-
 	ProductoDefault.find((error, ProductosBuscados) => {
 		if (error) {
 			res.status(501).json({
@@ -111,10 +109,33 @@ router.get('/listar-productos-default', (req, res) => {
 			if (ProductosBuscados == '') {
 				res.json({
 					resultado: true,
-					msj:
-						'El vendedor con la cédula ' +
-						cedulaBuscada +
-						' no tiene productos.',
+					msj: 'No hay productos default',
+					lista: [],
+				});
+			} else {
+				res.json({
+					resultado: true,
+					msj: 'Productos default encontrados:',
+					lista: ProductosBuscados,
+				});
+			}
+		}
+	});
+});
+
+router.get('/listar-productos', (req, res) => {
+	Producto.find((error, ProductosBuscados) => {
+		if (error) {
+			res.status(501).json({
+				resultado: false,
+				msj: 'Ocurrió el siguiente error:',
+				error,
+			});
+		} else {
+			if (ProductosBuscados == '') {
+				res.json({
+					resultado: true,
+					msj: 'No hay productos',
 					lista: [],
 				});
 			} else {
@@ -173,6 +194,7 @@ router.get('/listar-productos-vendedor', (req, res) => {
 		);
 	}
 });
+
 
 // http://localhost:3000/api/conseguir-producto-id
 // Endpoint para agarrar un usuario específico // USA LA CÉDULA
@@ -273,6 +295,51 @@ router.put('/actualizar-producto', (req, res) => {
 			}
 		}
 	);
+});
+
+router.put('/actualizar-inventario-producto', (req, res) => {
+	let mongoID = req.body._id;
+	let cantidad_restada = req.body.cantidad_restada;
+
+	Producto.findById(mongoID, (error, producto) => {
+		if (error) {
+			return res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo encontrar el producto',
+				error,
+			});
+		}
+
+		if (!producto) {
+			return res.status(404).json({
+				resultado: false,
+				msj: 'Producto no encontrado',
+			});
+		}
+
+		let nuevoInventario = (
+			parseInt(producto.inventario) - parseInt(cantidad_restada)
+		).toString();
+
+		Producto.updateOne(
+			{ _id: mongoID },
+			{ $set: { inventario: nuevoInventario } },
+			(error, info_producto) => {
+				if (error) {
+					return res.status(500).json({
+						resultado: false,
+						msj: 'No se pudo actualizar el producto',
+						error,
+					});
+				}
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actualización exitosa',
+					info_producto,
+				});
+			}
+		);
+	});
 });
 
 router.put('/actualizar-producto-default', (req, res) => {

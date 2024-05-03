@@ -7,57 +7,48 @@ const router = express.Router();
 // POST --> crear nuevos registros
 
 router.post('/registrar-vendedor', (req, res) => {
-    const body = req.body;
-    const fechaFormateada = conseguirFechaFormateada();
+	const body = req.body;
+	const fechaFormateada = conseguirFechaFormateada();
 
-    let nuevo_Vendedor = new Vendedor({
-        cedula: body.cedula,
+	let nuevo_Vendedor = new Vendedor({
+		cedula: body.cedula,
 		nombre: body.nombre,
 		primerApellido: body.primerApellido,
 		nomTramo: body.nomTramo,
-        correo: body.correo,
-        foto: body.foto,
-		permiso: body.permiso,
-        contrasenna: body.contrasenna,
-    });
+		correo: body.correo,
+		foto: body.foto,
+		contrasenna: body.contrasenna,
+		fecha_de_registro: fechaFormateada,
+	});
 
-   
+	nuevo_Vendedor.permisos = body.permiso ? true : false;
 
-    nuevo_Vendedor.save((error, usuarioRegistrado) => {
-        if (error) {
-            if (error.code === 11000) {
-                // Error de clave duplicada
-                res.status(409).json({
-                    resultado: false,
-                    msj: 'No se pudo hacer el registro',
-                    error,
-                });
-            } else {
-                // Otro tipo de error
-                res.status(500).json({
-                    resultado: false,
-                    msj: 'Error interno del servidor',
-                    error,
-                });
-            }
-        } else {
-            res.status(200).json({
-                resultado: true,
-                msj: 'Registro exitoso',
-                usuarioRegistrado,
-            });
-        }
-    });
+	nuevo_Vendedor = nuevo_Vendedor.save((error, usuarioRegistrado) => {
+		if (error) {
+			if (error.code === 11000) {
+				// Error de clave duplicada
+				res.status(409).json({
+					resultado: false,
+					msj: 'No se pudo hacer el registro',
+					error,
+				});
+			} else {
+				// Otro tipo de error
+				res.status(500).json({
+					resultado: false,
+					msj: 'Error interno del servidor',
+					error,
+				});
+			}
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Registro exitoso',
+				usuarioRegistrado,
+			});
+		}
+	});
 });
-
-
-
-
-
-
-
-
-
 
 //http://localhost:3000/api/listar-vendedores
 //GET--> recuperar informacion

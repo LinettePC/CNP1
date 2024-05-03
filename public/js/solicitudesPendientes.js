@@ -46,7 +46,7 @@ function crearFila(persona) {
 
 	if (persona.tienePermisos) {
 		row.innerHTML = `
-	    <td>${persona.cedula}</td>
+	    <td><a href="perfilPublico.html?tipo=Vendedor&cedula=${persona.cedula}">${persona.cedula}</a></td>
 	    <td>${persona.nombre}</td>
 	    <td>${persona.primerApellido}</td>
 	    <td>Sí</td>
@@ -61,7 +61,7 @@ function crearFila(persona) {
 	`;
 	} else {
 		row.innerHTML = `
-	    <td>${persona.cedula}</td>
+	    <td><a href="perfilPublico.html?tipo=Vendedor&cedula=${persona.cedula}">${persona.cedula}</a></td>
 	    <td>${persona.nombre}</td>
 	    <td>${persona.primerApellido}</td>
 	    <td>No</td>

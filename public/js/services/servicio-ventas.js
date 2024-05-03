@@ -1,31 +1,9 @@
-const registro_venta = async (
-	param_cedula_comprador,
-	param_cedula_vendedor,
-	param_id_producto,
-	param_nombre_producto,
-	param_categoria_producto,
-	param_precio_venta,
-	param_cantidad_comprada,
-	param_nombre_comprador,
-	param_nombre_vendedor,
-	param_tramo
-) => {
+const registro_venta = async (info) => {
 	await axios({
 		method: 'POST',
 		url: 'http://localhost:3000/api/registrar-venta',
 		responseType: 'json',
-		data: {
-			cedula_comprador: param_cedula_comprador,
-			cedula_vendedor: param_cedula_vendedor,
-			id_producto: param_id_producto,
-			nombre_producto: param_nombre_producto,
-			categoria_producto: param_categoria_producto,
-			precio_venta: param_precio_venta,
-			cantidad_comprada: param_cantidad_comprada,
-			nombre_comprador: param_nombre_comprador,
-			nombre_vendedor: param_nombre_vendedor,
-			tramo: param_tramo,
-		},
+		data: info,
 	})
 		.then((response) => {
 			if (response.data.resultado == false) {
@@ -41,12 +19,8 @@ const registro_venta = async (
 						break;
 				}
 			} else {
-				console.log("Venta registrada.")
-                console.log(data)
+				console.log('Venta registrada.');
 			}
-		})
-		.then(() => {
-			window.location.href = 'marketplace.html';
 		})
 		.catch((error) => {
 			console.log(error);
@@ -76,6 +50,8 @@ const listarVentasUsuario = async (cedulaEnviada) => {
 
 	return lista_ventas;
 };
+
+
 
 const listarVentas = async () => {
 	let lista_ventas = [];

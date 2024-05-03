@@ -26,8 +26,13 @@ function crearTarjetaProducto(
 
 	// Imagen del producto
 	const imagen = document.createElement('img');
-	imagen.src = imagenProducto; // URL de la imagen del producto
-	imagen.alt = ''; // Texto alternativo de la imagen (opcional)
+	if (imagenProducto == '' || !imagenProducto || imagenProducto == 'noimg') {
+		imagen.src = '/public/img/error/noimg.jpg';
+	} else {
+		imagen.src = imagenProducto;
+	}
+
+	imagen.alt = `Imagen de ${nombre}`;
 
 	// Agregar la imagen al contenedor de la imagen
 	contenedorImagen.appendChild(imagen);
@@ -280,8 +285,7 @@ function comentarioSinReviews() {
 
 let id_producto = '';
 let usuarioActual = {};
-// let cedula = sessionStorage.getItem('cedula');
-let cedula = '604820213';
+let cedula = sessionStorage.getItem('cedula');
 let botonDejarReviews = document.getElementById('botonDejarReviews');
 let msjDejarReviews = document.getElementById('msjDejarReviews');
 

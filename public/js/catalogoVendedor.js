@@ -3,7 +3,7 @@
 const canasta = document.getElementById('canasta');
 const divMensaje = document.getElementById('divMensaje');
 
-function crearTarjetaProducto(nombre_producto, id_producto) {
+function crearTarjetaProducto(nombre_producto, id_producto, imagen_producto) {
 	// Create a div element with class "tarjetaProducto"
 	var tarjetaProducto = document.createElement('div');
 	tarjetaProducto.className = 'tarjetaProducto';
@@ -19,7 +19,12 @@ function crearTarjetaProducto(nombre_producto, id_producto) {
 
 	// Create an img element with src and alt attributes
 	var imgElement = document.createElement('img');
-	imgElement.src = '/public/img/error/noimg.jpg';
+	if (imagen_producto == '' || !imagen_producto || imagen_producto == 'noimg') {
+		imgElement.src = '/public/img/error/noimg.jpg';
+	} else {
+		imgElement.src = imagen_producto;
+	}
+	
 	imgElement.alt = 'Imagen de un(a) ' + nombre_producto;
 
 	// Append the imgElement to the "imagenProducto" div
@@ -60,8 +65,10 @@ function crearMensajeSinProductos() {
 	return divMensajeSinProductos;
 }
 
+let cedula = sessionStorage.getItem('cedula');
+
 window.addEventListener('load', async () => {
-	let lista_productosDB = await listarProductosVendedor('123456789');
+	let lista_productosDB = await listarProductosVendedor(cedula);
 	console.log(lista_productosDB);
 
 	let cantidad_productos_vendedor = lista_productosDB.length;
@@ -75,7 +82,8 @@ window.addEventListener('load', async () => {
 
 			let nuevaTarjeta = crearTarjetaProducto(
 				productoDB.nombre,
-				productoDB._id
+				productoDB._id,
+				productoDB.imagen
 			);
 
 			canasta.appendChild(nuevaTarjeta);

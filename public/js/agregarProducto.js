@@ -16,8 +16,11 @@ function agregarTarjetaProducto(producto) {
 	const imagenProducto = document.createElement('div');
 	imagenProducto.classList.add('imagenProducto');
 	const img = document.createElement('img');
-	img.src = '/public/img/error/noimg.jpg';
-	img.alt = 'Imagen de un(a) ' + producto.nombre;
+	if (producto.imagen == '' || !producto.imagen || producto.imagen == 'noimg') {
+		img.src = '/public/img/error/noimg.jpg';
+	} else {
+		img.src = imagen_producto;
+	}
 	imagenProducto.appendChild(img);
 
 	// Create div element for the button

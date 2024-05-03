@@ -4,6 +4,7 @@ const schema_admin = new mongoose.Schema({
 	cedula: { type: String, required: true, unique: true },
 	correo: { type: String, required: false, unique: false },
 	nombre: { type: String, required: false, unique: false },
+	primerApellido: { type: String, required: false, unique: false },
 
 	// Admin
 	rol: { type: String, default: 'Admin'},

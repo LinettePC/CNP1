@@ -26,12 +26,8 @@ Content-Type: application/json
 
 ###
 
-DELETE  http://localhost:3000/api/eliminar-producto
+GET http://localhost:3000/api/listar-ventas-cedula?cedula=509870789
 Content-Type: application/json
-
-{
-  "_id": "662c59a96cfb8f545b917aec"
-}
 
 ###
 

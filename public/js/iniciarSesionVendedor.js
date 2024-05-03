@@ -77,6 +77,7 @@ function principal() {
 			contrasenna: document.getElementById('password'),
 		};
 		validarVendedor(inputs.idVendedor.value, inputs.contrasenna.value);
+		localStorage.clear();
 		limpiarCampos();
 	}
 }

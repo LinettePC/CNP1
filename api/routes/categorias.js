@@ -57,8 +57,6 @@ router.get('/listar-categorias', (req, res) => {
 //PUT--> recuperar informacion
 router.put('/actualizar-categoria', (req, res) => {
 	let body = req.body;
-
-	console.log(body);
 	Categoria.updateOne(
 		{ _id: body._id },
 		{ $set: body.update },

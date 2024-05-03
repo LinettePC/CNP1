@@ -90,6 +90,8 @@ function principal() {
 		validarCliente(inputs.idCliente.value, inputs.contrasenna.value);
 		//validarCliente(idCliente,contrasenna)
 		limpiarCampos();
+
+		localStorage.clear();
 	}
 }
 

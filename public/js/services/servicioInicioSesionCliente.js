@@ -33,7 +33,7 @@ const validarCliente = async (pCedula, pContrasenna) => {
 			sessionStorage.setItem('rol', res.data.usuario.rol);
 
 			setTimeout(() => {
-				window.location.href = 'miPerfil.html';
+				window.location.href = 'marketplace.html';
 			}, 1000);
 		}
 	});

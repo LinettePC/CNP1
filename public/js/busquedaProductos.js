@@ -1,7 +1,22 @@
-const filaProducto = document.getElementById('fila');
+let lista_productos = [];
 
+function conseguirParamPorNombre(name, url) {
+	if (!url) url = window.location.href;
+	name = name.replace(/[\[\]]/g, '\\$&');
+	var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+		results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+const filaProducto = document.getElementById('fila');
 function formatearNumeroConComas(numero) {
-	return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	if (numero) {
+		return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	} else {
+		return 0;
+	}
 }
 
 function crearTarjetaProducto(
@@ -65,24 +80,40 @@ function crearTarjetaProducto(
 }
 
 window.addEventListener('load', async () => {
-	let lista_lacteos = await listar_productos('listar-lacteos');
+	lista_productos = await listarProductos();
 
-	if (lista_lacteos.length === 0) {
-		//let mensajeSinProductos = crearMensajeSinProductos();
-		//divMensaje.appendChild(mensajeSinProductos);
+	console.log(lista_productos);
+
+	if (lista_productos.length === 0) {
+		let mostrador = document.getElementById('mostrador');
+		mostrador.style.fontSize = '30px';
+		mostrador.innerHTML = 'No hay productos';
 	} else {
-		for (let i = 0; i < lista_lacteos.length; i++) {
-			let productoDB = lista_lacteos[i];
+        let busqueda = conseguirParamPorNombre('busqueda');
+        busqueda = busqueda.toLowerCase();
 
-			let nuevaTarjeta = crearTarjetaProducto(
-				productoDB.nombre,
-				productoDB.descripcion,
-				productoDB.precio_vendedor,
-				productoDB._id,
-				productoDB.imagen
-			);
+		const productosFiltrados = lista_productos.filter(product => product.nombre.toLowerCase().includes(busqueda));
 
-			filaProducto.appendChild(nuevaTarjeta);
+        console.log(busqueda);
+
+		if (productosFiltrados.length === 0) {
+			let mostrador = document.getElementById('mostrador');
+			mostrador.style.fontSize = '30px';
+			mostrador.innerHTML =
+				'No se encontraron productos con ese nombre';
+		} else {
+			// Create cards for filtered products
+            productosFiltrados.forEach((productoDB) => {
+                const nuevaTarjeta = crearTarjetaProducto(
+                    productoDB.nombre,
+                    productoDB.descripcion,
+                    productoDB.precio_vendedor,
+                    productoDB._id,
+                    productoDB.imagen
+                );
+
+                filaProducto.appendChild(nuevaTarjeta);
+            });
 		}
 	}
 });

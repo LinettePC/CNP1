@@ -53,8 +53,7 @@ function crearFila(venta) {
 	const row = document.createElement('tr');
 	row.innerHTML = `
 	  <td>${venta.fecha_de_venta}</td>
-	  <td>${venta.cedula_comprador}</td>
-	  <td>${venta.nombre_comprador}</td>
+	  <td><a href="perfilPublico.html?tipo=Cliente&cedula=${venta.cedula_comprador}">${venta.cedula_comprador} - ${venta.nombre_comprador}</a></td>
 	  <td>${venta.nombre_producto}</td>
 	  <td>${venta.cantidad_comprada}</td>
 	  <td>${venta.categoria_producto}</td>
@@ -262,9 +261,9 @@ function llenarSelects() {
 	agregarOpciones(selectCategoria, categorias);
 }
 
-window.addEventListener('load', async () => {
-	cedulaVendedorActual = '12345';
+let cedulaVendedorActual = sessionStorage.getItem('cedula');
 
+window.addEventListener('load', async () => {
 	lista_ventas = await listarVentasUsuario(cedulaVendedorActual);
 
 	if (lista_ventas) {

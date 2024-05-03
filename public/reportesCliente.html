@@ -6,7 +6,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Reportes Administrador</title>
+		<title>Reportes</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -24,15 +24,17 @@
 	</head>
 
 	<body>
-		<header class="navegacion">
+		<header class="navegacion" id="headerComprador">
 			<div class="logo">
-				<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+				<a href="marketplace.html">
+					<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
+				</a>
 			</div>
 			<div class="barra-navegacion">
 				<nav class="botones-navegacion">
 					<ul>
 						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
-						<li><a href="portalAdmin.html">Inicio</a></li>
+						<li><a href="marketplace.html">Tienda</a></li>
 						<li>
 							<a
 								href="https://www.cnp.go.cr/contactenos/index.aspx"
@@ -50,7 +52,11 @@
 			</div>
 			<div class="carrito">
 				<div id="cuenta">
-					<a href="/public/miPerfil.html" id="textoCuenta">
+					<a
+						style="border-right: 3px solid #81b12a; padding-right: 15px; margin-right: 10px;"
+						href="/public/miPerfil.html"
+						id="textoCuenta"
+					>
 						Mi Cuenta
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -65,12 +71,21 @@
 							/></svg
 					></a>
 				</div>
+				<div>
+					<a href="carritoCompras.html" class="carrito-container"
+						><img
+							src="img/carritoCompras.png"
+							alt="logoCarrito"
+							id="logoCarrito"
+						/><span id="cantidadItemsCarrito">1</span></a
+					>
+				</div>
 			</div>
 		</header>
 
 		<div class="seccion-titulo">
 			<div class="container">
-				<h1 class="titulo">Reportes de Administrador</h1>
+				<h1 class="titulo">Historial de Compras</h1>
 			</div>
 		</div>
 
@@ -78,27 +93,11 @@
 			<section class="selection-section">
 				<form id="formReporte">
 					<div class="container-flex">
-						<div class="flex-box" aria-label="infoVentaAdmin">
+						<div class="flex-box" aria-label="infoVenta">
 							<div class="titulo-selects">
-								Información de venta
+								Información de compras
 							</div>
 							<div class="container-selects">
-								<div class="flex-box">
-									<label
-										class="select-label"
-										for="selectComprador"
-										>Comprador</label
-									>
-									<select
-										class="select-item"
-										id="selectComprador"
-										name="selectComprador"
-									>
-										<option value="0" selected>
-											Cualquiera
-										</option>
-									</select>
-								</div>
 								<div class="flex-box">
 									<label
 										class="select-label"
@@ -117,14 +116,14 @@
 								</div>
 								<div class="flex-box">
 									<label
-										class="select-label"
-										for="selectCategoria"
-										>Categoría</label
+									class="select-label"
+									for="selectProducto"
+									>Producto</label
 									>
 									<select
 										class="select-item"
-										id="selectCategoria"
-										name="selectCategoria"
+										id="selectProducto"
+										name="selectProducto"
 									>
 										<option value="0" selected>
 											Cualquiera
@@ -134,13 +133,13 @@
 								<div class="flex-box">
 									<label
 										class="select-label"
-										for="selectProducto"
-										>Producto</label
+										for="selectCategoria"
+										>Categoría</label
 									>
 									<select
 										class="select-item"
-										id="selectProducto"
-										name="selectProducto"
+										id="selectCategoria"
+										name="selectCategoria"
 									>
 										<option value="0" selected>
 											Cualquiera
@@ -304,15 +303,11 @@
 						<thead>
 							<tr>
 								<th class="fecha">Fecha</th>
-
-								<th class="vendedor">Vendedor</th>
-
-								<th class="Comprador">Comprador</th>
-								<th class="producto">Producto</th>
+								<th class="producto">Vendedor</th>
+								<th class="producto">Producto comprado</th>
 								<th class="cantidad">Cantidad</th>
 								<th class="categoria">Categoría</th>
 								<th class="precio">Precio</th>
-								<th class="gananciaAdmin">Mi ganancia</th>
 								<th class="iva">IVA</th>
 							</tr>
 						</thead>
@@ -329,27 +324,14 @@
 					</table>
 				</div>
 
-				<div id="msjNoVentas" style="font-size: 30px; display: none">
-					No hay ventas en el sitio
-				</div>
-
-				<div class="container-end">
-					<div class="ganancias-output" id="containerGananciasReporte">
-						<label for="gananciasReporte">Total de ganancias en este reporte:</label>
-						<output id="gananciasReporte">₡0</output>
-					</div>
-					<div class="ganancias-output">
-						<label for="outputTotalGanancias">Total de ganancias:</label>
-						<output id="outputTotalGanancias">₡0</output>
-					</div>
-				</div>
+				<div id="msjNoVentas" style="font-size: 30px; display: none">No tiene compras</div>
 			</section>
 		</main>
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/services/servicio-ventas.js"></script>
-		<script src="js/services/servicio-personas.js"></script>
-		<script src="js/reportesAdmin.js"></script>
+		<script src="js/reportesCliente.js"></script>
+		<script src="js/scriptCarrito.js"></script>
 	</body>
 </html>

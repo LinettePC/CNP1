@@ -132,15 +132,16 @@
 						placeholder="Ingrese el nombre de la nueva categoría"
 					/>
 				</div>
-				<div class="input-field">
-					<label for="imagen"
-						>Nueva imagen del producto (opcional)</label
-					>
-					<input
-						type="file"
-						id="imagen"
-						accept="image/jpeg, image/png"
-					/>
+				<div class="input-field" id="seccionImagen">
+					<label for="imagen">Imagen del producto (opcional)</label>
+					<div class="divImagenProducto">
+						<img id="foto-producto" />
+					</div>
+					<div id="divBoton">
+						<button type="button" id="btn-subir-foto-producto">
+							Subir Foto
+						</button>
+					</div>
 				</div>
 				<div class="input-field">
 					<label for="precio">Nuevo precio</label>
@@ -165,11 +166,16 @@
 			</form>
 		</div>
 
+		<script
+			src="https://widget.cloudinary.com/v2.0/global/all.js"
+			type="text/javascript"
+		></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/services/servicio-productos.js"></script>
 		<script src="js/services/servicio-categorias.js"></script>
 		<script src="js/services/servicio-personas.js"></script>
+		<script src="js/services/servicioImagenProducto.js"></script>
 		<script src="js/editarProducto.js"></script>
 	</body>
 </html>

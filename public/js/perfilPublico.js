@@ -13,6 +13,16 @@ const containerPago = document.getElementById('containerPago');
 const containerReporte = document.getElementById('containerReporte');
 const hrefInicio = document.getElementById('hrefInicio');
 
+function conseguirParamPorNombre(name, url) {
+	if (!url) url = window.location.href;
+	name = name.replace(/[\[\]]/g, '\\$&');
+	var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+		results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 function llenarCampos(persona) {
 	nombreUsuario.innerText = persona.nombre;
 	apellidoUsuario.innerText = persona.primerApellido;
@@ -22,6 +32,7 @@ function llenarCampos(persona) {
 
 	if (rol === 'Vendedor') {
 		let tramoVendedor = document.getElementById('tramoVendedor');
+		contenedorTramo.style.display = 'block';
 		tramoVendedor.innerText = persona.nomTramo;
 	}
 
@@ -32,29 +43,32 @@ function llenarCampos(persona) {
 	}
 }
 
-const cedula_usuario = sessionStorage.getItem('cedula');
-const rol = sessionStorage.getItem('rol');
+let rol = conseguirParamPorNombre('tipo');
+let cedula = conseguirParamPorNombre('cedula');
+let rol_visitante = sessionStorage.getItem('rol');
 
 window.addEventListener('load', async () => {
-	let usuarioActual = {};
+	let usuario_buscado = {};
 
-	if (rol === 'Cliente') {
+	if (rol_visitante === 'Cliente') {
 		headerComprador.style.display = 'flex';
-
-		usuarioActual = await conseguirCompradorCedula(cedula_usuario);
 	} else {
 		headerVendedor.style.display = 'flex';
-		containerPago.style.display = 'none';
-		containerReporte.style.display = 'none';
-
-		if (rol === 'Vendedor') {
-			contenedorTramo.style.display = 'block';
-			usuarioActual = await conseguirVendedorCedula(cedula_usuario);
-		} else {
-			usuarioActual = await conseguirAdminCedula(cedula_usuario);
+		if (rol_visitante === 'Admin') {
 			hrefInicio.href = 'portalAdmin.html';
 		}
 	}
-	console.log(usuarioActual);
-	llenarCampos(usuarioActual);
+
+	if (rol === 'Cliente') {
+		usuario_buscado = await conseguirCompradorCedula(cedula);
+	} else {
+		if (rol === 'Vendedor') {
+			contenedorTramo.style.display = 'block';
+			usuario_buscado = await conseguirVendedorCedula(cedula);
+		} else {
+			usuario_buscado = await conseguirAdminCedula(cedula);
+		}
+	}
+	console.log(usuario_buscado);
+	llenarCampos(usuario_buscado);
 });

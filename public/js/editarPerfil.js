@@ -10,18 +10,46 @@ const primerApellido = document.getElementById('primerApellido');
 const correo = document.getElementById('correo');
 const telefono = document.getElementById('telefono');
 
-const btnoriginal = document.getElementById('btnoriginal');
-const botonpersonal = document.getElementById('botonpersonal');
+const tramo = document.getElementById('tramo');
+const ganancia = document.getElementById('ganancia');
 
 const botonEnviar = document.getElementById('botonEnviar');
+
+const inputPermiso = document.getElementById('inputPermiso');
+const inputGanancia = document.getElementById('inputGanancia');
+const inputTramo = document.getElementById('inputTramo');
 
 const containerIngreseContra = document.getElementById(
 	'containerIngreseContra'
 );
 const containerNuevaContra = document.getElementById('containerNuevaContra');
+const hrefInicio = document.getElementById('hrefInicio');
 
 const btnIngresarContra = document.getElementById('btnIngresarContra');
 const btnNuevaContra = document.getElementById('btnIngresarContra');
+
+var agregoPermisos = false;
+
+document
+	.getElementById('file-upload')
+	.addEventListener('change', function (event) {
+		var file = event.target.files[0];
+
+		if (file) {
+			agregoPermisos = true;
+		}
+	});
+
+ganancia.addEventListener('input', function () {
+	let inputValue = this.value.trim();
+	inputValue = inputValue.replace(/\D/g, '');
+
+	if (inputValue.length > 2) {
+		inputValue = inputValue.slice(0, 2);
+	}
+
+	this.value = inputValue;
+});
 
 // COMPROBAR SI LA CONTRASENNA TIENE LOS DATOS QUE SE PIDIERON
 function contrasennaValidaFormato(str) {
@@ -205,7 +233,7 @@ btnIngresarContra.addEventListener('click', () => {
 telefono.addEventListener('input', function (event) {
 	// Remove non-numeric characters
 	telefono.value = telefono.value.replace(/\D/g, '');
-	
+
 	// Limit to 9 characters
 	if (telefono.value.length > 9) {
 		telefono.value = telefono.value.slice(0, 9);
@@ -238,7 +266,7 @@ document
 		var primerApellido = document.getElementById('primerApellido').value;
 		var correo = document.getElementById('correo').value;
 		var telefono = document.getElementById('telefono').value;
-		var fotoCliente = document.getElementById('btnoriginal').files[0]; // La imagen
+		var fotoCliente = imgUsuario.src;
 
 		// Verificar que todos los campos obligatorios estén llenos
 		if (
@@ -319,8 +347,26 @@ document
 			primerApellido: primerApellido,
 			correo: correo,
 			telefono: telefono,
-			fotoCliente: fotoCliente ? fotoCliente.name : 'noimg', // Si hay una imagen adjunta, se guarda el nombre, de lo contrario, se guarda una cadena vacía
 		};
+
+		if (fotoCliente) {
+			datosFormulario.foto = fotoCliente;
+		} else {
+			datosFormulario.foto = 'img/avatar.png';
+		}
+
+		if (agregoPermisos) {
+			datosFormulario.permisos = true;
+		}
+
+		if (rol === 'Vendedor') {
+			datosFormulario.nomTramo = tramo.value;
+		}
+
+		if (rol === 'Admin') {
+			datosFormulario.porcentaje_ganancia = ganancia.value;
+			console.log("datos", datosFormulario)
+		}
 
 		switch (rol) {
 			case 'Cliente':
@@ -353,7 +399,11 @@ document
 	});
 
 function llenarCampos(persona) {
-	// imgUsuario.src = persona.img;
+	if (persona.foto == '' || !persona.foto) {
+		imgUsuario.src = 'img/avatar.png';
+	} else {
+		imgUsuario.src = persona.foto;
+	}
 	nombreUsuario.innerText = persona.nombre;
 	apellidoUsuario.innerText = persona.primerApellido;
 
@@ -361,6 +411,12 @@ function llenarCampos(persona) {
 	primerApellido.value = persona.primerApellido;
 	correo.value = persona.correo;
 	telefono.value = persona.telefono;
+
+	if (rol === 'Vendedor') {
+		tramo.value = persona.nomTramo;
+	} else {
+		ganancia.value = persona.porcentaje_ganancia;
+	}
 }
 
 let usuarioActual = {};
@@ -377,7 +433,11 @@ window.addEventListener('load', async () => {
 
 		if (rol === 'Vendedor') {
 			usuarioActual = await conseguirVendedorCedula(cedula_usuario);
+			inputPermiso.style.display = 'flex';
+			inputTramo.style.display = 'block';
 		} else {
+			hrefInicio.href = 'portalAdmin.html';
+			inputGanancia.style.display = 'block';
 			usuarioActual = await conseguirAdminCedula(cedula_usuario);
 		}
 	}
@@ -386,3 +446,5 @@ window.addEventListener('load', async () => {
 });
 
 console.log(contrasennaValidaFormato('Bcdfg1!3')); // Should return true
+
+// Obtener el elemento de la imagen de usuario

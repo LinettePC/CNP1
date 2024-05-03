@@ -2,19 +2,12 @@ const btnGenerarReporte = document.getElementById('btnGenerarReporte');
 const bodyTabla = document.getElementById('bodyTabla');
 let lista_ventas = [];
 let cantVentas;
-let cantGananciaReporte = 0;
 
 // Condiciones:
-const selectComprador = document.querySelector('#selectComprador');
+
 const selectVendedor = document.querySelector('#selectVendedor');
 const selectCategoria = document.querySelector('#selectCategoria');
 const selectProducto = document.querySelector('#selectProducto');
-
-const containerGananciasReporte = document.querySelector(
-	'#containerGananciasReporte'
-);
-const gananciasReporte = document.querySelector('#gananciasReporte');
-const outputTotalGanancias = document.querySelector('#outputTotalGanancias');
 
 // Fecha específica
 const containerFechaEspecifica = document.getElementById(
@@ -23,6 +16,20 @@ const containerFechaEspecifica = document.getElementById(
 const selectAnno = document.querySelector('#selectAnno');
 const selectMes = document.querySelector('#selectMes');
 const radioFechaEspecifica = document.getElementById('fecha-especifica');
+
+function formatearNumeroConComas(numero, decimales = 2) {
+	// Convertir el número a un número flotante
+	numero = parseFloat(numero);
+	// Verificar si el número es un NaN (Not a Number)
+	if (isNaN(numero)) {
+		return 'NaN';
+	}
+	// Convertir el número a una cadena con la cantidad de decimales deseada
+	let numeroFormateado = numero.toFixed(decimales);
+	// Agregar comas para separar los miles
+	numeroFormateado = numeroFormateado.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	return numeroFormateado;
+}
 
 radioFechaEspecifica.addEventListener('change', function () {
 	if (radioFechaEspecifica.checked) {
@@ -58,33 +65,19 @@ function crearFila(venta) {
 	let iva = venta.precio_venta * 0.13;
 	iva = Math.round(iva * 100) / 100;
 
-	let porcentajeGanancia = admin.porcentaje_ganancia / 100;
-
-	let gananciaAdmin = venta.precio_venta * porcentajeGanancia;
-	gananciaAdmin = Math.round(gananciaAdmin * 100) / 100;
-
 	const row = document.createElement('tr');
 	row.innerHTML = `
 	  <td>${venta.fecha_de_venta}</td>
-	  <td><a href="perfilPublico.html?tipo=Vendedor&cedula=${venta.cedula_vendedor}">${venta.cedula_vendedor} - ${venta.nombre_vendedor}</a></td>
-	  <td><a href="perfilPublico.html?tipo=Cliente&cedula=${venta.cedula_comprador}">${venta.cedula_comprador} - ${venta.nombre_comprador}</a></td>
+	  <td><a href="perfilPublico.html?tipo=Vendedor&cedula=${
+			venta.cedula_vendedor
+		}">${venta.cedula_vendedor} - ${venta.nombre_vendedor}</a></td>
 	  <td>${venta.nombre_producto}</td>
 	  <td>${venta.cantidad_comprada}</td>
 	  <td>${venta.categoria_producto}</td>
-	  <td>₡${venta.precio_venta}</td>
-	  <td>₡${gananciaAdmin}</td>
-	  <td>₡${iva}</td>
+	  <td>${'₡' + formatearNumeroConComas(venta.precio_venta)}</td>
+	  <td>${'₡' + formatearNumeroConComas(iva)}</td>
 	`;
-
-	agregarGananciaReporte(gananciaAdmin);
-
 	return row;
-}
-
-function agregarGananciaReporte(nueva_ganancia) {
-	cantGananciaReporte += parseInt(nueva_ganancia);
-
-	gananciasReporte.value = `₡${cantGananciaReporte}`;
 }
 
 function fechaEntreRango(fecha) {
@@ -151,7 +144,6 @@ function fechaMayorQueDesde(fecha) {
 
 function llenarTablaConFiltros() {
 	let selectedVendedor = selectVendedor.value;
-	let selectedComprador = selectComprador.value;
 	let selectedCategoria = selectCategoria.value;
 	let selectedProducto = selectProducto.value;
 
@@ -178,12 +170,6 @@ function llenarTablaConFiltros() {
 		if (
 			selectedVendedor !== '0' &&
 			venta.cedula_vendedor !== selectedVendedor
-		) {
-			agregarFila = false;
-		}
-		if (
-			selectedComprador !== '0' &&
-			venta.cedula_comprador !== selectedComprador
 		) {
 			agregarFila = false;
 		}
@@ -243,17 +229,11 @@ function vaciarTabla() {
 
 btnGenerarReporte.addEventListener('click', async () => {
 	vaciarTabla();
-
-	cantGananciaReporte = 0;
-
-	containerGananciasReporte.style.display = 'block';
-
 	llenarTablaConFiltros();
 });
 
 function llenarSelects() {
 	let vendedores = [];
-	let compradores = [];
 	let productos = [];
 	let categorias = [];
 
@@ -269,14 +249,10 @@ function llenarSelects() {
 
 	// Iterar a través de cada objeto en la lista
 	lista_ventas.forEach((venta) => {
-		// Extraer valores para compradores
+		// Extraer valores para vendedores
 		let vendedorCedula = venta.cedula_vendedor;
 		if (!vendedores.includes(vendedorCedula)) {
 			vendedores.push(vendedorCedula);
-		}
-		let compradorCedula = venta.cedula_comprador;
-		if (!compradores.includes(compradorCedula)) {
-			compradores.push(compradorCedula);
 		}
 
 		// Extraer valores para productos
@@ -292,11 +268,8 @@ function llenarSelects() {
 		}
 	});
 
-	// Agregar opciones para vendedores
-	agregarOpciones(selectVendedor, vendedores);
-
 	// Agregar opciones para compradores
-	agregarOpciones(selectComprador, compradores);
+	agregarOpciones(selectVendedor, vendedores);
 
 	// Agregar opciones para productos
 	agregarOpciones(selectProducto, productos);
@@ -305,31 +278,15 @@ function llenarSelects() {
 	agregarOpciones(selectCategoria, categorias);
 }
 
-let admin = {};
-
-let cedula = sessionStorage.getItem('cedula');
-
 window.addEventListener('load', async () => {
-	admin = await conseguirAdminCedula('112410996');
-	lista_ventas = await listarVentas();
+	cedulaCompradorActual = sessionStorage.getItem('cedula');
 
-	console.log(admin);
+	lista_ventas = await listarVentasUsuario(cedulaCompradorActual);
 
 	if (lista_ventas) {
 		cantVentas = lista_ventas.length;
 		llenarSelects();
-
 		llenarTablaConFiltros();
-
-		let totalGanancias = 0;
-		for (let i = 0; i < lista_ventas.length; i++) {
-			let gananciaAdmin = lista_ventas[i].precio_venta * 0.1;
-			gananciaAdmin = Math.round(gananciaAdmin * 100) / 100;
-
-			totalGanancias += gananciaAdmin;
-		}
-		totalGanancias = Math.round(totalGanancias * 100) / 100;
-		outputTotalGanancias.textContent = `₡${totalGanancias}`;
 	} else {
 		msjNoVentas.style.display = 'block';
 	}
@@ -344,7 +301,7 @@ window.addEventListener('load', async () => {
 // 	categoria_producto: 'Frutas',
 // 	cedula_comprador: '12345',
 // 	cedula_vendedor: '54321',
-//  cantidad_comprada: '3',
+// cantidad_comprada: '3',
 // 	fecha_de_venta: '18/04/2024',
 // 	nombre_comprador: 'Pepe',
 // 	nombre_producto: 'Fresa',

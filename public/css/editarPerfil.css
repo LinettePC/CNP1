@@ -289,3 +289,28 @@ input {
 #containerNuevaContra {
 	display: none;
 }
+
+.subir-foto-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+	background-color: buttonface;
+	margin-bottom: 15px;
+	cursor: pointer;
+	border-radius: 3px;
+	border: 1px solid black;
+	font-size: 14px;
+}
+
+#inputPermiso {
+	display: none;
+}
+
+#inputGanancia {
+	display: none;
+}
+
+#inputTramo {
+	display: none;
+}

@@ -3,7 +3,7 @@
 const canasta = document.getElementById('canasta');
 const divMensaje = document.getElementById('divMensaje');
 
-function crearTarjetaProducto(nombre_producto, id_producto) {
+function crearTarjetaProducto(nombre_producto, id_producto, imagenProducto) {
 	// Create a div element with class "tarjetaProducto"
 	var tarjetaProducto = document.createElement('div');
 	tarjetaProducto.className = 'tarjetaProducto';
@@ -14,16 +14,21 @@ function crearTarjetaProducto(nombre_producto, id_producto) {
 	tituloProducto.textContent = nombre_producto;
 
 	// Create a div element with class "imagenProducto"
-	var imagenProducto = document.createElement('div');
-	imagenProducto.className = 'imagenProducto';
+	var divImg = document.createElement('div');
+	divImg.className = 'imagenProducto';
 
 	// Create an img element with src and alt attributes
 	var imgElement = document.createElement('img');
-	imgElement.src = '/public/img/error/noimg.jpg';
+	if (imagenProducto === '' || !imagenProducto || imagenProducto === 'noimg') {
+		imgElement.src = '/public/img/error/noimg.jpg';
+	} else {
+		imgElement.src = imagenProducto;
+	}
+	
 	imgElement.alt = 'Imagen de un(a) ' + nombre_producto;
 
 	// Append the imgElement to the "imagenProducto" div
-	imagenProducto.appendChild(imgElement);
+	divImg.appendChild(imgElement);
 
 	// Create a div element
 	var divElement = document.createElement('div');
@@ -39,7 +44,7 @@ function crearTarjetaProducto(nombre_producto, id_producto) {
 
 	// Append all elements to the "tarjetaProducto" div
 	tarjetaProducto.appendChild(tituloProducto);
-	tarjetaProducto.appendChild(imagenProducto);
+	tarjetaProducto.appendChild(divImg);
 	tarjetaProducto.appendChild(divElement);
 
 	// Now you can append "tarjetaProducto" to any existing element in the DOM to display it.
@@ -75,7 +80,8 @@ window.addEventListener('load', async () => {
 
 			let nuevaTarjeta = crearTarjetaProducto(
 				productoDB.nombre,
-				productoDB._id
+				productoDB._id,
+				productoDB.imagen
 			);
 
 			canasta.appendChild(nuevaTarjeta);
