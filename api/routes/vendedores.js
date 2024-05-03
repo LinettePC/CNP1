@@ -18,8 +18,9 @@ router.post('/registrar-vendedor', (req, res) => {
 		correo: body.correo,
 		foto: body.foto,
 		contrasenna: body.contrasenna,
-		fecha_de_registro: fechaFormateada,
 	});
+
+	nuevo_Vendedor.fecha_de_registro = body.fecha_de_registro ? body.fecha_de_registro : fechaFormateada;
 
 	nuevo_Vendedor.permisos = body.permiso ? true : false;
 

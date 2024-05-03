@@ -16,42 +16,42 @@ function conseguirFechaFormateada() {
 	return `${dia}/${mes}/${anno}`;
 }
 
-
 // http://localhost:3000/api/registrar-clientes
 // POST --> crear nuevos registros de clientes
 
 router.post('/registrar-clientes', (req, res) => {
-    let body = req.body;
+	let body = req.body;
 	const fechaFormateada = conseguirFechaFormateada();
-    let nuevo_Cliente = new Cliente({
-        cedula: body.cedula,
+	let nuevo_Cliente = new Cliente({
+		cedula: body.cedula,
 		nombre: body.nombre,
 		primerApellido: body.primerApellido,
-        correo: body.correo,
+		correo: body.correo,
 		telefono: body.telefono,
-        foto: body.foto,
-        contrasenna: body.contrasenna,
-    });
+		foto: body.foto,
+		contrasenna: body.contrasenna,
+	});
 
-    nuevo_Cliente.save((error, usuarioRegistrado) => {
-        if (error) {
-            res.status(500).json({
-                resultado: false,
-                msj: "No se pudo hacer el registro",
-                error
-            });
-        } else {
-            res.status(200).json({
-                resultado: true,
-                msj: "Registro exitoso",
-                usuarioRegistrado,
-            });
-        }
-    });
+	nuevo_Cliente.fecha_de_registro = body.fecha_de_registro
+		? body.fecha_de_registro
+		: fechaFormateada;
+
+	nuevo_Cliente.save((error, usuarioRegistrado) => {
+		if (error) {
+			res.status(500).json({
+				resultado: false,
+				msj: 'No se pudo hacer el registro',
+				error,
+			});
+		} else {
+			res.status(200).json({
+				resultado: true,
+				msj: 'Registro exitoso',
+				usuarioRegistrado,
+			});
+		}
+	});
 });
-
-
-
 
 //http://localhost:3000/api/listar-clientes
 //GET--> recuperar informacion
@@ -122,17 +122,6 @@ router.get('/buscar-cliente-cedula', (req, res) => {
 		}
 	});
 });
-
-
-
-
-
-
-
-
-
-
-
 
 //http://localhost:3000/api/agregar-productos
 //Endpoint para guardar productos
@@ -254,6 +243,3 @@ router.delete('/eliminar-cliente', (req, res) => {
 });
 
 module.exports = router;
-
-
-

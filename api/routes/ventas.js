@@ -24,7 +24,7 @@ router.post('/registrar-venta', (req, res) => {
 
 	let nueva_Venta = new Venta(body);
 
-	nueva_Venta.fecha_de_venta = fechaFormateada;
+	nueva_Venta.fecha_de_venta = body.fecha_de_venta ? body.fecha_de_venta : fechaFormateada;
 
 	nueva_Venta.save((error, VentaDB) => {
 		if (error) {

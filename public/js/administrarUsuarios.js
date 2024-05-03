@@ -211,6 +211,7 @@ function llenarTablaConFiltros() {
 
 	for (let i = 0; i < lista_usuarios.length; i++) {
 		let usuario = lista_usuarios[i];
+		console.log(usuario.fecha_de_registro)
 		let mes_registro = usuario.fecha_de_registro.split('/')[1]; // Como la fecha está en DD/MM/AAAA, hay que hacerle split
 		let mes_registro_sin_cero = mes_registro.replace(/^0+/, ''); // Quita el "0" del mes. Ejemplo: 04 pasa a ser 4. Esto se usa para la igualdad después
 		let anno_registro = usuario.fecha_de_registro.split('/')[2];
