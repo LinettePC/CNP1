@@ -17,6 +17,14 @@ function llenarCampos(persona) {
 	correoUsuario.innerText = persona.correo;
 	telefonoUsuario.innerText = persona.telefono;
 	cedulaUsuario.innerText = persona.cedula;
+	
+	if (persona.foto == "")
+	{
+		imgUsuario.src = "img/avatar.png"
+	}
+	else {
+		imgUsuario.src = persona.foto
+	}
 }
 
 const cedula_usuario = sessionStorage.getItem('cedula');
