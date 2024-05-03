@@ -10,8 +10,8 @@ const primerApellido = document.getElementById('primerApellido');
 const correo = document.getElementById('correo');
 const telefono = document.getElementById('telefono');
 
-const btnoriginal = document.getElementById('btnoriginal');
-const botonpersonal = document.getElementById('botonpersonal');
+const btnoriginal = document.getElementById('btn-subir-foto');
+
 
 const botonEnviar = document.getElementById('botonEnviar');
 
@@ -238,7 +238,7 @@ document
 		var primerApellido = document.getElementById('primerApellido').value;
 		var correo = document.getElementById('correo').value;
 		var telefono = document.getElementById('telefono').value;
-		var fotoCliente = document.getElementById('btnoriginal').files[0]; // La imagen
+		var fotoCliente = imgUsuario.src;
 
 		// Verificar que todos los campos obligatorios estén llenos
 		if (
@@ -319,7 +319,7 @@ document
 			primerApellido: primerApellido,
 			correo: correo,
 			telefono: telefono,
-			fotoCliente: fotoCliente ? fotoCliente.name : 'noimg', // Si hay una imagen adjunta, se guarda el nombre, de lo contrario, se guarda una cadena vacía
+			foto: fotoCliente
 		};
 
 		switch (rol) {
@@ -353,7 +353,13 @@ document
 	});
 
 function llenarCampos(persona) {
-	// imgUsuario.src = persona.img;
+	if (persona.foto == "")
+	{
+		imgUsuario.src = "img/avatar.png"
+	}
+	else {
+		imgUsuario.src = persona.foto
+	};
 	nombreUsuario.innerText = persona.nombre;
 	apellidoUsuario.innerText = persona.primerApellido;
 
@@ -386,3 +392,15 @@ window.addEventListener('load', async () => {
 });
 
 console.log(contrasennaValidaFormato('Bcdfg1!3')); // Should return true
+
+
+
+
+
+
+// Obtener el elemento de la imagen de usuario
+
+
+
+
+
