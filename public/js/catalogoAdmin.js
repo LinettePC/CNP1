@@ -14,20 +14,21 @@ function crearTarjetaProducto(nombre_producto, id_producto, imagenProducto) {
 	tituloProducto.textContent = nombre_producto;
 
 	// Create a div element with class "imagenProducto"
-	var imagenProducto = document.createElement('div');
-	imagenProducto.className = 'imagenProducto';
+	var divImg = document.createElement('div');
+	divImg.className = 'imagenProducto';
 
 	// Create an img element with src and alt attributes
 	var imgElement = document.createElement('img');
-	if (imagenProducto == '' || !imagenProducto || imagenProducto == 'noimg') {
+	if (imagenProducto === '' || !imagenProducto || imagenProducto === 'noimg') {
 		imgElement.src = '/public/img/error/noimg.jpg';
 	} else {
 		imgElement.src = imagenProducto;
 	}
+	
 	imgElement.alt = 'Imagen de un(a) ' + nombre_producto;
 
 	// Append the imgElement to the "imagenProducto" div
-	imagenProducto.appendChild(imgElement);
+	divImg.appendChild(imgElement);
 
 	// Create a div element
 	var divElement = document.createElement('div');
@@ -43,7 +44,7 @@ function crearTarjetaProducto(nombre_producto, id_producto, imagenProducto) {
 
 	// Append all elements to the "tarjetaProducto" div
 	tarjetaProducto.appendChild(tituloProducto);
-	tarjetaProducto.appendChild(imagenProducto);
+	tarjetaProducto.appendChild(divImg);
 	tarjetaProducto.appendChild(divElement);
 
 	// Now you can append "tarjetaProducto" to any existing element in the DOM to display it.

@@ -9,7 +9,7 @@ function crearFila(categoria) {
 	if (categoria.tipo === 'Usuario') {
 		row.innerHTML = `
         <td>${categoria.nombre}</td>
-        <td>Creada por un cliente</td>
+        <td>Creada por un vendedor</td>
         <td class="botonesAdmin">
             <button class="boton-editar" type="button" onclick="editarCategoriaSitio('${categoria._id}', '${categoria.nombre}')">Editar</button>
             <button class="boton-eliminar" type="button" onclick="eliminarCategoriaSitio('${categoria._id}', '${categoria.nombre}')">Eliminar</button>

@@ -88,12 +88,11 @@ document
 
 		// Construct payload object
 
-		const imageInput = document.getElementById('imagen');
-		const uploadedImage = imageInput.files[0];
+		const uploadedImage = document.getElementById('foto-producto');
 
 		let payload;
 
-		// Check if an image hasn't been uploaded
+		// Check if an image is uploaded
 		if (!uploadedImage) {
 			payload = {
 				nombre: nombre,
@@ -105,7 +104,7 @@ document
 				nombre: nombre,
 				descripcion: descripcion,
 				categoria: categoriaFinal,
-				imagen: uploadedImage,
+				imagen: uploadedImage.src,
 			};
 		}
 
@@ -173,8 +172,8 @@ function llenarCamposProducto(info_producto) {
 }
 
 let usuarioActual = {};
-let cedula_usuario = '54321';
-let rol = 'Vendedor';
+let cedula_usuario = sessionStorage.getItem('cedula');
+let rol = sessionStorage.getItem('rol');
 
 window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();

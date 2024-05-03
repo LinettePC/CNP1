@@ -24,17 +24,17 @@
 	</head>
 
 	<body>
-		<header class="navegacion">
+		<header class="navegacion" id="headerComprador">
 			<div class="logo">
 				<a href="marketplace.html">
 					<img src="img/logo6.png" alt="logo" id="logoFeriaCnp" />
-				  </a>
+				</a>
 			</div>
 			<div class="barra-navegacion">
 				<nav class="botones-navegacion">
 					<ul>
 						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
-						<li><a href="marketplace.html">Inicio</a></li>
+						<li><a href="marketplace.html">Tienda</a></li>
 						<li>
 							<a
 								href="https://www.cnp.go.cr/contactenos/index.aspx"
@@ -52,7 +52,11 @@
 			</div>
 			<div class="carrito">
 				<div id="cuenta">
-					<a href="/public/miPerfil.html" id="textoCuenta">
+					<a
+						style="border-right: 3px solid #81b12a; padding-right: 15px; margin-right: 10px;"
+						href="/public/miPerfil.html"
+						id="textoCuenta"
+					>
 						Mi Cuenta
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -66,6 +70,15 @@
 								d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
 							/></svg
 					></a>
+				</div>
+				<div>
+					<a href="carritoCompras.html" class="carrito-container"
+						><img
+							src="img/carritoCompras.png"
+							alt="logoCarrito"
+							id="logoCarrito"
+						/><span id="cantidadItemsCarrito">1</span></a
+					>
 				</div>
 			</div>
 		</header>
@@ -319,5 +332,6 @@
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="js/services/servicio-ventas.js"></script>
 		<script src="js/reportesCliente.js"></script>
+		<script src="js/scriptCarrito.js"></script>
 	</body>
 </html>
