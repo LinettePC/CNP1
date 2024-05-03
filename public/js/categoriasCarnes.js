@@ -24,8 +24,13 @@ function crearTarjetaProducto(
 
 	// Imagen
 	const imagen = document.createElement('img');
-	imagen.src = imagenProducto; // URL de la imagen
-	imagen.alt = ''; // Texto alternativo de la imagen (opcional)
+	if (imagenProducto == '' || !imagenProducto || imagenProducto == 'noimg') {
+		imagen.src = '/public/img/error/noimg.jpg';
+	} else {
+		imagen.src = imagenProducto;
+	}
+
+	imagen.alt = `Imagen de ${nombre}`;
 
 	// Agregar la imagen al enlace
 	enlace.appendChild(imagen);

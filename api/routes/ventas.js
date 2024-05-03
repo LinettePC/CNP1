@@ -21,7 +21,6 @@ router.post('/registrar-venta', (req, res) => {
 	let body = req.body;
 
 	let fechaFormateada = conseguirFechaFormateada();
-	console.log(body);
 
 	let nueva_Venta = new Venta(body);
 

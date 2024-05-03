@@ -32,8 +32,13 @@ function agregarProductoParaComprar(
 
 	// Crear la imagen
 	const imagen = document.createElement('img');
-	imagen.src = imagenProducto;
-	imagen.alt = '';
+	if (imagenProducto == '' || !imagenProducto || imagenProducto == 'noimg') {
+		imagen.src = '/public/img/error/noimg.jpg';
+	} else {
+		imagen.src = imagenProducto;
+	}
+
+	imagen.alt = `Imagen de ${nombre}`;
 	imagen.classList.add('imagen-ejemplo');
 
 	// Agregar la imagen al contenedor de la imagen

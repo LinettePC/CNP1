@@ -458,6 +458,9 @@ function cargarCantones() {
 	const provinciaSeleccionada = document.getElementById('provincia').value;
 	const cantones = cantonesPorProvincia[provinciaSeleccionada];
 	const cantonSelect = document.getElementById('canton');
+	const distritoSelect = document.getElementById('distrito');
+	distritoSelect.innerHTML =
+		"<option value='' selected disabled>Seleccione un distrito</option>";
 
 	cantonSelect.innerHTML =
 		"<option value='' selected disabled>Seleccione un cantón</option>";

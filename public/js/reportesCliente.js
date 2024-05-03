@@ -69,7 +69,6 @@ function crearFila(venta) {
 	const row = document.createElement('tr');
 	row.innerHTML = `
 	  <td>${venta.fecha_de_venta}</td>
-	  <td>${venta.nombre_comprador}</td>
 	  <td>${venta.nombre_producto}</td>
 	  <td>${venta.cantidad_comprada}</td>
 	  <td>${venta.categoria_producto}</td>
@@ -273,7 +272,7 @@ function llenarSelects() {
 }
 
 window.addEventListener('load', async () => {
-	cedulaCompradorActual = sessionStorage.getItem('cedula');;
+	cedulaCompradorActual = sessionStorage.getItem('cedula');
 
 	lista_ventas = await listarVentasUsuario(cedulaCompradorActual);
 

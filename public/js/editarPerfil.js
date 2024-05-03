@@ -356,7 +356,7 @@ document
 	});
 
 function llenarCampos(persona) {
-	if (persona.foto == '') {
+	if (persona.foto == '' || !persona.foto) {
 		imgUsuario.src = 'img/avatar.png';
 	} else {
 		imgUsuario.src = persona.foto;

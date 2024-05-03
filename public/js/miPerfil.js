@@ -14,7 +14,6 @@ const containerReporte = document.getElementById('containerReporte');
 const hrefInicio = document.getElementById('hrefInicio');
 
 function llenarCampos(persona) {
-	// imgUsuario.src = persona.img;
 	nombreUsuario.innerText = persona.nombre;
 	apellidoUsuario.innerText = persona.primerApellido;
 	correoUsuario.innerText = persona.correo;
@@ -26,7 +25,7 @@ function llenarCampos(persona) {
 		tramoVendedor.innerText = persona.nomTramo;
 	}
 
-	if (persona.foto == '') {
+	if (persona.foto == '' || !persona.foto) {
 		imgUsuario.src = 'img/avatar.png';
 	} else {
 		imgUsuario.src = persona.foto;

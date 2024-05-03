@@ -14,12 +14,11 @@ let lista_categorias = [];
 
 const filaProducto = document.getElementById('fila');
 function formatearNumeroConComas(numero) {
-    if (numero) {
-        return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    } else {
-        return 0;
-    }
-	
+	if (numero) {
+		return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	} else {
+		return 0;
+	}
 }
 
 function crearTarjetaProducto(
@@ -43,12 +42,13 @@ function crearTarjetaProducto(
 
 	// Imagen
 	const imagen = document.createElement('img');
-	if (imagenProducto === "noimg" || imagenProducto === "") {
-        imagen.src = "img/error/noimg.jpg"; // URL de la imagen
+	if (imagenProducto == '' || !imagenProducto || imagenProducto == 'noimg') {
+		imagen.src = '/public/img/error/noimg.jpg';
 	} else {
-		imagen.src = imagenProducto; // URL de la imagen
+		imagen.src = imagenProducto;
 	}
-	imagen.alt = ''; // Texto alternativo de la imagen (opcional)
+
+	imagen.alt = `Imagen de ${nombre}`;
 
 	// Agregar la imagen al enlace
 	enlace.appendChild(imagen);
@@ -81,6 +81,53 @@ function crearTarjetaProducto(
 	return item;
 }
 
+selectCategorias.addEventListener('change', function () {
+	const selectedCategoria = this.value; // Parse selected value to integer
+
+	// Clear filaProducto before adding new products
+	filaProducto.innerHTML = '';
+
+	// Filter products based on selected category
+	const productosFiltrados = lista_productos.filter(
+		(producto) => producto.categoria === selectedCategoria
+	);
+
+	if (productosFiltrados.length === 0) {
+		let mostrador = document.getElementById('mostrador');
+		mostrador.style.fontSize = '30px';
+		mostrador.innerHTML = 'No hay productos en esta categoría';
+	} else {
+		// Create cards for filtered products
+		if (selectedCategoria === '0') {
+			// If selected category is 0, show all products
+			lista_productos.forEach((productoDB) => {
+				const nuevaTarjeta = crearTarjetaProducto(
+					productoDB.nombre,
+					productoDB.descripcion,
+					productoDB.precio_vendedor,
+					productoDB._id,
+					productoDB.imagen
+				);
+
+				filaProducto.appendChild(nuevaTarjeta);
+			});
+		} else {
+			// Create cards for filtered products
+			productosFiltrados.forEach((productoDB) => {
+				const nuevaTarjeta = crearTarjetaProducto(
+					productoDB.nombre,
+					productoDB.descripcion,
+					productoDB.precio_vendedor,
+					productoDB._id,
+					productoDB.imagen
+				);
+
+				filaProducto.appendChild(nuevaTarjeta);
+			});
+		}
+	}
+});
+
 window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();
 	lista_productos = await listarProductos();
@@ -96,12 +143,12 @@ window.addEventListener('load', async () => {
 	llenarCategorias(selectCategoria, nombresCategorias);
 
 	if (lista_productos.length === 0) {
-		//let mensajeSinProductos = crearMensajeSinProductos();
-		//divMensaje.appendChild(mensajeSinProductos);
+		let mostrador = document.getElementById('mostrador');
+		mostrador.style.fontSize = '30px';
+		mostrador.innerHTML = 'No hay productos';
 	} else {
 		for (let i = 0; i < lista_productos.length; i++) {
 			let productoDB = lista_productos[i];
-
 			let nuevaTarjeta = crearTarjetaProducto(
 				productoDB.nombre,
 				productoDB.descripcion,
@@ -109,7 +156,6 @@ window.addEventListener('load', async () => {
 				productoDB._id,
 				productoDB.imagen
 			);
-
 			filaProducto.appendChild(nuevaTarjeta);
 		}
 	}
