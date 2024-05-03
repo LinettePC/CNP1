@@ -166,4 +166,4 @@ window.addEventListener('load', async () => {
 	}
 });
 
-console.log(contrasennaValidaFormato('bcdfg1!3')); // Should return true
+console.log(contrasennaValidaFormato('Bcdfg1!3')); // Should return true
