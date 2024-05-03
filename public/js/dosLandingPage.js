@@ -76,8 +76,6 @@ botonEnviar.addEventListener('click', function() {
 		//validarCliente(idCliente,contrasenna)
 		limpiarCampos();
 
-
-
         console.log('');
     }
 });
