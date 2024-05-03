@@ -320,4 +320,11 @@ button {
 	list-style: none;
 }
 
+.btn-todos-items {
+	width: 450px !important;
+	transition: all 0.3s ease;
+}
 
+.btn-todos-items:hover {
+	background-color: rgb(234, 152, 0) !important;
+}

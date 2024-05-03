@@ -5,6 +5,7 @@ let cantVentas;
 
 // Condiciones:
 
+const selectVendedor = document.querySelector('#selectVendedor');
 const selectCategoria = document.querySelector('#selectCategoria');
 const selectProducto = document.querySelector('#selectProducto');
 
@@ -142,6 +143,7 @@ function fechaMayorQueDesde(fecha) {
 }
 
 function llenarTablaConFiltros() {
+	let selectedVendedor = selectVendedor.value;
 	let selectedCategoria = selectCategoria.value;
 	let selectedProducto = selectProducto.value;
 
@@ -165,6 +167,12 @@ function llenarTablaConFiltros() {
 		// Variable para controlar si se debe agregar la fila a la tabla
 		let agregarFila = true;
 
+		if (
+			selectedVendedor !== '0' &&
+			venta.cedula_vendedor !== selectedVendedor
+		) {
+			agregarFila = false;
+		}
 		if (
 			selectedCategoria !== '0' &&
 			venta.categoria_producto !== selectedCategoria
@@ -225,7 +233,7 @@ btnGenerarReporte.addEventListener('click', async () => {
 });
 
 function llenarSelects() {
-	let compradores = [];
+	let vendedores = [];
 	let productos = [];
 	let categorias = [];
 
@@ -241,10 +249,10 @@ function llenarSelects() {
 
 	// Iterar a través de cada objeto en la lista
 	lista_ventas.forEach((venta) => {
-		// Extraer valores para compradores
-		let compradorCedula = venta.cedula_comprador;
-		if (!compradores.includes(compradorCedula)) {
-			compradores.push(compradorCedula);
+		// Extraer valores para vendedores
+		let vendedorCedula = venta.cedula_vendedor;
+		if (!vendedores.includes(vendedorCedula)) {
+			vendedores.push(vendedorCedula);
 		}
 
 		// Extraer valores para productos
@@ -261,6 +269,7 @@ function llenarSelects() {
 	});
 
 	// Agregar opciones para compradores
+	agregarOpciones(selectVendedor, vendedores);
 
 	// Agregar opciones para productos
 	agregarOpciones(selectProducto, productos);

@@ -47,7 +47,7 @@ function crearFila(persona) {
 
 	const row = document.createElement('tr');
 	row.innerHTML = `
-	<td>${persona.cedula}</td>
+	<td><a href="perfilPublico.html?tipo=Vendedor&cedula=${persona.cedula}">${persona.cedula}</a></td>
 	<td>${persona.nomTramo}</td>
 	<td>${persona.nombre}</td>
 	<td>${persona.primerApellido}</td>

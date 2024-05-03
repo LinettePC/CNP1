@@ -52,7 +52,7 @@ function crearFila(persona) {
 		row.innerHTML = `
 	  	<td>${persona.fecha_de_registro}</td>
 		<td>${persona.rol}</td>
-		<td>${persona.cedula}</td>
+		<td><a href="perfilPublico.html?tipo=Cliente&cedula=${persona.cedula}">${persona.cedula}</a></td>
 		<td>${persona.correo}</td>
 		<td>${persona.nombre}</td>
 		<td>${persona.primerApellido}</td>
@@ -68,7 +68,7 @@ function crearFila(persona) {
 			row.innerHTML = `
             <td>${persona.fecha_de_registro}</td>
             <td>${persona.rol}</td>
-            <td>${persona.cedula}</td>
+            <td><a href="perfilPublico.html?tipo=Vendedor&cedula=${persona.cedula}">${persona.cedula}</a></td>
             <td>${persona.correo}</td>
             <td>${persona.nombre}</td>
             <td>${persona.primerApellido}</td>
@@ -83,7 +83,7 @@ function crearFila(persona) {
 			row.innerHTML = `
             <td>${persona.fecha_de_registro}</td>
             <td>${persona.rol}</td>
-            <td>${persona.cedula}</td>
+            <td><a href="perfilPublico.html?tipo=Vendedor&cedula=${persona.cedula}">${persona.cedula}</a></td>
             <td>${persona.correo}</td>
             <td>${persona.nombre}</td>
             <td>${persona.primerApellido}</td>

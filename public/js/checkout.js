@@ -213,9 +213,9 @@ async function realizarCompra(event) {
 
 		cantidadComprar = listaProductosParaComprar[i].cantidad;
 
-		nombreVendedor = await conseguirVendedorCedula(
+		vendedor = await conseguirVendedorCedula(
 			productoDB.cedula_vendedor
-		).nombre;
+		);
 
 		let ventaString = (
 			productoDB.precio_con_iva * cantidadComprar
@@ -230,9 +230,10 @@ async function realizarCompra(event) {
 			precio_venta: ventaString,
 			cantidad_comprada: cantidadComprar,
 			nombre_comprador: usuarioActual.nombre,
-			nombre_vendedor: nombreVendedor,
+			nombre_vendedor: vendedor.nombre,
 			tramo: productoDB.tramo,
 		};
+
 		await registro_venta(datosVenta);
 		await actualizarInventarioProdudcto(productoDB._id, cantidadComprar);
 	}

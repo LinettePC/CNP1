@@ -31,8 +31,8 @@ function llenarCampos(persona) {
 	cedulaUsuario.innerText = persona.cedula;
 
 	if (rol === 'Vendedor') {
-        let tramoVendedor = document.getElementById('tramoVendedor');
-        contenedorTramo.style.display = 'block';
+		let tramoVendedor = document.getElementById('tramoVendedor');
+		contenedorTramo.style.display = 'block';
 		tramoVendedor.innerText = persona.nomTramo;
 	}
 
@@ -52,11 +52,12 @@ window.addEventListener('load', async () => {
 
 	if (rol_visitante === 'Cliente') {
 		headerComprador.style.display = 'flex';
-	} else if (rol_visitante === 'Vendedor') {
-        headerVendedor.style.display = 'flex';
-    } else {
-        hrefInicio.href = 'portalAdmin.html';
-    }
+	} else {
+		headerVendedor.style.display = 'flex';
+		if (rol_visitante === 'Admin') {
+			hrefInicio.href = 'portalAdmin.html';
+		}
+	}
 
 	if (rol === 'Cliente') {
 		usuario_buscado = await conseguirCompradorCedula(cedula);
