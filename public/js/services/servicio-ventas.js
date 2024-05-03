@@ -51,6 +51,8 @@ const listarVentasUsuario = async (cedulaEnviada) => {
 	return lista_ventas;
 };
 
+
+
 const listarVentas = async () => {
 	let lista_ventas = [];
 	await axios({

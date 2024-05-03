@@ -195,6 +195,7 @@ router.get('/listar-productos-vendedor', (req, res) => {
 	}
 });
 
+
 // http://localhost:3000/api/conseguir-producto-id
 // Endpoint para agarrar un usuario específico // USA LA CÉDULA
 router.get('/conseguir-producto-id', (req, res) => {
