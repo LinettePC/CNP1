@@ -10,9 +10,14 @@ const primerApellido = document.getElementById('primerApellido');
 const correo = document.getElementById('correo');
 const telefono = document.getElementById('telefono');
 
+const tramo = document.getElementById('tramo');
+const ganancia = document.getElementById('ganancia');
+
 const botonEnviar = document.getElementById('botonEnviar');
 
 const inputPermiso = document.getElementById('inputPermiso');
+const inputGanancia = document.getElementById('inputGanancia');
+const inputTramo = document.getElementById('inputTramo');
 
 const containerIngreseContra = document.getElementById(
 	'containerIngreseContra'
@@ -34,6 +39,17 @@ document
 			agregoPermisos = true;
 		}
 	});
+
+ganancia.addEventListener('input', function () {
+	let inputValue = this.value.trim();
+	inputValue = inputValue.replace(/\D/g, '');
+
+	if (inputValue.length > 2) {
+		inputValue = inputValue.slice(0, 2);
+	}
+
+	this.value = inputValue;
+});
 
 // COMPROBAR SI LA CONTRASENNA TIENE LOS DATOS QUE SE PIDIERON
 function contrasennaValidaFormato(str) {
@@ -343,6 +359,15 @@ document
 			datosFormulario.permisos = true;
 		}
 
+		if (rol === 'Vendedor') {
+			datosFormulario.nomTramo = tramo.value;
+		}
+
+		if (rol === 'Admin') {
+			datosFormulario.porcentaje_ganancia = ganancia.value;
+			console.log("datos", datosFormulario)
+		}
+
 		switch (rol) {
 			case 'Cliente':
 				await actualizarDatosCliente(cedula_usuario, datosFormulario);
@@ -386,6 +411,12 @@ function llenarCampos(persona) {
 	primerApellido.value = persona.primerApellido;
 	correo.value = persona.correo;
 	telefono.value = persona.telefono;
+
+	if (rol === 'Vendedor') {
+		tramo.value = persona.nomTramo;
+	} else {
+		ganancia.value = persona.porcentaje_ganancia;
+	}
 }
 
 let usuarioActual = {};
@@ -403,8 +434,10 @@ window.addEventListener('load', async () => {
 		if (rol === 'Vendedor') {
 			usuarioActual = await conseguirVendedorCedula(cedula_usuario);
 			inputPermiso.style.display = 'flex';
+			inputTramo.style.display = 'block';
 		} else {
 			hrefInicio.href = 'portalAdmin.html';
+			inputGanancia.style.display = 'block';
 			usuarioActual = await conseguirAdminCedula(cedula_usuario);
 		}
 	}

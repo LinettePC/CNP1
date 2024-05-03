@@ -15,7 +15,7 @@ const schema_admin = new mongoose.Schema({
 	foto: { type: String, required: false, unique: false },
 
 	// Admin specific field
-	portentaje_ganancia: { type: String, required: false, unique: false },
+	porcentaje_ganancia: { type: String, required: false, unique: false },
 });
 
 const Admin = mongoose.model('Admin', schema_admin, 'admins');

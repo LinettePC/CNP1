@@ -66,8 +66,8 @@ function crearFila(venta) {
 	const row = document.createElement('tr');
 	row.innerHTML = `
 	  <td>${venta.fecha_de_venta}</td>
-	  <td>${venta.cedula_vendedor} - ${venta.nombre_vendedor}</td>
-	  <td>${venta.cedula_comprador} - ${venta.nombre_comprador}</td>
+	  <td><a href="perfilPublico.html?tipo=Vendedor&cedula=${venta.cedula_vendedor}">${venta.cedula_vendedor} - ${venta.nombre_vendedor}</a></td>
+	  <td><a href="perfilPublico.html?tipo=Cliente&cedula=${venta.cedula_comprador}">${venta.cedula_comprador} - ${venta.nombre_comprador}</a></td>
 	  <td>${venta.nombre_producto}</td>
 	  <td>${venta.cantidad_comprada}</td>
 	  <td>${venta.categoria_producto}</td>
@@ -310,10 +310,10 @@ let admin = {};
 let cedula = sessionStorage.getItem('cedula');
 
 window.addEventListener('load', async () => {
-	admin = await conseguirAdminCedula("112410996");
+	admin = await conseguirAdminCedula('112410996');
 	lista_ventas = await listarVentas();
 
-	console.log(admin)
+	console.log(admin);
 
 	if (lista_ventas) {
 		cantVentas = lista_ventas.length;

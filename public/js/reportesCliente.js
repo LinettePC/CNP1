@@ -16,21 +16,19 @@ const selectAnno = document.querySelector('#selectAnno');
 const selectMes = document.querySelector('#selectMes');
 const radioFechaEspecifica = document.getElementById('fecha-especifica');
 
-
 function formatearNumeroConComas(numero, decimales = 2) {
-    // Convertir el número a un número flotante
-    numero = parseFloat(numero);
-    // Verificar si el número es un NaN (Not a Number)
-    if (isNaN(numero)) {
-        return "NaN";
-    }
-    // Convertir el número a una cadena con la cantidad de decimales deseada
-    let numeroFormateado = numero.toFixed(decimales);
-    // Agregar comas para separar los miles
-    numeroFormateado = numeroFormateado.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    return numeroFormateado;
+	// Convertir el número a un número flotante
+	numero = parseFloat(numero);
+	// Verificar si el número es un NaN (Not a Number)
+	if (isNaN(numero)) {
+		return 'NaN';
+	}
+	// Convertir el número a una cadena con la cantidad de decimales deseada
+	let numeroFormateado = numero.toFixed(decimales);
+	// Agregar comas para separar los miles
+	numeroFormateado = numeroFormateado.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	return numeroFormateado;
 }
-
 
 radioFechaEspecifica.addEventListener('change', function () {
 	if (radioFechaEspecifica.checked) {
@@ -69,6 +67,9 @@ function crearFila(venta) {
 	const row = document.createElement('tr');
 	row.innerHTML = `
 	  <td>${venta.fecha_de_venta}</td>
+	  <td><a href="perfilPublico.html?tipo=Vendedor&cedula=${
+			venta.cedula_vendedor
+		}">${venta.cedula_vendedor} - ${venta.nombre_vendedor}</a></td>
 	  <td>${venta.nombre_producto}</td>
 	  <td>${venta.cantidad_comprada}</td>
 	  <td>${venta.categoria_producto}</td>
@@ -141,7 +142,6 @@ function fechaMayorQueDesde(fecha) {
 }
 
 function llenarTablaConFiltros() {
-	
 	let selectedCategoria = selectCategoria.value;
 	let selectedProducto = selectProducto.value;
 
@@ -165,7 +165,6 @@ function llenarTablaConFiltros() {
 		// Variable para controlar si se debe agregar la fila a la tabla
 		let agregarFila = true;
 
-	
 		if (
 			selectedCategoria !== '0' &&
 			venta.categoria_producto !== selectedCategoria
@@ -262,7 +261,6 @@ function llenarSelects() {
 	});
 
 	// Agregar opciones para compradores
-
 
 	// Agregar opciones para productos
 	agregarOpciones(selectProducto, productos);
