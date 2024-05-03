@@ -41,7 +41,7 @@ const validarVendedor = async (pCedula, pContrasenna /*pEstado*/) => {
 			sessionStorage.setItem('rol', res.data.usuario.rol);
 
 			setTimeout(() => {
-				window.location.href = 'miPerfil.html';
+				window.location.href = 'portalVendedor.html';
 			}, 1000);
 		} else if (res.data.resultado == 3) {
 			Swal.fire({

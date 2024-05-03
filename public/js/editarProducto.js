@@ -198,7 +198,11 @@ async function registrarInfo(payload) {
 	});
 
 	setTimeout(() => {
-		window.location.href = 'catalogoVendedor.html';
+		if (rol === 'Vendedor') {
+			window.location.href = 'catalogoVendedor.html';
+		} else {
+			window.location.href = 'catalogoAdmin.html';
+		}
 	}, 2500);
 }
 
@@ -258,8 +262,8 @@ function llenarCategorias(elementoSelect, items) {
 
 let id_producto = conseguirParamPorNombre('id');
 let productoDB = {};
-let cedula_usuario = '';
-let rol = 'Admin';
+let cedula_usuario = sessionStorage.getItem('cedula');;
+let rol = sessionStorage.getItem('rol');
 
 window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();

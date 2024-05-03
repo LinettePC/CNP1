@@ -4,6 +4,7 @@ const schema_admin = new mongoose.Schema({
 	cedula: { type: String, required: true, unique: true },
 	correo: { type: String, required: false, unique: false },
 	nombre: { type: String, required: false, unique: false },
+	primerApellido: { type: String, required: false, unique: false },
 
 	// Admin
 	rol: { type: String, default: 'Admin'},
@@ -14,7 +15,7 @@ const schema_admin = new mongoose.Schema({
 	foto: { type: String, required: false, unique: false },
 
 	// Admin specific field
-	porcentaje_ganancia: { type: String, required: false, unique: false },
+	portentaje_ganancia: { type: String, required: false, unique: false },
 });
 
 const Admin = mongoose.model('Admin', schema_admin, 'admins');

@@ -8,7 +8,10 @@ const correoUsuario = document.getElementById('correoUsuario');
 const telefonoUsuario = document.getElementById('telefonoUsuario');
 const cedulaUsuario = document.getElementById('cedulaUsuario');
 
+const contenedorTramo = document.getElementById('contenedorTramo');
 const containerPago = document.getElementById('containerPago');
+const containerReporte = document.getElementById('containerReporte');
+const hrefInicio = document.getElementById('hrefInicio');
 
 function llenarCampos(persona) {
 	// imgUsuario.src = persona.img;
@@ -17,13 +20,16 @@ function llenarCampos(persona) {
 	correoUsuario.innerText = persona.correo;
 	telefonoUsuario.innerText = persona.telefono;
 	cedulaUsuario.innerText = persona.cedula;
-	
-	if (persona.foto == "")
-	{
-		imgUsuario.src = "img/avatar.png"
+
+	if (rol === 'Vendedor') {
+		let tramoVendedor = document.getElementById('tramoVendedor');
+		tramoVendedor.innerText = persona.nomTramo;
 	}
-	else {
-		imgUsuario.src = persona.foto
+
+	if (persona.foto == '') {
+		imgUsuario.src = 'img/avatar.png';
+	} else {
+		imgUsuario.src = persona.foto;
 	}
 }
 
@@ -40,11 +46,14 @@ window.addEventListener('load', async () => {
 	} else {
 		headerVendedor.style.display = 'flex';
 		containerPago.style.display = 'none';
+		containerReporte.style.display = 'none';
+		contenedorTramo.style.display = 'block';
 
 		if (rol === 'Vendedor') {
 			usuarioActual = await conseguirVendedorCedula(cedula_usuario);
 		} else {
 			usuarioActual = await conseguirAdminCedula(cedula_usuario);
+			hrefInicio.href = 'portalAdmin.html';
 		}
 	}
 	console.log(usuarioActual);

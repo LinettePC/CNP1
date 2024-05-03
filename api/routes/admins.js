@@ -57,6 +57,30 @@ router.post('/admins', function(req,res){
     })
 })
 
+router.put('/actualizar-datos-admin', (req, res) => {
+	let body = req.body;
+
+	Admin.updateOne(
+		{ cedula: body.cedula },
+		{ $set: req.body.nueva_info },
+		function (error, info) {
+			if (error) {
+				res.status(500).json({
+					resultado: false,
+					msj: 'No se pudo actualizar el cliente',
+					error,
+				});
+			} else {
+				res.status(200).json({
+					resultado: true,
+					msj: 'Actulización exitosa',
+					info,
+				});
+			}
+		}
+	);
+});
+
 
 
 

@@ -7,14 +7,23 @@ const inputs = {
 	primerApellido: document.getElementById('primerApellido'),
 	nomTramo: document.getElementById('nomTramo'),
 	correo: document.getElementById('correo'),
-	telefono: document.getElementById('telefono'),	
+	telefono: document.getElementById('telefono'),
 };
-const foto = document.querySelector("#foto-usuario");
-const permiso = document.querySelector("#foto-permiso");
+const foto = document.querySelector('#foto-usuario');
+const permiso = document.querySelector('#foto-permiso');
 const botonEnviar = document.getElementById('botonEnviar');
 
+var agregoPermisos = false;
 
+document
+	.getElementById('file-upload')
+	.addEventListener('change', function (event) {
+		var file = event.target.files[0];
 
+		if (file) {
+			agregoPermisos = true;
+		}
+	});
 
 // Función para validar campos vacíos
 function validarCamposVacios() {
@@ -91,12 +100,11 @@ function validarPrimerApellido() {
 
 // Validar primer apellido
 function validarnomTramo() {
-    return validarCampo(inputs.nomTramo, /^[a-zA-Z0-9\s]+$/, {
-        title: 'El nombre de tramo es inválido',
-        text: 'Revisa el formato utilizado',
-    });
+	return validarCampo(inputs.nomTramo, /^[a-zA-Z0-9\s]+$/, {
+		title: 'El nombre de tramo es inválido',
+		text: 'Revisa el formato utilizado',
+	});
 }
-
 
 // Validar correo electrónico
 function validarCorreo() {
@@ -137,30 +145,27 @@ function validarContrasenna() {
 
 // Limpiar todos los campos del formulario
 function limpiarCampos() {
-	const listinputs = 	Object.values(inputs).filter((input) => input != null)
+	const listinputs = Object.values(inputs).filter((input) => input != null);
 	listinputs.forEach((input) => (input.value = ''));
 }
 
 //se va a crear la primer contrasenna temporal aunque admin no lo haya aprobado todavia
-//se va a crear la contrasenna con 7 caracterers para diferenciar esta de la contrasennna que 
+//se va a crear la contrasenna con 7 caracterers para diferenciar esta de la contrasennna que
 //el vendedor crea que es de 8 o mas caracteres
 const generarContrasenaTemporal = () => {
-    // Longitud de la contraseña temporal
-    const longitud = 7;
-    // Caracteres que se usarán para generar la contraseña temporal
-    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
-    let contrasenaTemporal = '';
-    for (let i = 0; i < longitud; i++) {
-        const indice = Math.floor(Math.random() * caracteres.length);
-        contrasenaTemporal += caracteres.charAt(indice);
-        //contrasenaTemporal = contrasenaTemporal + caracteres.charAt(indice)
-    }
-    return contrasenaTemporal;
+	// Longitud de la contraseña temporal
+	const longitud = 7;
+	// Caracteres que se usarán para generar la contraseña temporal
+	const caracteres =
+		'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
+	let contrasenaTemporal = '';
+	for (let i = 0; i < longitud; i++) {
+		const indice = Math.floor(Math.random() * caracteres.length);
+		contrasenaTemporal += caracteres.charAt(indice);
+		//contrasenaTemporal = contrasenaTemporal + caracteres.charAt(indice)
+	}
+	return contrasenaTemporal;
 };
-
-
-
-
 
 // Función principal de validación
 function principal() {
@@ -187,12 +192,25 @@ function principal() {
 		let correo = inputs.correo.value;
 		let telefono = inputs.telefono.value;
 		let pFoto = foto.src;
-		let pPermiso = permiso.src;
+		let pPermiso = false;
+		if (agregoPermisos) {
+			pPermiso = true;
+		}
+
 		let contrasenna = generarContrasenaTemporal();
-		
-		
-		preRegistroVendedor(cedula, nombre, primerApellido, nomTramo, correo, telefono, pPermiso, pFoto, contrasenna);
-		
+
+		preRegistroVendedor(
+			cedula,
+			nombre,
+			primerApellido,
+			nomTramo,
+			correo,
+			telefono,
+			pPermiso,
+			pFoto,
+			contrasenna
+		);
+
 		limpiarCampos();
 	}
 }

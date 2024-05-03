@@ -37,7 +37,7 @@ const validarAdministrador = async (pCedula, pContrasenna) => {
 			localStorage.clear();
 
 			setTimeout(() => {
-				window.location.href = 'miPerfil.html';
+				window.location.href = 'portalAdmin.html';
 			}, 1500);
 
 			// setTimeout(()=>{

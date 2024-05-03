@@ -20,8 +20,8 @@ boton_imagen.addEventListener("click", () => {
 
 // Foto vendedor/permisos
 
-const boton_permiso = document.querySelector("#btn-subir-permiso");
-const permisoImagen = document.querySelector("#foto-permiso"); // Cambiado el nombre de la variable a permisoImagen
+const boton_permiso = document.querySelector("#btn-subir-permiso1");
+const permisoImagen = document.querySelector("#foto-permiso1"); // Cambiado el nombre de la variable a permisoImagen
 
 // Verificar si el elemento boton_permiso existe en la página actual
 if (boton_permiso) {

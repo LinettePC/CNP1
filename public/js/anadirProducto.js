@@ -183,17 +183,27 @@ function llenarCamposProducto(info_producto) {
 
 	contenedorCategoria.value = info_producto.categoria;
 	contenedorCategoria.disabled = true;
+	contenedorCategoria.style.cursor = 'default';
+	contenedorCategoria.style.backgroundColor =
+		'light-dark(rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3))';
+	contenedorCategoria.style.color =
+		'light-dark(rgb(84, 84, 84), rgb(170, 170, 170))';
+	contenedorCategoria.style.border = '1px solid #ccc';
+	contenedorCategoria.style.opacity = '1';
+
+	let seccionImagen = document.getElementById('seccionImagen');
+	seccionImagen.innerHTML = '';
 }
 
 let usuarioActual = {};
-let cedula_usuario = '54321';
+let cedula_usuario = sessionStorage.getItem('cedula');
 
 window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();
 
 	usuarioActual = await conseguirVendedorCedula(cedula_usuario);
 
-	if (usuarioActual.tienePermisos) {
+	if (usuarioActual.permisos) {
 		containerAgregarProducto.style.display = 'block';
 	} else {
 		containerMsjPermisos.style.display = 'block';

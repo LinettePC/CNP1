@@ -60,8 +60,10 @@ function crearMensajeSinProductos() {
 	return divMensajeSinProductos;
 }
 
+let cedula = sessionStorage.getItem('cedula');
+
 window.addEventListener('load', async () => {
-	let lista_productosDB = await listarProductosVendedor('123456789');
+	let lista_productosDB = await listarProductosVendedor(cedula);
 	console.log(lista_productosDB);
 
 	let cantidad_productos_vendedor = lista_productosDB.length;

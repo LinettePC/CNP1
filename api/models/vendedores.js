@@ -7,10 +7,8 @@ const schema_vendedor = new mongoose.Schema({
 	nomTramo: { type: String, required: false, unique: false },
 	correo: { type: String, required: false, unique: false },
 	telefono: { type: String, required: false, unique: false },
-	permiso: { type: String, required: false, unique: false },
 	//permisos pasar a type:boolean
-	tienePermisos: { type: Boolean, required: false, unique: false }, // Si tiene = TRUE. Si no tiene = FALSE
-
+	permisos: { type: Boolean },
 	// Rol
 	rol: { type: String, default: 'Vendedor' },
 
@@ -27,33 +25,6 @@ const schema_vendedor = new mongoose.Schema({
 	fecha_de_registro: { type: String, required: false, unique: false },
 });
 
-// Pre-save hook to update tienePermisos based on permiso
-schema_vendedor.pre('save', function(next) {
-    if (this.permiso !== null && this.permiso !== undefined) {
-        this.tienePermisos = true;
-    } else {
-        this.tienePermisos = false;
-    }
-    next();
-});
-
-
-
 const Vendedor = mongoose.model('Vendedor', schema_vendedor, 'vendedores');
 
 module.exports = Vendedor;
-
-function name(params) {
-	let conseguirUsuariosBD = ['usuario1', 'usuario2', 'usuario3'];
-
-	let cedula_ingresada = '64534534';
-	let contraseña_ingresada = 'pepito34';
-
-	for (let i = 0; i < conseguirUsuariosDB.length; i++) {
-		if (
-			cedula_ingresada == conseguirUsuariosBD[i].cedula &&
-			contraseña_ingresada == conseguirUsuariosBD[i].contrasenna
-		) {
-		}
-	}
-}

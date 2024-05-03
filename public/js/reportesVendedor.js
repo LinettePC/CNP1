@@ -262,9 +262,9 @@ function llenarSelects() {
 	agregarOpciones(selectCategoria, categorias);
 }
 
-window.addEventListener('load', async () => {
-	cedulaVendedorActual = '12345';
+let cedulaVendedorActual = sessionStorage.getItem('cedula');
 
+window.addEventListener('load', async () => {
 	lista_ventas = await listarVentasUsuario(cedulaVendedorActual);
 
 	if (lista_ventas) {

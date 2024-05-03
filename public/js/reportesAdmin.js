@@ -58,7 +58,9 @@ function crearFila(venta) {
 	let iva = venta.precio_venta * 0.13;
 	iva = Math.round(iva * 100) / 100;
 
-	let gananciaAdmin = venta.precio_venta * 0.1;
+	let porcentajeGanancia = admin.porcentaje_ganancia / 100;
+
+	let gananciaAdmin = venta.precio_venta * porcentajeGanancia;
 	gananciaAdmin = Math.round(gananciaAdmin * 100) / 100;
 
 	const row = document.createElement('tr');
@@ -303,8 +305,15 @@ function llenarSelects() {
 	agregarOpciones(selectCategoria, categorias);
 }
 
+let admin = {};
+
+let cedula = sessionStorage.getItem('cedula');
+
 window.addEventListener('load', async () => {
+	admin = await conseguirAdminCedula("112410996");
 	lista_ventas = await listarVentas();
+
+	console.log(admin)
 
 	if (lista_ventas) {
 		cantVentas = lista_ventas.length;
@@ -319,6 +328,7 @@ window.addEventListener('load', async () => {
 
 			totalGanancias += gananciaAdmin;
 		}
+		totalGanancias = Math.round(totalGanancias * 100) / 100;
 		outputTotalGanancias.textContent = `₡${totalGanancias}`;
 	} else {
 		msjNoVentas.style.display = 'block';

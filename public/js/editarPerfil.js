@@ -10,15 +10,13 @@ const primerApellido = document.getElementById('primerApellido');
 const correo = document.getElementById('correo');
 const telefono = document.getElementById('telefono');
 
-const btnoriginal = document.getElementById('btn-subir-foto');
-
-
 const botonEnviar = document.getElementById('botonEnviar');
 
 const containerIngreseContra = document.getElementById(
 	'containerIngreseContra'
 );
 const containerNuevaContra = document.getElementById('containerNuevaContra');
+const hrefInicio = document.getElementById('hrefInicio');
 
 const btnIngresarContra = document.getElementById('btnIngresarContra');
 const btnNuevaContra = document.getElementById('btnIngresarContra');
@@ -205,7 +203,7 @@ btnIngresarContra.addEventListener('click', () => {
 telefono.addEventListener('input', function (event) {
 	// Remove non-numeric characters
 	telefono.value = telefono.value.replace(/\D/g, '');
-	
+
 	// Limit to 9 characters
 	if (telefono.value.length > 9) {
 		telefono.value = telefono.value.slice(0, 9);
@@ -319,8 +317,13 @@ document
 			primerApellido: primerApellido,
 			correo: correo,
 			telefono: telefono,
-			foto: fotoCliente
 		};
+
+		if (fotoCliente) {
+			datosFormulario.foto = fotoCliente;
+		} else {
+			datosFormulario.foto = 'img/avatar.png';
+		}
 
 		switch (rol) {
 			case 'Cliente':
@@ -353,13 +356,11 @@ document
 	});
 
 function llenarCampos(persona) {
-	if (persona.foto == "")
-	{
-		imgUsuario.src = "img/avatar.png"
+	if (persona.foto == '') {
+		imgUsuario.src = 'img/avatar.png';
+	} else {
+		imgUsuario.src = persona.foto;
 	}
-	else {
-		imgUsuario.src = persona.foto
-	};
 	nombreUsuario.innerText = persona.nombre;
 	apellidoUsuario.innerText = persona.primerApellido;
 
@@ -384,6 +385,7 @@ window.addEventListener('load', async () => {
 		if (rol === 'Vendedor') {
 			usuarioActual = await conseguirVendedorCedula(cedula_usuario);
 		} else {
+			hrefInicio.href = 'portalAdmin.html';
 			usuarioActual = await conseguirAdminCedula(cedula_usuario);
 		}
 	}
@@ -393,14 +395,4 @@ window.addEventListener('load', async () => {
 
 console.log(contrasennaValidaFormato('Bcdfg1!3')); // Should return true
 
-
-
-
-
-
 // Obtener el elemento de la imagen de usuario
-
-
-
-
-

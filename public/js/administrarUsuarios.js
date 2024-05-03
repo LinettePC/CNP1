@@ -64,7 +64,7 @@ function crearFila(persona) {
         	</td>
 	`;
 	} else {
-		if (persona.tienePermisos) {
+		if (persona.permisos) {
 			row.innerHTML = `
             <td>${persona.fecha_de_registro}</td>
             <td>${persona.rol}</td>
@@ -292,7 +292,7 @@ window.addEventListener('load', async () => {
 // 	nomTramo: { type: String, required: false, unique: false },
 // 	correo: { type: String, required: false, unique: false },
 // 	telefono: { type: String, required: false, unique: false },
-// 	tienePermisos: { type: Boolean, required: false, unique: false }, // Si tiene = TRUE. Si no tiene = FALSE
+// 	permisos: { type: Boolean, required: false, unique: false }, // Si tiene = TRUE. Si no tiene = FALSE
 // 	rol: { type: String, default: 'Vendedor' },
 // 	contrasenna: { type: String, required: false, unique: false },
 // 	foto: { type: String, required: false, unique: false },
