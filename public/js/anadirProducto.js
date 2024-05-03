@@ -101,9 +101,9 @@ document
 		// Check if an image hasn't been uploaded
 		if (!uploadedImage) {
 			payload = {
-				cedula_vendedor: '12345',
+				cedula_vendedor: usuarioActual.cedula,
 				nombre: nombre,
-				tramo: 'Tramo Test',
+				tramo: usuarioActual.nomTramo,
 				descripcion: descripcion,
 				categoria: categoriaFinal,
 				precio_vendedor: precio,
@@ -111,9 +111,9 @@ document
 			};
 		} else {
 			payload = {
-				cedula_vendedor: '12345',
+				cedula_vendedor: usuarioActual.cedula,
 				nombre: nombre,
-				tramo: 'Tramo Test',
+				tramo: usuarioActual.nomTramo,
 				descripcion: descripcion,
 				categoria: categoriaFinal,
 				precio_vendedor: precio,

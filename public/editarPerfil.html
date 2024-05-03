@@ -82,7 +82,11 @@
 				<nav class="botones-navegacion">
 					<ul>
 						<!-- <li><a href="portalAdmin.html">Portal</a></li> -->
-						<li><a href="portalVendedor.html" id="hrefInicio">Inicio</a></li>
+						<li>
+							<a href="portalVendedor.html" id="hrefInicio"
+								>Inicio</a
+							>
+						</li>
 						<li>
 							<a
 								href="https://www.cnp.go.cr/contactenos/index.aspx"
@@ -224,13 +228,28 @@
 							/>
 						</div>
 
+						<div id="inputPermiso" style="display: flex">
+							<input
+								type="file"
+								accept="application/pdf"
+								id="file-upload"
+								style="display: none"
+							/>
+							<label
+								for="file-upload"
+								class="subir-foto-btn"
+								id="btn-subir-permiso"
+								>Subir permiso de venta</label
+							>
+						</div>
+
 						<!-- INICIO codigo adjuntar foto -->
-					<div class="foto">
-						<button type="button" id="btn-subir-foto">
-							Subir Foto
-						</button>
-					</div>
-					<!-- FIN codigo adjuntar foto -->
+						<div class="foto">
+							<button type="button" id="btn-subir-foto">
+								Subir Foto
+							</button>
+						</div>
+						<!-- FIN codigo adjuntar foto -->
 
 						<div style="display: flex">
 							<button
@@ -269,7 +288,7 @@
 							<button
 								type="button"
 								class="boton-enviar"
-								style="margin-left: auto; margin-right: auto;"
+								style="margin-left: auto; margin-right: auto"
 								id="btnIngresarContra"
 							>
 								Verificar contraseña
@@ -278,7 +297,7 @@
 					</div>
 
 					<div id="containerNuevaContra">
-						<div style="color: green;">
+						<div style="color: green">
 							Contraseña verificada exitosamente.
 						</div>
 						<br />

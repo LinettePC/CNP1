@@ -12,6 +12,8 @@ const telefono = document.getElementById('telefono');
 
 const botonEnviar = document.getElementById('botonEnviar');
 
+const inputPermiso = document.getElementById('inputPermiso');
+
 const containerIngreseContra = document.getElementById(
 	'containerIngreseContra'
 );
@@ -20,6 +22,18 @@ const hrefInicio = document.getElementById('hrefInicio');
 
 const btnIngresarContra = document.getElementById('btnIngresarContra');
 const btnNuevaContra = document.getElementById('btnIngresarContra');
+
+var agregoPermisos = false;
+
+document
+	.getElementById('file-upload')
+	.addEventListener('change', function (event) {
+		var file = event.target.files[0];
+
+		if (file) {
+			agregoPermisos = true;
+		}
+	});
 
 // COMPROBAR SI LA CONTRASENNA TIENE LOS DATOS QUE SE PIDIERON
 function contrasennaValidaFormato(str) {
@@ -325,6 +339,10 @@ document
 			datosFormulario.foto = 'img/avatar.png';
 		}
 
+		if (agregoPermisos) {
+			datosFormulario.permisos = true;
+		}
+
 		switch (rol) {
 			case 'Cliente':
 				await actualizarDatosCliente(cedula_usuario, datosFormulario);
@@ -384,6 +402,7 @@ window.addEventListener('load', async () => {
 
 		if (rol === 'Vendedor') {
 			usuarioActual = await conseguirVendedorCedula(cedula_usuario);
+			inputPermiso.style.display = 'flex';
 		} else {
 			hrefInicio.href = 'portalAdmin.html';
 			usuarioActual = await conseguirAdminCedula(cedula_usuario);

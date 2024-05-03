@@ -3,7 +3,7 @@
 const canasta = document.getElementById('canasta');
 const divMensaje = document.getElementById('divMensaje');
 
-function crearTarjetaProducto(nombre_producto, id_producto) {
+function crearTarjetaProducto(nombre_producto, id_producto, imagenProducto) {
 	// Create a div element with class "tarjetaProducto"
 	var tarjetaProducto = document.createElement('div');
 	tarjetaProducto.className = 'tarjetaProducto';
@@ -19,7 +19,11 @@ function crearTarjetaProducto(nombre_producto, id_producto) {
 
 	// Create an img element with src and alt attributes
 	var imgElement = document.createElement('img');
-	imgElement.src = '/public/img/error/noimg.jpg';
+	if (imagenProducto == '' || !imagenProducto || imagenProducto == 'noimg') {
+		imgElement.src = '/public/img/error/noimg.jpg';
+	} else {
+		imgElement.src = imagenProducto;
+	}
 	imgElement.alt = 'Imagen de un(a) ' + nombre_producto;
 
 	// Append the imgElement to the "imagenProducto" div
@@ -75,7 +79,8 @@ window.addEventListener('load', async () => {
 
 			let nuevaTarjeta = crearTarjetaProducto(
 				productoDB.nombre,
-				productoDB._id
+				productoDB._id,
+				productoDB.imagen
 			);
 
 			canasta.appendChild(nuevaTarjeta);
