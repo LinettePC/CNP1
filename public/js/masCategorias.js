@@ -23,7 +23,7 @@ function formatearNumeroConComas(numero) {
 
 function crearTarjetaProducto(
 	nombre,
-	descripcion,
+	tramo,
 	precioVendedor,
 	productoID,
 	imagenProducto
@@ -64,18 +64,17 @@ function crearTarjetaProducto(
 	precioElemento.classList.add('precio');
 	precioElemento.textContent = '₡' + formatearNumeroConComas(precioVendedor);
 
-	// Descripción del producto
-	const descripcionElemento = document.createElement('p');
-	descripcionElemento.classList.add('descripcion');
-	descripcionElemento.textContent = descripcion;
+	// Tramo del producto
+	const tramoElemento = document.createElement('p');
+	tramoElemento.classList.add('tramo');
+	tramoElemento.textContent = tramo;
 
 	// Agregar elementos al contenedor principal
 	contenedorFoto.appendChild(enlace); // Agregar el enlace al contenedor de la foto
 	item.appendChild(contenedorFoto); // Agregar el contenedor de la foto al elemento principal
 	item.appendChild(nombreElemento); // Agregar el nombre al elemento principal
 	item.appendChild(precioElemento); // Agregar el precio al elemento principal
-	item.appendChild(descripcionElemento); // Agregar la descripción al elemento principal
-	//En otras palabras, llenando el div
+	item.appendChild(tramoElemento); // Agregar el tramo al elemento principal
 
 	// Devolver la tarjeta creada
 	return item;
@@ -103,7 +102,7 @@ selectCategorias.addEventListener('change', function () {
 			lista_productos.forEach((productoDB) => {
 				const nuevaTarjeta = crearTarjetaProducto(
 					productoDB.nombre,
-					productoDB.descripcion,
+					productoDB.tramo,
 					productoDB.precio_vendedor,
 					productoDB._id,
 					productoDB.imagen
@@ -116,7 +115,7 @@ selectCategorias.addEventListener('change', function () {
 			productosFiltrados.forEach((productoDB) => {
 				const nuevaTarjeta = crearTarjetaProducto(
 					productoDB.nombre,
-					productoDB.descripcion,
+					productoDB.tramo,
 					productoDB.precio_vendedor,
 					productoDB._id,
 					productoDB.imagen
@@ -151,7 +150,7 @@ window.addEventListener('load', async () => {
 			let productoDB = lista_productos[i];
 			let nuevaTarjeta = crearTarjetaProducto(
 				productoDB.nombre,
-				productoDB.descripcion,
+				productoDB.tramo,
 				productoDB.precio_vendedor,
 				productoDB._id,
 				productoDB.imagen

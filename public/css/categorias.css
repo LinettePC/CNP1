@@ -247,11 +247,11 @@ body {
     font-size: 25px;
 }
 
-.mostrador #fila .item .descripcion{
+.mostrador #fila .item .tramo{
 	margin-top: 8px;
-    color: #a5a5a5;
+    color: #777777;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 15px;
 }
 
 .tituloCategoria{

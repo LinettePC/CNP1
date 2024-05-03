@@ -14,7 +14,7 @@ Content-Type: application/json
             "nombre": "Producto 1",
             "tramo": "Tramo Test",
             "descripcion": "Descripción del Producto 1",
-            "categoria": "Categoría del Producto 1",
+            "categoria": "Lacteos",
             "imagen": "imagen1.jpg",
             "precio_vendedor": "15.99",
             "inventario": "10"
