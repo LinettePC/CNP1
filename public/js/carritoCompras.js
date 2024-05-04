@@ -150,7 +150,6 @@ function agregarProductoParaComprar(
 	btnConfirmar.addEventListener('click', () => {
 		const idProducto = id; // Obtener el identificador único del producto
 		const nuevaCantidad = parseInt(inputCantidad.value); // Obtener la nueva cantidad desde el input
-
 		// Obtener la lista de productos del localStorage
 		let listaProductos =
 			JSON.parse(localStorage.getItem('productos_en_carrito')) || [];
@@ -203,6 +202,7 @@ function agregarProductoParaComprar(
 
 	eliminarBtn.addEventListener('click', () => {
 		eliminarProductoDelLocalStorage(id);
+		restablecerInventarioProducto(id,parseInt(cantidad))
 		Swal.fire({
 			title: 'Producto Eliminado',
 			text: '',

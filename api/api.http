@@ -4,20 +4,16 @@ GET http://localhost:3000/api/listar-clientes
 
 ###
 
-POST http://localhost:3000/api/registrar-producto
+PUT  http://localhost:3000/api/restablecer-inventario-producto
 Content-Type: application/json
 
 {
   
         
-            "cedula_vendedor": "12345",
-            "nombre": "Producto 1",
-            "tramo": "Tramo Test",
-            "descripcion": "Descripción del Producto 1",
-            "categoria": "Lacteos",
-            "imagen": "imagen1.jpg",
-            "precio_vendedor": "15.99",
-            "inventario": "10"
+           
+    "_id": "66357eddd4bde2515743e424",
+    "cantidadNueva": "5"
+
         
    
 }
