@@ -9,10 +9,11 @@ function llenarCategorias(elementoSelect, items) {
 	});
 }
 
+let filaProducto = document.getElementById('fila');
+
 let lista_productos = [];
 let lista_categorias = [];
 
-const filaProducto = document.getElementById('fila');
 function formatearNumeroConComas(numero) {
 	if (numero) {
 		return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -81,7 +82,7 @@ function crearTarjetaProducto(
 }
 
 selectCategorias.addEventListener('change', async function () {
-	const selectedCategoria = this.value; // Parse selected value to integer
+	const selectedCategoria = this.value;
 
 	// Clear filaProducto before adding new products
 	filaProducto.innerHTML = '';
@@ -106,16 +107,17 @@ selectCategorias.addEventListener('change', async function () {
 		);
 
 		console.log(productosFiltrados);
-		console.log(productosFiltrados.length);
-
-		if (productosFiltrados.length == 0) {
-			let mostrador = document.getElementById('mostrador');
-			mostrador.style.fontSize = '30px';
-			mostrador.innerHTML = 'No hay productos en esta categoría';
-			console.log('Error')
+		let mensajeNoProductos = document.getElementById('mensajeNoProductos');
+		// let mostrador = document.getElementById('mostrador');
+		if (productosFiltrados.length === 0) {
+			mensajeNoProductos.style.display = 'block';
 		} else {
+			mensajeNoProductos.style.display = 'none';
+			console.log('Mostrar carnes');
+
+			// Display products for the selected category
 			productosFiltrados.forEach((productoDB) => {
-				const nuevaTarjeta = crearTarjetaProducto(
+				let nuevaTarjeta = crearTarjetaProducto(
 					productoDB.nombre,
 					productoDB.tramo,
 					productoDB.precio_vendedor,
@@ -145,7 +147,7 @@ window.addEventListener('load', async () => {
 	if (lista_productos.length === 0) {
 		let mostrador = document.getElementById('mostrador');
 		mostrador.style.fontSize = '30px';
-		mostrador.innerHTML = 'No hay productos';
+		mostrador.innerText = 'No hay productos';
 	} else {
 		for (let i = 0; i < lista_productos.length; i++) {
 			let productoDB = lista_productos[i];
