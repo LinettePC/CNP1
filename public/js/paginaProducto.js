@@ -204,7 +204,7 @@ function crearTarjetaProducto(
 					}
 				});
 			}
-			actualizarInventarioProdudcto(id,inputCantidad.value)
+		
 			inputCantidad.value = '1';
 			
 		});
