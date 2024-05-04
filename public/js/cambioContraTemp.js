@@ -26,7 +26,7 @@ const btnNuevaContra = document.getElementById('btnIngresarContra');
 // COMPROBAR SI LA CONTRASENNA TIENE LOS DATOS QUE SE PIDIERON
 function contrasennaValidaFormato(str) {
 	// Comprobar si la longitud de la cadena es 8 caracteres
-	if (str.length !== 8) {
+	if (str.length < 8) {
 		return false;
 	}
 

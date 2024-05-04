@@ -461,7 +461,7 @@ router.get('/listar-frutas-verduras', (req, res) => {
 
 //http://localhost:3000/api/listar-lacteos
 router.get('/listar-lacteos', (req, res) => {
-	Producto.find({ categoria: 'Lacteos' }, (error, lista) => {
+	Producto.find({ categoria: 'Lácteos' }, (error, lista) => {
 		if (error) {
 			res.status(500).json({
 				resultado: false,

@@ -9,10 +9,11 @@ function llenarCategorias(elementoSelect, items) {
 	});
 }
 
+let filaProducto = document.getElementById('fila');
+
 let lista_productos = [];
 let lista_categorias = [];
 
-const filaProducto = document.getElementById('fila');
 function formatearNumeroConComas(numero) {
 	if (numero) {
 		return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -80,40 +81,43 @@ function crearTarjetaProducto(
 	return item;
 }
 
-selectCategorias.addEventListener('change', function () {
-	const selectedCategoria = this.value; // Parse selected value to integer
+selectCategorias.addEventListener('change', async function () {
+	const selectedCategoria = this.value;
 
 	// Clear filaProducto before adding new products
 	filaProducto.innerHTML = '';
 
-	// Filter products based on selected category
-	const productosFiltrados = lista_productos.filter(
-		(producto) => producto.categoria === selectedCategoria
-	);
+	if (selectedCategoria === '0') {
+		// If selected category is 0, show all products
+		lista_productos.forEach((productoDB) => {
+			const nuevaTarjeta = crearTarjetaProducto(
+				productoDB.nombre,
+				productoDB.tramo,
+				productoDB.precio_vendedor,
+				productoDB._id,
+				productoDB.imagen
+			);
 
-	if (productosFiltrados.length === 0) {
-		let mostrador = document.getElementById('mostrador');
-		mostrador.style.fontSize = '30px';
-		mostrador.innerHTML = 'No hay productos en esta categoría';
+			filaProducto.appendChild(nuevaTarjeta);
+		});
 	} else {
-		// Create cards for filtered products
-		if (selectedCategoria === '0') {
-			// If selected category is 0, show all products
-			lista_productos.forEach((productoDB) => {
-				const nuevaTarjeta = crearTarjetaProducto(
-					productoDB.nombre,
-					productoDB.tramo,
-					productoDB.precio_vendedor,
-					productoDB._id,
-					productoDB.imagen
-				);
+		// Filter products based on selected category
+		let productosFiltrados = lista_productos.filter(
+			(producto) => producto.categoria === selectedCategoria
+		);
 
-				filaProducto.appendChild(nuevaTarjeta);
-			});
+		console.log(productosFiltrados);
+		let mensajeNoProductos = document.getElementById('mensajeNoProductos');
+		// let mostrador = document.getElementById('mostrador');
+		if (productosFiltrados.length === 0) {
+			mensajeNoProductos.style.display = 'block';
 		} else {
-			// Create cards for filtered products
+			mensajeNoProductos.style.display = 'none';
+			console.log('Mostrar carnes');
+
+			// Display products for the selected category
 			productosFiltrados.forEach((productoDB) => {
-				const nuevaTarjeta = crearTarjetaProducto(
+				let nuevaTarjeta = crearTarjetaProducto(
 					productoDB.nombre,
 					productoDB.tramo,
 					productoDB.precio_vendedor,
@@ -130,7 +134,6 @@ selectCategorias.addEventListener('change', function () {
 window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();
 	lista_productos = await listarProductos();
-
 	console.log(lista_productos);
 
 	let nombresCategorias = [];
@@ -144,7 +147,7 @@ window.addEventListener('load', async () => {
 	if (lista_productos.length === 0) {
 		let mostrador = document.getElementById('mostrador');
 		mostrador.style.fontSize = '30px';
-		mostrador.innerHTML = 'No hay productos';
+		mostrador.innerText = 'No hay productos';
 	} else {
 		for (let i = 0; i < lista_productos.length; i++) {
 			let productoDB = lista_productos[i];
