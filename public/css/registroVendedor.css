@@ -213,7 +213,6 @@ button:hover {
 /* Estilos para contener la imagen */
 .foto {
 	max-width: 110px; /* Ancho máximo de la imagen */
-	max-height: 110px; /* Altura máxima de la imagen */
 	overflow: hidden; /* Ocultar partes de la imagen que excedan el tamaño máximo */
 }
 

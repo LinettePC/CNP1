@@ -6,24 +6,38 @@ const msjNoCategorias = document.getElementById('msjNoCategorias');
 function crearFila(categoria) {
 	const row = document.createElement('tr');
 
-	if (categoria.tipo === 'Usuario') {
+	if (
+		categoria.nombre === 'Frutas y Verduras' ||
+		categoria.nombre === 'Lácteos' ||
+		categoria.nombre === 'Carnes'
+	) {
 		row.innerHTML = `
-        <td>${categoria.nombre}</td>
-        <td>Creada por un vendedor</td>
-        <td class="botonesAdmin">
-            <button class="boton-editar" type="button" onclick="editarCategoriaSitio('${categoria._id}', '${categoria.nombre}')">Editar</button>
-            <button class="boton-eliminar" type="button" onclick="eliminarCategoriaSitio('${categoria._id}', '${categoria.nombre}')">Eliminar</button>
-        </td>
-         `;
+			<td>${categoria.nombre}</td>
+			<td>Creada por el sistema</td>
+			<td class="botonesAdmin">
+				<p>Es una categoría predeterminada.</p>
+			</td>
+			 `;
 	} else {
-		row.innerHTML = `
-        <td>${categoria.nombre}</td>
-        <td>Creada por el administrador</td>
-        <td class="botonesAdmin">
-            <button class="boton-editar" type="button" onclick="editarCategoriaSitio('${categoria._id}', '${categoria.nombre}')">Editar</button>
-            <button class="boton-eliminar" type="button" onclick="eliminarCategoriaSitio('${categoria._id}', '${categoria.nombre}')">Eliminar</button>
-        </td>
-         `;
+		if (categoria.tipo === 'Usuario') {
+			row.innerHTML = `
+			<td>${categoria.nombre}</td>
+			<td>Creada por un vendedor</td>
+			<td class="botonesAdmin">
+				<button class="boton-editar" type="button" onclick="editarCategoriaSitio('${categoria._id}', '${categoria.nombre}')">Editar</button>
+				<button class="boton-eliminar" type="button" onclick="eliminarCategoriaSitio('${categoria._id}', '${categoria.nombre}')">Eliminar</button>
+			</td>
+			 `;
+		} else {
+			row.innerHTML = `
+			<td>${categoria.nombre}</td>
+			<td>Creada por el administrador</td>
+			<td class="botonesAdmin">
+				<button class="boton-editar" type="button" onclick="editarCategoriaSitio('${categoria._id}', '${categoria.nombre}')">Editar</button>
+				<button class="boton-eliminar" type="button" onclick="eliminarCategoriaSitio('${categoria._id}', '${categoria.nombre}')">Eliminar</button>
+			</td>
+			 `;
+		}
 	}
 
 	return row;

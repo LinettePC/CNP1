@@ -1,18 +1,27 @@
-const registroCliente = async (pcedula, pnombre, pprimerApellido, pcorreo, ptelefono, pcontrasenna,pfotoId) => {
+const registroCliente = async (
+	pcedula,
+	pnombre,
+	pprimerApellido,
+	pcorreo,
+	ptelefono,
+	pcontrasenna,
+	pfotoId
+) => {
 	await axios({
-		method: "post",
-		url: "http://localhost:3000/api/registrar-clientes",
+		method: 'post',
+		url: 'http://localhost:3000/api/registrar-clientes',
 		responseType: 'json',
 		data: {
 			cedula: pcedula,
-            nombre: pnombre,
-            primerApellido: pprimerApellido,
+			nombre: pnombre,
+			primerApellido: pprimerApellido,
 			correo: pcorreo,
-            telefono: ptelefono,
+			telefono: ptelefono,
 			contrasenna: pcontrasenna,
 			foto: pfotoId,
-		}
-	}).then((response) => {
+		},
+	})
+		.then((response) => {
 			Swal.fire({
 				title: 'Registro exitoso',
 				text: 'Puede proceder a ingresar a su cuenta',
@@ -28,8 +37,11 @@ const registroCliente = async (pcedula, pnombre, pprimerApellido, pcorreo, ptele
 			}, 2000);
 		})
 		.catch((err) => {
-		
-			if (err.response.data.error.code === 11000 && err.response.data.error.keyPattern && err.response.data.error.keyPattern.cedula) {
+			if (
+				err.response.data.error.code === 11000 &&
+				err.response.data.error.keyPattern &&
+				err.response.data.error.keyPattern.cedula
+			) {
 				Swal.fire({
 					title: 'No se completó el envío del formulario',
 					text: 'La cédula ya existe',
@@ -42,9 +54,5 @@ const registroCliente = async (pcedula, pnombre, pprimerApellido, pcorreo, ptele
 					icon: 'error',
 				});
 			}
-		
-	});
+		});
 };
-
-
-

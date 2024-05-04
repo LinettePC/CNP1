@@ -123,7 +123,7 @@ function validarContrasenna() {
 			text: 'Por favor, asegúrate de que las contraseñas coincidan',
 			icon: 'warning',
 		});
-		return false;
+		return true;
 	}
 
 	return validarCampo(
