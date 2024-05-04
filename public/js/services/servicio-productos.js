@@ -285,3 +285,20 @@ const actualizarInventarioProdudcto = async (id_producto, cantidad_restada) => {
 			console.log(error);
 		});
 };
+
+const restablecerInventarioProducto = async (id_producto, cantidad_nueva) => {
+    try {
+        const response = await axios.put('http://localhost:3000/api/restablecer-inventario-producto', {
+            _id: id_producto,
+            cantidadNueva: cantidad_nueva,
+        });
+        
+        if (response.data.resultado === false) {
+            console.log(response.data.error);
+        } else {
+            console.log(response.data.msj);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};

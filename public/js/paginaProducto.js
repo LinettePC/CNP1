@@ -61,8 +61,30 @@ function crearTarjetaProducto(
 	tramoElemento.classList.add('tramo');
 	tramoElemento.textContent = 'Tramo: ' + tramo;
 
-	// Div para el botón de cantidad
-	const divCantidad = document.createElement('div');
+	
+
+	// Div para el botón de agregar al carrito
+	const divContenedorParaComprar = document.createElement('div');
+	divContenedorParaComprar.classList.add('comprar');
+
+	// Botón de agregar al carrito
+	
+	if (max_inventario === "" || max_inventario === "0") {
+		const btnNoStock = document.createElement('button');
+		btnNoStock.classList.add('btnNoStock');
+		btnNoStock.textContent = 'No Disponible';
+		divContenedorParaComprar.appendChild(btnNoStock);
+		btnNoStock.addEventListener('click', () => {
+			Swal.fire({
+				title: 'No se pudo agregar el producto',
+				text: 'No hay suficiente inventario',
+				icon: 'error',
+				confirmButtonText: 'Entendido!',
+			})
+		})
+		
+	}else{
+		const divCantidad = document.createElement('div');
 	divCantidad.classList.add('cantidad');
 
 	// Botón de reducir cantidad
@@ -84,17 +106,112 @@ function crearTarjetaProducto(
 	btnPlus.textContent = '+';
 	divCantidad.appendChild(btnPlus);
 
-	// Div para el botón de agregar al carrito
-	const divContenedorParaComprar = document.createElement('div');
-	divContenedorParaComprar.classList.add('comprar');
-
-	// Botón de agregar al carrito
-	const btnAgregarCarrito = document.createElement('button');
-	btnAgregarCarrito.classList.add('agregarCarrito');
-	btnAgregarCarrito.textContent = 'Agregar al carrito';
-
 	divContenedorParaComprar.appendChild(divCantidad);
-	divContenedorParaComprar.appendChild(btnAgregarCarrito);
+
+		inputCantidad.addEventListener('input', function () {
+			this.value = this.value.replace(/\D/g, '');
+	
+			var value = parseInt(this.value);
+			if (value >= max_inventario) {
+				this.value = max_inventario;
+			}
+			if (isNaN(value) || value < 0) {
+				this.value = 1;
+			}
+		});
+	
+		btnPlus.addEventListener('click', () => {
+			actualizarCantidad(+1, max_inventario);
+		});
+	
+		btnMinus.addEventListener('click', () => {
+			actualizarCantidad(-1, max_inventario);
+		});
+	
+		function actualizarCantidad(cambio, max) {
+			let nuevaCantidad = parseInt(inputCantidad.value) + cambio;
+			if (nuevaCantidad < 1) {
+				nuevaCantidad = 1; // Evitar cantidades negativas
+			}
+			if (nuevaCantidad > parseInt(max)) {
+				nuevaCantidad = parseInt(max);
+			}
+			inputCantidad.value = nuevaCantidad;
+		}
+
+		const btnAgregarCarrito = document.createElement('button');
+		btnAgregarCarrito.classList.add('agregarCarrito');
+		btnAgregarCarrito.textContent = 'Agregar al carrito';
+		divContenedorParaComprar.appendChild(btnAgregarCarrito);
+
+		// Div para el botón de cantidad
+	
+		btnAgregarCarrito.addEventListener('click', async () => {
+			let productoEnCarrito =
+				JSON.parse(localStorage.getItem('productos_en_carrito')) || [];
+	
+			if (
+				productoEnCarrito.find(
+					(productoParaBuscar) => productoParaBuscar.id === id
+				)
+			) {
+				let indexBuscado = productoEnCarrito.findIndex(
+					(objeto) => objeto.id === id
+				);
+				let objetoAModificar = productoEnCarrito[indexBuscado];
+				console.log(objetoAModificar);
+				objetoAModificar.cantidad =
+					parseInt(objetoAModificar.cantidad) +
+					parseInt(inputCantidad.value);
+	
+				productoEnCarrito[indexBuscado] = objetoAModificar;
+	
+				localStorage.setItem(
+					'productos_en_carrito',
+					JSON.stringify(productoEnCarrito)
+				);
+	
+				Swal.fire({
+					title: 'El producto ya existe en el carrito',
+					text: 'Se actualizara la cantidad actual',
+					icon: 'success',
+					confirmButtonText: 'Entendido!',
+				}).then((result) => {
+					// Después de mostrar el mensaje, reiniciar la página
+					if (result.isConfirmed) {
+						location.reload(); // Recargar la página
+					}
+				});
+			} else {
+				const productoNuevo = {
+					id: id,
+					cantidad: inputCantidad.value,
+				};
+				productoEnCarrito.push(productoNuevo);
+				localStorage.setItem(
+					'productos_en_carrito',
+					JSON.stringify(productoEnCarrito)
+				);
+				Swal.fire({
+					title: 'Producto agregado al carrito',
+					text: '',
+					icon: 'success',
+					confirmButtonText: 'Entendido!',
+				}).then((result) => {
+					// Después de mostrar el mensaje, reiniciar la página
+					if (result.isConfirmed) {
+						location.reload(); // Recargar la página
+					}
+				});
+			}
+		
+			inputCantidad.value = '1';
+			
+		});
+	}
+
+
+	
 
 	// Título de la descripción
 	const tituloDescripcion = document.createElement('span');
@@ -106,36 +223,7 @@ function crearTarjetaProducto(
 	descripcionElemento.classList.add('descripcion');
 	descripcionElemento.textContent = descripcion;
 
-	inputCantidad.addEventListener('input', function () {
-		this.value = this.value.replace(/\D/g, '');
-
-		var value = parseInt(this.value);
-		if (value >= max_inventario) {
-			this.value = max_inventario;
-		}
-		if (isNaN(value) || value < 0) {
-			this.value = 1;
-		}
-	});
-
-	btnPlus.addEventListener('click', () => {
-		actualizarCantidad(+1, max_inventario);
-	});
-
-	btnMinus.addEventListener('click', () => {
-		actualizarCantidad(-1, max_inventario);
-	});
-
-	function actualizarCantidad(cambio, max) {
-		let nuevaCantidad = parseInt(inputCantidad.value) + cambio;
-		if (nuevaCantidad < 1) {
-			nuevaCantidad = 1; // Evitar cantidades negativas
-		}
-		if (nuevaCantidad > parseInt(max)) {
-			nuevaCantidad = parseInt(max);
-		}
-		inputCantidad.value = nuevaCantidad;
-	}
+	
 
 	// Agregar todos los elementos al contenedor de información del producto
 	infoProducto.appendChild(nombreElemento);
@@ -150,67 +238,8 @@ function crearTarjetaProducto(
 	contenedorProducto.appendChild(contenedorImagen);
 	contenedorProducto.appendChild(infoProducto);
 
-	btnAgregarCarrito.addEventListener('click', () => {
-		let productoEnCarrito =
-			JSON.parse(localStorage.getItem('productos_en_carrito')) || [];
 
-		if (
-			productoEnCarrito.find(
-				(productoParaBuscar) => productoParaBuscar.id === id
-			)
-		) {
-			let indexBuscado = productoEnCarrito.findIndex(
-				(objeto) => objeto.id === id
-			);
-			let objetoAModificar = productoEnCarrito[indexBuscado];
-			console.log(objetoAModificar);
-			objetoAModificar.cantidad =
-				parseInt(objetoAModificar.cantidad) +
-				parseInt(inputCantidad.value);
-
-			productoEnCarrito[indexBuscado] = objetoAModificar;
-
-			localStorage.setItem(
-				'productos_en_carrito',
-				JSON.stringify(productoEnCarrito)
-			);
-
-			Swal.fire({
-				title: 'El producto ya existe en el carrito',
-				text: 'Se actualizara la cantidad actual',
-				icon: 'success',
-				confirmButtonText: 'Entendido!',
-			}).then((result) => {
-				// Después de mostrar el mensaje, reiniciar la página
-				if (result.isConfirmed) {
-					location.reload(); // Recargar la página
-				}
-			});
-		} else {
-			const productoNuevo = {
-				id: id,
-				cantidad: inputCantidad.value,
-			};
-			productoEnCarrito.push(productoNuevo);
-			localStorage.setItem(
-				'productos_en_carrito',
-				JSON.stringify(productoEnCarrito)
-			);
-			Swal.fire({
-				title: 'Producto agregado al carrito',
-				text: '',
-				icon: 'success',
-				confirmButtonText: 'Entendido!',
-			}).then((result) => {
-				// Después de mostrar el mensaje, reiniciar la página
-				if (result.isConfirmed) {
-					location.reload(); // Recargar la página
-				}
-			});
-		}
-
-		inputCantidad.value = '1';
-	});
+	
 
 	// Devolver la tarjeta creada
 	return contenedorProducto;
@@ -323,6 +352,7 @@ window.addEventListener('load', async () => {
 				objetoProducto.imagen,
 				objetoProducto.inventario
 			);
+
 
 			if (objetoProducto.reviews.length > 0) {
 				for (let i = 0; i < objetoProducto.reviews.length; i++) {
