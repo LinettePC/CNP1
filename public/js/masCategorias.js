@@ -80,38 +80,40 @@ function crearTarjetaProducto(
 	return item;
 }
 
-selectCategorias.addEventListener('change', function () {
+selectCategorias.addEventListener('change', async function () {
 	const selectedCategoria = this.value; // Parse selected value to integer
 
 	// Clear filaProducto before adding new products
 	filaProducto.innerHTML = '';
 
-	// Filter products based on selected category
-	const productosFiltrados = lista_productos.filter(
-		(producto) => producto.categoria === selectedCategoria
-	);
+	if (selectedCategoria === '0') {
+		// If selected category is 0, show all products
+		lista_productos.forEach((productoDB) => {
+			const nuevaTarjeta = crearTarjetaProducto(
+				productoDB.nombre,
+				productoDB.tramo,
+				productoDB.precio_vendedor,
+				productoDB._id,
+				productoDB.imagen
+			);
 
-	if (productosFiltrados.length === 0) {
-		let mostrador = document.getElementById('mostrador');
-		mostrador.style.fontSize = '30px';
-		mostrador.innerHTML = 'No hay productos en esta categoría';
+			filaProducto.appendChild(nuevaTarjeta);
+		});
 	} else {
-		// Create cards for filtered products
-		if (selectedCategoria === '0') {
-			// If selected category is 0, show all products
-			lista_productos.forEach((productoDB) => {
-				const nuevaTarjeta = crearTarjetaProducto(
-					productoDB.nombre,
-					productoDB.tramo,
-					productoDB.precio_vendedor,
-					productoDB._id,
-					productoDB.imagen
-				);
+		// Filter products based on selected category
+		let productosFiltrados = lista_productos.filter(
+			(producto) => producto.categoria === selectedCategoria
+		);
 
-				filaProducto.appendChild(nuevaTarjeta);
-			});
+		console.log(productosFiltrados);
+		console.log(productosFiltrados.length);
+
+		if (productosFiltrados.length == 0) {
+			let mostrador = document.getElementById('mostrador');
+			mostrador.style.fontSize = '30px';
+			mostrador.innerHTML = 'No hay productos en esta categoría';
+			console.log('Error')
 		} else {
-			// Create cards for filtered products
 			productosFiltrados.forEach((productoDB) => {
 				const nuevaTarjeta = crearTarjetaProducto(
 					productoDB.nombre,
@@ -130,7 +132,6 @@ selectCategorias.addEventListener('change', function () {
 window.addEventListener('load', async () => {
 	lista_categorias = await obtenerCategorias();
 	lista_productos = await listarProductos();
-
 	console.log(lista_productos);
 
 	let nombresCategorias = [];

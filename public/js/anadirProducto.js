@@ -7,6 +7,8 @@ const contenedorCategoriaNueva = document.getElementById('categoriaNueva');
 const contenedorPrecio = document.getElementById('precio');
 const contenedorInventario = document.getElementById('inventario');
 
+let uploadedImage = document.getElementById('foto-producto');
+
 const containerAgregarProducto = document.getElementById(
 	'containerAgregarProducto'
 );
@@ -94,12 +96,10 @@ document
 
 		// Construct payload object
 
-		const uploadedImage = document.getElementById('foto-producto');
-
 		let payload;
 
 		// Check if an image hasn't been uploaded
-		if (!uploadedImage) {
+		if (!uploadedImage.src) {
 			payload = {
 				cedula_vendedor: usuarioActual.cedula,
 				nombre: nombre,
@@ -191,8 +191,13 @@ function llenarCamposProducto(info_producto) {
 	contenedorCategoria.style.border = '1px solid #ccc';
 	contenedorCategoria.style.opacity = '1';
 
-	let seccionImagen = document.getElementById('seccionImagen');
-	seccionImagen.innerHTML = '';
+	let divImagenProducto = document.getElementById('divImagenProducto');
+	divImagenProducto.style.display = 'block';
+	divImagenProducto.style.padding = '10px';
+
+	let btn = document.getElementById('btn-subir-foto-producto');
+	btn.style.display = 'none';
+	uploadedImage.src = info_producto.imagen;
 }
 
 let usuarioActual = {};
