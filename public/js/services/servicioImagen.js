@@ -41,22 +41,3 @@ if (boton_permiso) {
     }, false);
 }
 
-
-// Foto usuario/cliente
-
-const boton_imagen2 = document.querySelector("#btn-subir-foto");
-const imagen2 = document.querySelector("#imgUsuario");
-
-let widget_cloudinary2 = cloudinary.createUploadWidget({
-    cloudName: "dxzx5qtaq",
-    uploadPreset: "catware_preset"
-}, (error, result) => {
-    if (!error && result && result.event === "success") {
-        console.log("Imagen registrada", result.info);
-        imagen2.src = result.info.secure_url;
-    }
-});
-
-boton_imagen2.addEventListener("click", () => {
-    widget_cloudinary2.open();
-}, false);
