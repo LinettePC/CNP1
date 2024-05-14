@@ -110,42 +110,6 @@ let listaProductosParaComprar =
 
 let totalProductos = 0;
 
-window.addEventListener('load', async () => {
-	usuarioActual = await conseguirCompradorCedula(cedula_usuario);
-
-	if (usuarioActual) {
-		llenarCampos(usuarioActual);
-	}
-
-	console.log(listaProductosParaComprar);
-
-	if (listaProductosParaComprar.length === 0) {
-		let mensajeSinProductos = crearMensajeSinProductos();
-		productosFlex.appendChild(mensajeSinProductos);
-	} else {
-		revisarDatosUsuario();
-
-		for (let i = 0; i < listaProductosParaComprar.length; i++) {
-			let idProducto = listaProductosParaComprar[i].id;
-			let productoDB = await conseguirProductoID(idProducto);
-			console.log('producto encontrado', productoDB);
-			cantidadComprar = listaProductosParaComprar[i].cantidad;
-
-			let nuevaTarjeta = agregarProductoParaComprar(
-				productoDB.nombre,
-				cantidadComprar,
-				productoDB.precio_con_iva * cantidadComprar,
-				productoDB._id,
-				productoDB.imagen
-			);
-
-			productosFlex.appendChild(nuevaTarjeta);
-			totalProductos += productoDB.precio_con_iva * cantidadComprar;
-		}
-		actualizarTotal(totalProductos);
-	}
-});
-
 function eliminarProductoDelLocalStorage(idProducto) {
 	// Obtener la lista actual de productos en el carrito del Local Storage
 	let productosEnCarrito =
@@ -173,7 +137,7 @@ function revisarDatosUsuario() {
 	var direccionText = direccionEnvioDiv.textContent.trim();
 
 	if (
-		tarjetaText === 'No hay ninguna' &&
+		tarjetaText === 'No hay ninguna' ||
 		direccionText === 'No hay ninguna'
 	) {
 		var changeInfoButton = document.createElement('a');
@@ -213,12 +177,10 @@ async function realizarCompra(event) {
 
 		cantidadComprar = listaProductosParaComprar[i].cantidad;
 
-		vendedor = await conseguirVendedorCedula(
-			productoDB.cedula_vendedor
-		);
+		vendedor = await conseguirVendedorCedula(productoDB.cedula_vendedor);
 
 		let ventaString = (
-			productoDB.precio_con_iva * cantidadComprar
+			productoDB.precio_vendedor * cantidadComprar
 		).toString();
 
 		let datosVenta = {
@@ -257,11 +219,54 @@ async function realizarCompra(event) {
 
 function llenarCampos(persona) {
 	// ${persona.direccion.provincia}
-	let direccionString = `${persona.nombre} ${persona.primerApellido} /  ${persona.direccion.direccionExacta} / ${persona.direccion.distrito} / ${persona.direccion.canton}`;
+	let direccionString = 'No hay ninguna';
+	let pago = 'No hay ninguna';
+	if (persona.metodo_pago) {
+		pago = persona.metodo_pago;
+	}
+	if (persona.direccion) {
+		direccionString = `${persona.nombre} ${persona.primerApellido} /  ${persona.direccion.direccionExacta} / ${persona.direccion.distrito} / ${persona.direccion.canton}`;
+	}
 
-	tarjetaUsada.innerHTML = persona.metodo_pago;
+	tarjetaUsada.innerHTML = pago;
 	direccionEnvio.innerHTML = direccionString;
 }
 
 let usuarioActual = {};
 const cedula_usuario = sessionStorage.getItem('cedula');
+
+window.addEventListener('load', async () => {
+	usuarioActual = await conseguirCompradorCedula(cedula_usuario);
+
+	if (usuarioActual) {
+		llenarCampos(usuarioActual);
+	}
+
+	console.log(listaProductosParaComprar);
+
+	if (listaProductosParaComprar.length === 0) {
+		let mensajeSinProductos = crearMensajeSinProductos();
+		productosFlex.appendChild(mensajeSinProductos);
+	} else {
+		revisarDatosUsuario();
+
+		for (let i = 0; i < listaProductosParaComprar.length; i++) {
+			let idProducto = listaProductosParaComprar[i].id;
+			let productoDB = await conseguirProductoID(idProducto);
+			console.log('producto encontrado', productoDB);
+			cantidadComprar = listaProductosParaComprar[i].cantidad;
+
+			let nuevaTarjeta = agregarProductoParaComprar(
+				productoDB.nombre,
+				cantidadComprar,
+				productoDB.precio_vendedor * cantidadComprar,
+				productoDB._id,
+				productoDB.imagen
+			);
+
+			productosFlex.appendChild(nuevaTarjeta);
+			totalProductos += productoDB.precio_con_iva * cantidadComprar;
+		}
+		actualizarTotal(totalProductos);
+	}
+});

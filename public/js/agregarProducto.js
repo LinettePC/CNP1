@@ -19,7 +19,7 @@ function agregarTarjetaProducto(producto) {
 	if (producto.imagen == '' || !producto.imagen || producto.imagen == 'noimg') {
 		img.src = '/public/img/error/noimg.jpg';
 	} else {
-		img.src = imagen_producto;
+		img.src = producto.imagen;
 	}
 	imagenProducto.appendChild(img);
 

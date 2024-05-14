@@ -1,7 +1,7 @@
 const headerComprador = document.getElementById('headerComprador');
 const headerVendedor = document.getElementById('headerVendedor');
 
-const imgUsuario = document.getElementById('imgUsuario');
+const imgUsuario = document.getElementById('foto-usuario');
 const nombreUsuario = document.getElementById('nombreUsuario');
 const apellidoUsuario = document.getElementById('apellidoUsuario');
 

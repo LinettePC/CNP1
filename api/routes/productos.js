@@ -342,6 +342,33 @@ router.put('/actualizar-inventario-producto', (req, res) => {
 	});
 });
 
+router.put('/restablecer-inventario-producto', (req, res) => {
+	let mongoID = req.body._id;
+    let cantidadNueva = req.body.cantidadNueva;
+
+    Producto.updateOne(
+        { _id: mongoID },
+        { $set: { inventario: cantidadNueva } },
+        function (error, info_producto) {
+            if (error) {
+                res.status(500).json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el inventario del producto',
+                    error,
+                });
+            } else {
+                res.status(200).json({
+                    resultado: true,
+                    msj: 'Actualización exitosa del inventario',
+                    info_producto,
+                });
+            }
+        }
+    );
+});
+
+
+
 router.put('/actualizar-producto-default', (req, res) => {
 	let mongoID = req.body._id;
 	let updates = req.body.updates;
@@ -434,7 +461,7 @@ router.get('/listar-frutas-verduras', (req, res) => {
 
 //http://localhost:3000/api/listar-lacteos
 router.get('/listar-lacteos', (req, res) => {
-	Producto.find({ categoria: 'Lacteos' }, (error, lista) => {
+	Producto.find({ categoria: 'Lácteos' }, (error, lista) => {
 		if (error) {
 			res.status(500).json({
 				resultado: false,

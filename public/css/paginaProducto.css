@@ -491,6 +491,20 @@ body {
     outline: none;
 }
 
+.btnNoStock{
+	font-family: 'Cabin', sans-serif;
+    height: 40px; /* Aumenta la altura */
+    width: 280px; /* Ajusta el ancho */
+    border: 1px solid black;
+    color: #292929;
+    padding: 8px; /* Aumenta el padding */
+    font-size: 18px; /* Aumenta el tamaño de la fuente */
+    background-color: #888888;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+}
+
 body {
     font-family: 'Cabin', sans-serif;
     margin: 0;

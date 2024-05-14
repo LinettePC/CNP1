@@ -64,7 +64,8 @@ function crearTarjetaProducto(
 
 
 window.addEventListener('load', async () => {
-	let lista_lacteos = await listar_productos('listar-lacteos');
+	let lista_lacteos = await listar_lacteos();
+	console.log(lista_lacteos)
 
 	if (lista_lacteos.length === 0) {
 		//let mensajeSinProductos = crearMensajeSinProductos();
