@@ -1,108 +1,117 @@
 const express = require('express');
-//necesitamos requerir el modelo de Clientes
-const Admin = require('../models/admins');
+const Admin = require('../models/admins'); // Admin model
 const router = express.Router();
+const redis = require('redis');
 
-
-//http://localhost:3000/api/listar-admin
-//GET--> recuperar informacion
-router.get('/buscar-admin-cedula', (req, res) => {
-	let requestedCedula = req.query.cedula;
-	Admin.find({ cedula: requestedCedula }, (error, ClienteBuscada) => {
-		if (error) {
-			res.status(501).json({
-				resultado: false,
-				msj: 'Ocurrió el siguiente error:',
-				error,
-			});
-		} else {
-			if (ClienteBuscada == '') {
-				res.json({ msj: 'La Cliente no existe.' });
-			} else {
-				res.json({
-					resultado: true,
-					msj: 'Usuario encontrado:',
-					Cliente: ClienteBuscada[0],
-				});
-			}
-		}
-	});
+// Redis client setup
+const redisClient = redis.createClient({
+    url: process.env.REDIS_URL || 'redis://localhost:6379',
 });
 
-//si quisiera hacer mas de un admin usar esta funcion
-//agregar info principal de admin, crear admin: Linette
-//POST para registrar admin
-//http://localhost:3000/api/admins
-//http://localhost:3000/api/actualizar-datos-admin
-router.post('/admins', function(req,res){
-    //crear una nueva persona
+redisClient.on('connect', () => {
+    console.log('Connected to Redis for Admin routes');
+});
+
+redisClient.on('error', (err) => {
+    console.error('Redis error:', err);
+});
+
+// Middleware for Redis caching
+const cacheMiddleware = (req, res, next) => {
+    const key = `admin:${req.query.cedula}`;
+    redisClient.get(key, (err, data) => {
+        if (err) {
+            console.error('Redis error:', err);
+            return next();
+        }
+        if (data) {
+            console.log(`Cache hit for cedula: ${req.query.cedula}`);
+            res.json(JSON.parse(data)); // Send cached data
+        } else {
+            console.log(`Cache miss for cedula: ${req.query.cedula}`);
+            next(); // Proceed to the database query
+        }
+    });
+};
+
+// GET --> Fetch admin by cedula with caching
+router.get('/buscar-admin-cedula', cacheMiddleware, (req, res) => {
+    let requestedCedula = req.query.cedula;
+
+    Admin.find({ cedula: requestedCedula }, (error, adminBuscada) => {
+        if (error) {
+            res.status(501).json({
+                resultado: false,
+                msj: 'Ocurrió el siguiente error:',
+                error,
+            });
+        } else {
+            if (adminBuscada == '') {
+                res.json({ msj: 'El admin no existe.' });
+            } else {
+                const response = {
+                    resultado: true,
+                    msj: 'Admin encontrado:',
+                    admin: adminBuscada[0],
+                };
+                // Cache the response in Redis
+                redisClient.setex(`admin:${requestedCedula}`, 3600, JSON.stringify(response)); // Cache for 1 hour
+                res.json(response);
+            }
+        }
+    });
+});
+
+// POST --> Register a new admin
+router.post('/admins', function (req, res) {
     let nuevoAdmin = new Admin({
-        cedula:req.body.cedula,
-		contrasenna:req.body.contrasenna
-         
-    })
-    nuevoAdmin.save()       //201 es un mensaje que dice objeto grabado en base de datos
-    .then((admin)=>{     //then es para cuando SI se guarda
-        res.status(201).json({
-            mensaje:"Admin agregado",
-            resultado:true,
-            admin 
-        })
-    }).catch((error)=>{    //si hay un error este es el mensaje que voy a ver
-        res.status(501).json({
-            mensaje:"No se puede registrar el admin",
-            resultado:false,
-            error
-        })
-    })
-})
+        cedula: req.body.cedula,
+        contrasenna: req.body.contrasenna,
+    });
 
-router.put('/actualizar-datos-admin', (req, res) => {
-	let body = req.body;
-
-	Admin.updateOne(
-		{ cedula: body.cedula },
-		{ $set: req.body.nueva_info },
-		function (error, info) {
-			if (error) {
-				res.status(500).json({
-					resultado: false,
-					msj: 'No se pudo actualizar el cliente',
-					error,
-				});
-			} else {
-				res.status(200).json({
-					resultado: true,
-					msj: 'Actulización exitosa',
-					info,
-				});
-			}
-		}
-	);
+    nuevoAdmin
+        .save()
+        .then((admin) => {
+            res.status(201).json({
+                mensaje: 'Admin agregado',
+                resultado: true,
+                admin,
+            });
+        })
+        .catch((error) => {
+            res.status(501).json({
+                mensaje: 'No se puede registrar el admin',
+                resultado: false,
+                error,
+            });
+        });
 });
 
+// PUT --> Update admin data
+router.put('/actualizar-datos-admin', (req, res) => {
+    let body = req.body;
 
-
-
-
-
-
-
-
-
-
-
-
-
-//http://localhost:3000/api/listar-vendedores
-//GET--> recuperar informacion
-
-// http://localhost:3000/api/buscar-Cliente-nombre
-// Endpoint para agarrar un usuario específico
-
-
-// http://localhost:3000/api/buscar-Cliente-cedula
-// Endpoint para agarrar un usuario específico
+    Admin.updateOne(
+        { cedula: body.cedula },
+        { $set: req.body.nueva_info },
+        function (error, info) {
+            if (error) {
+                res.status(500).json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el admin',
+                    error,
+                });
+            } else {
+                // Invalidate the cache for the updated admin
+                redisClient.del(`admin:${body.cedula}`);
+                res.status(200).json({
+                    resultado: true,
+                    msj: 'Actualización exitosa',
+                    info,
+                });
+            }
+        }
+    );
+});
 
 module.exports = router;
-
