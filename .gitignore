@@ -1,2 +1,4 @@
 .DS_Store
 CNP1.code-workspace
+.env
+/node_modules
