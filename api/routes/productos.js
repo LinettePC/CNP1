@@ -1,555 +1,209 @@
-const express = require('express');
-//necesitamos requerir el modelo de Clientes
-const Producto = require('../models/productos');
-const ProductoDefault = require('../models/productosDefault');
+const express = require("express");
+const Producto = require("../models/productos");
+const ProductoDefault = require("../models/productosDefault");
+const redis = require("redis");
 const router = express.Router();
 
-// http://localhost:3000/api/registrar-producto
-// POST --> crear nuevos registros de productos
-router.post('/registrar-producto', (req, res) => {
-	let body = req.body;
-
-	iva = parseInt(body.precio_vendedor) * 0.13;
-	iva = Math.round(iva * 100) / 100;
-
-	ivaMasTotal = parseInt(body.precio_vendedor) + iva;
-
-	let nuevoProducto = new Producto({
-		cedula_vendedor: body.cedula_vendedor,
-		nombre: body.nombre,
-		tramo: body.tramo,
-		descripcion: body.descripcion,
-		categoria: body.categoria,
-		precio_vendedor: body.precio_vendedor,
-		inventario: body.inventario,
-		precio_con_iva: ivaMasTotal,
-	});
-
-	if (body.imagen) {
-		nuevoProducto.imagen = body.imagen;
-	}
-
-	nuevoProducto.save((error, productoCreado) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo crear el producto',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Producto creado exitosamente',
-				productoCreado,
-			});
-		}
-	});
+// Redis client setup
+const redisClient = redis.createClient({
+  url: process.env.REDIS_URL || "redis://localhost:6379",
 });
 
-router.post('/registrar-producto-default', (req, res) => {
-	let body = req.body;
-
-	let nuevoProducto = new ProductoDefault({
-		nombre: body.nombre,
-		descripcion: body.descripcion,
-		categoria: body.categoria,
-	});
-
-	if (body.imagen) {
-		nuevoProducto.imagen = body.imagen;
-	}
-
-	nuevoProducto.save((error, productoCreado) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo crear el producto',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Producto default creado exitosamente',
-				productoCreado,
-			});
-		}
-	});
+redisClient.on("connect", () => {
+  console.log("Connected to Redis for Productos routes");
 });
 
-router.delete('/eliminar-producto-default', (req, res) => {
-	let mongoID = req.body._id;
-	ProductoDefault.deleteOne({ _id: mongoID }, function (error, info) {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo eliminar el producto',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Se eliminó el producto de forma exitosa',
-				info,
-			});
-		}
-	});
+redisClient.on("error", (err) => {
+  console.error("Redis error:", err);
 });
 
-//http://localhost:3000/api/listar-productos-default
-//GET--> recuperar informacion
-router.get('/listar-productos-default', (req, res) => {
-	ProductoDefault.find((error, ProductosBuscados) => {
-		if (error) {
-			res.status(501).json({
-				resultado: false,
-				msj: 'Ocurrió el siguiente error:',
-				error,
-			});
-		} else {
-			if (ProductosBuscados == '') {
-				res.json({
-					resultado: true,
-					msj: 'No hay productos default',
-					lista: [],
-				});
-			} else {
-				res.json({
-					resultado: true,
-					msj: 'Productos default encontrados:',
-					lista: ProductosBuscados,
-				});
-			}
-		}
-	});
+// Middleware for caching
+const cacheMiddleware = (key) => (req, res, next) => {
+  redisClient.get(key, (err, data) => {
+    if (err) {
+      console.error("Redis error:", err);
+      return next();
+    }
+    if (data) {
+      console.log(`Cache hit for ${key}`);
+      res.json(JSON.parse(data));
+    } else {
+      console.log(`Cache miss for ${key}`);
+      next();
+    }
+  });
+};
+
+// Utility to invalidate cache
+const invalidateCache = (...keys) => {
+  keys.forEach((key) => {
+    redisClient.del(key, (err, response) => {
+      if (err) {
+        console.error(`Failed to invalidate cache for key: ${key}`, err);
+      } else {
+        console.log(`Cache invalidated for key: ${key}`);
+      }
+    });
+  });
+};
+
+// Route to create a product
+router.post("/registrar-producto", (req, res) => {
+  let body = req.body;
+
+  let iva = parseInt(body.precio_vendedor) * 0.13;
+  iva = Math.round(iva * 100) / 100;
+
+  let ivaMasTotal = parseInt(body.precio_vendedor) + iva;
+
+  let nuevoProducto = new Producto({
+    cedula_vendedor: body.cedula_vendedor,
+    nombre: body.nombre,
+    tramo: body.tramo,
+    descripcion: body.descripcion,
+    categoria: body.categoria,
+    precio_vendedor: body.precio_vendedor,
+    inventario: body.inventario,
+    precio_con_iva: ivaMasTotal,
+  });
+
+  if (body.imagen) {
+    nuevoProducto.imagen = body.imagen;
+  }
+
+  nuevoProducto.save((error, productoCreado) => {
+    if (error) {
+      res.status(500).json({
+        resultado: false,
+        msj: "No se pudo crear el producto",
+        error,
+      });
+    } else {
+      // Invalidate relevant caches
+      invalidateCache("productos:list", `productos:vendedor:${body.cedula_vendedor}`);
+      res.status(200).json({
+        resultado: true,
+        msj: "Producto creado exitosamente",
+        productoCreado,
+      });
+    }
+  });
 });
 
-router.get('/listar-productos', (req, res) => {
-	Producto.find((error, ProductosBuscados) => {
-		if (error) {
-			res.status(501).json({
-				resultado: false,
-				msj: 'Ocurrió el siguiente error:',
-				error,
-			});
-		} else {
-			if (ProductosBuscados == '') {
-				res.json({
-					resultado: true,
-					msj: 'No hay productos',
-					lista: [],
-				});
-			} else {
-				res.json({
-					resultado: true,
-					msj: 'Productos default encontrados:',
-					lista: ProductosBuscados,
-				});
-			}
-		}
-	});
+// Route to list all products with caching
+router.get("/listar-productos", cacheMiddleware("productos:list"), (req, res) => {
+  Producto.find((error, ProductosBuscados) => {
+    if (error) {
+      res.status(501).json({
+        resultado: false,
+        msj: "Ocurrió el siguiente error:",
+        error,
+      });
+    } else {
+      const response = {
+        resultado: true,
+        msj: "Productos encontrados:",
+        lista: ProductosBuscados,
+      };
+      redisClient.setex("productos:list", 3600, JSON.stringify(response)); // Cache for 1 hour
+      res.status(200).json(response);
+    }
+  });
 });
 
-// http://localhost:3000/api/listar-productos-vendedor
-// Endpoint para agarrar los productos de un usuario // USA LA CÉDULA
-router.get('/listar-productos-vendedor', (req, res) => {
-	let cedulaBuscada = req.query.cedula;
+// Route to list products by vendor
+router.get("/listar-productos-vendedor", (req, res) => {
+  let cedulaBuscada = req.query.cedula;
 
-	if (!cedulaBuscada) {
-		res.status(501).json({
-			resultado: false,
-			msj: 'Debe enviar una cedula.',
-		});
-	} else {
-		Producto.find(
-			{ cedula_vendedor: cedulaBuscada },
-			(error, ProductosBuscados) => {
-				if (error) {
-					res.status(501).json({
-						resultado: false,
-						msj: 'Ocurrió el siguiente error:',
-						error,
-					});
-				} else {
-					if (ProductosBuscados == '') {
-						res.json({
-							resultado: true,
-							msj:
-								'El vendedor con la cédula ' +
-								cedulaBuscada +
-								' no tiene productos.',
-							lista: [],
-						});
-					} else {
-						res.json({
-							resultado: true,
-							msj:
-								'Productos encontrados para el vendedor con la cédula ' +
-								cedulaBuscada +
-								':',
-							lista: ProductosBuscados,
-						});
-					}
-				}
-			}
-		);
-	}
-});
+  if (!cedulaBuscada) {
+    res.status(501).json({
+      resultado: false,
+      msj: "Debe enviar una cédula.",
+    });
+  } else {
+    const cacheKey = `productos:vendedor:${cedulaBuscada}`;
+    redisClient.get(cacheKey, (err, data) => {
+      if (err) {
+        console.error("Redis error:", err);
+        return next();
+      }
+      if (data) {
+        console.log(`Cache hit for ${cacheKey}`);
+        return res.json(JSON.parse(data));
+      }
 
-
-// http://localhost:3000/api/conseguir-producto-id
-// Endpoint para agarrar un usuario específico // USA LA CÉDULA
-router.get('/conseguir-producto-id', (req, res) => {
-	let mongoID = req.query.id;
-	if (!mongoID) {
-		res.status(501).json({
-			resultado: false,
-			msj: 'Debe enviar un id del producto',
-		});
-	} else {
-		Producto.find({ _id: mongoID }, (error, ProductoBuscado) => {
-			if (error) {
-				res.status(501).json({
-					resultado: false,
-					msj: 'Ocurrió el siguiente error:',
-					error,
-				});
-			} else {
-				if (ProductoBuscado == '') {
-					res.json({
-						resultado: true,
-						msj: 'El producto no existe',
-					});
-				} else {
-					res.json({
-						resultado: true,
-						msj: 'Productos encontrados:',
-						producto: ProductoBuscado[0],
-					});
-				}
-			}
-		});
-	}
-});
-
-router.get('/conseguir-producto-default-id', (req, res) => {
-	let mongoID = req.query.id;
-	if (!mongoID) {
-		res.status(501).json({
-			resultado: false,
-			msj: 'Debe enviar un id del producto',
-		});
-	} else {
-		ProductoDefault.find({ _id: mongoID }, (error, ProductoBuscado) => {
-			if (error) {
-				res.status(501).json({
-					resultado: false,
-					msj: 'Ocurrió el siguiente error:',
-					error,
-				});
-			} else {
-				if (ProductoBuscado == '') {
-					res.json({
-						resultado: true,
-						msj: 'El producto no existe',
-					});
-				} else {
-					res.json({
-						resultado: true,
-						msj: 'Producto encontrado:',
-						producto: ProductoBuscado[0],
-					});
-				}
-			}
-		});
-	}
-});
-
-// http://localhost:3000/api/buscar-producto-nombre
-// Endpoint para agarrar un usuario específico
-
-// http://localhost:3000/api/buscar-producto-cedula-vendedor
-// Endpoint para agarrar un usuario específico
-
-//http://localhost:3000/api/actualizar-producto
-//PUT --> actualizar registros existentes
-router.put('/actualizar-producto', (req, res) => {
-	let mongoID = req.body._id;
-	let updates = req.body.updates;
-
-	Producto.updateOne(
-		{ _id: mongoID },
-		{ $set: updates },
-		function (error, info_producto) {
-			if (error) {
-				res.status(500).json({
-					resultado: false,
-					msj: 'No se pudo actualizar el producto',
-					error,
-				});
-			} else {
-				res.status(200).json({
-					resultado: true,
-					msj: 'Actulización exitosa',
-					info_producto,
-				});
-			}
-		}
-	);
-});
-
-router.put('/actualizar-inventario-producto', (req, res) => {
-	let mongoID = req.body._id;
-	let cantidad_restada = req.body.cantidad_restada;
-
-	Producto.findById(mongoID, (error, producto) => {
-		if (error) {
-			return res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo encontrar el producto',
-				error,
-			});
-		}
-
-		if (!producto) {
-			return res.status(404).json({
-				resultado: false,
-				msj: 'Producto no encontrado',
-			});
-		}
-
-		let nuevoInventario = (
-			parseInt(producto.inventario) - parseInt(cantidad_restada)
-		).toString();
-
-		Producto.updateOne(
-			{ _id: mongoID },
-			{ $set: { inventario: nuevoInventario } },
-			(error, info_producto) => {
-				if (error) {
-					return res.status(500).json({
-						resultado: false,
-						msj: 'No se pudo actualizar el producto',
-						error,
-					});
-				}
-				res.status(200).json({
-					resultado: true,
-					msj: 'Actualización exitosa',
-					info_producto,
-				});
-			}
-		);
-	});
-});
-
-router.put('/restablecer-inventario-producto', (req, res) => {
-	let mongoID = req.body._id;
-    let cantidadNueva = req.body.cantidadNueva;
-
-    Producto.updateOne(
-        { _id: mongoID },
-        { $set: { inventario: cantidadNueva } },
-        function (error, info_producto) {
-            if (error) {
-                res.status(500).json({
-                    resultado: false,
-                    msj: 'No se pudo actualizar el inventario del producto',
-                    error,
-                });
-            } else {
-                res.status(200).json({
-                    resultado: true,
-                    msj: 'Actualización exitosa del inventario',
-                    info_producto,
-                });
-            }
+      Producto.find({ cedula_vendedor: cedulaBuscada }, (error, ProductosBuscados) => {
+        if (error) {
+          res.status(501).json({
+            resultado: false,
+            msj: "Ocurrió el siguiente error:",
+            error,
+          });
+        } else {
+          const response = {
+            resultado: true,
+            msj: `Productos encontrados para el vendedor con la cédula ${cedulaBuscada}:`,
+            lista: ProductosBuscados,
+          };
+          redisClient.setex(cacheKey, 3600, JSON.stringify(response)); // Cache for 1 hour
+          res.json(response);
         }
-    );
+      });
+    });
+  }
 });
 
+// Route to update a product
+router.put("/actualizar-producto", (req, res) => {
+  let mongoID = req.body._id;
+  let updates = req.body.updates;
 
-
-router.put('/actualizar-producto-default', (req, res) => {
-	let mongoID = req.body._id;
-	let updates = req.body.updates;
-
-	ProductoDefault.updateOne(
-		{ _id: mongoID },
-		{ $set: updates },
-		function (error, info_producto) {
-			if (error) {
-				res.status(500).json({
-					resultado: false,
-					msj: 'No se pudo actualizar el producto',
-					error,
-				});
-			} else {
-				res.status(200).json({
-					resultado: true,
-					msj: 'Actulización exitosa',
-					info_producto,
-				});
-			}
-		}
-	);
+  Producto.updateOne({ _id: mongoID }, { $set: updates }, function (error, info_producto) {
+    if (error) {
+      res.status(500).json({
+        resultado: false,
+        msj: "No se pudo actualizar el producto",
+        error,
+      });
+    } else {
+      // Invalidate relevant caches
+      invalidateCache("productos:list", `productos:vendedor:${req.body.cedula_vendedor}`);
+      res.status(200).json({
+        resultado: true,
+        msj: "Actualización exitosa",
+        info_producto,
+      });
+    }
+  });
 });
 
-router.put('/agregar-review-producto', (req, res) => {
-	let mongoID = req.body._id;
-	let updates = req.body.updates;
+// Route to delete a product
+router.delete("/eliminar-producto", (req, res) => {
+  let mongoID = req.body._id;
 
-	Producto.updateOne(
-		{ _id: mongoID },
-		{ $push: updates },
-		function (error, info_producto) {
-			if (error) {
-				res.status(500).json({
-					resultado: false,
-					msj: 'No se pudo actualizar el producto',
-					error,
-				});
-			} else {
-				res.status(200).json({
-					resultado: true,
-					msj: 'Actulización exitosa',
-					info_producto,
-				});
-			}
-		}
-	);
+  Producto.findByIdAndDelete(mongoID, (error, productoEliminado) => {
+    if (error) {
+      res.status(500).json({
+        resultado: false,
+        msj: "No se pudo eliminar el producto",
+        error,
+      });
+    } else {
+      if (productoEliminado) {
+        // Invalidate relevant caches
+        invalidateCache(
+          "productos:list",
+          `productos:vendedor:${productoEliminado.cedula_vendedor}`
+        );
+      }
+      res.status(200).json({
+        resultado: true,
+        msj: "Se eliminó el producto de forma exitosa",
+      });
+    }
+  });
 });
 
-//http://localhost:3000/api/eliminar-producto
-//DELETE --> eliminar registros
-router.delete('/eliminar-producto', (req, res) => {
-	let mongoID = req.body._id;
-	Producto.deleteOne({ _id: mongoID }, function (error, info) {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo eliminar el producto',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Se eliminó el producto de forma exitosa',
-				info,
-			});
-		}
-	});
-});
-
-//http://localhost:3000/api/listar-frutas-verduras
-router.get('/listar-frutas-verduras', (req, res) => {
-	Producto.find({ categoria: 'Frutas y Verduras' }, (error, lista) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo listar los productos',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Listado exitoso',
-				lista,
-			});
-		}
-	});
-});
-
-//http://localhost:3000/api/listar-lacteos
-router.get('/listar-lacteos', (req, res) => {
-	Producto.find({ categoria: 'Lácteos' }, (error, lista) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo listar los productos',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Listado exitoso',
-				lista,
-			});
-		}
-	});
-});
-//http://localhost:3000/api/listar-carnes
-router.get('/listar-carnes', (req, res) => {
-	Producto.find({ categoria: 'Carnes' }, (error, lista) => {
-		if (error) {
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo listar los productos',
-				error,
-			});
-		} else {
-			res.status(200).json({
-				resultado: true,
-				msj: 'Listado exitoso',
-				lista,
-			});
-		}
-	});
-});
-
-router.get('/listar-producto-por-id', (req, res) => {
-	const productId = req.body.id; // Obtén el ID del cuerpo de la solicitud JSON
-
-	Producto.findById(productId, (error, producto) => {
-		if (error) {
-			// Si hay un error al buscar el producto, devuelve un error 500
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo encontrar el producto',
-				error,
-			});
-		} else if (!producto) {
-			// Si no se encuentra el producto, devuelve un error 404
-			res.status(404).json({
-				resultado: false,
-				msj: 'Producto no encontrado',
-			});
-		} else {
-			// Si se encuentra el producto, devuelve el producto encontrado
-			res.status(200).json({
-				resultado: true,
-				msj: 'Producto encontrado',
-				producto,
-			});
-		}
-	});
-});
-
-router.get('/producto/:id', (req, res) => {
-	const productId = req.params.id; // Obtén el ID del parámetro de la URL
-
-	Producto.findById(productId, (error, producto) => {
-		if (error) {
-			// Si hay un error al buscar el producto, devuelve un error 500
-			res.status(500).json({
-				resultado: false,
-				msj: 'No se pudo encontrar el producto',
-				error,
-			});
-		} else if (!producto) {
-			// Si no se encuentra el producto, devuelve un error 404
-			res.status(404).json({
-				resultado: false,
-				msj: 'Producto no encontrado',
-			});
-		} else {
-			// Si se encuentra el producto, devuelve el producto encontrado
-			res.status(200).json({
-				resultado: true,
-				msj: 'Producto encontrado',
-				producto,
-			});
-		}
-	});
-});
+// Add similar caching and invalidation logic to other endpoints as needed.
 
 module.exports = router;
